@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novapos</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,900&display=swap');
+        
+        /* Custom background for drivers page */
+        body {
+            background: linear-gradient(to top right, #282828, #3f3f3f) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100vh !important;
+        }
+        
+        /* Make navbar transparent to show body background */
+        .navbar, .top-navbar {
+            background: transparent !important;
+        }
+        
+        /* Download Center Styles */
+        .download-center-header {
+            text-align: center !important;
+            padding: 100px 10% 60px 10% !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+        }
+
+        .download-center-header .main-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 72px !important;
+            color: white !important;
+            margin: 0 0 20px 0 !important;
+            line-height: 1.1 !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .download-center-header .brand-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 96px !important;
+            color: white !important;
+            margin: 0 0 40px 0 !important;
+            line-height: 1.1 !important;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4) !important;
+            letter-spacing: 2px !important;
+        }
+
+        .download-center-header .description {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 400 !important;
+            font-size: 20px !important;
+            color: white !important;
+            margin: 0 !important;
+            line-height: 1.6 !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+        }
+        
+        /* Downloads Section Styles */
+        .downloads-section {
+            background: linear-gradient(to bottom left, #362a89, #004d91) !important;
+            padding: 60px 10% !important;
+            min-height: 400px !important;
+        }
+        
+        /* Categories Container */
+        .categories-container {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            margin-bottom: 40px !important;
+            flex-wrap: wrap !important;
+        }
+        
+        /* Category Buttons */
+        .category-btn {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 400 !important;
+            font-size: 16px !important;
+            background-color: #fefefe !important;
+            color: #333 !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            border-radius: 25px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            white-space: nowrap !important;
+        }
+        
+        .category-btn:hover {
+            background-color: #e0e0e0 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .category-btn.active {
+            background-color: #5170ff !important;
+            color: white !important;
+        }
+        
+        .category-btn.active:hover {
+            background-color: #4060ee !important;
+        }
+        
+        /* Driver Cards Styles */
+        .drivers-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 20px !important;
+            margin-top: 20px !important;
+        }
+        
+        .driver-card {
+            background: linear-gradient(to bottom, #a7a7a7, #fefefe) !important;
+            border-radius: 15px !important;
+            padding: 20px !important;
+            text-align: center !important;
+            position: relative !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            cursor: pointer !important;
+        }
+        
+        .driver-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .driver-card > img {
+            width: auto !important;
+            height: auto !important;
+            max-height: 240px !important;
+            object-fit: contain !important;
+            border-radius: 8px !important;
+            margin-bottom: 15px !important;
+            position: absolute !important;
+            top: 12px !important;
+            right: 12px !important;
+        }
+
+        .driver-icon-box {
+            width: 74px !important;
+            height: 74px !important;
+            background-color: #ffffff !important;
+            border-radius: 14px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            align-self: flex-start !important;
+            margin-bottom: 16px !important;
+        }
+
+        .driver-icon-box img {
+            width: 56px !important;
+            height: 56px !important;
+            object-fit: contain !important;
+            margin: 0 !important;
+        }
+
+        .driver-file-size {
+            align-self: flex-start !important;
+            background-color: #a7b6ff !important;
+            color: #004aad !important;
+            border-radius: 12px !important;
+            padding: 6px 12px !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 14px !important;
+            margin-bottom: 120px !important;
+        }
+        
+        .driver-name {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 28px !important;
+            color: #333 !important;
+            margin-bottom: 15px !important;
+            text-align: center !important;
+            line-height: 1.2 !important;
+        }
+        
+        .download-btn {
+            background-color: #3370a7 !important;
+            color: white !important;
+            border: none !important;
+            padding: 21px 36px !important;
+            border-radius: 20px !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 24px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: auto !important;
+            text-decoration: none !important;
+        }
+
+        .download-actions {
+            margin-top: auto !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+        }
+
+        .download-doc-badge {
+            width: 72px !important;
+            height: 66px !important;
+            background-color: #8b909a !important;
+            border-radius: 12px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+            padding: 0 !important;
+        }
+
+        .download-doc-badge img {
+            width: 40px !important;
+            height: 40px !important;
+            object-fit: contain !important;
+        }
+        
+        .download-btn:hover {
+            background-color: #295a8f !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(51, 112, 167, 0.3) !important;
+        }
+        
+        .download-btn i {
+            margin-right: 10px !important;
+            font-size: 24px !important;
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            /* Header adjustments */
+            .download-center-header {
+                padding: 60px 5% 40px 5% !important;
+            }
+            
+            .download-center-header .main-title {
+                font-size: 36px !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .download-center-header .brand-title {
+                font-size: 48px !important;
+                margin-bottom: 25px !important;
+                letter-spacing: 1px !important;
+            }
+            
+            .download-center-header .description {
+                font-size: 16px !important;
+                max-width: 100% !important;
+            }
+            
+            /* Downloads section adjustments */
+            .downloads-section {
+                padding: 40px 5% !important;
+            }
+            
+            /* Category buttons adjustments */
+            .categories-container {
+                gap: 10px !important;
+                margin-bottom: 30px !important;
+            }
+            
+            .category-btn {
+                font-size: 14px !important;
+                padding: 10px 18px !important;
+            }
+            
+            /* Driver cards - single column on mobile */
+            .drivers-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+            
+            .driver-card {
+                padding: 20px !important;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .download-center-header .main-title {
+                font-size: 28px !important;
+            }
+            
+            .download-center-header .brand-title {
+                font-size: 36px !important;
+            }
+            
+            .download-center-header .description {
+                font-size: 14px !important;
+            }
+            
+            .category-btn {
+                font-size: 12px !important;
+                padding: 8px 14px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="top-navbar"></div>
+    
+    <main>
+        <div class="download-center-header">
+            <h1 class="main-title">ЦЕНТР ЗАГРУЗОК</h1>
+            <h2 class="brand-title">NOVAPOS</h2>
+            <p class="description">
+                Актуальные версии драйверов, кассовых программ и утилит.<br>
+                Загружайте безопасно и на максимальной скорости.
+            </p>
+        </div>
+        
+        <div class="downloads-section">
+            <div class="categories-container">
+                <button class="category-btn active" data-category="all">Все файлы</button>
+                <button class="category-btn" data-category="printers">Принтеры</button>
+                <button class="category-btn" data-category="scales">Весы</button>
+                <button class="category-btn" data-category="pos">POS-моноблоки</button>
+                <button class="category-btn" data-category="programs">Программы</button>
+                <button class="category-btn" data-category="utilities">Утилиты</button>
+            </div>
+            
+            <div class="downloads-content">
+                <!-- Здесь будет контент для загрузок -->
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+    <script src="../scripts/navbar-loader.js"></script>
+    <script src="../scripts/scripts.js"></script>
+    <script>
+        // Category filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get selected category
+                    const selectedCategory = this.getAttribute('data-category');
+                    
+                    // Here you can add filtering logic
+                    console.log('Selected category:', selectedCategory);
+                    
+                    // Placeholder for filtering downloads
+                    filterDownloads(selectedCategory);
+                });
+            });
+            
+            function filterDownloads(category) {
+                // This function will filter the downloads based on category
+                const downloadsContent = document.querySelector('.downloads-content');
+                
+                // Driver cards HTML
+                const driverCards = `
+                    <div class="drivers-grid">
+                        <div class="driver-card" data-category="scales">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/scales.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">50 мб</div>
+                            <img src="../images/drivers/rongtarls1100.png" alt="Rongta RLS1100">
+                            <div class="driver-name">Весы Rongta RLS 1100</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/drivers/scales/Rongta scales_V1.0_20180706.rar">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="driver-card" data-category="printers">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/printers.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">17 мб</div>
+                            <img src="../images/drivers/castom-pos80.png" alt="Castom POS80">
+                            <div class="driver-name">Принтер чеков Castom POS80</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/drivers/printers/RongTaDriverInstall.zip">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="driver-card" data-category="printers">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/printers.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">53 мб</div>
+                            <img src="../images/drivers/xp365b.png" alt="XP365B">
+                            <div class="driver-name">Принтер этикеток Xprinter 365B</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/drivers/printers/Принтер этикеток.zip">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="driver-card" data-category="printers">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/printers.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">3,7 мб</div>
+                            <img src="../images/drivers/xp58.png" alt="XP58">
+                            <div class="driver-name">Принтер чеков Xprinter 58</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/drivers/printers/Принтер чеков X-printer.exe">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="driver-card" data-category="pos">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/monoblock.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">10 мб</div>
+                            <img src="../images/drivers/t610.png" alt="T610">
+                            <div class="driver-name">Моноблок Castom T610</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/drivers/monoblocks/eGalaxTouch_5.13.0.14220-Release-150820-ForSingleTouchDevice.zip">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="driver-card" data-category="utilities">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/zip.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">1,6 мб</div>
+                            <img src="../images/drivers/7zip.png" alt="7-Zip">
+                            <div class="driver-name">7-Zip</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/programs/7z2501-x64.exe">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="driver-card" data-category="utilities">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/utilities.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">3,8 мб</div>
+                            <img src="../images/drivers/anydesk.png" alt="AnyDesk">
+                            <div class="driver-name">AnyDesk</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/programs/AnyDesk7.0.7.exe">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="driver-card" data-category="utilities">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/utilities.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">23 мб</div>
+                            <img src="../images/drivers/rustdesk.png" alt="RustDesk">
+                            <div class="driver-name">RustDesk</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/programs/rustdesk.exe">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="driver-card" data-category="programs">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/programs.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">313 кб</div>
+                            <img src="../images/drivers/bill.png" alt="Bill">
+                            <div class="driver-name">Шаблоны для GBS.Market</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/drivers/templates/TemplatesFR.zip">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="driver-card" data-category="programs">
+                            <div class="driver-icon-box">
+                                <img src="../images/drivers/icons/programs.png" alt="Иконка драйвера">
+                            </div>
+                            <div class="driver-file-size">121 мб</div>
+                            <img src="../images/drivers/gbs6.png" alt="GBS6">
+                            <div class="driver-name">GBS.Market 6</div>
+                            <div class="download-actions">
+                                <div class="download-doc-badge">
+                                    <img src="../images/drivers/icons/document.png" alt="Документ">
+                                </div>
+                                <a class="download-btn" href="../storage/programs/GBS.Market/GBS.Market6ReleaseFull-Setup.exe">
+                                    <i class="fas fa-download"></i>
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Create a temporary DOM element to parse the HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = driverCards;
+                const allCards = Array.from(tempDiv.querySelectorAll('.driver-card'));
+                
+                // Filter cards based on category
+                let content = '';
+                
+                switch(category) {
+                    case 'all':
+                        content = driverCards;
+                        break;
+                    case 'printers':
+                        const printerCards = allCards.filter(card => card.getAttribute('data-category') === 'printers');
+                        content = '<div class="drivers-grid">' + printerCards.map(card => card.outerHTML).join('') + '</div>';
+                        break;
+                    case 'scales':
+                        const scalesCards = allCards.filter(card => card.getAttribute('data-category') === 'scales');
+                        content = '<div class="drivers-grid">' + scalesCards.map(card => card.outerHTML).join('') + '</div>';
+                        break;
+                    case 'pos':
+                        const posCards = allCards.filter(card => card.getAttribute('data-category') === 'pos');
+                        content = '<div class="drivers-grid">' + posCards.map(card => card.outerHTML).join('') + '</div>';
+                        break;
+                    case 'programs':
+                        const programsCards = allCards.filter(card => card.getAttribute('data-category') === 'programs');
+                        content = '<div class="drivers-grid">' + programsCards.map(card => card.outerHTML).join('') + '</div>';
+                        break;
+                    case 'utilities':
+                        const utilitiesCards = allCards.filter(card => card.getAttribute('data-category') === 'utilities');
+                        content = '<div class="drivers-grid">' + utilitiesCards.map(card => card.outerHTML).join('') + '</div>';
+                        break;
+                    default:
+                        content = '<p style="color: white; text-align: center;">Выберите категорию</p>';
+                }
+                
+                downloadsContent.innerHTML = content;
+            }
+            
+            // Initialize with "all" category
+            filterDownloads('all');
+        });
+    </script>
+</body>
+</html>

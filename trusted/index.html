@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nam doveryayut | Novapos</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+        .trusted-hero-section {
+            padding: 30px 20px clamp(140px, 16vw, 200px);
+            text-align: center;
+            background: linear-gradient(to right, #1f1f1f, #5d5d5d);
+            min-height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Mobile styles for trusted page */
+        @media (max-width: 768px) {
+            .trusted-hero-section {
+                padding: 5px 20px clamp(140px, 16vw, 200px);
+            }
+        }
+
+        .trusted-hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(48px, 8vw, 96px);
+            margin: 0 0 40px;
+            line-height: 1.1;
+        }
+
+        .trusted-hero-title-line1 {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .trusted-hero-title-line2 {
+            background: linear-gradient(to right, #5871f1, #7ecfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .trusted-hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: #ffffff;
+            margin: 0 0 20px;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+
+        .trusted-badge-section {
+            padding: 60px 20px;
+            background: #004585;
+            text-align: center;
+        }
+
+        .trusted-badge {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #2b6193;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(16px, 2vw, 20px);
+            color: #ffffff;
+            margin-bottom: 60px;
+        }
+
+        .trusted-logos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trusted-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            justify-items: center;
+        }
+
+        .trusted-logo-item {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .trusted-logo-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .trusted-logo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mobile styles for logos */
+        @media (max-width: 768px) {
+            .trusted-logos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .trusted-logo-item {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Override navbar background for trusted page */
+        .top-navbar {
+            background: linear-gradient(to right, #1f1f1f, #5d5d5d) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="trusted-hero-section">
+        <h1 class="trusted-hero-title">
+            <span class="trusted-hero-title-line1">Компании, которые</span>
+            <span class="trusted-hero-title-line2">выбрали NovaPos</span>
+        </h1>
+        <p class="trusted-hero-subtitle">Доверьтесь опыту успешных бизнесов, от бутиков до крупных сетей
+        заправочных станций.</p>
+    </section>
+
+    <!-- Badge Section with Logos -->
+    <section class="trusted-badge-section">
+        <div class="trusted-badge">Нам доверяют</div>
+        <div class="trusted-logos-container">
+            <div class="trusted-logos-grid">
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/aidesign.jpg" alt="Aidesign">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/ak_kids.jpg" alt="AK Kids">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/annavogue.jpg" alt="Anna Vogue">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/argymaq.jpg" alt="Argymaq">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/babyshark.jpg" alt="Baby Shark">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/bambi.jpg" alt="Bambi">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/bauma.jpg" alt="Bauma">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/blosskin.jpg" alt="Blosskin">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/bota-showroom.jpg" alt="Bota Showroom">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/crystalhouse.jpg" alt="Crystal House">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/diva.jpg" alt="Diva">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/el_classico.jpg" alt="El Classico">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/emka-store.jpg" alt="Emka Store">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/gadget-store.jpg" alt="Gadget Store">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/hair-cosmetics.jpg" alt="Hair Cosmetics">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/harmonys.jpg" alt="Harmonys">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/hellokids.jpg" alt="Hello Kids">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/igrushki_akmaral.jpg" alt="Igrushki Akmaral">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/irepublic.jpg" alt="IRepublic">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/joytoys.jpg" alt="Joytoys">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/kinderpark.jpg" alt="Kinderpark">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/kyzyma.jpg" alt="Kyzyma">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/lacreme.jpg" alt="La Creme">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/lady_jeans.jpg" alt="Lady Jeans">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/lalestyle.jpg" alt="Lale Style">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/makhovik_vremeni.jpg" alt="Makhovik Vremeni">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/malifat.jpg" alt="Malifat">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/maminptenchik.jpg" alt="Mamin Ptenchik">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/manhattan.jpg" alt="Manhattan">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/margo_fashion.jpg" alt="Margo Fashion">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/margo-parfum.jpg" alt="Margo Parfum">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/milavitsa.jpg" alt="Milavitsa">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/miracle.jpg" alt="Miracle">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/mirra.jpg" alt="Mirra">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/modniedety.jpg" alt="Modniedety">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/my_day.jpg" alt="My Day">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/neftek.jpg" alt="Neftek">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/nurin.jpg" alt="Nurin">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/overpack.jpg" alt="Overpack">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/ponpon.jpg" alt="Ponpon">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/portal_cyberzone.jpg" alt="Portal Cyberzone">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/qazaqoil.jpg" alt="QazaqOil">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/rich.jpg" alt="Rich">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/rozovy.jpg" alt="Rozovy">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/salambro.jpg" alt="Salambro">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/sapphire.jpg" alt="Sapphire">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/smartfon.jpg" alt="Smartfon">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/smokingshop.jpg" alt="Smokingshop">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/soft-homewear.jpg" alt="Soft Homewear">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/sultan_auto.jpg" alt="Sultan Auto">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/tattim.jpg" alt="Tattim">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/vita-zoo.jpg" alt="Vita Zoo">
+                </div>
+                <div class="trusted-logo-item">
+                    <img src="../images/client-logos/zama.jpg" alt="Zama">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/scripts.js"></script>
+    <script>
+        // Load navbar and footer
+        fetch('../navbar-top.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

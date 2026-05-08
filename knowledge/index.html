@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База Знаний - Novapos</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,900&display=swap');
+        
+        /* Custom background for knowledge base page */
+        body {
+            background: linear-gradient(to top right, #070707, #686868) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: 100vh !important;
+        }
+        
+        /* Make navbar transparent to show body background */
+        .navbar, .top-navbar {
+            background: transparent !important;
+        }
+        
+        /* Knowledge Base Header Styles */
+        .knowledge-base-header {
+            text-align: center !important;
+            padding: 100px 10% 60px 10% !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+        }
+
+        .knowledge-base-header .main-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 72px !important;
+            color: white !important;
+            margin: 0 0 30px 0 !important;
+            line-height: 1.1 !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .knowledge-base-header .description {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 400 !important;
+            font-size: 20px !important;
+            color: white !important;
+            margin: 0 0 40px 0 !important;
+            line-height: 1.6 !important;
+            max-width: 600px !important;
+            margin: 0 auto 40px auto !important;
+        }
+        
+        /* Search Container */
+        .search-container {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 15px !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .search-box {
+            position: relative !important;
+            width: 100% !important;
+            max-width: 750px !important;
+            background-color: #d9d9d9 !important;
+            padding: 15px !important;
+            border-radius: 30px !important;
+            border: none !important;
+        }
+        
+        .search-box input {
+            width: 100% !important;
+            padding: 0 0 0 40px !important;
+            border: none !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 16px !important;
+            color: #333 !important;
+            outline: none !important;
+            background-color: #d9d9d9 !important;
+        }
+        
+        .search-box input::placeholder {
+            color: #666 !important;
+        }
+        
+        .search-icon {
+            position: absolute !important;
+            left: 18px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            color: #666 !important;
+            font-size: 18px !important;
+            pointer-events: none !important;
+        }
+        
+        /* Knowledge Content Section */
+        .knowledge-content-section {
+            background: linear-gradient(to bottom left, #362a89, #004d91) !important;
+            padding: 60px 10% !important;
+            min-height: 400px !important;
+        }
+        
+        /* Categories Container */
+        .categories-container {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 0 !important;
+            margin-bottom: 40px !important;
+            flex-wrap: wrap !important;
+            background-color: #8c919b !important;
+            border-radius: 25px !important;
+            padding: 5px !important;
+            max-width: fit-content !important;
+            margin: 0 auto 40px auto !important;
+        }
+        
+        /* Category Buttons */
+        .category-btn {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 400 !important;
+            font-size: 16px !important;
+            background-color: transparent !important;
+            color: white !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            border-radius: 20px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            white-space: nowrap !important;
+        }
+        
+        .category-btn:hover {
+            background-color: rgba(217, 217, 217, 0.2) !important;
+        }
+        
+        .category-btn.active {
+            background-color: #d9d9d9 !important;
+            color: #333 !important;
+        }
+        
+        .category-btn.active:hover {
+            background-color: #d9d9d9 !important;
+        }
+        
+        /* Knowledge Cards Grid */
+        .knowledge-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 30px !important;
+            margin-top: 20px !important;
+        }
+        
+        .knowledge-card {
+            background: linear-gradient(to bottom, #a7a7a7, #fefefe) !important;
+            border-radius: 35px !important;
+            padding: 10px !important;
+            text-align: left !important;
+            position: relative !important;
+            display: flex !important;
+            flex-direction: column !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            cursor: pointer !important;
+        }
+        
+        .knowledge-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Video Icon Box */
+        .video-icon-box {
+            background-color: #332d8b !important;
+            border-radius: 30px !important;
+            padding: 100px 20px !important;
+            text-align: center !important;
+            margin-bottom: 20px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        .video-icon-box i {
+            font-size: 40px !important;
+            color: white !important;
+        }
+        
+        /* Program Badge */
+        .program-badge {
+            display: inline-block !important;
+            background-color: #899ce6 !important;
+            color: #014aad !important;
+            padding: 4px 10px !important;
+            border-radius: 15px !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            margin-bottom: 15px !important;
+            width: fit-content !important;
+        }
+        
+        /* Video Title */
+        .video-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 20px !important;
+            color: #333 !important;
+            margin-bottom: 10px !important;
+            line-height: 1.3 !important;
+        }
+        
+        /* Article Card Styles */
+        .knowledge-card[data-category="instructions"] {
+            background: linear-gradient(to bottom, #a7a7a7, #fefefe) !important;
+            border-radius: 35px !important;
+            padding: 15px !important;
+            text-align: left !important;
+            position: relative !important;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: flex-start !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            cursor: pointer !important;
+            min-height: 100px !important;
+        }
+        
+        /* Article Icon Box */
+        .article-icon-box {
+            background-color: #0079eb !important;
+            border-radius: 35px !important;
+            padding: 0 15px 0 15px !important;
+            margin-right: 15px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+            height: 100% !important;
+            width: 120px !important;
+        }
+        
+        .article-icon-box i {
+            font-size: 24px !important;
+            color: white !important;
+        }
+        
+        /* Article Content */
+        .article-content {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        
+        /* Article Title */
+        .article-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 18px !important;
+            color: #333 !important;
+            margin-bottom: 8px !important;
+            line-height: 1.3 !important;
+        }
+        
+        /* Article Description */
+        .article-description {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 400 !important;
+            font-size: 13px !important;
+            color: #666 !important;
+            margin-bottom: 12px !important;
+            line-height: 1.4 !important;
+        }
+        
+        /* Read Article Button */
+        .read-btn {
+            background-color: #326dbc !important;
+            color: white !important;
+            border: none !important;
+            padding: 8px 16px !important;
+            border-radius: 8px !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            text-align: center !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-top: auto !important;
+            width: fit-content !important;
+        }
+        
+        .read-btn:hover {
+            background-color: #2856a0 !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        .read-btn i {
+            margin-left: 6px !important;
+            font-size: 12px !important;
+        }
+        
+        /* Program Filter Badge */
+        .program-filter-badge {
+            background-color: #3b3b3b !important;
+            color: white !important;
+            border: none !important;
+            padding: 8px 15px !important;
+            border-radius: 25px !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 8px !important;
+            min-width: 150px !important;
+            position: absolute !important;
+            right: 15px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+        }
+        
+        .program-filter-badge:hover {
+            background-color: #2a2a2a !important;
+        }
+        
+        .program-filter-badge i {
+            font-size: 12px !important;
+            transition: transform 0.3s ease !important;
+        }
+        
+        .program-filter-badge.active i {
+            transform: rotate(180deg) !important;
+        }
+        
+        /* Program Dropdown */
+        .program-dropdown {
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            right: 0 !important;
+            background-color: #3b3b3b !important;
+            border-radius: 15px !important;
+            margin-top: 5px !important;
+            z-index: 1000 !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(-10px) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .program-dropdown.show {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+        
+        .program-option {
+            padding: 12px 20px !important;
+            cursor: pointer !important;
+            transition: background-color 0.3s ease !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 14px !important;
+            font-weight: 400 !important;
+            color: white !important;
+            border: none !important;
+            background: none !important;
+            width: 100% !important;
+            text-align: left !important;
+        }
+        
+        .program-option:hover {
+            background-color: #2a2a2a !important;
+        }
+        
+        .program-option.active {
+            background-color: #2a2a2a !important;
+            font-weight: 600 !important;
+        }
+        
+        /* Watch Button */
+        .watch-btn {
+            background-color: #326dbc !important;
+            color: white !important;
+            border: none !important;
+            padding: 10px 12px !important;
+            border-radius: 8px !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 16px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            text-align: center !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            margin: auto auto 0 auto !important;
+            max-width: 300px !important;
+            width: fit-content !important;
+        }
+        
+        .watch-btn:hover {
+            background-color: #2856a0 !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            /* Header adjustments */
+            .knowledge-base-header {
+                padding: 60px 5% 40px 5% !important;
+            }
+            
+            .knowledge-base-header .main-title {
+                font-size: 36px !important;
+                margin-bottom: 20px !important;
+            }
+            
+            .knowledge-base-header .description {
+                font-size: 16px !important;
+                max-width: 100% !important;
+                margin-bottom: 30px !important;
+            }
+            
+            .search-box {
+                padding: 10px !important;
+            }
+            
+            .search-box input {
+                font-size: 14px !important;
+            }
+            
+            .search-icon {
+                left: 15px !important;
+                font-size: 16px !important;
+            }
+            
+            /* Content section adjustments */
+            .knowledge-content-section {
+                padding: 40px 5% !important;
+            }
+            
+            /* Category buttons adjustments */
+            .categories-container {
+                gap: 0 !important;
+                margin-bottom: 30px !important;
+                padding: 3px !important;
+            }
+            
+            .category-btn {
+                font-size: 14px !important;
+                padding: 10px 18px !important;
+                border-radius: 15px !important;
+            }
+            
+            /* Knowledge cards - 3 columns on desktop, 1 on mobile */
+            .knowledge-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            .knowledge-card {
+                padding: 25px !important;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .knowledge-base-header .main-title {
+                font-size: 28px !important;
+            }
+            
+            .knowledge-base-header .description {
+                font-size: 14px !important;
+                margin-bottom: 25px !important;
+            }
+            
+            .search-box {
+                padding: 8px !important;
+            }
+            
+            .search-box input {
+                font-size: 13px !important;
+            }
+            
+            .search-icon {
+                left: 12px !important;
+                font-size: 14px !important;
+            }
+            
+            .category-btn {
+                font-size: 12px !important;
+                padding: 8px 14px !important;
+                border-radius: 12px !important;
+            }
+            
+            .knowledge-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="top-navbar"></div>
+    
+    <main>
+        <div class="knowledge-base-header">
+            <h1 class="main-title">БАЗА ЗНАНИЙ</h1>
+            <p class="description">
+                Видео-уроки и подробные инструкции по кассовому оборудованию и программам автоматизации.
+            </p>
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" />
+                    <div class="program-filter-badge" id="programFilter">
+                        <span>Все программы</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="program-dropdown" id="programDropdown">
+                            <button class="program-option active" data-program="all">Все программы</button>
+                            <button class="program-option" data-program="gbs">GBS.Market</button>
+                            <button class="program-option" data-program="moysklad">МойСклад</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="knowledge-content-section">
+            <div class="categories-container">
+                <button class="category-btn active" data-category="video">Видео-уроки</button>
+                <button class="category-btn" data-category="instructions">Статьи</button>
+            </div>
+            
+            <div class="knowledge-content">
+                <!-- Здесь будет контент для базы знаний -->
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+    <script src="../scripts/navbar-loader.js"></script>
+    <script src="../scripts/scripts.js"></script>
+    <script>
+        // Category filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get selected category
+                    const selectedCategory = this.getAttribute('data-category');
+                    
+                    // Here you can add filtering logic
+                    console.log('Selected category:', selectedCategory);
+                    
+                    // Placeholder for filtering knowledge content
+                    filterKnowledgeContent(selectedCategory);
+                });
+            });
+            
+            function filterKnowledgeContent(category, program = 'all') {
+                // This function will filter the knowledge content based on category and program
+                const knowledgeContent = document.querySelector('.knowledge-content');
+                
+                // Knowledge cards HTML
+                const knowledgeCards = `
+                    <div class="knowledge-grid">
+                        <div class="knowledge-card" data-category="video" data-program="gbs">
+                            <div class="video-icon-box">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="program-badge">GBS.Market</div>
+                            <div class="video-title">Настройка принтера чеков</div>
+                            <div class="video-description">
+                                Подробное видео-руководство по подключению и настройке чекового принтера
+                            </div>
+                            <a href="#" class="watch-btn">Смотреть урок</a>
+                        </div>
+                        <div class="knowledge-card" data-category="video" data-program="moysklad">
+                            <div class="video-icon-box">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="program-badge">МойСклад</div>
+                            <div class="video-title">Интеграция с МойСклад</div>
+                            <div class="video-description">
+                                Видео-урок по настройке интеграции GBS.Market с МойСклад
+                            </div>
+                            <a href="#" class="watch-btn">Смотреть урок</a>
+                        </div>
+                        <div class="knowledge-card" data-category="video" data-program="gbs">
+                            <div class="video-icon-box">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="program-badge">GBS.Market</div>
+                            <div class="video-title">Работа с весами</div>
+                            <div class="video-description">
+                                Подключение и калибровка торговых весов в GBS.Market
+                            </div>
+                            <a href="#" class="watch-btn">Смотреть урок</a>
+                        </div>
+                        <div class="knowledge-card" data-category="instructions" data-program="gbs">
+                            <div class="article-icon-box">
+                                <img src="../images/drivers/gbs6.png" alt="GBS.Market" style="max-width: 160px; max-height: 80px;">
+                            </div>
+                            <div class="article-content">
+                                <div class="program-badge">GBS.Market</div>
+                                <div class="article-title">Инструкция по весам</div>
+                                <div class="article-description">
+                                    Пошаговая инструкция по калибровке и использованию торговых весов
+                                </div>
+                                <a href="#" class="read-btn">Читать статью <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="knowledge-card" data-category="instructions" data-program="moysklad">
+                            <div class="article-icon-box">
+                                <img src="../images/moysklad.png" alt="МойСклад" style="max-width: 160px; max-height: 80px;">
+                            </div>
+                            <div class="article-content">
+                                <div class="program-badge">МойСклад</div>
+                                <div class="article-title">Синхронизация данных</div>
+                                <div class="article-description">
+                                    Настройка автоматической синхронизации товаров и заказов
+                                </div>
+                                <a href="#" class="read-btn">Читать статью <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="knowledge-card" data-category="video" data-program="gbs">
+                            <div class="video-icon-box">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="program-badge">GBS.Market</div>
+                            <div class="video-title">Установка сканера штрих-кодов</div>
+                            <div class="video-description">
+                                Видео-урок по установке и настройке сканера для работы с кассой
+                            </div>
+                            <a href="#" class="watch-btn">Смотреть урок</a>
+                        </div>
+                    </div>
+                `;
+                
+                // Create a temporary DOM element to parse the HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = knowledgeCards;
+                const allCards = Array.from(tempDiv.querySelectorAll('.knowledge-card'));
+                
+                // Filter cards based on category and program
+                let content = '';
+                
+                switch(category) {
+                    case 'video':
+                        let videoCards = allCards.filter(card => card.getAttribute('data-category') === 'video');
+                        if (program !== 'all') {
+                            videoCards = videoCards.filter(card => card.getAttribute('data-program') === program);
+                        }
+                        content = '<div class="knowledge-grid">' + videoCards.map(card => card.outerHTML).join('') + '</div>';
+                        break;
+                    case 'instructions':
+                        let instructionCards = allCards.filter(card => card.getAttribute('data-category') === 'instructions');
+                        if (program !== 'all') {
+                            instructionCards = instructionCards.filter(card => card.getAttribute('data-program') === program);
+                        }
+                        content = '<div class="knowledge-grid">' + instructionCards.map(card => card.outerHTML).join('') + '</div>';
+                        break;
+                    default:
+                        content = '<p style="color: white; text-align: center;">Выберите категорию</p>';
+                }
+                
+                knowledgeContent.innerHTML = content;
+            }
+            
+            // Program filter functionality
+            const programFilter = document.getElementById('programFilter');
+            const programDropdown = document.getElementById('programDropdown');
+            const programOptions = document.querySelectorAll('.program-option');
+            let currentProgram = 'all';
+            
+            programFilter.addEventListener('click', function() {
+                programDropdown.classList.toggle('show');
+                programFilter.classList.toggle('active');
+            });
+            
+            programOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Remove active class from all options
+                    programOptions.forEach(opt => opt.classList.remove('active'));
+                    
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    // Update filter text
+                    const filterText = this.textContent;
+                    programFilter.querySelector('span').textContent = filterText;
+                    
+                    // Update current program
+                    currentProgram = this.getAttribute('data-program');
+                    
+                    // Close dropdown
+                    programDropdown.classList.remove('show');
+                    programFilter.classList.remove('active');
+                    
+                    // Re-filter content with new program filter
+                    const activeCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
+                    filterKnowledgeContent(activeCategory, currentProgram);
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!programFilter.contains(e.target)) {
+                    programDropdown.classList.remove('show');
+                    programFilter.classList.remove('active');
+                }
+            });
+            
+            // Initialize with "video" category
+            filterKnowledgeContent('video', 'all');
+        });
+    </script>
+</body>
+</html>

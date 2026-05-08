@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | Novapos</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+        .about-growth-section {
+            padding: 80px 20px clamp(140px, 16vw, 200px);
+            text-align: center;
+            background: linear-gradient(to right, #536ffe, #fd66c4);
+        }
+
+        .about-growth-badge {
+            display: inline-block;
+            margin: 0 0 24px;
+            padding: 10px 22px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(14px, 1.8vw, 18px);
+            color: #ffffff;
+            background-color: #9f76db;
+            border: 1px solid #936ce9;
+            border-radius: 999px;
+        }
+
+        .about-growth-badge--bottom {
+            margin: 32px 0 clamp(40px, 5vw, 64px);
+            padding: 10px 22px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            border: 1px solid #936ce9;
+            background-color: #9f76db;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(14px, 1.8vw, 18px);
+            color: #ffffff;
+        }
+
+        .about-growth-badge--bottom i {
+            color: #ffffff;
+            font-size: 0.95em;
+        }
+
+        .navbar,
+        .top-navbar {
+            background: linear-gradient(to right, #536ffe, #fd66c4) !important;
+        }
+
+        .about-growth-title {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(42px, 7vw, 96px);
+            line-height: 1.05;
+            background: linear-gradient(to right, #ffffff, #94b9ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .about-growth-description {
+            margin: 32px auto 0;
+            max-width: 760px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: clamp(20px, 2.5vw, 36px);
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        .about-dark-section {
+            background-color: #2c328c;
+        }
+
+        .about-journey-section {
+            padding: clamp(380px, 48vw, 600px) 20px 110px;
+            text-align: center;
+        }
+
+        .about-overlap-bridge {
+            position: relative;
+            z-index: 3;
+            height: 0;
+        }
+
+        .about-overlap-card {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+            transform: translateY(-14%);
+            border-radius: 28px;
+            background: linear-gradient(to bottom, #a7a7a7, #fefefe);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(28px, 4vw, 48px);
+            align-items: stretch;
+            padding: clamp(32px, 4vw, 56px) clamp(28px, 4vw, 48px);
+            box-sizing: border-box;
+        }
+
+        .about-overlap-card__left {
+            text-align: left;
+        }
+
+        .about-overlap-icon-box {
+            width: 72px;
+            height: 72px;
+            margin: 0 0 20px;
+            border-radius: 18px;
+            background-color: #4f4fdd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-overlap-icon-box img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .about-overlap-heading {
+            margin: 0 0 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 48px);
+            line-height: 1.08;
+            color: #000000;
+            text-transform: uppercase;
+        }
+
+        .about-overlap-heading__accent {
+            color: #4f4fdd;
+        }
+
+        .about-overlap-heading__line {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .about-overlap-heading__line + .about-overlap-heading__line {
+            margin-top: 0.06em;
+        }
+
+        .about-overlap-text {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: clamp(16px, 1.6vw, 20px);
+            line-height: 1.55;
+            color: #000000;
+            max-width: 480px;
+        }
+
+        .about-overlap-stat {
+            height: 100%;
+            min-height: 220px;
+            padding: clamp(28px, 3.5vw, 40px);
+            border-radius: 36px;
+            background: linear-gradient(to top right, #5b6ffb, #f967c7);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .about-overlap-stat__num {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .about-overlap-stat__label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(18px, 2vw, 24px);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .about-overlap-stat__desc {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: clamp(15px, 1.5vw, 18px);
+            line-height: 1.45;
+            max-width: 320px;
+        }
+
+        @media (max-width: 800px) {
+            .about-overlap-card {
+                grid-template-columns: 1fr;
+            }
+
+            .about-overlap-card__left {
+                text-align: center;
+            }
+
+            .about-overlap-icon-box {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .about-overlap-text {
+                margin: 0 auto;
+            }
+
+            .about-overlap-stat {
+                text-align: center;
+            }
+
+            .about-overlap-stat__desc {
+                margin: 0 auto;
+            }
+        }
+
+        .about-journey-badge {
+            display: inline-block;
+            margin: 0 0 24px;
+            padding: 10px 22px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(14px, 1.8vw, 18px);
+            color: #ffffff;
+            background-color: #3c4790;
+            border-radius: 999px;
+        }
+
+        .about-journey-title {
+            margin: 0 0 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(42px, 7vw, 96px);
+            line-height: 1.05;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .about-journey-timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+            position: relative;
+        }
+
+        .about-journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 80px;
+            bottom: 80px;
+            width: 4px;
+            background-color: #ffffff;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .about-journey-timeline::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 4px;
+            height: 120px;
+            background-color: #ffffff;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .about-journey-dot {
+            position: absolute;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .about-journey-dot--top {
+            top: 80px;
+            background: linear-gradient(135deg, #a9a9a9, #ffffff);
+            box-shadow: 0 0 15px rgba(169, 169, 169, 0.6);
+        }
+
+        .about-journey-dot--bottom {
+            bottom: 80px;
+            background: linear-gradient(135deg, #1e4092, #fa67c6);
+            box-shadow: 0 0 15px rgba(30, 64, 146, 0.6);
+        }
+
+        .about-journey-year {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(72px, 8vw, 120px);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .about-journey-year--2020 {
+            background: linear-gradient(to bottom, #b9b9b9, #ececec);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .about-journey-year--2024 {
+            background: linear-gradient(to right, #5770fd, #fe66c4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .about-journey-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(24px, 3vw, 36px);
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .about-journey-card {
+            border-radius: 24px;
+            padding: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: clamp(16px, 1.8vw, 20px);
+            line-height: 1.5;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .about-journey-card--white,
+        .about-journey-card--purple {
+            width: 100%;
+            max-width: 75%;
+            margin: 0 auto;
+        }
+
+        .about-journey-card--white {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        .about-journey-card--purple {
+            background-color: #0c0151;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .about-journey-section {
+                padding-top: 80px;
+                margin-top: 500px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .about-journey-timeline {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-journey-timeline::before,
+            .about-journey-timeline::after {
+                display: none;
+            }
+
+            .about-journey-dot {
+                display: none;
+            }
+
+            .about-journey-year {
+                font-size: clamp(48px, 6vw, 72px);
+            }
+
+            .about-journey-label {
+                font-size: clamp(20px, 2.5vw, 28px);
+            }
+
+            .about-journey-card {
+                padding: 25px 20px;
+                font-size: clamp(15px, 1.6vw, 18px);
+            }
+
+            .about-journey-timeline > :nth-child(1) {
+                order: 1;
+            }
+
+            .about-journey-timeline > :nth-child(2) {
+                order: 2;
+            }
+
+            .about-journey-timeline > :nth-child(3) {
+                order: 4;
+            }
+
+            .about-journey-timeline > :nth-child(4) {
+                order: 3;
+            }
+        }
+
+        .about-partners-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #2c328c;
+        }
+
+        .about-partners-badge {
+            display: inline-block;
+            margin: 0 0 40px;
+            padding: 10px 22px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(14px, 1.8vw, 18px);
+            color: #ffffff;
+            background-color: #3c4790;
+            border-radius: 999px;
+        }
+
+        .about-partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .about-partners-logo {
+            width: 100%;
+            max-width: 140px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .about-partners-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .about-partners-section {
+                padding: 60px 20px;
+            }
+
+            .about-partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .about-partners-logo {
+                max-width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-partners-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .about-partners-logo {
+                max-width: 100px;
+            }
+        }
+
+        .about-comparison-section {
+            padding: 80px 20px;
+            background-color: #2c328c;
+        }
+
+        .about-comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-comparison-column {
+            text-align: center;
+        }
+
+        .about-comparison-column:last-child {
+            background: linear-gradient(135deg, #040404 0%, #6c6c6c 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin: -40px -40px -40px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-comparison-title {
+            margin: 0 0 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(48px, 6vw, 72px);
+            line-height: 1.1;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .about-comparison-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .about-comparison-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(18px, 2.2vw, 24px);
+            line-height: 1.4;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .about-comparison-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .about-comparison-icon--wrong {
+            background-color: #e74c3c;
+            color: #ffffff;
+        }
+
+        .about-comparison-icon--right {
+            background-color: #3498db;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .about-comparison-section {
+                padding: 60px 20px;
+            }
+
+            .about-comparison-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-comparison-column {
+                text-align: center;
+            }
+
+            .about-comparison-column:last-child {
+                margin: -40px -20px -40px -20px;
+                padding: 40px 20px;
+            }
+
+            .about-comparison-item {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .about-comparison-title {
+                font-size: clamp(36px, 5vw, 48px);
+            }
+        }
+
+        .about-principles-section {
+            padding: 80px 20px;
+            background-color: #2c328c;
+            text-align: center;
+        }
+
+        .about-principles-title {
+            margin: 0 0 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.1;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .about-principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-principles-card {
+            background: linear-gradient(to bottom, #fdfdfd, #a6a6a6);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-principles-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-principles-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-principles-icon-wrapper--support {
+            background-color: #97a6ee;
+        }
+
+        .about-principles-icon-wrapper--heart {
+            background-color: #f4a7d6;
+        }
+
+        .about-principles-icon-wrapper--cup {
+            background-color: #b3e1a0;
+        }
+
+        .about-principles-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .about-principles-card-title {
+            margin: 0 0 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(24px, 3vw, 32px);
+            line-height: 1.2;
+            color: #2c328c;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .about-principles-card-description {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: clamp(16px, 1.8vw, 20px);
+            line-height: 1.5;
+            color: #333333;
+        }
+
+        @media (max-width: 768px) {
+            .about-principles-section {
+                padding: 60px 20px;
+            }
+
+            .about-principles-title {
+                margin-bottom: 40px;
+            }
+
+            .about-principles-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-principles-card {
+                padding: 30px 20px;
+            }
+
+            .about-principles-icon-wrapper {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+            }
+
+            .about-principles-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        .about-clients-section {
+            padding: 80px 20px;
+            background-color: #2c328c;
+            text-align: center;
+        }
+
+        .about-clients-badge {
+            display: inline-block;
+            margin: 0 0 32px;
+            padding: 10px 22px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(14px, 1.8vw, 18px);
+            color: #ffffff;
+            background-color: #3c4790;
+            border-radius: 999px;
+        }
+
+        .about-clients-title {
+            margin: 0 0 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.1;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .about-clients-description {
+            margin: 0 auto 60px;
+            max-width: 600px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: clamp(18px, 2.2vw, 24px);
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        .about-clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-clients-card {
+            background: linear-gradient(to bottom, #e4e4e4, #b5b5b5);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .about-clients-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-clients-logo {
+            width: 100%;
+            max-width: 120px;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .about-clients-name {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(18px, 2vw, 24px);
+            line-height: 1.3;
+            color: #2c328c;
+        }
+
+        .about-clients-stats {
+            background: linear-gradient(135deg, #e4e4e4, #b5b5b5);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .about-clients-stats:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-clients-number {
+            margin: 0 0 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(48px, 6vw, 72px);
+            line-height: 1;
+            background: linear-gradient(to right, #074baf, #c66be5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .about-clients-label {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(18px, 2vw, 24px);
+            line-height: 1.3;
+            background: linear-gradient(to right, #074baf, #c66be5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .about-clients-section {
+                padding: 60px 20px;
+            }
+
+            .about-clients-description {
+                margin-bottom: 40px;
+            }
+
+            .about-clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .about-clients-card,
+            .about-clients-stats {
+                padding: 30px 20px;
+                min-height: 160px;
+            }
+
+            .about-clients-logo {
+                max-width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-clients-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        .about-location-section {
+            padding: 80px 20px;
+            background-color: #2c328c;
+        }
+
+        .about-location-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #030303 0%, #717171 100%);
+            border-radius: 30px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-location-content {
+            color: #ffffff;
+        }
+
+        .about-location-title {
+            margin: 0 0 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(48px, 6vw, 72px);
+            line-height: 1.1;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .about-location-description {
+            margin: 0 0 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: clamp(18px, 2.2vw, 24px);
+            line-height: 1.5;
+            color: #ffffff;
+            max-width: 500px;
+        }
+
+        .about-location-cities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .about-location-city {
+            display: inline-block;
+            padding: 8px 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(14px, 1.6vw, 18px);
+            border-radius: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .about-location-city--primary {
+            background-color: #0021ff;
+            color: #ffffff;
+        }
+
+        .about-location-city--secondary {
+            background-color: #737373;
+            color: #ffffff;
+        }
+
+        .about-location-city:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-location-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .about-location-section {
+                padding: 60px 20px;
+            }
+
+            .about-location-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 30px;
+            }
+
+            .about-location-title {
+                font-size: clamp(36px, 5vw, 48px);
+                margin-bottom: 20px;
+            }
+
+            .about-location-description {
+                font-size: clamp(16px, 1.8vw, 20px);
+                margin-bottom: 30px;
+            }
+
+            .about-location-cities {
+                gap: 10px;
+            }
+
+            .about-location-city {
+                font-size: clamp(12px, 1.4vw, 16px);
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-location-container {
+                padding: 30px 20px;
+            }
+
+            .about-location-cities {
+                justify-content: center;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                width: 100%;
+            }
+
+            .about-location-city {
+                font-size: clamp(14px, 1.8vw, 16px);
+                padding: 10px 16px;
+                text-align: center;
+                justify-self: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="top-navbar"></div>
+
+    <main>
+        <section class="about-growth-section">
+            <span class="about-growth-badge">Новый стандарт автоматизации</span>
+            <h2 class="about-growth-title">Создаем технологии<br>для вашего роста</h2>
+            <p class="about-growth-description">
+                С 2020 года мы помогаем бизнесу в Казахстане<br>
+                масштабироваться.<br>
+                Забудьте о рутине — с NovaPos технологии работают на вас.
+            </p>
+            <button type="button" class="about-growth-badge about-growth-badge--bottom">
+                Познакомиться с нами
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+        </section>
+        <section class="about-overlap-bridge">
+            <div class="about-overlap-card">
+                <div class="about-overlap-card__left">
+                    <div class="about-overlap-icon-box">
+                        <img src="../images/circle.png" alt="" width="48" height="48">
+                    </div>
+                    <h2 class="about-overlap-heading">
+                        <span class="about-overlap-heading__line">МЕНЬШЕ РУТИНЫ</span>
+                        <span class="about-overlap-heading__line">БОЛЬШЕ <span class="about-overlap-heading__accent">ПРИБЫЛИ</span></span>
+                    </h2>
+                    <p class="about-overlap-text">
+                        Мы внедряем современные кассовые и<br>
+                        учетные системы, чтобы вы могли управлять<br>
+                        складом и продажами легко, прозрачно и с<br>
+                        любого устройства.
+                    </p>
+                </div>
+                <div class="about-overlap-card__right">
+                    <div class="about-overlap-stat">
+                        <div class="about-overlap-stat__num">800+</div>
+                        <div class="about-overlap-stat__label">Активных клиентов</div>
+                        <p class="about-overlap-stat__desc">
+                            по всему Казахстану доверяют<br>
+                            нам свой бизнес прямо сейчас
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about-dark-section about-journey-section">
+            <span class="about-journey-badge">Эволюция</span>
+            <h2 class="about-journey-title">НАШ ПУТЬ</h2>
+            <div class="about-journey-timeline">
+                <div class="about-journey-item">
+                    <div class="about-journey-year about-journey-year--2020">2020</div>
+                    <div class="about-journey-label">Запуск компании</div>
+                </div>
+                <div class="about-journey-card about-journey-card--white">
+                    Старт проектов по<br>
+                    автоматизации. Создание первых<br>
+                    эффективных инструментов для<br>
+                    локальных магазинов и<br>
+                    формирование команды<br>
+                    профессионалов.
+                </div>
+                <div class="about-journey-card about-journey-card--purple">
+                    Новое имя, новая стратегия.<br>
+                    Расширение линейки<br>
+                    оборудования и переход к<br>
+                    масштабному комплексному<br>
+                    подходу в IT-решениях для<br>
+                    бизнеса.
+                </div>
+                <div class="about-journey-item">
+                    <div class="about-journey-year about-journey-year--2024">2024</div>
+                    <div class="about-journey-label">Ребрендинг в NovaPos</div>
+                </div>
+                <div class="about-journey-dot about-journey-dot--top"></div>
+                <div class="about-journey-dot about-journey-dot--bottom"></div>
+            </div>
+        </section>
+        <section class="about-partners-section">
+            <span class="about-partners-badge">Работаем с лучшими платформами</span>
+            <div class="about-partners-grid">
+                <img src="../images/partners/amocrm.png" alt="AmoCRM" class="about-partners-logo">
+                <img src="../images/partners/bloknot.png" alt="Блокнот" class="about-partners-logo">
+                <img src="../images/partners/gbs-logo.jpg" alt="GBS" class="about-partners-logo">
+                <img src="../images/partners/moysklad-logo.jpg" alt="МойСклад" class="about-partners-logo">
+                <img src="../images/partners/mylife.png" alt="MyLife" class="about-partners-logo">
+                <img src="../images/partners/rosta.jpg" alt="Rosta" class="about-partners-logo">
+            </div>
+        </section>
+        <section class="about-comparison-section">
+            <div class="about-comparison-container">
+                <div class="about-comparison-column">
+                    <h2 class="about-comparison-title">Вчера</h2>
+                    <ul class="about-comparison-list">
+                        <li class="about-comparison-item">
+                            <span class="about-comparison-icon about-comparison-icon--wrong">×</span>
+                            Учет в тетради или в Excel
+                        </li>
+                        <li class="about-comparison-item">
+                            <span class="about-comparison-icon about-comparison-icon--wrong">×</span>
+                            Недостачи при инвентаризации
+                        </li>
+                        <li class="about-comparison-item">
+                            <span class="about-comparison-icon about-comparison-icon--wrong">×</span>
+                            Владелец привязан к точке
+                        </li>
+                        <li class="about-comparison-item">
+                            <span class="about-comparison-icon about-comparison-icon--wrong">×</span>
+                            Продавцы воруют
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-comparison-column">
+                    <h2 class="about-comparison-title">С NovaPos</h2>
+                    <ul class="about-comparison-list">
+                        <li class="about-comparison-item">
+                            <span class="about-comparison-icon about-comparison-icon--right">✓</span>
+                            Контроль со смартфона
+                        </li>
+                        <li class="about-comparison-item">
+                            <span class="about-comparison-icon about-comparison-icon--right">✓</span>
+                            Авто-заказ товаров
+                        </li>
+                        <li class="about-comparison-item">
+                            <span class="about-comparison-icon about-comparison-icon--right">✓</span>
+                            Аналитика прибыли в 1 клик
+                        </li>
+                        <li class="about-comparison-item">
+                            <span class="about-comparison-icon about-comparison-icon--right">✓</span>
+                            Защита от воровства
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="about-principles-section">
+            <h2 class="about-principles-title">ПРИНЦИПЫ РАБОТЫ</h2>
+            <div class="about-principles-grid">
+                <div class="about-principles-card">
+                    <div class="about-principles-icon-wrapper about-principles-icon-wrapper--support">
+                        <img src="../images/support.png" alt="Премиум сервис" class="about-principles-icon">
+                    </div>
+                    <h3 class="about-principles-card-title">ПРЕМИУМ СЕРВИС</h3>
+                    <p class="about-principles-card-description">
+                        Мы внедряем<br>
+                        современные кассовые и<br>
+                        учетные системы, чтобы вы<br>
+                        могли управлять складом и<br>
+                        продажами легко,<br>
+                        прозрачно и с любого<br>
+                        устройства.
+                    </p>
+                </div>
+                <div class="about-principles-card">
+                    <div class="about-principles-icon-wrapper about-principles-icon-wrapper--heart">
+                        <img src="../images/heart.png" alt="Искренняя забота" class="about-principles-icon">
+                    </div>
+                    <h3 class="about-principles-card-title">ИСКРЕННЯЯ ЗАБОТА</h3>
+                    <p class="about-principles-card-description">
+                        Глубоко погружаемся в<br>
+                        специфику вашей ниши.<br>
+                        Предлагаем только те<br>
+                        решения, которые реально<br>
+                        помогут вам заработать<br>
+                        больше.
+                    </p>
+                </div>
+                <div class="about-principles-card">
+                    <div class="about-principles-icon-wrapper about-principles-icon-wrapper--cup">
+                        <img src="../images/cup.png" alt="Конкурентоспособность" class="about-principles-icon">
+                    </div>
+                    <h3 class="about-principles-card-title">КОНКУРЕНТНОСТЬ</h3>
+                    <p class="about-principles-card-description">
+                        Внедряем передовые<br>
+                        функции (облачный учет,<br>
+                        аналитика, маркетплейсы),<br>
+                        чтобы вы всегда были на<br>
+                        шаг впереди конкурентов.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="about-clients-section">
+            <span class="about-clients-badge">Гордимся сотрудничеством</span>
+            <h2 class="about-clients-title">НАМ ДОВЕРЯЮТ</h2>
+            <p class="about-clients-description">
+                Компании из самых разных сфер бизнеса выбирают NovaPos
+                для автоматизации своих торговых процессов.
+            </p>
+            <div class="about-clients-grid">
+                <div class="about-clients-card">
+                    <img src="../images/client-logos/rozovy.png" alt="Розовый" class="about-clients-logo">
+                    <h3 class="about-clients-name">Розовый</h3>
+                </div>
+                <div class="about-clients-card">
+                    <img src="../images/client-logos/qazaqoil.png" alt="Qazaq Oil" class="about-clients-logo">
+                    <h3 class="about-clients-name">Qazaq Oil</h3>
+                </div>
+                <div class="about-clients-card">
+                    <img src="../images/client-logos/bauma.png" alt="BauMa" class="about-clients-logo">
+                    <h3 class="about-clients-name">BauMa</h3>
+                </div>
+                <div class="about-clients-stats">
+                    <div class="about-clients-number">800+</div>
+                    <div class="about-clients-label">успешных брендов</div>
+                </div>
+            </div>
+        </section>
+        <section class="about-location-section">
+            <div class="about-location-container">
+                <div class="about-location-content">
+                    <h2 class="about-location-title">Мы рядом<br>с вами</h2>
+                    <p class="about-location-description">
+                        Головной офис NovaPos базируется в Уральске. Наша
+                        партнерская сеть и филиалы охватывают весь Казахстан,
+                        гарантируя быструю доставку и поддержку на местах.
+                    </p>
+                    <div class="about-location-cities">
+                        <span class="about-location-city about-location-city--primary">Уральск</span>
+                        <span class="about-location-city about-location-city--secondary">Астана</span>
+                        <span class="about-location-city about-location-city--secondary">Алматы</span>
+                        <span class="about-location-city about-location-city--secondary">Актобе</span>
+                        <span class="about-location-city about-location-city--secondary">Кызылорда</span>
+                        <span class="about-location-city about-location-city--secondary">Атырау</span>
+                        <span class="about-location-city about-location-city--secondary">Семей</span>
+                        <span class="about-location-city about-location-city--secondary">Актау</span>
+                    </div>
+                </div>
+                <div class="about-location-image-wrapper">
+                    <img src="../images/location.png" alt="Расположение NovaPos" class="about-location-image">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+    <script src="../scripts/navbar-loader.js"></script>
+    <script src="../scripts/scripts.js"></script>
+</body>
+</html>
