@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки программы: Оборудование - Дисплей покупателя GBS.Market</title>
+    <meta name="description" content="Раздел настроек программы, связанный с конфигурированием дополнительных дисплеев и второго монитора">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .access-info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .access-info-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .access-info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .access-info-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .access-info-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .second-monitor-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .second-monitor-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .second-monitor-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .second-monitor-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .second-monitor-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .customer-display-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .customer-display-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .customer-display-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .customer-display-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .customer-display-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .single-line-display-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .single-line-display-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .single-line-display-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .single-line-display-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .single-line-display-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .qr-display-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            border-left: 4px solid #e91e63;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
+        }
+        .qr-display-box h4 {
+            color: #c2185b;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .qr-display-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .qr-display-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .qr-display-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .connection-settings {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .connection-settings h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .connection-settings ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .connection-settings li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .options-list {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .options-list h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .options-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .options-list li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .encoding-list {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .encoding-list h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .encoding-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .encoding-list li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройки программы: Оборудование - Дисплей покупателя</h1>
+        <p>Раздел настроек программы, связанный с конфигурированием дополнительных дисплеев и второго монитора</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки программы: Оборудование - Дисплей покупателя
+    </div>
+    <div class="article-content">
+        <div class="access-info-box">
+            <h4><i class="fa fa-info-circle"></i> Для доступа к настройкам:</h4>
+            <ul>
+                <li>на главной форме в меню нажмите <strong>Файл - Настройки</strong></li>
+                <li>перейдите в раздел <strong>"Оборудование"</strong>, вкладка <strong>"Дисплей покупателя"</strong></li>
+            </ul>
+        </div>
+        
+        <img src="../../../images/articles/article66-img1.png" alt="Настройки дисплея покупателя">
+
+        <div class="second-monitor-box">
+            <h2><i class="fa fa-desktop"></i> Второй монитор</h2>
+            <p>Раздел для настройки взаимодействия с дополнительным монитором, подключенным к кассовому компьютеру.</p>
+            
+            <div class="materials-box">
+                <p><a href="#">Подробнее об использовании второго монитора можно узнать в статье</a>.</p>
+            </div>
+            
+            <h4>Монитор</h4>
+            <p>Из списка выберите монитор, на котором будет открыто окно с выводом списка товаров в чеке.</p>
+            <p>В списке будут доступны мониторы, подключенные к компьютеру. Чтобы отключить работу с доп. монитором выберите <strong>Нет</strong></p>
+            
+            <h4>Слайд-шоу</h4>
+            <p>Включите опцию, чтобы активировать слайд-шоу при простое.</p>
+            
+            <h4>Папка с фото</h4>
+            <p>Выберите папку, из которой будут показаны изображения для слайд-шоу</p>
+            
+            <h4>Интервал ... сек</h4>
+            <p>Укажите с каким промежутком времени будет меняться изображение в секундах.</p>
+        </div>
+
+        <div class="customer-display-box">
+            <h2><i class="fa fa-tv"></i> Дисплей покупателя</h2>
+            <p>Раздел для настройки работы с дисплеем покупателя. Информация на такой дисплей выводится при обслуживании покупателя:</p>
+            
+            <ul>
+                <li>название и цена товара</li>
+                <li>итоговая сумма чека</li>
+            </ul>
+            
+            <h4>Дисплей</h4>
+            <p>Выберите тип подключенного дисплея. Доступны варианты:</p>
+            
+            <div class="options-list">
+                <ul>
+                    <li><strong>Нет</strong> - дисплей не используется</li>
+                    <li><strong>Штрих-М</strong> - дисплеи, работающие через драйвер "Штрих-М"</li>
+                    <li><strong>ESC</strong> - дисплеи, работающие по протоколу ESC/POS</li>
+                </ul>
+            </div>
+            
+            <h3>Настройка подключения</h3>
+            
+            <h4>Настроить</h4>
+            <p>Нажмите на кнопку, чтобы открыть параметры подключения к дисплею.</p>
+            
+            <h4>Проверить связь</h4>
+            <p>Нажмите на кнопку, чтобы вывести на дисплей тестовое сообщение для проверки связи</p>
+            
+            <h4>Кодировка</h4>
+            <p>Укажите кодировку, которая будет использоваться для обмена с дисплеем.</p>
+            
+            <div class="encoding-list">
+                <h4>Доступны варианты:</h4>
+                <ul>
+                    <li>CP866</li>
+                    <li>CP Tysso</li>
+                    <li>Windows-1251</li>
+                    <li>UTF-8</li>
+                    <li>КОИ8-Р</li>
+                </ul>
+            </div>
+            
+            <h4>Кол-во строк</h4>
+            <p>Укажите количество строк на подключенном дисплее. Большинство моделей являются двухстрочными.</p>
+            
+            <h4>Кол-во символов в 1 строке</h4>
+            <p>Укажите количество символов в одной строке на используемом дисплее. В большинстве моделей предусмотрено 20 символов на строку.</p>
+        </div>
+
+        <div class="single-line-display-box">
+            <h2><i class="fa fa-calculator"></i> Однострочный дисплей покупателя (только цифры)</h2>
+            <p>Раздел для настройки взаимодействия с однострочными дисплеями, которые позволяют отображать только числовые значения. Обычно такие дисплеи встроены в POS-терминалы.</p>
+            
+            <p>Информация на такой дисплей выводится в момент обслуживания покупателя. Выводится итоговая сумма чека.</p>
+            
+            <h4>Дисплей</h4>
+            <p>Выберите тип дисплея. Доступны варианты:</p>
+            
+            <div class="options-list">
+                <ul>
+                    <li><strong>Нет</strong> - дисплей не используется</li>
+                    <li><strong>ESC/POS</strong> - дисплеи, работающие по протоколу ESC/POS</li>
+                </ul>
+            </div>
+            
+            <h3>Настройка подключения</h3>
+            
+            <h4>Настроить</h4>
+            <p>Нажмите на кнопку, чтобы перейти к настройкам подключения дисплея</p>
+            
+            <h4>Проверить связь</h4>
+            <p>Нажмите на кнопку, чтобы проверить связь с дисплеем.</p>
+        </div>
+
+        <div class="qr-display-box">
+            <h2><i class="fa fa-qrcode"></i> Дисплей для QR-кода (терминал оплаты СБП)</h2>
+            <p>Раздел для настройки подключения к дисплеям QR-кодов для СБП (системы быстрых платежей).</p>
+            
+            <div class="materials-box">
+                <p><a href="#">Подробнее о подключении дисплея QR-кода MERTECH можно узнать в статье</a>.</p>
+            </div>
+            
+            <h4>Дисплей</h4>
+            <p>Выберите тип подключенного дисплея. Доступны варианты:</p>
+            
+            <div class="options-list">
+                <ul>
+                    <li><strong>Нет</strong> - дисплей не используется</li>
+                    <li><strong>MERTECH</strong> - дисплеи производства MERTECH</li>
+                </ul>
+            </div>
+            
+            <h3>Настройка подключения</h3>
+            
+            <h4>Настроить</h4>
+            <p>Нажмите на кнопку, чтобы перейти к настройкам подключения дисплея.</p>
+            
+            <h4>Проверить связь</h4>
+            <p>Нажмите на кнопку, чтобы вывести на дисплей QR-код для проверки параметров подключения.</p>
+        </div>
+    </div>
+</body>
+</html>

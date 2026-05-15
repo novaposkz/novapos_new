@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты - Журнал продаж GBS.Market</title>
+    <meta name="description" content="Описание раздела 'Отчеты - Журнал продаж', в котором отображается история всех продаж">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Отчеты - Журнал продаж</h1>
+        <p>Описание раздела "Отчеты - Журнал продаж", в котором отображается история всех продаж</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Журнал продаж
+    </div>
+    <div class="article-content">
+        <p>Описание раздела Отчеты – Журнал продаж.</p>
+        
+        <img src="../../../images/articles/article37-img1.png" alt="Внешний вид журнала продаж">
+        
+        <p>Журнал продаж отображает историю всех сделанных продаж. Позволяет просматривать детали по каждой из них, выполнять возвраты, печатать документы.</p>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Просмотр журнала продаж регулируется правами доступа.</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <p>Открыть журнал продаж можно несколькими способами:</p>
+        <ul>
+            <li>Из меню главной формы: Отчеты – Журнал продаж</li>
+            <li>Из сводного отчета</li>
+            <li>Из отчета продавца</li>
+            <li>Из карточки контакта (покупателя)</li>
+        </ul>
+
+        <h2>Меню</h2>
+        <p>Описание пунктов меню журнала продаж.</p>
+
+        <h3>Файл</h3>
+        <ul>
+            <li><strong>Сохранить как…</strong>– сохранение журнала продаж в Excel или CSV формат</li>
+            <li><strong>Печатать</strong> – печать информации, отображаемой журналом продаж</li>
+        </ul>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Инструкция</h4>
+            <ul>
+                <li><a href="#">Инструкция как сохранить данные в Excel или CSV</a></li>
+            </ul>
+        </div>
+
+        <h2>Основной фильтр</h2>
+        <p>Основные параметры фильтрации в журнале продаж</p>
+        
+        <img src="../../../images/articles/article37-img2.png" alt="Внешний вид фильра в журнале продаж">
+
+        <h3>Период</h3>
+        <p>Фильтр по дате продажи. В результат поиска попадут продажи, сделанные в промежуток между указанными датами.</p>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Внимание</h4>
+            <p>Обратите внимание, что при фильтрации по дате учитывается значение опции "Время начала смены", доступной в настройках программы.</p>
+        </div>
+
+        <h3>Поиск</h3>
+        <p>Поле поиска позволяет найти товар по части названия или продажу по номеру документа.</p>
+        
+        <img src="../../../images/articles/article37-img3.png" alt="Результаты поиска по названию товара">
+
+        <h3>Категории</h3>
+        <p>Фильтрация журнала продаж по категории товаров.</p>
+        
+        <img src="../../../images/articles/article37-img4.png" alt="Результаты поиска по категории товаров">
+
+        <h2>Дополнительный фильтр</h2>
+        <p>Дополнительные параметры фильтрации в журнале продаж. Нажмите на "Фильтр поиска", чтобы раскрыть параметры фильтрации</p>
+        
+        <img src="../../../images/articles/article37-img5.png" alt="Внешний вид дополнительного фильра в журнале продаж">
+
+        <h3>Контакт</h3>
+        <p>Фильтрация журнала продаж по покупателю. В результатах поиска будут отображены продажи, сделанные выбранным покупателем.</p>
+        
+        <img src="../../../images/articles/article37-img6.png" alt="Результаты поиска по покупателю">
+
+        <h3>Способы оплаты</h3>
+        <p>Фильтрация журнала продаж по способам оплаты. Например, наличные, карта, баллы. В результатах поиска будут отображены продажи, которые содержат платеж хотя бы одним из выбранных способов. Т.е. продажа, оплаченная и картой и наличными будет отображены и при выборе "Карта" и при выборе "Наличными".</p>
+        <p>Можно выбрать одновременно несколько значений.</p>
+        
+        <img src="../../../images/articles/article37-img7.png" alt="Выбор способов оплаты для фильтрации">
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок по добавлению способов оплаты</a></li>
+            </ul>
+        </div>
+
+        <h3>Склады</h3>
+        <p>Фильтрация журнала продаж по складу. В результатах поиска будут отображены продажи, которые были выполнены для товаров с определенного склада.</p>
+        <p>Можно выбрать одновременно несколько значений.</p>
+        
+        <img src="../../../images/articles/article37-img8.png" alt="Выбор склада для фильтрации">
+
+        <h3>Секции</h3>
+        <p>Фильтрация журнала продаж по секции. В результатах поиска будут отображены продажи, которые были выполнены на определенной секции (рабочем месте)</p>
+        
+        <img src="../../../images/articles/article37-img9.png" alt="Выбор секции для фильтрации">
+
+        <h3>Типы оплаты</h3>
+        <p>Фильтрация журнала продаж по типу оплаты. Доступны варианты:</p>
+        <ul>
+            <li><strong>Все типы оплаты</strong> – все продажи</li>
+            <li><strong>Фискально</strong> – продажи, для которых был напечатан фискальный чек</li>
+            <li><strong>Нефискально</strong> – продажи, для которых фискальный чек не был напечатан</li>
+        </ul>
+        
+        <img src="../../../images/articles/article37-img10.png" alt="Выбор типа оплаты для фильтрации">
+
+        <h3>Статусы оплаты</h3>
+        <p>Фильтрация журнала продаж по статусу оплаты. Доступны варианты:</p>
+        <ul>
+            <li><strong>Неоплаченные</strong> – продажи, которые были оформлены в долг и по ним не было платежей</li>
+            <li><strong>Оплаченные частично</strong> – продажи, которые были оформлены в долг и были частично оплачены</li>
+            <li><strong>Оплаченные полностью</strong> – продажи, которые были оплачены полностью или задолженность по ним закрыта</li>
+        </ul>
+        
+        <img src="../../../images/articles/article37-img11.png" alt="Выбор статуса оплаты для фильтрации">
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок о продаже товаров в долг</a></li>
+            </ul>
+        </div>
+
+        <h3>Сотрудники</h3>
+        <p>Фильтрация журнала продаж по сотруднику. В результатах поиска будут отображены продажи, которые были привязаны к конкретному сотруднику.</p>
+        <p>Для закрепления продаж за сотрудниками должна быть включена соответствующая опция в настройках программы.</p>
+        
+        <img src="../../../images/articles/article37-img12.png" alt="Выбор сотрудника для фильтрации">
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок о добавлении сотрудников и настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <h2>Список продаж</h2>
+        <p>Список, в котором отображаются проданные товары.</p>
+        
+        <img src="../../../images/articles/article37-img13.png" alt="Внешний вид списка продаж">
+        
+        <p>Красным цветом выделены те продажи, по которым был возврат хотя бы одного товара.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Инструкция</h4>
+            <ul>
+                <li><a href="#">Инструкция как включить отображение столбцов в списке</a></li>
+            </ul>
+        </div>
+
+        <h3>Карточка продажи</h3>
+        <p>Карточка продажи, в которой отображается подробная информация по выбранной продаже: товары, платежи, возвраты и т.п.</p>
+
+        <h3>Печать</h3>
+        <p>При нажатии кнопки "Печатать" программа предложит на выбор печать документа (накладная, товарный чек, счет) или чека (нефискальный дубликат чека)</p>
+        
+        <img src="../../../images/articles/article37-img14.png" alt="Меню выбора печати">
+
+        <h4>Чек</h4>
+        <p>Если для печати чеков в настройках выбран фискальный регистратор (касса), то на этом устройстве будет напечатан нефискальный чек.</p>
+        <p>Если выбран Windows-принтер, будет напечатан чек по указанному в настройках шаблону.</p>
+
+        <h4>Документ</h4>
+        <p>Будет предложен выбор шаблон документа для печати информации о выбранной продаже. Например, это может быть товарный чек, счет, ТОРГ-12 или любой другой документ.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Связанные материалы</h4>
+            <ul>
+                <li><a href="#">Скачать шаблоны документов</a></li>
+                <li><a href="#">Инструкция по установке шаблонов печатных форм</a></li>
+            </ul>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок по редактированию шаблонов</a></li>
+            </ul>
+        </div>
+
+        <h3>Возврат</h3>
+        <p>При нажатии кнопки "Возврат" программа выполнить возврат товаров для выбранной продажи.</p>
+        <p>Подробнее о том, как сделать возврат от покупателя в видео-уроке.</p>
+
+        <h3>Удалить</h3>
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Возврат товаров регулируется отдельным правом доступа</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <p>При нажатии кнопки "Удалить" программа выполнит удаление продажи.</p>
+        <p>При удалении продажи остатки товаров, которые были проданы в рамках этой продажи, будут скорректированы на проданное количество. Например, если было продано 2 единицы товара, то при удалении продажи остаток такого товара будет увеличен на 2 шт.</p>
+
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+            <p>Будет удалена полностью продажа, даже если выбран только один товар в списке.</p>
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Удаление продаж регулируется отдельным правом доступа</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <h2>Вопросы и ответы</h2>
+
+        <h3>Как переключить внешний вид журнала продаж?</h3>
+        <p>В кассовой программе GBS.Market есть журнал продаж, в котором можно посмотреть информацию о проданных товарах. Журнал продаж позволяет фильтровать продажи по различным параметрам: дата, сотрудник, покупатель, секция и т.п. Кроме этого есть возможность выбора внешнего вида журнала продаж. Доступно два варианта:</p>
+        <ul>
+            <li>список товаров (одна строка – один товар)</li>
+            <li>список чеков (одна строка – один чек)</li>
+        </ul>
+        <p>По умолчанию используется "список чеков", который объединяет позиции в чеке в одну строку.</p>
+        <p>Для того чтобы переключить вид журнала продаж, сделайте следующее:</p>
+        <ol>
+            <li>с главной формы откройте Файл – Настройки</li>
+            <li>перейдите на вкладку "Внешний вид"</li>
+            <li>для опции "вид журнала продаж" выберите необходимый вам вариант: список товаров или список чеков</li>
+            <li>сохраните настройки</li>
+        </ol>
+        <p>Вид "список товаров" может быть привычнее пользователям, которые давно используют GBS.Market – этот вариант ранее был основным. Например, в нем удобно фильтровать проданные товары по категории. Вид "список чеков" может удобнее, когда вы меньше пользуетесь фильтрацией, но хотите видеть информацию о сумме и способах оплаты.</p>
+
+        <h3>Как посмотреть покупки, сделанные определенным покупателем?</h3>
+        <p>В журнале продаж кассовой программы GBS.Market доступна возможность фильтрации документов по ряду параметров, в т.ч. по периоду (дате) и по контрагенту (клиенту, покупателю). Это позволяет сформировать список покупок, совершенных определенным клиентов за определенный период времени (например, за последний месяц).</p>
+        <p>Откройте журнал продаж, а затем:</p>
+        <ol>
+            <li>выберите период, за который вы хотите увидеть записи</li>
+            <li>выберите покупателя (клиента), чьи продажи вы хотите увидеть</li>
+        </ol>
+
+        <h3>Можно ли сохранить журнал продаж?</h3>
+        <p>Информацию, отображаемую в журнале продаж, можно сохранить, например, в файл формата Excel для дальнейшего анализа. Откройте журнал продаж, а затем в меню выберите Файл - Сохранить как...</p>
+        <p>Кроме этого вы можете использовать шаблоны печатных форм, например, для печати (или сохранения в PDF) отчетов о продажа в необходимом вам формате.</p>
+    </div>
+</body>
+</html>

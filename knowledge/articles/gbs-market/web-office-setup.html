@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройка выгрузки данных в веб-офис GBS.Market</title>
+    <meta name="description" content="Инструкция по настройке выгрузки данных в веб-офис для удаленного контроля торговых точек через браузер.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .faq-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .faq-section h3 {
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .button-box {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .button-box a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        .button-box a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройка выгрузки данных в веб-офис</h1>
+        <p>Инструкция по настройке выгрузки данных в веб-офис для удаленного контроля</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройка выгрузки данных в веб-офис
+    </div>
+    <div class="article-content">
+        <p>Веб-офис это онлайн-сервис, позволяющий контролировать работу торговых точек, использующих кассовую программу GBS.Market, через браузер. Для того чтобы данные в "веб-офисе" отображались, необходимо выполнить настройку программы по данной инструкции.</p>
+
+        <h2>Получение токена в "веб-офисе"</h2>
+        <p>Перед тем, как начать настройку настольной версии программы, необходимо зарегистрироваться в личном кабинете "веб-офис" и получить токен для выгрузки данных.</p>
+
+        <h3>Регистрация в "веб-офис"</h3>
+        <p>Для регистрации перейдите в "Веб-офис" по адресу https://weboffice.gbsmarket.ru и пройдите регистрацию, заполнив форму. После регистрации на указанную электронную почту будет отправлено письмо со ссылкой для подтверждения email-адреса.</p>
+
+        <div class="button-box">
+            <a href="https://weboffice.gbsmarket.ru/#/auth/login" target="_blank">
+                <i class="fa fa-external-link"></i> Перейти в Веб-офис
+            </a>
+        </div>
+
+        <h3>Получение токена</h3>
+        <p>В личном кабинете "веб-офис" перейдите в профиль, для этого:</p>
+        <ul>
+            <li>нажмите на иконку "аккаунт" в правом верхнем углу</li>
+            <li>в открывшемся меню нажмите "профиль"</li>
+        </ul>
+        <img src="../../../images/articles/article17-img1.png" alt="Переход в профиль веб-офиса">
+        <p>Далее на странице профиля нажмите кнопку "копировать" рядом с полем "токен".</p>
+        <img src="../../../images/articles/article17-img2.png" alt="Копирование токена">
+
+        <h2>Настройка GBS.Market</h2>
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Выгрузка данных в "веб-офис" доступна начиная с версии 6.5.0.2150</p>
+        </div>
+
+        <h3>Настройка токена</h3>
+        <p>После того как токен будет получен, в GBS.Market с главной формы перейдите в Файл – Настройки – Удаленный контроль – Веб-офис. В поле "Токен" вставьте значение, скопированное из "веб-офиса".</p>
+        <img src="../../../images/articles/article17-img3.png" alt="Настройка токена в GBS.Market">
+
+        <h3>Настройка периодичности выгрузки</h3>
+        <p>Данные в веб-офис могут выгружаться по ряду событий:</p>
+        <ul>
+            <li>при запуске программы</li>
+            <li>при завершении работы программы</li>
+            <li>по расписанию:</li>
+            <ul>
+                <li>каждый час</li>
+                <li>каждые 3 часа</li>
+                <li>каждые 6 часов</li>
+                <li>каждые 12 часов</li>
+            </ul>
+        </ul>
+        <img src="../../../images/articles/article17-img4.png" alt="Настройка периодичности выгрузки">
+        <p>В настройках программы укажите, по какому событию должна происходить выгрузка.</p>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Обратите внимание, что каждый час (и другие промежутки) - это не 12:00, 13:00, 14:00 и т.д., а время с момента запуска программы. Т.е. если программа будет запущена в 9:45, то при периодичности в 1 час выгрузка будет происходить в 10:45, 11:45, 12:45 и т.д.</p>
+        </div>
+
+        <h3>Ручная выгрузка данных</h3>
+        <p>Для того чтобы не дожидаться очередной выгрузки по расписанию, нажмите в настройках кнопку "Выгрузить данные". Программа произведет отправку данных в "веб-офис" и сообщит о результате.</p>
+        <img src="../../../images/articles/article17-img5.png" alt="Ручная выгрузка данных">
+        <p>После выполнения всех настроек – нажмите "Сохранить", чтобы зафиксировать изменения.</p>
+
+        <h2>Проверка данных в "веб-офисе"</h2>
+        <p>Обновите страницу, находясь в "веб-офисе" и, если все сделано верно, вы увидите информацию по вашей торговой точке.</p>
+        <img src="../../../images/articles/article17-img6.png" alt="Проверка данных в веб-офисе">
+    </div>
+</body>
+</html>

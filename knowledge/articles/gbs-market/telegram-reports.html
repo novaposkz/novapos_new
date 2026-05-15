@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отправка отчетов в Telegram GBS.Market</title>
+    <meta name="description" content="Настройка отправки отчетов о продажах в торговой точке через Telegram бота в GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .faq-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .faq-section h3 {
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .telegram-report {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Отправка отчетов в Telegram</h1>
+        <p>Настройка отправки отчетов о продажах в торговой точке через Telegram бота</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Отправка отчетов в Telegram
+    </div>
+    <div class="article-content">
+        <p>Telegram – один из самых популярных и удобных мессенджеров. В кассовой программе GBS.Market реализована возможность получения отчетов о работе торговой точки (магазина, кафе) в чат или группу в Telegram (телеграм) через бота.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-external-link"></i> Полезные ссылки</h4>
+            <ul>
+                <li><a href="https://telegram.org" target="_blank">Официальный сайт Telegram</a></li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p><a href="email-reports.html">Отправка отчетов на электронную почту</a></p>
+        </div>
+
+        <h2>Внешний вид отчета в Telegram</h2>
+        <p>Отчет в телеграм содержит данные о работе торговой точки. Вот пример такого отчета:</p>
+        
+        <div class="telegram-report">
+            Отчет на 25.12.2022 15:00 из Позитив<br><br>
+            
+            ПРОДАЖИ:<br>
+            Всего продаж: 10<br>
+            Всего товаров: 23,00<br>
+            На сумму: 9 660,00<br>
+            Прибыль: 1 622,28<br>
+            -------------------------<br>
+            ВОЗВРАТЫ:<br>
+            Всего возвратов: 0<br>
+            На сумму: 0,00<br>
+            -------------------------<br>
+            ОПЛАЧЕНО:<br>
+            Карта: 4 580,00<br>
+            Наличными: 5 080,00<br>
+            Всего: 9 660,00<br>
+            -------------------------<br>
+            Снято: 0,00<br>
+            Внесено: 0,00<br>
+            -------------------------<br>
+            В кассе: 57 650,96<br><br>
+            
+            Работают сотрудники: Павшуков Ю.А; Бадин Н.С.
+        </div>
+
+        <p>На скриншоте ниже показано, как выглядит отчет из торговой точки, отправленный в Telegram. Во вложении к отчету документ в формате PDF, в котором перечислены проданные товары за текущий день.</p>
+        <img src="../../../images/articles/article15-img1.png" alt="Пример отчета в Telegram">
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Внимание</h4>
+            <p>Обратите внимание, что отчет формируется с учетом значения опции "Время начала смены", доступной в настройках программы.</p>
+        </div>
+
+        <h2>Начните чат с ботом</h2>
+        <p>Для получения отчетов необходимо начать чат с ботом @GBSMarketInfo_bot.</p>
+        <p>Вы можете создать группу на несколько человек, чтобы вместе получать отчеты. Бота необходимо добавить в качестве участника группы.</p>
+        <img src="../../../images/articles/article15-img2.png" alt="Чат с ботом в Telegram">
+
+        <h2>Получите chat id</h2>
+        <p>Для того чтобы настроить программу на отправку отчетов, необходимо получить chat id. Отправьте в чат с ботом следующий текст (команду)</p>
+        <div class="telegram-report">
+            /chatid
+        </div>
+        <p>А бот в ответ пришлет сообщение с chat id.</p>
+
+        <h2>Настройте GBS.Market</h2>
+        <p>На главной форме откройте в меню Файл – Настройки – Удаленный контроль – Отчеты в Telegram. Далее включите опцию "Отправлять отчеты".</p>
+        <img src="../../../images/articles/article15-img3.png" alt="Настройка отчетов в Telegram">
+        <p>Затем в поле "Идентификатор пользователя" нажмите кнопку "добавить". Скопируйте chat id из чата с ботом и вставьте в окне ввода.</p>
+        <img src="../../../images/articles/article15-img4.png" alt="Добавление chat id">
+        <p>Далее произведите настройку условий, при которых будет происходить отправка отчетов. Это может быть:</p>
+        <ul>
+            <li>время</li>
+            <li>сумма продажи</li>
+            <li>закрытие программы</li>
+            <li>закрытие смены (Z-отчет)</li>
+        </ul>
+
+        <h2>Отправьте тестовое сообщение</h2>
+        <p>Перед сохранением настроек проверьте корректность заполнения данных и нажмите "тестовое сообщение", чтобы убедиться, что все сделано верно.</p>
+        <p>Если все в порядке – программа сообщит об отправке данных, показав сообщение:</p>
+        <div class="telegram-report">
+            Тестовое сообщение пользователю 104800849 было отправлено
+        </div>
+        <p>Если в течении 15 минут какое-либо из сообщений не будет доставлено, обратитесь в службу поддержки.</p>
+        <img src="../../../images/articles/article15-img5.png" alt="Результат отправки тестового сообщения">
+        <p>Бот пришлет в чат тестовое сообщение.</p>
+        <div class="telegram-report">
+            Если Вы читаете данный текст, значит доставка сообщений работает корректно.
+        </div>
+        <img src="../../../images/articles/article15-img6.png" alt="Тестовое сообщение от бота">
+
+        <h2>Дополнительные настройки</h2>
+        <p>Кроме отправки отчетов, в телеграм можно:</p>
+        <ul>
+            <li>отправлять резервные копии</li>
+            <li>присылать напоминания об окончании срока действия лицензии</li>
+        </ul>
+        <img src="../../../images/articles/article15-img7.png" alt="Дополнительные настройки Telegram">
+
+        <h3>Отправка резервных копий</h3>
+        <p>Включите опцию Отправлять резервные копии в чат, чтобы программа присылала резервные копии в Телеграм. Резервные копии будут создаваться согласно настройкам, указанных в База данных - Резервное копирование. Подробнее о настройке резервного копирования можно узнать в статье.</p>
+
+        <h3>Напоминание об окончании лицензии</h3>
+        <p>Включите опцию Напоминать об окончании лицензии, чтобы программа при запуске присылала уведомление о приближающемся окончании срока действия лицензии.</p>
+
+        <h2>Сохраните настройки</h2>
+        <p>Для вступления изменений в силу, необходимо сохранить настройки программы.</p>
+
+        <div class="faq-section">
+            <h2>Вопросы и ответы</h2>
+            
+            <h3>Можно ли получать отчеты в Телеграм сразу нескольким пользователям?</h3>
+            <p>GBS.Market может отправлять отчеты одному получателю, но таким получателем может быть группа, в которой состоит несколько пользователей. Создайте группу и добавьте в нее пользователей, которые должны получать отчеты.</p>
+
+            <h3>Что делать, если отчеты в Телеграм не приходят?</h3>
+            <p>Если отправка отчетов настроена, но они не приходят, может быть несколько причин:</p>
+            <ul>
+                <li>программа была выключена в то время, на которое запланирована отправка отчета. Проверьте, не выключаю ли сотрудники программу раньше и не уходит ли периодически компьютер в "спящий режим"</li>
+                <li>убедитесь, что компьютер имеет стабильное подключение к интернету</li>
+                <li>проверьте, что используете актуальную версию программы. На устаревших версиях отправка отчетов может не работать</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

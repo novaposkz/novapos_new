@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты - Отчет продавца GBS.Market</title>
+    <meta name="description" content="Описание раздела Отчеты – Отчет продавца, доступ к которому осуществляется из главной формы.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Отчеты - Отчет продавца</h1>
+        <p>Описание раздела Отчеты – Отчет продавца, доступ к которому осуществляется из главной формы.</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Отчеты - Отчет продавца
+    </div>
+    <div class="article-content">
+        <p>Отчет продавца, как и сводный отчет, отображает информацию о текущем состоянии движения товаров и денежных средств в торговой точке с возможностью выбора конкретной даты. Но в отличие от сводного отчета имеет ограничения, чтобы сотрудники не могли получить доступ к важной информации.</p>
+        
+        <p>Информация в отчете продавца отображается для текущей секции (рабочего места).</p>
+        
+        <img src="../../../images/articles/article35-img1.png" alt="Внешний вид отчета продавца">
+
+        <h2>Включение и настройка отчета продавца</h2>
+        <p>По умолчанию отчет продавца отключен. Активировать его и выбрать отображаемые в нем данные можно в меню главной формы: Файл - Настройки - Сотрудники</p>
+        
+        <img src="../../../images/articles/article35-img2.png" alt="Настройка отчета продавца">
+
+        <h2>Выбор даты</h2>
+        <p>Если в настройках включена возможность выбора даты в отчете продавца, то будет отображен календарь, в котором можно указать день для просмотра статистики по нему.</p>
+        <p>Если выбор даты запрещен, то отчет будет показывать информацию за текущий день.</p>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Внимание</h4>
+            <p>Обратите внимание, что информация в отчете отображается с учетом опции "Время начала смены", доступной в настройках программы.</p>
+        </div>
+
+        <h2>Продаж</h2>
+        <p>Отображает количество продаж, сделанных в выбранный день. При клике на "продаж" будет открыт журнал продаж за выбранный день и для текущей секции.</p>
+
+        <h2>На сумму</h2>
+        <p>Сумма стоимости товаров, проданных за выбранный день.</p>
+
+        <h2>Оплачено</h2>
+        <p>Сумма, полученная от покупателей за проданные товары, минус сумма сделанных возвратов. Включает в себя сумму возвращенных задолженностей.</p>
+        <p>При клике на "Оплачено" откроется окно для просмотра подробной информации об оплате по способам. Например, могут быть способы "Карта", "Наличными"</p>
+
+        <img src="../../../images/articles/article35-img3.png" alt="Окно для просмотра сумм оплаты по способам">
+        <p>В окне "Оплачено" отображаются суммы оплат, сгруппированные по способам. Суммы разделены на столбцы:</p>
+        <ul>
+            <li><strong>Продажи</strong> – суммы, полученные по продажам, в т.ч. возвращенные задолженности</li>
+            <li><strong>Возвраты</strong> – суммы, возвращенные покупателям при возвратах товаров</li>
+            <li><strong>Сумма</strong> – итоговая сумма (продажи минус возвраты)</li>
+        </ul>
+        <p>Также отображается общий итог оплат.</p>
+
+        <h2>Возвраты</h2>
+        <p>Количество документов типа "возврат продажи", созданных за выбранный день.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок о возврате продаж от покупателей.</a></li>
+            </ul>
+        </div>
+
+        <h2>Снято</h2>
+        <p>Сумма выемки (выдачи) денежных средств за выбранную дату. Включает в себя выемку наличных из кассы.</p>
+
+        <h2>Внесено</h2>
+        <p>Сумма внесений денежных средств за выбранную дату. Включает в себя внесения наличных в кассу.</p>
+
+        <h2>Наличных в кассе</h2>
+        <p>Сумма наличных, которая должна быть в денежном ящике текущей секции (рабочего места)</p>
+    </div>
+</body>
+</html>

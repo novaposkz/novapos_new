@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Режим работы "Дом/офис" GBS.Market</title>
+    <meta name="description" content="Описание режима работы 'дом/офис' для удаленного контроля торговых точек в GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .faq-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .faq-section h3 {
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .license-example {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Режим работы "Дом/офис"</h1>
+        <p>Описание режима работы "дом/офис" для удаленного контроля</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Режим работы "Дом/офис"
+    </div>
+    <div class="article-content">
+        <p>В кассовой программе GBS.Market есть несколько режимов работы, один из которых – "Дом/офис".</p>
+        <p>"Дом/офис" – это режим, который позволяет контролировать неограниченное количество торговых точек. Так называемый "бэк-офис".</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="work-modes.html">Режимы работы программы GBS.Market</a></li>
+            </ul>
+        </div>
+
+        <h2>Возможности в режиме "дом/офис"</h2>
+        <p>В данном режиме доступен просмотр практически всей информации из базы данных торговой точки. Т.е. вы сможете увидеть все, будто бы запустили программу в самой торговой точке. Это позволяет контролировать работу сотрудников и анализировать работу магазина или кафе.</p>
+        <p>Кроме просмотра режим "дом/офис" позволяет вносить изменения в базу данных торговой точки, но с рядом ограничений. Например, доступны следующие операции:</p>
+        <ul>
+            <li>Создание, изменение и удаление товаров</li>
+            <li>Создание, изменение и удаление категорий товаров</li>
+            <li>Создание, изменение и удаление накладных</li>
+            <li>и т.п.</li>
+        </ul>
+        <p>Ряд возможностей по редактированию или изменению данных сейчас недоступен.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Возможности и ограничения режима "дом/офис"</a></li>
+            </ul>
+        </div>
+
+        <h2>Схема работы программы в режиме "дом/офис"</h2>
+        <p>На схеме ниже показано, как может быть организован удаленный контроль торговых точек при использовании режима "дом/офис".</p>
+        <img src="../../../images/articles/article16-img1.png" alt="Схема работы режима дом/офис">
+        <p>На данной схеме показано, что в синхронизации участвует всего 6 компьютеров: 4 торговых точки и 2 ПК в режиме "дом/офис". Количество торговых точек, которые можно контролировать через "дом/офис" – не ограничено.</p>
+        <p>Каждый из компьютеров может контролировать все подключенные торговые точки. При необходимости, можно настроить права доступа для пользователя, использующего программу в режиме "дом/офис". Например, чтобы менеджер по закупкам мог видеть только остатки товаров, но не видеть прибыль или вносить какие-либо изменения.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Настройка прав доступа в справочнике групп сотрудников</a></li>
+            </ul>
+        </div>
+
+        <h2>Внешний вид режима "дом/офис"</h2>
+        <p>При запуске программы в режиме "дом/офис" будет предложено выбрать одну из подключенных баз данных.</p>
+        <img src="../../../images/articles/article16-img2.png" alt="Выбор базы данных в режиме дом/офис">
+        <p>Далее откроется окно продаж, из которого уже можно будет получить доступ к необходимым разделам, таким как:</p>
+        <ul>
+            <li>сводной отчет</li>
+            <li>журнал продаж</li>
+            <li>каталог товаров</li>
+            <li>и т.д.</li>
+        </ul>
+
+        <h2>Настройка обмена данными</h2>
+        <p>Для начала работы в режиме "дом/офис" необходимо сделать следующее:</p>
+        <ul>
+            <li>установить "облако", например, Яндекс.Диск</li>
+            <li>в торговой точке настроить выгрузку данных в "облако"</li>
+        </ul>
+        <p>После того как файлы баз данных появятся в "облаке", можно приступить к настройке программы в режиме "дом/офис".</p>
+        <p>Для этого:</p>
+        <ul>
+            <li>при установке программы выберите режим "дом/офис"</li>
+            <li>в Файл – Настройки – Удаленный контроль укажите путь к папке в "облаке", в которую происходит выгрузка данных из торговых точек</li>
+        </ul>
+        <p>Если все сделано верно, то при перезапуске программы вы увидите список доступных торговых точек.</p>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Обратите внимание, что для внесения изменения в базу данных торговой точки в самой торговой точке должна быть включена опция "принимать изменения из дом/офис"</p>
+        </div>
+
+        <h2>Примечания</h2>
+        <p>Использование программы в режиме "дом/офис" регулируется общими правилами лицензирования (договор-оферта) – т.е. одна лицензия на одну копию программы. Для того чтобы использовать программу в данном режиме, необходимо приобрести лицензию на компьютер, где установлена программа. Лицензия, приобретенная для торговой точки, НЕ распространяется на режим "дом/офис".</p>
+        <p>Например:</p>
+        <div class="license-example">
+            если у вас 1 торговая точка и 1 "дом/офис" – нужно 2 лицензии<br>
+            если 4 торговых точки и 1 "дом/офис" – нужно 5 лицензий<br>
+            если 5 торговых точек и 2 "дом/офис" – нужно 7 лицензий
+        </div>
+    </div>
+</body>
+</html>

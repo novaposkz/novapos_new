@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Условные обозначения в GBS.Market</title>
+    <meta name="description" content="Описание условных обозначений и пиктограмм в кассовой программе GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+        }
+        .symbol-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        .symbol-image {
+            flex-shrink: 0;
+            width: 80px;
+        }
+        .symbol-image img {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .symbol-description {
+            flex: 1;
+        }
+        .symbol-description h4 {
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+        .symbol-description p {
+            margin: 0;
+            color: #666;
+            line-height: 1.5;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+            .symbol-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .symbol-image {
+                width: 60px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Условные обозначения</h1>
+        <p>Описание пиктограмм и условных обозначений в кассовой программе GBS.Market</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Условные обозначения
+    </div>
+    <div class="article-content">
+        <p>В кассовой программе GBS.Market на кнопках используются пиктограммы для обозначения действий. Ниже перечислены основные используемые обозначения.</p>
+
+        <h2>Общие</h2>
+        
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img1.png" alt="Добавить">
+            </div>
+            <div class="symbol-description">
+                <h4>Добавить</h4>
+                <p>Добавление новой записи. Например, добавление товара в каталоге товаров.</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img2.png" alt="Редактировать">
+            </div>
+            <div class="symbol-description">
+                <h4>Редактировать</h4>
+                <p>Редактирование выбранной записи. Например, редактирование товара в каталоге</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img3.png" alt="Изменить количество">
+            </div>
+            <div class="symbol-description">
+                <h4>Изменить количество</h4>
+                <p>Изменение количества, например, для товара в процессе продажи</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img4.png" alt="Комментарий">
+            </div>
+            <div class="symbol-description">
+                <h4>Комментарий</h4>
+                <p>Например, комментарий к товару или продаже</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img5.png" alt="Печатать">
+            </div>
+            <div class="symbol-description">
+                <h4>Печатать</h4>
+                <p>Печать документа для выбранной записи</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img6.png" alt="Создать копию">
+            </div>
+            <div class="symbol-description">
+                <h4>Создать копию</h4>
+                <p>Например, в каталоге товаров создание копии выбранных товаров</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img7.png" alt="Объединить">
+            </div>
+            <div class="symbol-description">
+                <h4>Объединить</h4>
+                <p>Объединение записей, например, объединение товаров в каталоге</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img8.png" alt="Удалить">
+            </div>
+            <div class="symbol-description">
+                <h4>Удалить</h4>
+                <p>Удаление позиции из списка. Например, удаление товара</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img9.png" alt="Информация">
+            </div>
+            <div class="symbol-description">
+                <h4>Информация</h4>
+                <p>Информация о выбранной записи. Например, в журнале продаж открывает карточку продажи</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img10.png" alt="Возврат">
+            </div>
+            <div class="symbol-description">
+                <h4>Возврат</h4>
+                <p>Возврат продажи в журнале продаж</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img11.png" alt="Внести платеж">
+            </div>
+            <div class="symbol-description">
+                <h4>Внести платеж</h4>
+                <p>Внесение платежа. Например, платеж по задолженности в списке должников</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img12.png" alt="Перенести позицию">
+            </div>
+            <div class="symbol-description">
+                <h4>Перенести позицию</h4>
+                <p>Перенос выбранных позиций в другой список</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img13.png" alt="Перенести все позиции">
+            </div>
+            <div class="symbol-description">
+                <h4>Перенести все позиции</h4>
+                <p>Перенос всех позиций в другой список</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img14.png" alt="Параметры">
+            </div>
+            <div class="symbol-description">
+                <h4>Параметры</h4>
+                <p>Открывает дополнительные параметры фильтрации/поиска</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img15.png" alt="Еще">
+            </div>
+            <div class="symbol-description">
+                <h4>Еще</h4>
+                <p>Открывает меню с дополнительными действиями</p>
+            </div>
+        </div>
+
+        <h2>Корзина/чек</h2>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img16.png" alt="Скидка на позицию">
+            </div>
+            <div class="symbol-description">
+                <h4>Скидка на позицию</h4>
+                <p>Установить скидку на один или несколько выбранных товаров</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img17.png" alt="Скидка на весь чек">
+            </div>
+            <div class="symbol-description">
+                <h4>Скидка на весь чек</h4>
+                <p>Установить скидку на все позиции в чеке</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img18.png" alt="Взвесить">
+            </div>
+            <div class="symbol-description">
+                <h4>Взвесить</h4>
+                <p>Открыть окно для взвешивания товара</p>
+            </div>
+        </div>
+
+        <h2>Режим "Магазин"</h2>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img19.png" alt="Поиск товаров">
+            </div>
+            <div class="symbol-description">
+                <h4>Поиск товаров</h4>
+                <p>На главной форме - открывает окно поиска со всеми товарами</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img20.png" alt="Избранные товары">
+            </div>
+            <div class="symbol-description">
+                <h4>Избранные товары</h4>
+                <p>Список избранных товаров на главной форме</p>
+            </div>
+        </div>
+
+        <h2>Режим "Кафе"</h2>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img21.png" alt="Домой">
+            </div>
+            <div class="symbol-description">
+                <h4>Домой</h4>
+                <p>В режиме "Кафе" возвращает в корень меню категорий</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img22.png" alt="Контакт">
+            </div>
+            <div class="symbol-description">
+                <h4>Контакт</h4>
+                <p>Выбор контакта (покупателя)</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img23.png" alt="Активные заказы">
+            </div>
+            <div class="symbol-description">
+                <h4>Активные заказы</h4>
+                <p>В режиме "Кафе" открывает список активных заказов</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img24.png" alt="Выход">
+            </div>
+            <div class="symbol-description">
+                <h4>Выход</h4>
+                <p>Выход из режима "Кафе" в режим "Магазин"</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img25.png" alt="Открыть Кафе">
+            </div>
+            <div class="symbol-description">
+                <h4>Открыть "Кафе"</h4>
+                <p>Переход из режима "Магазин" в режим "Кафе"</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img26.png" alt="Завершение работы">
+            </div>
+            <div class="symbol-description">
+                <h4>Завершение работы</h4>
+                <p>Закрыть программу</p>
+            </div>
+        </div>
+
+        <h2>Окно входа</h2>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img27.png" alt="Вход">
+            </div>
+            <div class="symbol-description">
+                <h4>Вход</h4>
+                <p>Вход сотрудника в программу</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img28.png" alt="Выход">
+            </div>
+            <div class="symbol-description">
+                <h4>Выход</h4>
+                <p>Выход сотрудника из программы</p>
+            </div>
+        </div>
+
+        <h2>Информационные сообщения</h2>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img29.png" alt="Информация">
+            </div>
+            <div class="symbol-description">
+                <h4>Информация</h4>
+                <p>Информационное сообщение</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img30.png" alt="Вопрос">
+            </div>
+            <div class="symbol-description">
+                <h4>Вопрос</h4>
+                <p>Сообщение с вопросом</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img31.png" alt="Успех">
+            </div>
+            <div class="symbol-description">
+                <h4>Успех</h4>
+                <p>Сообщение об успешном выполнении действия</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img32.png" alt="Предупреждение">
+            </div>
+            <div class="symbol-description">
+                <h4>Предупреждение</h4>
+                <p>Предупреждение при выполнении действия</p>
+            </div>
+        </div>
+
+        <div class="symbol-item">
+            <div class="symbol-image">
+                <img src="../../../images/articles/article3-img33.png" alt="Ошибка">
+            </div>
+            <div class="symbol-description">
+                <h4>Ошибка</h4>
+                <p>Сообщение об ошибке</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

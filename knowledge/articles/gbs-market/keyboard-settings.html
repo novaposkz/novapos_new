@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки программы: Оборудование - Клавиатура GBS.Market</title>
+    <meta name="description" content="Раздел настроек, связанных с экранной клавиатурой и горячими клавишами (хоткеями) в кассовой программе GBS.Market">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .access-info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .access-info-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .access-info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .access-info-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .access-info-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .virtual-keyboard-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .virtual-keyboard-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .virtual-keyboard-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .virtual-keyboard-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .virtual-keyboard-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .hotkeys-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .hotkeys-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .hotkeys-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .hotkeys-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .hotkeys-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .general-hotkeys-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .general-hotkeys-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .general-hotkeys-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .general-hotkeys-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .general-hotkeys-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .main-form-hotkeys-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            border-left: 4px solid #e91e63;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
+        }
+        .main-form-hotkeys-box h4 {
+            color: #c2185b;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .main-form-hotkeys-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .main-form-hotkeys-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .main-form-hotkeys-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .faq-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .faq-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .faq-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .faq-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .faq-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .hotkey-item {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hotkey-name {
+            color: #495057;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .hotkey-combination {
+            background: #e9ecef;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #495057;
+        }
+        .keyboard-settings {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .keyboard-settings h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .keyboard-settings p {
+            margin: 0;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+            .hotkey-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройки программы: Оборудование - Клавиатура</h1>
+        <p>Раздел настроек, связанных с экранной клавиатурой и "горячими" клавишами (хоткеями) в кассовой программе GBS.Market</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки программы: Оборудование - Клавиатура
+    </div>
+    <div class="article-content">
+        <div class="access-info-box">
+            <h4><i class="fa fa-info-circle"></i> Для доступа к этим настройкам:</h4>
+            <ul>
+                <li>на главной форме в меню перейдите: <strong>Файл - Настройки</strong></li>
+                <li>далее откройте раздел <strong>"Оборудование"</strong>, затем перейдите на вкладку <strong>"Клавиатура"</strong></li>
+            </ul>
+        </div>
+        
+        <img src="../../../images/articles/article69-img1.png" alt="Настройки клавиатуры">
+
+        <div class="virtual-keyboard-box">
+            <h2><i class="fa fa-keyboard-o"></i> Экранная клавиатура</h2>
+            <p>Раздел для настройки параметров экранной (виртуальной) клавиатуры, встроенной в программу.</p>
+            
+            <h4>Включить экранную клавиатуру</h4>
+            <p>Включите опцию, чтобы использовать экранную клавиатуру. Обычно используется на POS-терминалах и моноблоках с сенсорным экраном.</p>
+            
+            <img src="../../../images/articles/article69-img2.png" alt="Экранная клавиатура">
+            
+            <h4>Показывать только при клике на поле ввода</h4>
+            <p>Если опция включена, то экранная клавиатура будет показа только при фактическом клике на какое-нибудь поле ввода.</p>
+            <p>Если опция отключена, то программа будет определять автоматически наличие фокуса в поле ввода и отображать клавиатуру при необходимости.</p>
+            <p>Например, при запросе количества товара в чеке устанавливается фокус в поле ввода количества. Программа отобразит клавиатуру, если эта опция отключена.</p>
+            
+            <h4>Размер кнопок ... пикселей</h4>
+            <p>Укажите размер кнопок клавиатуры. Допустимые значения от 50 до 100</p>
+            
+            <h4>Подстраиваться под тип вводимых данных</h4>
+            <p>Если опция включена, то программа автоматически адаптирует клавиатуру под тип поля ввода.</p>
+            <p>Например, если курсор установлен в поле поиска товара – клавиатура будет отображена полностью. Если курсор установлен в поле ввода количества или суммы – буквенная часть клавиатуры будет скрыта.</p>
+            <p>Если опция отключена, то можно вручную свернуть/отобразить буквенную часть при необходимости.</p>
+        </div>
+
+        <div class="hotkeys-box">
+            <h2><i class="fa fa-flash"></i> Горячие клавиши</h2>
+            <p>Горячие клавиши или "хот кеи" (от анг. Hot keys) или "шорткеи" (от short keys) это сочетание нескольких клавиш, который позволяют быстро выполнить то или иное действие в программе. Обычно такие клавиши нужно нажимать одновременно.</p>
+            <p>Раздел для настройки горячих клавиш. Данные настройки могут быть использования для конфигурации работы с POS-клавиатурами.</p>
+            
+            <div class="materials-box">
+                <p><a href="#">Перечень программируемых клавиатур, совместимых с программой</a>.</p>
+            </div>
+            
+            <h4>Сбросить по умолчанию</h4>
+            <p>Сброс набора горячих клавиш по умолчанию.</p>
+        </div>
+
+        <div class="general-hotkeys-box">
+            <h3><i class="fa fa-cogs"></i> Общий набор</h3>
+            <p>Общий набор горячих клавиш, используемых в большинстве форм программы.</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Готово/сохранить</div>
+                <div class="hotkey-combination">Ctrl+Enter</div>
+            </div>
+            <p>Подтверждение операции. Например, нажатие ИТОГО на главной форме или сохранение карточки товара.</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Отмена</div>
+                <div class="hotkey-combination">Ctrl+X</div>
+            </div>
+            <p>Отмена выполнения операции</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Добавить</div>
+                <div class="hotkey-combination">Ctrl+Ins</div>
+            </div>
+            <p>Добавление элемента в список. Например, создание нового товара.</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Редактировать</div>
+                <div class="hotkey-combination">Ctrl+E</div>
+            </div>
+            <p>Редактирование элемента в списке. Например, установка количества для товара в чеке или редактирование карточки товара в каталоге.</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Удалить</div>
+                <div class="hotkey-combination">Ctrl+Del</div>
+            </div>
+            <p>Удаление выбранного элемента из списка. Например, удаление позиции из чека.</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Печатать</div>
+                <div class="hotkey-combination">Ctrl+P</div>
+            </div>
+            <p>Печать документа. Например, включение опции "печатать чек" на главной форме</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Выбрать контакт (покупателя)</div>
+                <div class="hotkey-combination">Ctrl+U</div>
+            </div>
+            <p>Выбор контакта. Например, выбор покупателя на главной форме.</p>
+        </div>
+
+        <div class="main-form-hotkeys-box">
+            <h3><i class="fa fa-home"></i> Главная форма</h3>
+            <p>Набор клавиш, используемых на главной форме программы</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Следующая корзина</div>
+                <div class="hotkey-combination">Page Down</div>
+            </div>
+            <p>Переключение на следующую корзину при обслуживании нескольких покупателей</p>
+            <div class="materials-box">
+                <p><a href="#">Видео-урок по обслуживанию нескольких покупателей</a>.</p>
+            </div>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Предыдущая корзина</div>
+                <div class="hotkey-combination">Page Up</div>
+            </div>
+            <p>Переключение на предыдущую корзину при обслуживании нескольких покупателей</p>
+            <div class="materials-box">
+                <p><a href="#">Видео-урок по обслуживанию нескольких покупателей</a>.</p>
+            </div>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Скидка на позицию</div>
+                <div class="hotkey-combination">F5</div>
+            </div>
+            <p>Установка скидки на выбранную позицию в чеке</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Скидка на чек</div>
+                <div class="hotkey-combination">Ctrl+F5</div>
+            </div>
+            <p>Установка скидки на все позиции в чеке</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Избранные товары</div>
+                <div class="hotkey-combination">F11</div>
+            </div>
+            <p>Открывает форму избранных товаров</p>
+            <div class="materials-box">
+                <h4>Связанные материалы</h4>
+                <ul>
+                    <li><a href="#">Инструкция по работе с "Избранными" (быстрыми) товарами</a></li>
+                </ul>
+            </div>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Открыть режим "Кафе"</div>
+                <div class="hotkey-combination">F2</div>
+            </div>
+            <p>Открывает форму для работы в режиме "Кафе"</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Снять X-отчет на ККМ</div>
+                <div class="hotkey-combination">Ctrl+Shift+X</div>
+            </div>
+            <p>Выполняет снятие отчета на ККМ без гашения</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Снять Z-отчет на ККМ</div>
+                <div class="hotkey-combination">Ctrl+Shift+Z</div>
+            </div>
+            <p>Выполняет снятие отчета на ККМ с закрытием смены</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Снять ден. средства</div>
+                <div class="hotkey-combination">Ctrl+O</div>
+            </div>
+            <p>Снятие денежных средств</p>
+            
+            <div class="hotkey-item">
+                <div class="hotkey-name">Внести ден. средства</div>
+                <div class="hotkey-combination">Ctrl+I</div>
+            </div>
+            <p>Внесение денежных средств</p>
+        </div>
+
+        <div class="faq-box">
+            <h2><i class="fa fa-question-circle"></i> Вопросы и ответы</h2>
+            
+            <h4>Можно ли в программе использовать горячие клавиши?</h4>
+            <p>В кассовой программе GBS.Market возможна настройка горячих клавиш для обеспечения более быстрой работы с программой при использовании клавиатуры. На большинство действий в программе можно настроить сочетание клавиш.</p>
+            <p>Кроме этого возможно использование программируемой POS-клавиатуры, для которых можно настроить на каждую клавишу можно настроить определенное сочетание клавиш.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройка отчетов на E-mail GBS.Market</title>
+    <meta name="description" content="Настройка отправки отчетов о продажах в торговой точке на электронную почту через GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .faq-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .faq-section h3 {
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройка отчетов на E-mail</h1>
+        <p>Настройка отправки отчетов о продажах в торговой точке на электронную почту</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройка отчетов на E-mail
+    </div>
+    <div class="article-content">
+        <p>Самый простой способ контроля за торговой точкой – получение отчетов на электронную почту. GBS.Market позволяет настроить отправку отчетов по расписанию или определенной сумме продаж.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке отправки отчетов на Email</a></li>
+                <li><a href="#">Отправка отчетов в Telegram</a></li>
+            </ul>
+        </div>
+
+        <h2>Внешний вид отчетов</h2>
+        <p>На электронную почту отправляются отчеты в виде письма, в котором указана основная информация о продажах за текущий день. Письмо выглядит так</p>
+        <img src="../../../images/articles/article14-img1.png" alt="Пример письма с отчетом">
+        <p>Во вложении прикреплен файл в формате PDF со списком проданных товаров</p>
+        <img src="../../../images/articles/article14-img2.png" alt="PDF файл с отчетом">
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Полезно</h4>
+            <p>Файл формируется по шаблону. Шаблон можно настроить в т.ч. таким образом, чтобы количество для каждого товара суммировалось. Это может быть полезно, если отчет отправляется в конце рабочего дня.</p>
+        </div>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Внимание</h4>
+            <p>Обратите внимание, что отчет формируется с учетом опции "Время начала смены", доступной в настройках программы.</p>
+        </div>
+
+        <h2>Настройки</h2>
+        <p>Откройте настройки программы: Файл – Настройки</p>
+        <img src="../../../images/articles/article14-img3.png" alt="Открытие настроек программы">
+        <p>Перейдите на "Удаленный контроль", вкладку "Отчеты на E-mail" и включите опцию "Отправлять отчеты на E-mail"</p>
+        <img src="../../../images/articles/article14-img4.png" alt="Настройка отправки отчетов на E-mail">
+
+        <h2>Адреса электронной почты</h2>
+        <h3>Добавление адресов</h3>
+        <p>Для отправки отчетов на E-mail можно использовать один или несколько адресов электронной почты. Нажмите кнопку (+), чтобы указать адрес для получения отчетов</p>
+        <p>Введите адрес и нажмите ОК.</p>
+        <img src="../../../images/articles/article14-img5.png" alt="Добавление адреса электронной почты">
+        <p>Добавьте еще адреса, если это необходимо. В итоге список адресов будет выглядеть так:</p>
+        <img src="../../../images/articles/article14-img6.png" alt="Список адресов электронной почты">
+
+        <h3>Удаление адресов</h3>
+        <p>При необходимости можно удалить адреса из списка.</p>
+        <p>Можно удалить один адрес, нажав на крестик рядом с ним:</p>
+        <img src="../../../images/articles/article14-img7.png" alt="Удаление одного адреса">
+        <p>Нажав на кнопку с корзиной можно удалить все адреса из списка</p>
+        <img src="../../../images/articles/article14-img8.png" alt="Удаление всех адресов">
+
+        <h3>Отправка тестового письма</h3>
+        <p>Для проверки корректного указания электронной почты можно воспользоваться функцией отправки тестового письма. Нажмите на "тестовое письмо" над списком адресов.</p>
+        <img src="../../../images/articles/article14-img9.png" alt="Отправка тестового письма">
+        <p>Программа отправит тестовые письма на все указанные адреса и сообщит о результатах.</p>
+        <img src="../../../images/articles/article14-img10.png" alt="Результат отправки тестового письма">
+        <p>Если адреса указаны корректно, то в течение 5-10 минут на каждый из ящиков будет доставлено письмо об успешной отправке</p>
+        <img src="../../../images/articles/article14-img11.png" alt="Тестовое письмо в почтовом ящике">
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Если программа сообщила об ошибке отправки письма или в течение 15 минут письмо не было доставлено, обратитесь в службу поддержки.</p>
+            <p>Убедитесь, что письмо не попало в СПАМ!</p>
+        </div>
+
+        <h2>Расписание доставки отчетов</h2>
+        <p>Для доставки отчетов по расписанию включите опцию "По времени".</p>
+        <img src="../../../images/articles/article14-img12.png" alt="Включение отправки по времени">
+
+        <h3>Добавление времени</h3>
+        <p>Для добавления времени, в которое будет отправляться отчет, нажмите кнопку ( + )</p>
+        <img src="../../../images/articles/article14-img13.png" alt="Добавление времени отправки">
+        <p>Затем укажите время отправки и нажмите "Добавить"</p>
+        <img src="../../../images/articles/article14-img14.png" alt="Указание времени отправки">
+        <p>Указанное время будет добавлено в список</p>
+        <img src="../../../images/articles/article14-img15.png" alt="Список времени отправки">
+
+        <h3>Удаление времени</h3>
+        <p>При необходимости можно удалить указанные промежутки времени.</p>
+        <p>Нажмите на крестик рядом с временем, чтобы удалить его из списка</p>
+        <img src="../../../images/articles/article14-img16.png" alt="Удаление времени отправки">
+        <p>Или нажмите на кнопку с корзинкой, чтобы удалить все введенные значения</p>
+        <img src="../../../images/articles/article14-img17.png" alt="Удаление всех времен отправки">
+
+        <h2>Отчет по сумме продаж</h2>
+        <p>Можно настроить отправку отчетов при продаже на сумму больше определенного значения, как независимо от расписания, так и одновременно с ним.</p>
+        <p>Например, вы хотите знать, когда происходят продажи на сумму более 10 тысяч рублей.</p>
+        <p>Для того чтобы получать отчеты в таких случаях, включите опцию "При продаже на сумму более" и укажите сумму продажи.</p>
+        <img src="../../../images/articles/article14-img18.png" alt="Настройка отправки по сумме продаж">
+        <p>Если оставить значение равное нулю, то отчет будет отправляться при каждой продаже.</p>
+
+        <h2>Отчет при закрытии программы</h2>
+        <p>При необходимости получения отчета по завершении работы программы, например, при закрытии торговой точки, вы можете активировать соответствующую опцию.</p>
+        <img src="../../../images/articles/article14-img19.png" alt="Отчет при закрытии программы">
+        <p>Если эта опция будет включена, то программа перед завершением работы отправит отчет о продажах за текущий день.</p>
+
+        <h2>Отчет при закрытии смены</h2>
+        <p>Включите эту опцию, чтобы отчеты на E-mail отправлялись, когда на подключенной кассе выполняется закрытие смены (снятие Z-отчета).</p>
+        <img src="../../../images/articles/article14-img20.png" alt="Отчет при закрытии смены">
+
+        <h2>Очистка очереди отчетов</h2>
+        <p>Если в программе накопилось много неотправленных отчетов, например, не было доступа к интернету, можно очистить очередь отчетов, нажав соответствующую кнопку.</p>
+        <img src="../../../images/articles/article14-img21.png" alt="Очистка очереди отчетов">
+
+        <h2>Важно</h2>
+        <ul>
+            <li>Для отправки отчетов (и тестовых писем в т.ч.) компьютер с программой должен быть подключён к интернету.</li>
+            <li>Важно понимать, что отчеты могут быть отправлены только при запущенной программе. Если программа будет закрыта в период времени, который указан в расписании, то отчет не будет отправлен.</li>
+            <li>В указанные в расписании промежутки происходит формирование отчета. Т.е. сам отчет может быть отправлен с задержкой, которая обычно составляет не более 5 минут.</li>
+            <li>Если отчет не удалось отправить, он будет поставлен в очередь для отправки. Например, если не было доступа к интернету, то программа попытается отправить отчет тогда, когда появится интернет.</li>
+            <li>Отчеты отправляются с адреса reports@gbsmarket.ru Добавьте в "белый список" данный адрес, чтобы избежать попадания писем в СПАМ.</li>
+        </ul>
+    </div>
+</body>
+</html>

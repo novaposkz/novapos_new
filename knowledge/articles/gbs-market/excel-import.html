@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка номенклатуры из Excel в каталог товаров GBS.Market</title>
+    <meta name="description" content="Пошаговая инструкция по загрузке номенклатуры товаров из Excel в каталог товаров GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .step-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .step-box h4 {
+            color: #667eea;
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .step-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .step-box li {
+            margin-bottom: 8px;
+            color: #495057;
+        }
+        .column-mapping {
+            background: #f1f2f6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+        .column-mapping h4 {
+            color: #2f3542;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .column-mapping ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .column-mapping li {
+            margin-bottom: 5px;
+            color: #57606f;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Загрузка номенклатуры из Excel в каталог товаров</h1>
+        <p>Описание процесса загрузки номенклатуры (ассортимента) товаров из документа формата Excel</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Загрузка номенклатуры из Excel
+    </div>
+    <div class="article-content">
+        <p>GBS.Market позволяет выполнить загрузку номенклатуры (справочник товаров) из документа формата Excel в базу данных программы (в каталог товаров).</p>
+
+        <p>Например, это может быть полезным для:</p>
+        <ul>
+            <li>первичного заполнения номенклатуры товаров из прайса поставщика</li>
+            <li>переноса данных в GBS.Market из других учетных систем</li>
+        </ul>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Если необходима загрузка товаров с указанием остатка, розничной стоимости и закупочных цен, то выполнять импорт из Excel нужно через создание нового поступления из Excel.</p>
+        </div>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Если в документе не указаны категории товаров и товары планируется загружать в существующую категорию, то перед загрузкой убедитесь, что у вас созданы необходимые категории.</p>
+        </div>
+
+        <h2>Поддерживаемые форматы файлов</h2>
+        <p>Поддерживается загрузка из файлов формата:</p>
+        <ul>
+            <li><strong>.xls</strong> - Книга Excel 97-2000</li>
+            <li><strong>.xlsx</strong> - Книга Excel 2007-2010</li>
+        </ul>
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Полезно</h4>
+            <p>Наличие Excel на компьютере необязательно. Файлы для просмотра могут быть открыты в аналогичных программах, например, OpenOffice, LibreOffice.</p>
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Данные могут быть загружены так же из файлов формата CSV, для этого их необходимо открыть в Excel и сохранить в формате "Книга Excel".</p>
+        </div>
+
+        <h2>Пример документа для загрузки</h2>
+        <p>Возьмем для примера документ формата Excel выгруженный из другой учетной системы.</p>
+        <img src="../../../images/articles/article5-img1.png" alt="Пример прайс листа в Excel">
+        <p><em>Пример прайс листа в Excel</em></p>
+
+        <h2>Определение номеров столбцов</h2>
+        <p>Для того чтобы начать загрузку данных из документа, необходимо определить номера для столбцов, из которых мы будем загружать информацию.</p>
+        <p><a href="#">Инструкция как определить номера столбцов в Excel</a></p>
+
+        <div class="column-mapping">
+            <h4>В нашем примере значения получаются следующие:</h4>
+            <ul>
+                <li><strong>Штрихкод:</strong> 1</li>
+                <li><strong>Категория:</strong> 2</li>
+                <li><strong>Наименование:</strong> 3</li>
+            </ul>
+        </div>
+
+        <h2>Загрузка товаров из Excel</h2>
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Загрузка товаров из Excel регулируется правом доступа "Создание товаров" и "Просмотр каталога товаров".</p>
+        </div>
+        <p><a href="#">Видео-урок по настройке прав доступа</a>.</p>
+
+        <p>Загрузить товары из Excel в GBS.Market можно в каталоге товаров. На главной форме откройте <strong>Товары – Каталог товаров</strong>.</p>
+
+        <p>В каталоге товаров в меню нажмите <strong>Файл</strong>.</p>
+        <img src="../../../images/articles/article5-img2.png" alt="Меню Файл в каталоге товаров">
+
+        <p>И выберите пункт "Загрузить из Excel"</p>
+        <img src="../../../images/articles/article5-img3.png" alt="Выбор пункта Загрузить из Excel">
+
+        <h2>Форма загрузки товаров из Excel</h2>
+        <p>Загрузка товаров осуществляется через форму загрузки, показанную на скриншоте ниже.</p>
+        <img src="../../../images/articles/article5-img4.png" alt="Форма загрузки товаров из Excel">
+
+        <h3>Путь к файлу</h3>
+        <p>В форме загрузки нажмите кнопку обзора файлов, чтобы выбрать документ, из которого будет происходить загрузка товаров.</p>
+        <img src="../../../images/articles/article5-img5.png" alt="Кнопка обзора файлов">
+
+        <p>После нажатия на кнопку откроется окно проводника, в котором необходимо выбрать файл Excel.</p>
+        <img src="../../../images/articles/article5-img6.png" alt="Окно проводника для выбора файла">
+
+        <p>Выберите файл и нажмите "Открыть". После этого в программе отобразиться путь к выбраному файлу.</p>
+        <img src="../../../images/articles/article5-img7.png" alt="Путь к выбранному файлу">
+
+        <h3>Шаблон настроек</h3>
+        <p>Шаблоны настроек позволяют использовать ранее указанные параметры, без необходимости каждый раз заполнять настройки для однотипных документов.</p>
+        <img src="../../../images/articles/article5-img8.png" alt="Шаблон настроек">
+
+        <p>Заполните номера столбцов и укажите другие опции, а затем сохраните шаблон. При следующей загрузке вы сможете повторно использовать шаблон, чтобы не заполнять такие же значения.</p>
+
+        <h3>Лист с данными</h3>
+        <p>Документ Excel может содержать один или несколько листов с данными. Выглядит это так:</p>
+        <img src="../../../images/articles/article5-img9.png" alt="Листы в документе Excel">
+
+        <p>В форме загрузки необходимо выбрать тот лист, с которого будет происходить загрузка. Если в документе один лист, то он будет выбран автоматически.</p>
+        <img src="../../../images/articles/article5-img10.png" alt="Выбор листа с данными">
+
+        <h3>Первая строка</h3>
+        <p>В некоторых случаях полезные данные могут начинаться не с первой строки. Чтобы минимизировать количество лишних данных, укажите строку, с которой начинается необходимая информация.</p>
+        <p>В нашем примере это строка №2, т.к. в самой первой строке расположены названия столбцов.</p>
+        <img src="../../../images/articles/article5-img11.png" alt="Настройка первой строки">
+
+        <h3>Наименование</h3>
+        <p>Укажите номер столбца из которого для товаров будет заполнено наименование. В документе из примера это столбец №3</p>
+        <img src="../../../images/articles/article5-img12.png" alt="Настройка столбца наименования">
+
+        <p>Строки, в которых для товара нет наименования, будут пропущены. Так же НЕ будут загружены товары, название для которых меньше 3 символов.</p>
+
+        <h3>Штрихкод</h3>
+        <p>Для поля "штрихкод" укажите номер столбца. В нашем примере это столбец №1 в документе Excel</p>
+        <img src="../../../images/articles/article5-img13.png" alt="Настройка столбца штрихкода">
+
+        <p>Параметр "если пусто, то" подразумевает действия программы в том случае, если значение в ячейке будет пустым. Доступны три варианта:</p>
+        <ul>
+            <li><strong>Оставить пустым</strong> – штрихкод товара не будет указан</li>
+            <li><strong>Генерировать штрихкод автоматически</strong> – программа сгенерирует ШК автоматически. Префикс для таких ШК будет установлен указанный в настройках</li>
+            <li><strong>Пропустить строку</strong> – данные из строки не будут использоваться</li>
+        </ul>
+
+        <h3>Категория товара</h3>
+        <p>Для присвоения категории товару можно выбрать несколько вариантов действия.</p>
+        <img src="../../../images/articles/article5-img14.png" alt="Настройка категории товара">
+
+        <p>Если в документе категория не указана – можно задать одну категорию на все загружаемые товары.</p>
+        <p>В документе, который мы взяли в качестве пример, категории для товаров указаны. В этом случае можно использовать загрузку категории из документа. Столбец с категорией в нашем случае – №2.</p>
+
+        <h4>Если такой категории в базе нет, то</h4>
+        <p>Здесь необходимо указать логику поведения программы в том случае, если категории с названием из документа не удалось найти в базе данных.</p>
+        <ul>
+            <li><strong>Добавить категорию в базу</strong> – будет создана категория с названием из ячейки.</li>
+            <li><strong>Присвоить категорию</strong> – будет присвоена выбранная категория</li>
+        </ul>
+        <p>В нашем случае мы будем создавать категорию, т.к. в базе данных еще нет категорий.</p>
+
+        <h4>Если пусто, то</h4>
+        <p>В случае, если в ячейке категории пусто, то программа может выполнить следующие действия:</p>
+        <ul>
+            <li><strong>Пропустить строку</strong> – данные из такой строки будут пропущены</li>
+            <li><strong>Присвоить категорию</strong> – будет присвоена выбранная категория</li>
+        </ul>
+
+        <h3>Описание</h3>
+        <img src="../../../images/articles/article5-img15.png" alt="Настройка дополнительных полей">
+
+        <p>Кроме основных параметров товара из Excel могут быть загружены в т.ч. такие данные:</p>
+        <ul>
+            <li>описание товара</li>
+            <li>дополнительные штрихкоды</li>
+            <li>значения дополнительных полей</li>
+        </ul>
+
+        <p>Укажите номера столбцов для таких данных, если необходимо.</p>
+        <p>Если включить опцию "пропускать, если пусто", то строка с пустым значением поля будет пропущена.</p>
+        <p><a href="#">Видео-урок: как добавить доп. поля для товаров и контактов</a></p>
+
+        <h3>Загрузить</h3>
+        <p>Проверьте, что все данные были введены верно и нажмите "Загрузить", чтобы программа начала обработку документа и загрузку данных в каталог товаров.</p>
+        <img src="../../../images/articles/article5-img16.png" alt="Кнопка Загрузить">
+
+        <p>После завершения загрузки программа отобразит уведомление с количеством загруженных позиций.</p>
+        <img src="../../../images/articles/article5-img17.png" alt="Уведомление о завершении загрузки">
+
+        <h2>Проверка результата</h2>
+        <p>Если все сделано верно, то в каталоге товаров появятся те записи, которые были в выбранном документе Excel</p>
+        <img src="../../../images/articles/article5-img18.png" alt="Каталог товаров с загруженными данными из Excel">
+        <p><em>Каталог товаров с загруженными данными из Excel</em></p>
+    </div>
+</body>
+</html>

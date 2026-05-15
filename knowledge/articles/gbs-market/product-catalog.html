@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары - Каталог товаров GBS.Market</title>
+    <meta name="description" content="Описание каталога товаров, в котором происходит управление номенклатурой и ассортиментом товаров">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Товары - Каталог товаров</h1>
+        <p>Описание каталога товаров, в котором происходит управление номенклатурой и ассортиментом товаров</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Каталог товаров
+    </div>
+    <div class="article-content">
+        <p>Каталог товаров – это раздел в программе, в котором происходит управление номенклатурой и ассортиментом товаров, продаваемых в торговой точке. В каталоге можно создать новые товары, отредактировать имеющиеся, изменить цены, загрузить товары из Excel и т.п.</p>
+        
+        <img src="../../../images/articles/article40-img1.png" alt="Внешний вид каталога товаров">
+        
+        <p>Открыть форму поиска можно, например, с главной формы, нажав в меню Товары – Каталог товаров.</p>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Доступ к каталогу товаров, а так же отдельные действия с товарами могут быть ограничены правами доступа.</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <h2>Меню</h2>
+        <img src="../../../images/articles/article40-img2.png" alt="Описание пунктов меню каталога товаров">
+
+        <h3>Файл</h3>
+        <ul>
+            <li><strong>Загрузить из Excel</strong> – открывает форму для выбора документа Excel и установки параметров загрузки товаров из Excel</li>
+            <li><strong>Сохранить как…</strong> – позволяет сохранить содержимое каталога в Excel или CSV файл</li>
+            <li><strong>Печатать</strong> – позволяет распечатать содержимое каталога товаров, например, сделать прайс-лист</li>
+        </ul>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция как сохранить данные в Excel или CSV</a></li>
+                <li><a href="#">Инструкция по загрузке товаров в каталог из Excel</a></li>
+                <li><a href="#">Инструкция по загрузке товаров через накладную из Excel</a></li>
+            </ul>
+        </div>
+
+        <h2>Блок "поиск"</h2>
+        <img src="../../../images/articles/article40-img3.png" alt="Блок поиска">
+
+        <h3>Поле "поиск"</h3>
+        <p>Поле "поиск" предназначено для ввода поискового запроса. Например, можно ввести название товара, его артикул, штрихкод или значение любого дополнительного поля товара. Поиск будет осуществляться по тем полям, которые выбраны в фильтре поиска.</p>
+
+        <h3>Категории</h3>
+        <p>При нажатии на кнопку "категории" можно выбрать одну или несколько категорий. Товары в списке будут отображены только те, которые входят в выбранные категории (группы).</p>
+
+        <h3>Фильтр поиска</h3>
+        <img src="../../../images/articles/article40-img4.png" alt="Внешний вид фильтра поиска товаров">
+
+        <h4>Искать в ...</h4>
+        <p>Раздел позволяет выбрать поля, по которым производится поиск по значению, введенному в поисковой строке.</p>
+        <p>Например, вы можете включить поиск по названию и штрихкоду, но отключить поиск по дополнительным свойствам товаров.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке дополнительных полей</a></li>
+            </ul>
+        </div>
+
+        <h4>Тип поиска</h4>
+        <p>Тип поиска определяет логику сопоставления значения поля и поисковой строки.</p>
+        <p>Поиск всегда регистронезависимый, т.е. строки</p>
+        <ul>
+            <li>настройка оборудования</li>
+            <li>Настройка ОБОРУДОВАНИЯ</li>
+            <li>НаСтРоЙка ОбОРудоваНия</li>
+        </ul>
+        <p>будут считаться одинаковыми.</p>
+
+        <h4>Полное совпадение</h4>
+        <p>Если выбран данный вариант, то значение полей (по которым включен поиск) должно полностью соответствовать значению в поисковой строке.</p>
+        <p>Например, если товар называется "Куртка красная", то он будет найден только по запросу "куртка красная", но не будет найден по запросу "куртка".</p>
+        <p>Такой тип поиска удобнее использовать для поиска по дополнительным полям.</p>
+
+        <h4>Обычный поиск</h4>
+        <p>Если выбран данный вариант, то значение полей (по которым включен поиск) должно содержать все слова из поискового запроса. Под словом подразумевается набор символов, отделенных от другого набора пробелом. Порядок слов в поисков запросе не играет роли.</p>
+        <p>Например, по запросу "космос синий гирлянда" будет найден товар "Гирлянда – занавес Космос цвет синий 2,5*1,1 метра".</p>
+
+        <h4>Неточное совпадение</h4>
+        <p>Если выбран данный вариант, то результат поиска будет выдавать товары, у которых значение максимально близки к поисковому запросу. При этом поисковый запрос может содержать ошибки в написании.</p>
+        <p>Например, по запросу "кранштеин" будет найден товар "Кронштейн для ТВ наклонно-поворотный MART S366"</p>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Для поиска значений используется алгоритм "Расстояние Левенштейна".</p>
+        </div>
+
+        <h4>Стоимость</h4>
+        <p>Для поиска товаров с определенной розничной ценой выберите способ сравнение (больше, меньше, равно) и укажите значение цены.</p>
+        <p>В результате будут показаны товары, у которых хотя бы для одного остатка цена будет равна указанной.</p>
+        <p>Стоит учесть, что в списке можно увидеть товары, у которых стоимость отличается от указанной в поле ввода. Это может произойти тогда, когда у товара есть несколько остатков с разной ценой. Т.е. товар имеет остаток с указанной стоимостью, но в списке будет отображаться максимальная из цен.</p>
+        <p>Например, в фильтре "стоимость" будет указано значение "= 890". В нем может отобразиться товар с ценой 900. Если открыть карточку такого товара, будет видно, что у него на остатке 2 позиции с ценой 890 и 900. Следовательно, он должен попасть в результаты поиска.</p>
+        <p>Очистите значение поля, чтобы искать товары с любой ценой.</p>
+
+        <h4>Остаток</h4>
+        <p>Для поиска товаров, с определенным остатком можно указать значение в поле "остаток". Например, нужно найти все товары, которые есть на остатке. Тогда для поля "остаток" необходимо указать фильтр "> 0".</p>
+        <p>Очистите значение поля, чтобы найти товары с любым остатком.</p>
+
+        <h4>Поставщики</h4>
+        <p>При выборе поставщика в списке товаров будут отображены те товары, которые когда-либо поступали товары от выбранного поставщика. При этом эти же товары могли поступать и от других поставщиков.</p>
+
+        <h4>Дополнительный фильтр</h4>
+        <p>В дополнительном фильтре доступны на выбор варианты:</p>
+        <ul>
+            <li><strong>Все товары</strong> – товары не будут фильтроваться по какому-то дополнительному свойству</li>
+            <li><strong>Одинаковый ШК</strong> – будут показаны те товары, для которых есть дубликаты по штрихкоду</li>
+            <li><strong>Одинаковое название</strong> – будут показаны товары, для которых есть дубликаты по названию</li>
+        </ul>
+
+        <h4>Склад</h4>
+        <p>Выбор склада для поиска товаров. В результате поиска будут отображены только те товары, у которых есть остатки на указанном складе.</p>
+
+        <h2>Список товаров</h2>
+        <img src="../../../images/articles/article40-img5.png" alt="Внешний вид списка товаров">
+        
+        <p>В списке отображаются товары, которые попали под введенный поисковый запрос. Если параметры поиска не указаны – будут показаны все товары из базы данных.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция по управлению отображением столбцов в списке</a></li>
+            </ul>
+        </div>
+
+        <h3>Добавить</h3>
+        <p><strong>Кнопка "Добавить"</strong> Нажмите на кнопку, чтобы создать новый товар</p>
+        <p>Нажмите на кнопку "добавить", чтобы создать новый товар. Будет открыта карточка товара, для указания его параметров.</p>
+        <p>Если поле "поиск" заполнено, то значение этого поля будет указано в карточке товара в поле "название".</p>
+        <p>Если выбрана одна категория для фильтрации, то в карточке создаваемого товара эта категория будет указана как категория создаваемого товара.</p>
+
+        <h3>Редактировать</h3>
+        <p><strong>Кнопка "Редактировать"</strong> Нажмите на кнопку, чтобы изменить выбранный товар</p>
+        <p>Чтобы изменить товары, выберите необходимый элемент в списке и нажмите кнопку "редактировать".</p>
+        <p>Откроется карточка товара для редактирования.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция по групповому редактированию товаров</a></li>
+            </ul>
+        </div>
+
+        <h3>Создать копию</h3>
+        <p><strong>Кнопка "Создать копию"</strong> Нажмите на кнопку, чтобы создать копию выбранных товаров</p>
+        <p>Чтобы создать копию, выберите один или несколько товаров и нажмите кнопку "создать копию".</p>
+        <p>При копировании будут созданы новые товары с параметрами, аналогичными выбранных товаров.</p>
+
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+            <p>Остатки и цены товаров НЕ будут скопированы. В т.ч. закупочной цены у данного товара не будет, т.к. для него еще не создавалось накладной на поступление.</p>
+        </div>
+
+        <h3>Объединить</h3>
+        <p><strong>Кнопка "Объединить"</strong> Нажмите на кнопку, чтобы объединить выбранные товары</p>
+        <p>Обычно объединение товаров используется для устранения дубликатов, которые можно найти с помощью фильтрации по одинаковому штрихкоду или названию.</p>
+        <p>Чтобы объединить товары, необходимо выбрать хотя бы две записи в списке товаров.</p>
+        <p>При объединении товаров их остатки будут объеденины в один товар. История действий с товарами будет объединена.</p>
+
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+            <p>Есть ряд ограничений на объединение товаров. Объединяемые товары должны иметь сопоставимые свойства.</p>
+            <ul>
+                <li>Нельзя объединять составные товары</li>
+                <li>Нельзя объединять товары разных типов (например, услуги с обычными товарами)</li>
+            </ul>
+        </div>
+
+        <h3>Удалить</h3>
+        <p><strong>Кнопка "Удалить"</strong> Нажмите на кнопку, чтобы удалить выбранные товары</p>
+        <p>Выберите один или несколько товаров, чтобы удалить их из каталога. После удаления товары больше не будут доступны для выполнения каких-либо операций.</p>
+
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+            <p>Удаление товаров из каталога не приведет к их фактическому удалению из базы данных. Такие товары будут отмечены в базе флагом "удален". Т.е. история действий (продажи, поступления и т.п.) для таких товаров останутся и вы продолжите их видеть в журнале продаж и других отчетах.</p>
+        </div>
+
+        <h2>Блок итогов</h2>
+        <img src="../../../images/articles/article40-img6.png" alt="Внешний вид блока итогов">
+
+        <h3>Наименований</h3>
+        <p>Количество наименований товаров, отображаемых в списке</p>
+
+        <h3>Кол-во</h3>
+        <p>Сумма остатков всех товаров, отображаемых в списке</p>
+
+        <h3>На сумму (розница)</h3>
+        <p>Сумма розничных цен всех товаров, отображаемых в списке. Т.е. это та сумма, которая будет получена при продаже всех товаров из списка</p>
+
+        <h3>На сумму (закупка)</h3>
+        <p>Сумма закупочных цен всех товаров, отображаемых в списке. Т.е. это сумма, которая была потрачена на закупку товаров из спика</p>
+
+        <h2>Вопросы и ответы</h2>
+
+        <h3>Вопрос: Как восстановить удаленный товар?</h3>
+        <p>Для восстановления удаленного товара:</p>
+        <ol>
+            <li>откройте каталог товаров</li>
+            <li>отфильтруйте для отображения удаленных товаров</li>
+        </ol>
+        
+        <img src="../../../images/articles/article40-img7.png" alt="Фильтрация удаленных товаров">
+        
+        <ol start="3">
+            <li>найдите в списке товар, или воспользуйтесь поиском по названию</li>
+            <li>нажмите "редактировать"</li>
+            <li>сохраните карточку товара – программа предложил восстановить товар</li>
+        </ol>
+        
+        <img src="../../../images/articles/article40-img8.png" alt="Восстановление товара">
+        
+        <ol start="6">
+            <li>нажмите "Да", чтобы восстановить товар</li>
+        </ol>
+    </div>
+</body>
+</html>

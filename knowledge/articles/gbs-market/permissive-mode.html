@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Что нужно знать про "Разрешительный режим" для маркированных товаров - GBS.Market</title>
+    <meta name="description" content="Разрешительный режим - это схема работы кассовой программы таким образом, чтобы не допустить продажу маркированных товаров, которые не прошли проверку в ГИС МТ">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .permissive-mode-intro-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .permissive-mode-intro-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .permissive-mode-intro-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .permissive-mode-intro-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .permissive-mode-intro-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .equipment-requirements-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .equipment-requirements-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .equipment-requirements-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .equipment-requirements-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .equipment-requirements-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .online-cash-requirements-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .online-cash-requirements-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .online-cash-requirements-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .online-cash-requirements-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .online-cash-requirements-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .scanner-requirements-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .scanner-requirements-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .scanner-requirements-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .scanner-requirements-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .scanner-requirements-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            border-left: 4px solid #e91e63;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
+        }
+        .settings-box h4 {
+            color: #c2185b;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .settings-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .product-groups-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .product-groups-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .product-groups-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .product-groups-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .product-groups-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .online-verification-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .online-verification-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .online-verification-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .online-verification-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .online-verification-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .additional-settings-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .additional-settings-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .additional-settings-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .additional-settings-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .additional-settings-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .criteria-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .criteria-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .criteria-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .criteria-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .criteria-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .fiscal-tag-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            border-left: 4px solid #e91e63;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
+        }
+        .fiscal-tag-box h4 {
+            color: #c2185b;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .fiscal-tag-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .fiscal-tag-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .fiscal-tag-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .logs-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .logs-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .logs-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .logs-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .logs-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .verification-process-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .verification-process-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .verification-process-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .verification-process-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .verification-process-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .mrc-verification-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .mrc-verification-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .mrc-verification-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .mrc-verification-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .mrc-verification-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .offline-mode-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .offline-mode-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .offline-mode-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .offline-mode-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .offline-mode-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .qa-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            border-left: 4px solid #e91e63;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
+        }
+        .qa-box h4 {
+            color: #c2185b;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .qa-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .qa-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .qa-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .troubleshooting-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .troubleshooting-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .troubleshooting-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .troubleshooting-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .troubleshooting-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .support-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .support-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .support-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .support-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .support-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .supported-cash-registers {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .supported-cash-registers h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .supported-cash-registers ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .supported-cash-registers li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .fiscal-tags {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .fiscal-tags h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .fiscal-tags ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .fiscal-tags li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .fiscal-tags strong {
+            color: #2d5986;
+            font-weight: 600;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Что нужно знать про "Разрешительный режим" для маркированных товаров</h1>
+        <p>Разрешительный режим - это схема работы кассовой программы таким образом, чтобы не допустить продажу маркированных товаров, которые не прошли проверку в ГИС МТ</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Что нужно знать про "Разрешительный режим" для маркированных товаров
+    </div>
+    <div class="article-content">
+        <div class="permissive-mode-intro-box">
+            <h4><i class="fa fa-shield"></i> "Разрешительный режим"</h4>
+            <p>Это схема работы кассовой программы таким образом, чтобы не допустить продажу маркированных товаров, которые не прошли проверку в ГИС МТ. Такой режим проверок кодов маркировки поэтапно вводится с 1 апреля 2024 года.</p>
+            <p>Подробнее о "разрешительном режиме" можно узнать на сайте системы "Честный знак" по ссылке.</p>
+            <p>Кассовая программа GBS.Market готова к работе в рамках "разрешительного режима". В этой статье рассмотрим процесс настройки и продаж в рамках указанного режима.</p>
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Info</h4>
+            <p>Полноценная работа с "разрешительным режимом" доступна начиная с версии 6.5.6.2240 и новее.</p>
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Как обновить GBS.Market?</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="equipment-requirements-box">
+            <h2><i class="fa fa-cogs"></i> Требования к кассовому оборудованию</h2>
+            
+            <div class="online-cash-requirements-box">
+                <h3><i class="fa fa-calculator"></i> Требования к онлайн-кассе</h3>
+                
+                <div class="info-box">
+                    <h4><i class="fa fa-info-circle"></i> Info</h4>
+                    <p>По имеющейся у нас информации работа в рамках "разрешительного режима" обязательна в случае использования кассы с ФФД 1.2. Если касса еще не была обновлена – переход на "разрешительный режим" не обязателен.</p>
+                </div>
+                
+                <p>Для того чтобы данные о выбытии кодов маркировки в процессе продажи передавались в систему "Честный знак", необходимо убедиться, что касса поддерживает формат фискальных документов версии 1.2.</p>
+                
+                <p>В некоторых случаях может потребоваться:</p>
+                <ul>
+                    <li>замена фискального накопителя</li>
+                    <li>обновление прошивки ККМ</li>
+                    <li>обновление драйвера для кассы</li>
+                </ul>
+                
+                <p>Когда касса будет готова к работе по ФФД 1.2, необходимо в кассовой программе GBS.Market указать используемую версию ФФД:</p>
+                <ul>
+                    <li>отройте на главной форме в меню: <strong>Файл – Настройки</strong></li>
+                    <li>перейдите на вкладку "<strong>Оборудование</strong>", далее "<strong>Печать чеков</strong>"</li>
+                    <li>укажите версию <strong>ФФД 1.2</strong></li>
+                </ul>
+                
+                <div class="warning-box">
+                    <h4><i class="fa fa-exclamation-triangle"></i> Warning</h4>
+                    <p>Обратите внимание, что версия ФФД в настройках программы должна соответствовать версии ФФД онлайн-кассы. Простое переключение настроек программы не приведет к обновлению ФФД в кассе.</p>
+                </div>
+                
+                <img src="../../../images/articles/article73-img1.png" alt="Настройка ФФД 1.2 в программе">
+                
+                <div class="supported-cash-registers">
+                    <h4>Передача фискального тега 1260 реализована для:</h4>
+                    <ul>
+                        <li>кассы АТОЛ, работающие через драйвер v.10.*</li>
+                        <li>кассы АТОЛ, работающие через веб-сервер</li>
+                        <li>кассы АТОЛ, работающие через web-request</li>
+                        <li>кассы Штрих-М, работающие через драйвер версии 5.*</li>
+                        <li>кассы Меркурий</li>
+                        <li>кассы, подключенные через ККМ-Сервер</li>
+                        <li>кассы Нева</li>
+                        <li>кассы ВикиПринт, подключенные через VikiDirver</li>
+                    </ul>
+                </div>
+                
+                <div class="materials-box">
+                    <h4>Полезные материалы</h4>
+                    <ul>
+                        <li><a href="#">Полный перечь касс, поддерживаемых программой</a></li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h4><i class="fa fa-exclamation-triangle"></i> Warning</h4>
+                    <p>Обратите внимание, что передача тега 1260 для онлайн-касс ВикиПринт, подключенных через pirit.dll не работает и не будет реализована! Необходимо перейти на использование VikiDriver, который доступен в GBS.Market 6.6.</p>
+                </div>
+            </div>
+            
+            <div class="scanner-requirements-box">
+                <h3><i class="fa fa-qrcode"></i> Требования к сканеру штрихкодов</h3>
+                <p>Для работы в рамках разрешительного режима необходимо убедиться, что используемый сканер штрихкодов настроен и работает корректно.</p>
+                
+                <p>Важно учесть, что код маркировки для проверки должен передаваться с учетом символов "разделители групп разрядов" (&lt;GS&gt;), либо заменять их на пробелы. В противном случае ГИС МТ может сообщать, что код маркировки не найден в системе.</p>
+                
+                <p>Рекомендуется использовать сканер в режиме "эмуляция COM-порта" для корректного считывания кода маркировки.</p>
+                
+                <p>Проверить готовность и корректную работу 2D-сканера можно по инструкции.</p>
+            </div>
+        </div>
+
+        <div class="settings-box">
+            <h2><i class="fa fa-cogs"></i> Настройка кассовой программы для разрешительного режима</h2>
+            <p>Для настройки работы в рамках разрешительного режима в кассовой программе GBS.Market откройте с главной формы в меню <strong>Файл – Настройки</strong>, а затем перейдите в <strong>Законодательство – Честный знак (маркировка)</strong></p>
+            
+            <img src="../../../images/articles/article73-img2.png" alt="Настройки Честный знак (маркировка)">
+            
+            <div class="product-groups-box">
+                <h3><i class="fa fa-list-ul"></i> Настройка товарных групп</h3>
+                <p>Начиная с версии 6.5.15 в GBS.Market доступно включение разрешительного режима отдельно для каждой товарной группы. В окне настроек нажмите кнопку "Настроить товарные группы".</p>
+                
+                <img src="../../../images/articles/article73-img3.png" alt="Кнопка Настроить товарные группы">
+                
+                <p>Откроется окно с перечнем товарных групп, которые подлежат обязательной маркировке. Убедитесь, что напротив тех групп, из которых вы продаете товары, включена опция "Участник оборота", а затем включите "Разрешительный режим" для необходимых товарных групп.</p>
+                
+                <img src="../../../images/articles/article73-img4.png" alt="Настройка товарных групп">
+                
+                <p>При необходимости вы можете включить проверку владельца кода маркировки. В случае включения такой опции программа будет ограничивать продажу, если владелец кода маркировки не совпадает с владельцем токена ККТ.</p>
+            </div>
+            
+            <div class="online-verification-box">
+                <h3><i class="fa fa-wifi"></i> Настройка онлайн-проверка кодов маркировки в ГИС МТ</h3>
+                <p>После выбора товарных групп необходимо настроить онлайн-проверку кодов маркировки в ГИС МТ (Честный знак) для работы по "Разрешительному режиму".</p>
+                
+                <p>Для возможности проверки кодов маркировки в системе "Честный знак", необходимо в личном кабинете ГИС МТ выполнить генерацию токена для ККТ, который далее потребуется указать в кассовой программе GBS.Market. О том, как получить токен для ККТ, можно узнать в инструкции.</p>
+                
+                <p>После получения токена его необходимо указать в настройках в поле "Токен ККТ".</p>
+                
+                <img src="../../../images/articles/article73-img5.png" alt="Поле Токен ККТ">
+                
+                <p>Включите опцию "Проверять коды маркировки в Честном знаке"</p>
+                
+                <img src="../../../images/articles/article73-img6.png" alt="Опция проверки кодов маркировки">
+            </div>
+            
+            <div class="additional-settings-box">
+                <h3><i class="fa fa-sliders"></i> Дополнительные настройки проверки</h3>
+                <p>Для более тонкой настройки в разделе "Параметры проверки кода маркировки" можно указать необходимые значения.</p>
+                
+                <img src="../../../images/articles/article73-img7.png" alt="Параметры проверки кода маркировки">
+                
+                <ul>
+                    <li><strong>таймаут проверки</strong> – время, сколько программа будет ждать ответ от системы "Честный знак". Минимум – 1,5 секунды. Если интернет медленный – необходимо увеличить значение</li>
+                    <li><strong>запрет продажи за Х часов до окончания срока годности</strong> – вы можете запретить продажу раньше, чем фактически истекает срок годности товара</li>
+                    <li><strong>проверять соответствие розничной цены и МРЦ (для табака)</strong> – включает ограничение для продажи табачной продукции по некорректной цене</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="criteria-box">
+            <h2><i class="fa fa-check-circle"></i> Критерии соответствия GBS.Market требованиям "Разрешительного режима"</h2>
+            
+            <h3>Проверка кодов маркировки через ГИС МТ</h3>
+            <p>В кассовой программе GBS.Market реализовано соответствие критериям проверки кодов маркировки согласно методическим рекомендациям системы "Честны знак". Учитываются следующие случаи запрета:</p>
+            <ul>
+                <li>Сведения о КМ отсутствуют в ГИС МТ</li>
+                <li>Структура КМ не соответствует формату</li>
+                <li>КМ выведен из оборота</li>
+                <li>Продажа товара заблокирована по решению органов власти</li>
+                <li>КМ не введен в оборот</li>
+                <li>Срок годности товара истек</li>
+                <li>Цена товара не соответствует МРЦ (для табака)</li>
+            </ul>
+            
+            <p>Кроме этого могут выполняться следующие проверки:</p>
+            <ul>
+                <li>отсутствие КМ у товара, подлежащего маркировке</li>
+                <li>КМ на момент проверке числится на балансе у другой организации, отличной от владельца токена</li>
+                <li>дублирование КМ в рамках одного чека (кроме товаров с частичным выбытием)</li>
+            </ul>
+        </div>
+
+        <div class="fiscal-tag-box">
+            <h3><i class="fa fa-file-text"></i> Передача фискального признака по факту проверки КМ</h3>
+            <p>Требования "Разрешительного режима" подразумевают передачу информации о факте проверки кода маркировки в фискальный чек в составе тега 1260 (отраслевой реквизит предмета расчета).</p>
+            
+            <div class="fiscal-tags">
+                <h4>Теги, входящие в состав 1260 (Уведомление о реализации):</h4>
+                <ul>
+                    <li><strong>тег 1262</strong> (идентификатор ФОИВ) = 030</li>
+                    <li><strong>тег 1263</strong> (дата документа основания) = 21.11.2023</li>
+                    <li><strong>тег 1264</strong> (номер документа основания) = 1944</li>
+                    <li><strong>тег 1265</strong> (значение отраслевого реквизита) – содержит данные об идентификаторе и времени запроса проверки КМ</li>
+                </ul>
+            </div>
+            
+            <img src="../../../images/articles/article73-img8.png" alt="Фискальные теги в чеке">
+        </div>
+
+        <div class="logs-box">
+            <h3><i class="fa fa-file-text-o"></i> Хранение логов обмена данными с ГИС МТ</h3>
+            <p>Для возможности проверки отсутствия фактов проверки кодов маркировки по "Разрешительному режиму" необходимо хранение логов (журналов работы) по обмену данными с ГИС МТ.</p>
+            
+            <p>GBS.Market фиксирует информацию об обмене с ГИС МТ в отдельные файлы логов в папке <strong>CRPT_logs</strong> и хранит их в течение 3 месяцев.</p>
+        </div>
+
+        <h2><i class="fa fa-shopping-cart"></i> Как работает "разрешительный режим" при продаже маркированных товаров</h2>
+
+        <div class="verification-process-box">
+            <h3><i class="fa fa-check"></i> Проверка статуса кода маркировки</h3>
+            <p>После того как будут указаны настройки, соответствующие работе по "разрешительному режиму", кассовая программа GBS.Market в момент добавления товаров в чек будет производить проверку введенного кода маркировки через систему "Честный знак". В случае, если по указанному коду есть ограничения – будет показано соответствующее уведомление.</p>
+            
+            <img src="../../../images/articles/article73-img9.png" alt="Уведомление об ошибке проверки">
+            
+            <p>В списке товаров в корзине (чеке) столбец, содержащий код маркировки (комментарий) будет отмечен красным цветом.</p>
+            
+            <img src="../../../images/articles/article73-img10.png" alt="Красная подсветка кода маркировки">
+            
+            <p>При наведении на код маркировки будет отображена всплывающая подсказка с перечнем ошибок проверки кода маркировки.</p>
+            
+            <img src="../../../images/articles/article73-img11.png" alt="Всплывающая подсказка с ошибками">
+            
+            <p>Кроме этого, на ячейку с кодом маркировки можно кликнуть – программа отобразит перечень ошибок по КМ. Это удобно, например, при использовании сенсорных экранов, когда мышь не используется в работе.</p>
+            
+            <img src="../../../images/articles/article73-img12.png" alt="Окно с ошибками при клике">
+            
+            <p>В случае, если продажа товаров с некорректными кодами маркировки запрещена, то при попытке завершить продажу, содержащую товары с кодами маркировки, не прошедшими проверку, программа заблокирует возможность сохранения продажи.</p>
+            
+            <img src="../../../images/articles/article73-img13.png" alt="Блокировка продажи">
+            
+            <p>Для того чтобы продолжить продажу, необходимо проверить товары в корзине (чеке) и при необходимости внести изменения.</p>
+        </div>
+
+        <div class="mrc-verification-box">
+            <h3><i class="fa fa-dollar"></i> Проверка МРЦ для табачной продукции</h3>
+            <p>Если в настройках программы включена опция "Проверять соответствие розничной цены в программе и МРЦ", то в процессе продажи кассовая программа GBS.Market проверит минимальную розничную цену табачной продукции, зашифрованную в коде маркировки, на соответствие цене, указанной в программе.</p>
+            
+            <img src="../../../images/articles/article73-img14.png" alt="Проверка МРЦ">
+            
+            <p>В момент сканирования кода маркировки программа сверит цену, установленную на табачную продукцию, с МРЦ из кода маркировки. Если будет обнаружено расхождение, кассовая программа скорректирует цену в чеке и покажет уведомление.</p>
+            
+            <img src="../../../images/articles/article73-img15.png" alt="Уведомление о корректировке цены">
+            
+            <p>Ячейка с ценой в списке товаров будет выделена оранжевым цветом. А при наведении на ячейки будет показана всплывающая подсказка с причиной изменения цены.</p>
+            
+            <img src="../../../images/articles/article73-img16.png" alt="Оранжевая подсветка цены">
+            
+            <p>При клике на ячейку будет показано сообщение с указанием товара и причиной изменения его цены.</p>
+            
+            <img src="../../../images/articles/article73-img17.png" alt="Сообщение о причине изменения цены">
+            
+            <p>При попытке завершить продажу для чека, в котором есть табачная продукция с ценой, отличающейся от МРЦ, программа не позволит это сделать и покажет уведомление. Такая ситуация может возникнуть когда, например, установлена скидка на позицию.</p>
+            
+            <img src="../../../images/articles/article73-img18.png" alt="Блокировка продажи табака с неправильной ценой">
+        </div>
+
+        <div class="offline-mode-box">
+            <h2><i class="fa fa-wifi"></i> Работа с локальным модулем в "оффлайн-режиме"</h2>
+            <p>В марте 2025 года вступают в силу требования по обязательному использованию локального модуля "Честный знак", которые позволяет производить оффлайн-проверку кодов маркировки.</p>
+            
+            <div class="info-box">
+                <h4><i class="fa fa-info-circle"></i> Информация</h4>
+                <p>Поддержка интеграции с локальным модулем в кассовой программе доступна начиная с версии 6.7.0.2700 и новее.</p>
+            </div>
+            
+            <p>Использование локального модуля происходит в случае, если нет доступа к онлайн-проверке.</p>
+            
+            <p>Процесс продажи в оффлайн-режиме аналогичен онлайн-режиму, с одним лишь отличием - программа будет проверять код маркировки в локальном модуле. В случае, если в оффлайн-базе есть информация о запрете продажи конкретного - кассовая программа GBS.Market не позволит завершить продажу.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Установка локального модуля</a></li>
+                    <li><a href="#">Настройка подключения к локальному модулю</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="qa-box">
+            <h2><i class="fa fa-question-circle"></i> Вопросы и ответы</h2>
+            
+            <h3>Как проверить статус кода маркировки</h3>
+            <p>Статус кода маркировки можно проверить в т.ч. через официальные мобильные приложения "Честного знака":</p>
+            <ul>
+                <li>Приложение для потребителей</li>
+                <li>Приложение для бизнеса</li>
+            </ul>
+            
+            <h3>Что делать, если программа сообщает "Код маркировки не найден в ГИС МТ"</h3>
+            <p>При работе в рамках разрешительного режима кассовая программа GBS.Market отправляет запрос на проверку кода маркировки в систему честный знак. В ряде случае от ГИС МТ может прийти ответ <strong>Код маркировки не найден в ГИС МТ</strong>. Это может означать следующее:</p>
+            <ul>
+                <li>сканер штрихкода некорректно сканирует код маркировки</li>
+                <li>код маркировки напечатан некорректно</li>
+                <li>код маркировки поддельный</li>
+            </ul>
+            
+            <p>В такой ситуации попробуйте следующее.</p>
+            
+            <div class="troubleshooting-box">
+                <h4><i class="fa fa-wrench"></i> Удалите товар из чека и добавьте снова</h4>
+                <p>Возможно, что при сканировании кода маркировки случится технической сбой или виной человеческий фактор, например, случайно дважды отсканировали код маркировки. Удаление и добавление товара должно помочь в такой ситуации.</p>
+                
+                <h4><i class="fa fa-qrcode"></i> Проверьте работу сканера штрихкодов</h4>
+                <p>Если ситуация повторяется систематически, возможно, что сканер настроен некорректно и распознает коды маркировки неправильно. Обратитесь в техническую поддержку производителя сканера. Например, некоторые модели сканеров требуют обновление прошивки для корректной работы с кодами DataMatrix</p>
+                
+                <h4><i class="fa fa-cogs"></i> Переключите сканер в режим эмуляции com-порта</h4>
+                <p>Работа в таком режиме позволяет напрямую получать данные из сканера. В режиме "эмуляции клавиатуры" возможные ошибки, когда сканирование происходит при некорректно выбранной раскладке клавиатуры. Кроме этого, сканеры в режиме "эмуляции клавиатуры могут игнорировать непечатные символы, такие как разделители групп разрядов &lt;GS&gt;.</p>
+                
+                <h4><i class="fa fa-mobile"></i> Проверьте код маркировки с помощью приложения</h4>
+                <p>Если перечисленные рекомендации не помогают - проверьте, что приложение "Честный знак. Бизнес" находит сканируемый код маркировки.</p>
+            </div>
+            
+            <div class="support-box">
+                <h4><i class="fa fa-life-ring"></i> Обратитесь в службу поддержки.</h4>
+                <p>Если уверены, что:</p>
+                <ul>
+                    <li>код маркировки есть в системе ГИС МТ</li>
+                    <li>сканер работает корректно</li>
+                </ul>
+                
+                <p>тогда пришлите в нашу службу поддержки следующую информацию:</p>
+                <ul>
+                    <li>фото кода маркировки</li>
+                    <li>скриншот из приложения с результатом проверки</li>
+                    <li>логи работы программы за день, когда возникла ошибка</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

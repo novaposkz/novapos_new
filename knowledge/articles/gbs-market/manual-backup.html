@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание резервной копии вручную GBS.Market</title>
+    <meta name="description" content="Инструкция по созданию резервной копии данных вручную в программе GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .step-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .step-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .step-box ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .step-box li {
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .video-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .video-box h4 {
+            color: #1976d2;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .video-box a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .video-box a:hover {
+            text-decoration: underline;
+        }
+        .backup-data {
+            background: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .backup-data h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .backup-data ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .backup-data li {
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .file-location {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .file-location h4 {
+            color: #0c5460;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .file-location p {
+            margin: 0;
+            color: #0c5460;
+        }
+        .use-cases {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .use-cases h4 {
+            color: #2d5a2d;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .use-cases p {
+            margin: 0;
+            color: #2d5a2d;
+        }
+        .photos-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .photos-warning h4 {
+            color: #856404;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .photos-warning p {
+            margin: 0;
+            color: #856404;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Создание резервной копии вручную</h1>
+        <p>Инструкция по созданию резервной копии данных вручную</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Создание резервной копии вручную
+    </div>
+    <div class="article-content">
+        <div class="use-cases">
+            <h4><i class="fa fa-wrench"></i> Когда пригодится</h4>
+            <p>Создание резервной копии вручную позволяет сохранить данные в любой момент времени. Например, это может пригодиться в случае, когда необходимо сдать компьютер, на котором работает программа, в ремонт.</p>
+        </div>
+
+        <div class="video-box">
+            <h4><i class="fa fa-play-circle"></i> Полезное видео</h4>
+            <p><a href="#">Видео-урок по созданию резервных копий вручную</a></p>
+        </div>
+
+        <h2>Как создать резервную копию</h2>
+        <p>Чтобы создать резервную копию, откройте Файл – Настройки.</p>
+
+        <img src="../../../images/articles/article30-img1.png" alt="Открытие настроек программы">
+
+        <p>В открывшемся окне перейдите на вкладку "База данных", раскройте раздел "Резервное копирование" и нажмите "Создать резервную копию"</p>
+
+        <img src="../../../images/articles/article30-img2.png" alt="Создание резервной копии">
+
+        <p>Программа предложит выбрать местоположение файла и ввести его имя. Например, можно сохранить резервную копию на рабочий стол или на внешний USB-накопитель (флешку).</p>
+
+        <p>Выберите папку и введите имя файла, как на скриншоте.</p>
+
+        <img src="../../../images/articles/article30-img3.png" alt="Выбор места сохранения резервной копии">
+
+        <p>После завершения операции программа сообщит о результате.</p>
+
+        <img src="../../../images/articles/article30-img4.png" alt="Результат создания резервной копии">
+
+        <h2>Где найти созданную копию</h2>
+        <p>Найти файл с резервной копией можно в папке, которую указали в момент сохранения.</p>
+
+        <img src="../../../images/articles/article30-img5.png" alt="Созданная резервная копия в папке">
+
+        <div class="file-location">
+            <h4><i class="fa fa-folder"></i> Расположение файла</h4>
+            <p>Резервная копия сохраняется в указанной вами папке с выбранным именем файла. Файл имеет расширение .zip и содержит все данные программы.</p>
+        </div>
+
+        <h2>Какие данные будут сохранены</h2>
+        <p>В резервной копии будут сохранены:</p>
+
+        <div class="backup-data">
+            <h4><i class="fa fa-database"></i> Содержимое резервной копии</h4>
+            <ul>
+                <li><strong>База данных</strong> – это вся информация, которая есть в программе: товары, сотрудники, продажи, поступления и т.д.</li>
+                <li><strong>Настройки</strong> – все настройки программы: подключенное оборудование, выгрузка данных, резервное копирование и т.п.</li>
+                <li><strong>Шаблоны документов</strong> – все шаблоны печатных форм</li>
+                <li><strong>Шаблоны импорт из Excel</strong> – все шаблоны, созданные для импорта данных из Excel</li>
+            </ul>
+        </div>
+
+        <div class="photos-warning">
+            <h4><i class="fa fa-camera"></i> Важно!</h4>
+            <p>Фотографии товаров и категорий не будут сохранены в резервную копию. Их необходимо скопировать отдельно.</p>
+        </div>
+
+        <div class="step-box">
+            <h4><i class="fa fa-list-ol"></i> Краткая инструкция</h4>
+            <ol>
+                <li>Откройте Файл → Настройки</li>
+                <li>Перейдите на вкладку "База данных"</li>
+                <li>Раскройте раздел "Резервное копирование"</li>
+                <li>Нажмите "Создать резервную копию"</li>
+                <li>Выберите папку для сохранения</li>
+                <li>Введите имя файла</li>
+                <li>Нажмите "Сохранить"</li>
+                <li>Дождитесь завершения операции</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Полезные советы</h4>
+            <ul>
+                <li>Сохраняйте резервные копии на внешние носители (USB-флешки, внешние диски)</li>
+                <li>Используйте понятные имена файлов с датой создания</li>
+                <li>Создавайте резервные копии перед важными изменениями</li>
+                <li>Регулярно создавайте резервные копии для безопасности данных</li>
+                <li>Проверяйте, что резервная копия создалась успешно</li>
+                <li>Храните резервные копии в безопасном месте</li>
+                <li>Не забывайте копировать фотографии товаров отдельно</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Дополнительная информация</h4>
+            <ul>
+                <li>Резервная копия создается в формате ZIP-архива</li>
+                <li>Размер архива зависит от объема данных в программе</li>
+                <li>Процесс создания может занять время при большом объеме данных</li>
+                <li>Резервная копия содержит все настройки и конфигурации</li>
+                <li>Можно создать несколько резервных копий с разными именами</li>
+                <li>Резервная копия позволяет восстановить программу на другом компьютере</li>
+                <li>Фотографии товаров нужно копировать отдельно из папки программы</li>
+            </ul>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Связанные материалы</h4>
+            <ul>
+                <li><a href="#">Автоматическое создание резервных копий</a></li>
+                <li><a href="#">Восстановление из резервной копии</a></li>
+                <li><a href="#">Настройка резервного копирования в облако</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

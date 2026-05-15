@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ККМ и онлайн-кассы: X и Z отчеты GBS.Market</title>
+    <meta name="description" content="Описание процесса снятия дневного отчета и закрытия смены на кассе через программу GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .faq-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .faq-section h3 {
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>ККМ и онлайн-кассы: X и Z отчеты</h1>
+        <p>Описание процесса снятия дневного отчета и закрытия смены на кассе через программу</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; ККМ и онлайн-кассы: X и Z отчеты
+    </div>
+    <div class="article-content">
+        <p>Снятие X и Z отчетов – это одна из базовых возможностей, присущих фискальным регистраторам, онлайн-кассам и другой контрольно-кассовой технике.</p>
+        <p>GBS.Market совместима с большим количеством моделей онлайн-касс и ККМ. В этой статье мы расскажем:</p>
+        <ul>
+            <li>Что такое x и z отчеты</li>
+            <li>Как снять x-отчет на кассе</li>
+            <li>Как снять z-отчет на кассе и закрыть смену</li>
+        </ul>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Онлайн-кассы, поддерживаемые программой</a></li>
+            </ul>
+        </div>
+
+        <h2>Что такое X отчет?</h2>
+        <p>X-отчет фискальный документ, который содержит в себе информацию о текущем состоянии смены, денежных регистров и движении денежных средств. Это суточный отчет без закрытия смены, снимаемый на ККМ для сверки данных.</p>
+        <p>Внешний вид X-отчета и содержащаяся в нем информация обычно зависит от модели кассы. Например, такой отчет обычно содержит:</p>
+        <ul>
+            <li>дата и время отчета</li>
+            <li>информация об организации</li>
+            <li>сумма чеков продаж</li>
+            <li>сумма чеков возврата</li>
+            <li>остаток наличных в ККМ</li>
+            <li>снятия и внесения денежных средств</li>
+        </ul>
+        <img src="../../../images/articles/article13-img1.png" alt="Пример внешнего вида X-отчета">
+        <p><em>Пример внешнего вида X-отчета</em></p>
+        <p>X-отчет показывает данные за текущую смену. Такой отчет может быть полезен в случаях, когда необходимо сверить продажи, проведенные по программе и данные, сохраненные в ККМ.</p>
+        <p>Например, из-за отсутствия связи с ККМ не все продажи могли попасть в кассу. Тогда, сняв такой отчет, можно будет увидеть разницу и принять необходимые меры.</p>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Важно понимать, что в X-отчете будут отображаться те данные, которые попали в кассу. Например, если вы напечатали нефискальный чек – он в ККМ не передается и, следовательно, не будет учтен в X-отчете.</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Как фискализовать нефискальные продажи?</a></li>
+                <li><a href="#">Чем отличаются фискальные и нефискальные чеки</a></li>
+            </ul>
+        </div>
+
+        <h2>Что такое Z-отчет?</h2>
+        <p>Z-отчет фискальный документ, который содержит в себе информацию о текущем состоянии смены, денежных регистров и движении денежных средств с последующим закрытием смены. Так же Z-отчет называют "отчет с гашением"</p>
+        <p>По внешнему виду Z-отчет не сильно отличается от X-отчета и может содержать аналогичную информацию:</p>
+        <ul>
+            <li>дата и время отчета</li>
+            <li>информация об организации</li>
+            <li>сумма чеков продаж</li>
+            <li>сумма чеков возврата</li>
+            <li>остаток наличных в ККМ</li>
+            <li>снятия и внесения денежных средств</li>
+        </ul>
+        <p>Z-отчет отличается от X-отчета тем, что снятие такого отчета влечет за собой закрытие смены в кассе. Иногда Z-отчет может выглядеть как квитанция о закрытии смены, как показано ниже.</p>
+        <img src="../../../images/articles/article13-img2.png" alt="Внешний вид отчета о закрытии смены">
+        <p><em>Внешний вид отчета о закрытии смены</em></p>
+
+        <h2>Как снять отчет в программе?</h2>
+        <p>Снятие X-отчета не является обязательным. Его обычно используют для сверки данных. А вот снятие Z-отчета – обязательная операция в конце смены. Обычно, кассовая техника не позволяет работать в рамках одной смены более 24 часов.</p>
+
+        <h3>Как снять X-отчет в программе?</h3>
+        <p>Снять x-отчет можно с главной формы программы, нажав в меню Действия – ККМ: снять X-отчет.</p>
+        <p>По аналогии операция доступна и в основной форме режима "Кафе"</p>
+        <img src="../../../images/articles/article13-img3.png" alt="Пункт меню снятия X-отчета в программе">
+        <p>После этого программа передаст команду в ККМ, которая в свою очередь и напечатает отчет.</p>
+
+        <h3>Как снять Z-отчет в программе и закрыть смену?</h3>
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Важно понимать, что смена обычно не должна превышать по длительности 24 часа, иначе работа с кассой будет заблокирована до тех пор, пока Z-отчет не будет снят. Следующая смена открывается автоматически при печати первого чека – с этого момента и начинается отчет 24 часов.</p>
+        </div>
+        <p>Снять Z-отчет можно несколькими способами.</p>
+        <p>Первый способ – снятие Z-отчет из меню главной формы: Действия – ККМ: снять Z-отчет.</p>
+        <img src="../../../images/articles/article13-img4.png" alt="Пункт меню снятия Z-отчета">
+        <p>Второй способ – кнопка в форме закрытия программы "Снять Z-отчет и закрыть программу", которая появляется, когда завершаете работу с программой.</p>
+        <img src="../../../images/articles/article13-img5.png" alt="Форма закрытия программы">
+        <p>После этого программа запросит подтверждение на снятие Z-отчета и закрытие смены.</p>
+        <img src="../../../images/articles/article13-img6.png" alt="Подтверждение снятия z-отчета и закрытия смены">
+        <p>В появившемся окне нажмите "Да", чтобы выполнить необходимое действие. После этого отчет будет напечатан, а смена закрыта.</p>
+
+        <h2>Примечания</h2>
+        <ul>
+            <li>Пункты в меню доступны только в том случае, если в настройках печати чеков указан фискальный регистратор. В противном случае пункты не отображаются.</li>
+            <li>Если смена не была открыта (или уже была закрыта), то программа может сообщить об ошибке о невозможности закрытия смены.</li>
+            <li>Открытие смены происходит автоматически при печати первого чека – дополнительные действия не требуются</li>
+            <li>Внешний вид отчетов, снимаемых на ККМ, зависит от модели и прошивки кассы и не может быть настроен в GBS.Market</li>
+        </ul>
+
+        <div class="faq-section">
+            <h2>Вопросы и ответы</h2>
+            
+            <h3>Как работать со сменами в программе, если касса не используется?</h3>
+            <p>В программе GBS.Market сейчас нет внутреннего разделения рабочего дня на смены.</p>
+            <p>Т.е. если касса совместно с программой не используется, то:</p>
+            <ul>
+                <li>при запуске программы не нужно открывать смену</li>
+                <li>при завершении работы нет необходимости смену закрывать</li>
+            </ul>
+
+            <h3>Как открыть смену в кассе через программу?</h3>
+            <p>Открытие кассовой смены в ККМ происходит автоматически при выполнении первой фискальной операции через кассу в случае, если смена в ККМ закрыта. Т.е. нет необходимости выполнять открытие смены вручную – программа это сделает автоматически.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление продажи в долг и внесение платежей по задолженности GBS.Market</title>
+    <meta name="description" content="Описание процесса продажи в долг и внесение платежа по задолженности в кассовой программе GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .video-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+        }
+        .video-box h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .video-box a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .video-box a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Оформление продажи в долг и внесение платежей по задолженности</h1>
+        <p>Описание процесса продажи в долг и внесение платежа по задолженности</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Оформление продажи в долг и внесение платежей по задолженности
+    </div>
+    <div class="article-content">
+        <p>Кассовая программа GBS.Market позволяет осуществлять продажу товаров в долг с последующим внесением платежей по задолженности. На примере ниже рассмотрим, как выполнить оформление продажи в долг и внести платежи по ней.</p>
+
+        <div class="video-box">
+            <h4><i class="fa fa-play-circle"></i> Полезное видео</h4>
+            <p><a href="#">Видео-урок: как оформить продажу в долг</a></p>
+        </div>
+
+        <h2>Как оформить продажу в долг</h2>
+        <h3>Создание продажи</h3>
+        <p>Процесс оформления продажи в долг не сильно отличается от обычной продажи. Различие происходит лишь на этапе выбора способов оплаты.</p>
+        <p>Добавьте в чек (корзину) товары, которые приобретает покупатель.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Выполнение продажи в режиме "Магазин/склад"</a></li>
+            </ul>
+        </div>
+        <img src="../../../images/articles/article11-img1.png" alt="Добавление товаров в чек">
+
+        <h3>Установка суммы "Получено"</h3>
+        <p>После того как товары добавлены – необходимо указать, что сумма полученных денежных средств меньше суммы покупки.</p>
+        <p>Если у вас используется только один способ оплаты, то сумму "получено" необходимо ввести на главной форме.</p>
+        <img src="../../../images/articles/article11-img2.png" alt="Установка суммы получено">
+        <p>Значение в поле "Сдача" стало отрицательным – это значит, что продажа будет оформлена в долг.</p>
+        <p>Если используется несколько способов оплаты, то сумму "получено" можно указать уже после нажатия кнопки "Итог"</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Добавление способа оплаты "Картой"</a></li>
+            </ul>
+        </div>
+        <img src="../../../images/articles/article11-img3.png" alt="Несколько способов оплаты">
+        <p>На скриншоте выше показано, что покупатель вносит 2000 наличными, а отрицательная сдача говорит о том, что продажа оформляется в долг.</p>
+
+        <h3>Подтверждение продажи в долг</h3>
+        <p>На следующем шаге программа запросит подтверждение оформления задолженности.</p>
+        <img src="../../../images/articles/article11-img4.png" alt="Подтверждение продажи в долг">
+        <p>Если покупатель не был выбран на главной форме, то необходимо выбрать покупателя для привязки к продаже. Нажмите на ссылку "контакт" и выберите контакт из существующих или создайте нового покупателя.</p>
+        <img src="../../../images/articles/article11-img5.png" alt="Выбор контакта">
+        <p>Например, покупателя можно найти по его номеру телефона.</p>
+        <img src="../../../images/articles/article11-img6.png" alt="Поиск покупателя по телефону">
+        <p>После выбора контакт будет отображен на форме подтверждения. Нажмите "Сохранить", чтобы завершить оформление продажи в долг.</p>
+
+        <h3>Печать чека при продаже в долг</h3>
+        <p>Если к программе подключена онлайн-касса или фискальный регистратор, будет напечатан фискальный чек, в котором будет указана информация о факте оформления продажи в долг.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Поддерживаемые онлайн-кассы</a></li>
+                <li><a href="#">Внешний вид чеков при продаже в долг по 54-ФЗ</a></li>
+            </ul>
+        </div>
+        <img src="../../../images/articles/article11-img7.png" alt="Чек при продаже в долг">
+
+        <h2>Просмотр списка задолженностей</h2>
+        <h3>Раздел "Должники"</h3>
+        <p>Просмотреть все продажи, которые оформлены в долг, можно из главной формы, нажав на Контакты – Должники.</p>
+        <img src="../../../images/articles/article11-img8.png" alt="Открытие раздела Должники">
+        <p>Откроется раздел "Должники".</p>
+        <img src="../../../images/articles/article11-img9.png" alt="Список должников">
+        <p>В списке отображаются продажи, которые были оплачены не полностью.</p>
+
+        <h3>Список контактов</h3>
+        <p>Увидеть суммы задолженностей так же можно через раздел Контакты – Список контактов.</p>
+        <img src="../../../images/articles/article11-img10.png" alt="Список контактов">
+        <p>В карточке контакта так же отображаются данные о задолженности.</p>
+        <img src="../../../images/articles/article11-img11.png" alt="Карточка контакта с задолженностью">
+        <p>А по клику на "Сумма долга" можно перейти к раздел "должники", который будет отфильтрован по выбранному покупателю.</p>
+
+        <h3>Журнал продаж</h3>
+        <p>В журнале продаж можно отфильтровать продажи по статусу оплаты. Например, если выбрать вариант "Полностью или частично неоплаченные", то в списке будут отображены те продажи, которые были оформлены в долг и еще до конца не оплачены.</p>
+        <img src="../../../images/articles/article11-img12.png" alt="Фильтр по статусу оплаты в журнале продаж">
+
+        <h3>Сводный отчет</h3>
+        <p>Информация о задолженностях, так же доступна для просмотра в сводном отчете. Отображается сумма выданных задолженностей и сумма внесенных платежей за продажи, оформленные в долг. При клике на "Выдано" откроется раздел "Должники", отфильтрованный по датам, установленным в сводном отчете.</p>
+        <img src="../../../images/articles/article11-img13.png" alt="Сводный отчет с задолженностями">
+
+        <h2>Внесение платежа по задолженности</h2>
+        <h3>Оплата задолженности</h3>
+        <p>Чтобы внести платеж по долгу, необходимо открыть раздел "Должники", а затем выбрать продажу и нажать кнопку "внести платеж".</p>
+        <img src="../../../images/articles/article11-img14.png" alt="Кнопка внести платеж">
+        <p>В следующем окне необходимо указать способ оплаты и сумму, которую вносит покупатель. Внесение по задолженности может быть частичным – сдача в таком случае снова будет отрицательной.</p>
+        <img src="../../../images/articles/article11-img15.png" alt="Форма внесения платежа">
+        <p>Если долг будет погашен полностью, то продажа будет скрыта из раздела "должники"</p>
+
+        <h3>Печать чека при оплате долга</h3>
+        <p>Если к программе подключена онлайн-касса, а продажа была фискальной, то при внесении платежа по задолженности будет напечатан соответствующий чек.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Поддерживаемые онлайн-кассы</a></li>
+                <li><a href="#">Внешний вид чеков при продаже в долг по 54-ФЗ</a></li>
+                <li><a href="#">Фискализация нефискальных продаж</a></li>
+            </ul>
+        </div>
+        <img src="../../../images/articles/article11-img16.png" alt="Чек при оплате долга">
+
+        <h3>Просмотр внесенных платежей по задолженности</h3>
+        <p>В карточке продажи, которая была оформлена в долг, на вкладке "платежи" можно увидеть, когда, какие суммы и каким способом были внесены платежи по долгу.</p>
+        <img src="../../../images/articles/article11-img17.png" alt="Платежи по задолженности">
+
+        <h2>Ограничение максимальной суммы долга</h2>
+        <h3>Настройка ограничений</h3>
+        <p>По умолчанию сумма задолженности для конкретного покупателя не ограничена. Ограничение на сумму долга можно установить в карточке группы контактов.</p>
+        <img src="../../../images/articles/article11-img18.png" alt="Настройка ограничения суммы долга">
+        <p>Если ограничение установлено, то каждый покупатель из этой группы не сможет приобрести товаров в долг больше, чем указано.</p>
+        <p>Чтобы совсем запретить продажи в долг, установите значение равным нулю.</p>
+        <p>Чтобы убрать ограничения – оставьте значение поля пустым.</p>
+
+        <h3>Предупреждения</h3>
+        <p>Если задолженность контакта при сохранении продажи превысит лимит, то на главной форме будет показано предупреждение в виде знака [!] рядом с суммой долга.</p>
+        <img src="../../../images/articles/article11-img19.png" alt="Предупреждение о превышении лимита долга">
+        <p>При клике отобразится информация о текущей задолженности и максимально допустимой суммы долга.</p>
+        <img src="../../../images/articles/article11-img20.png" alt="Информация о лимите долга">
+        <p>А при попытке сохранить продажу с превышением суммы задолженности – программа сообщит об этом и не позволит выполнить операцию.</p>
+        <img src="../../../images/articles/article11-img21.png" alt="Ошибка превышения лимита долга">
+
+        <h3>Ограничение прав доступа</h3>
+        <p>Как и другие действия, внесение платежа по задолженности может быть ограничено правами доступа в карточке группы сотрудников.</p>
+        <img src="../../../images/articles/article11-img22.png" alt="Настройка прав доступа для внесения платежей">
+
+        <div class="video-box">
+            <h4><i class="fa fa-play-circle"></i> Полезное видео</h4>
+            <p><a href="#">Видео-урок: добавление сотрудников и настройка прав доступа</a></p>
+        </div>
+    </div>
+</body>
+</html>

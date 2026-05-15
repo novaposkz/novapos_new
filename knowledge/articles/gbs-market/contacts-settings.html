@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки программы: Контакты GBS.Market</title>
+    <meta name="description" content="Описание раздела настроек 'Контакты'">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .danger-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.15);
+        }
+        .danger-box h4 {
+            color: #c0392b;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .danger-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .features-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .features-box li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .example-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box p {
+            margin: 0;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .contacts-section {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .contacts-section h3 {
+            color: #2e7d32;
+            margin: 0 0 15px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .contacts-section h4 {
+            color: #388e3c;
+            margin: 15px 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .contacts-section p {
+            margin: 0 0 12px 0;
+            color: #2e7d32;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .contacts-section ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+        }
+        .contacts-section li {
+            margin-bottom: 6px;
+            color: #2e7d32;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .fields-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .fields-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .fields-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .sync-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .sync-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .sync-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .sync-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .sync-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .confirmation-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .confirmation-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .confirmation-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .confirmation-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .confirmation-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .options-list {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .options-list h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .options-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .options-list li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-list {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .settings-list h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .settings-list li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройки программы: Контакты</h1>
+        <p>Настройки программы, связанные с контактами</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки программы: Контакты
+    </div>
+    <div class="article-content">
+        <p>Настройки программы, связанные с контактами (клиентами, покупателями)</p>
+        
+        <p>Описание раздела настроек "Контакты". Открыть настройки можно из главного окна программы Файл – Настройки.</p>
+        
+        <img src="../../../images/articles/article61-img1.png" alt="Настройки программы: Контакты">
+
+        <div class="fields-box">
+            <h3><i class="fa fa-plus-circle"></i> Настройка доп. полей</h3>
+            <p>Раздел настроек, в котором можно создавать и редактировать дополнительные поля (свойства) для контактов.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Видео-урок по настройке и использованию дополнительных полей</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sync-box">
+            <h3><i class="fa fa-sync"></i> Синхронизация контактов</h3>
+            <p>Опция отвечающая за синхронизацию контактов между торговыми точками.</p>
+            
+            <div class="options-list">
+                <h4>Доступны варианты:</h4>
+                <ul>
+                    <li><strong>Нет</strong> – синхронизация отключена</li>
+                    <li><strong>Файловый обмен</strong> – синхронизация включена</li>
+                </ul>
+            </div>
+            
+            <p>При включенном файловом обмене выгружается следующая информация:</p>
+            
+            <div class="settings-list">
+                <h4>Синхронизируемые данные:</h4>
+                <ul>
+                    <li>Данные контакта (ФИО, телефон, email, доп. поля и т.п.)</li>
+                    <li>Сумма покупок</li>
+                    <li>Сумма баллов</li>
+                    <li>Сумма задолженности</li>
+                </ul>
+            </div>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Описание работы файловой синхронизации контактов</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="confirmation-box">
+            <h3><i class="fa fa-shield"></i> Подтверждение действий</h3>
+            
+            <div class="warning-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+                <p>Блок настроек доступен только в случае, когда включена интеграция с сервисами СМС-рассылок. Обратите внимание, что доступность и работоспособность выбранных вариантов доставки кодов зависит от поставщика услуг.</p>
+            </div>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Подробнее о настройке отправки кодов подтверждения можно узнать в статье</a></li>
+                </ul>
+            </div>
+            
+            <h4>При списании бонусных баллов</h4>
+            <p>Опция определяет, каким образом будет происходить подтверждение списания бонусов при их использовании в момент оплаты.</p>
+            
+            <div class="options-list">
+                <h4>Доступны варианты:</h4>
+                <ul>
+                    <li><strong>не запрашивать подтверждение</strong> - при списании бонусов не будет происходить запрос на подтверждение</li>
+                    <li><strong>отправлять код в СМС</strong> - код подтверждения будет отправлен через СМС</li>
+                    <li><strong>отправлять код в Viber</strong> - код подтверждения будет отправлен в Viber</li>
+                    <li><strong>отправлять код в WhatsApp</strong> - код подтверждения будет отправлен в WhatsApp</li>
+                    <li><strong>осуществлять звонок</strong> - будет осуществлен звонок покупателю с проверочного номера. Кодом проверки обычно служат последние 4 цифры номера</li>
+                </ul>
+            </div>
+            
+            <h4>При покупке в долг</h4>
+            <p>Опция определяет, каким образом будет происходить подтверждения номера телефона покупателя при оформлении продажи в долг.</p>
+            
+            <div class="options-list">
+                <h4>Доступны варианты:</h4>
+                <ul>
+                    <li><strong>не запрашивать подтверждение</strong> - при оформлении продажи в долг не будет происходить запрос на подтверждение</li>
+                    <li><strong>отправлять код в СМС</strong> - код подтверждения будет отправлен через СМС</li>
+                    <li><strong>отправлять код в Viber</strong> - код подтверждения будет отправлен в Viber</li>
+                    <li><strong>отправлять код в WhatsApp</strong> - код подтверждения будет отправлен в WhatsApp</li>
+                    <li><strong>осуществлять звонок</strong> - будет осуществлен звонок покупателю с проверочного номера. Кодом проверки обычно служат последние 4 цифры номера</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Синхронизация контактов между торговыми точками GBS.Market</title>
+    <meta name="description" content="Инструкция по настройке синхронизации покупателей между торговыми точками и принцип работы обмена данными в GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .sync-data {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .sync-data h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .sync-data ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .sync-data li {
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .example-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .example-box p {
+            margin: 0;
+            color: #6c757d;
+        }
+        .value-format {
+            background: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .video-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .video-box h4 {
+            color: #1976d2;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .video-box a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .video-box a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Синхронизация контактов между торговыми точками</h1>
+        <p>Описание процесса настройки синхронизации покупателей и принцип работы обмена</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Синхронизация контактов
+    </div>
+    <div class="article-content">
+        <p>GBS.Market позволяет автоматически синхронизировать информацию о контактах (покупателях) между торговыми точками. Например, такая синхронизация может быть полезна для обмена информацией о накопленных баллах или суммы задолженности. Т.е. покупатель может накопить баллы в одной торговой точке, но потратить в другой.</p>
+
+        <h2>Настройка обмена</h2>
+        <p>Для того чтобы обмен информацией о покупателях между торговыми точками (магазинами) работал, необходимо выполнить настройку синхронизации.</p>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Если облачная синхронизация между торговыми точками уже настроена, например, вы делаете перемещение товаров между магазинами или каждая торговая точка выгружает данные для "дом/офис", то этот шаг можно пропустить.</p>
+        </div>
+
+        <h3>Установка "облака"</h3>
+        <p>Для обмена информацией о контактах (покупателях) используется "облако", например, Яндекс.Диск.</p>
+        <p>Установку "облака" необходимы выполнить в каждой торговой точке, которая будет участвовать в синхронизации.</p>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Необходимо выполнять вход в "облако" под одной учетной записью в каждой торговой точке, либо использовать общие папки для разных учетных записей, чтобы каждая из торговых точек имела доступ к папке обмена данными.</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция по установке "облака"</a></li>
+            </ul>
+        </div>
+
+        <h3>Настройка выгрузки данных</h3>
+        <p>После того как облачный сервис будет установлен, необходимо настроить выгрузку данных на компьютерах тех торговых точек, которые участвуют в обмене.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Подробная статья</h4>
+            <ul>
+                <li><a href="#">Инструкция по настройке выгрузки данных в "облако"</a></li>
+            </ul>
+        </div>
+
+        <h3>Включение синхронизации контактов</h3>
+        <p>На компьютерах, которые должны участвовать в обмене контактами, необходимо включить опцию "Синхронизировать информацию о контактах". Найти ее можно следующим образом: на главной форме в меню нажмите Файл – Настройки – Контакты.</p>
+        <img src="../../../images/articles/article21-img1.png" alt="Настройка синхронизации контактов">
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Выгрузка информации о контактах происходит в 5 и 35 минут каждого часа. Необходимо дождаться выгрузки перед тем, как проверять работоспособность синхронизации.</p>
+        </div>
+
+        <h3>Настройка префиксов дисконтных карт</h3>
+        <p>Если вы предоставляете покупателям дисконтные карты, необходимо во всех торговых точках, использовать одно значение для префикса дисконтных карт.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Связанные материалы</h4>
+            <ul>
+                <li><a href="#">Настроить префиксы штрихкодов можно в настройках сканера</a></li>
+            </ul>
+        </div>
+
+        <p>После всех настроек сохраните параметры.</p>
+
+        <h2>Как работает синхронизация</h2>
+        <p>Важно понимать, что синхронизация не загружается все контакты из других торговых точек, но позволяет искать покупателей и видеть общую сумму покупок, баллов и задолженности.</p>
+
+        <div class="example-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Пример</h4>
+            <p>Например, есть два магазина: "Позитив" и "Радуга". Покупатель с дисконтной картой 4693564035883 был ранее создан в торговой точке "Позитив" и информация о контактах была выгружена в "облако".</p>
+            <p>Если контакт с этой же дисконтной картой придет в торговую точку "Радуга", в которой настроен обмен контактами с "Позитивом", то при сканировании такой карты программа предложит создать карточку контакта.</p>
+        </div>
+
+        <p>Поиск контактов из других торговых точек может быть выполнен:</p>
+        <ul>
+            <li>по номеру (штрихкоду) дисконтной карты</li>
+            <li>по номеру телефона</li>
+        </ul>
+
+        <h3>Поиск по штрихкоду</h3>
+        <p>Если префиксы штрихкодов дисконтных карт в торговых точках совпадают, то выполнить поиск по штрихкоду можно через поле "Поиск" на главной форме, отсканировав штрихкод карты или ввести его вручную.</p>
+        <img src="../../../images/articles/article21-img2.png" alt="Поиск по штрихкоду дисконтной карты">
+        <p>Поиск по штрихкоду может быть выполнен так же, как и поиск по телефону – из формы поиска контактов.</p>
+
+        <h3>Поиск по номеру телефона</h3>
+        <p>Чтобы добавить контакт из другой торговой точки по номеру телефона, необходимо включить опцию "Контакт" в момент продажи.</p>
+        <img src="../../../images/articles/article21-img3.png" alt="Включение опции контакт">
+        <p>Затем в форме поиска контактов ввести номер телефона</p>
+        <img src="../../../images/articles/article21-img4.png" alt="Поиск по номеру телефона">
+
+        <h3>Уведомление о найденном контакте</h3>
+        <p>Если программа смогла найти данные о контакте по штрихкоду или телефону в других торговых точках, будет показано сообщение с возможностью добавления найденного контакта в локальную базу данных.</p>
+        <img src="../../../images/articles/article21-img5.png" alt="Уведомление о найденном контакте">
+        <p>Нажмите "Да", чтобы сохранить информацию о контакте.</p>
+        <p>При следующем поиске программа найдет этот контакт уже в локальной базе и больше не будет предлагать его добавить из других торговых точек.</p>
+
+        <h2>Синхронизируемая информация</h2>
+        <p>Между торговыми точками передается следующая информация:</p>
+        <div class="sync-data">
+            <h4>Передаваемые данные:</h4>
+            <ul>
+                <li>Сумма покупок</li>
+                <li>Сумма накопленных баллов</li>
+                <li>Сумма задолженности</li>
+            </ul>
+        </div>
+
+        <p>На главной форме и в списке контактов отображаются суммарные данные, т.е. содержащие значения как локальной базы, так и из других торговых точек.</p>
+        <img src="../../../images/articles/article21-img6.png" alt="Отображение суммарных данных">
+        <p>Т.е. в нашем примере с магазинами "Позитив" и "Радуга" на главной форме будет показаны значения, равные сумме из двух торговых точек.</p>
+
+        <p>В карточке контакта на вкладке "Финансы" можно будет увидеть значения как для локальной базы данных, отдельно для других торговых точек и общую сумму.</p>
+        <img src="../../../images/articles/article21-img7.png" alt="Детальная информация в карточке контакта">
+
+        <p>Значение для каждой строки выглядит так:</p>
+        <div class="value-format">
+            123.0 (+456.0 = 579.0)
+        </div>
+        <p>Где:</p>
+        <ul>
+            <li><strong>123,0</strong> – значение текущей (локальной) торговой точки</li>
+            <li><strong>456,0</strong> – сумма значений из других торговых точек</li>
+            <li><strong>579</strong> – общая сумма по всем (включая текущую) торговых точек</li>
+        </ul>
+
+        <h2>Важные замечания</h2>
+        <ul>
+            <li>Покупатели (контакты) из других торговых точек НЕ появляются в списке до того момента, пока их поиск по штрихкоду или телефону не будет выполнен. Т.е. в списках будут отображаться только те контакты, которые были ранее сохранены в базу данных</li>
+            <li>Если необходимо перенести сразу все контакты из одной точки в другую, можно сначала выполнить выгрузку контактов в Excel, а в другой точке загрузить их из Excel.</li>
+            <li>Сумма баллов на одной торговой точке может быть отрицательной, а на другой – положительной. Например, покупатель накопил баллы в одном магазине, но потратил в другом. При этом программа не позволит потратить баллов больше, чем есть в общей сумме у покупателя.</li>
+            <li>Посмотреть журнал покупок, сделанных в другой торговой точке, нельзя</li>
+            <li>Закрыть или посмотреть задолженности, оформленные в других торговых точках нельзя</li>
+        </ul>
+
+        <div class="video-box">
+            <h4><i class="fa fa-play-circle"></i> Полезное видео</h4>
+            <p><a href="#">Видео-урок о продаже в долг</a></p>
+        </div>
+    </div>
+</body>
+</html>

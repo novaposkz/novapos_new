@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки программы: База данных GBS.Market</title>
+    <meta name="description" content="Описание раздела настроек 'База данных'">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .danger-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.15);
+        }
+        .danger-box h4 {
+            color: #c0392b;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .danger-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .features-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .features-box li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .example-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box p {
+            margin: 0;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .database-section {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .database-section h3 {
+            color: #2e7d32;
+            margin: 0 0 15px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .database-section h4 {
+            color: #388e3c;
+            margin: 15px 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .database-section p {
+            margin: 0 0 12px 0;
+            color: #2e7d32;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .database-section ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+        }
+        .database-section li {
+            margin-bottom: 6px;
+            color: #2e7d32;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .connection-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .connection-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .connection-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .connection-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .connection-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .backup-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .backup-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .backup-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .backup-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .backup-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .advanced-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .advanced-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .advanced-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .advanced-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .advanced-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tabs-list {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .tabs-list h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tabs-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .tabs-list li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-list {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .settings-list h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .settings-list li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройки программы: База данных</h1>
+        <p>Раздел настроек "База данных"</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки программы: База данных
+    </div>
+    <div class="article-content">
+        <p>Раздел настроек "База данных", в котором размещены параметры, связанные с подключением и работой с базой данных.</p>
+        
+        <p>Чтобы открыть настройки "База данных":</p>
+        <ul>
+            <li>на главной форме в меню нажмите Файл - Настройки</li>
+            <li>перейдите в раздел "База данных"</li>
+        </ul>
+        
+        <img src="../../../images/articles/article60-img1.png" alt="Настройки программы: База данных">
+
+        <div class="tabs-list">
+            <h4>В разделе "База данных" настройки разделены на вкладки:</h4>
+            <ul>
+                <li>Основные</li>
+                <li>Резервное копирование</li>
+                <li>Дополнительно</li>
+            </ul>
+        </div>
+
+        <div class="connection-box">
+            <h3><i class="fa fa-database"></i> Основные</h3>
+            <p>Описание настроек, доступных на вкладке "Основные" в разделе "База данных"</p>
+            
+            <img src="../../../images/articles/article60-img2.png" alt="Основные настройки базы данных">
+            
+            <h4>Подключение к базе данных</h4>
+            <p>Параметры, отвечающие за подключение к базе данных.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Инструкция по настройке работы по схеме сервер/клиент</a></li>
+                    <li><a href="#">Инструкция по сбросу настроек подключения к БД</a></li>
+                </ul>
+            </div>
+            
+            <h4>Хост</h4>
+            <p>Адрес хоста (ПК, сервера), на котором запущена СУБД Firebird. Для работы в рамках одного компьютера должно быть указано localhost.</p>
+            
+            <h4>Порт</h4>
+            <p>Номер порта для подключения к БД. По умолчанию используется 3060.</p>
+            
+            <h4>Проверить связь</h4>
+            <p>Проверка связи с СУБД с указанными настройками. Может быть полезна при настройке работы по локальной сети.</p>
+            
+            <h4>Путь</h4>
+            <p>Путь к файлу базы данных</p>
+            
+            <h4>Логин</h4>
+            <p>Логи пользователя базы данных</p>
+            
+            <h4>Пароль</h4>
+            <p>Пароль пользователя базы данных</p>
+            
+            <div class="warning-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+                <p>Изменение логина или пароля для подключения к базе данных в настройках программы необходимо выполнять только в том случае, если они были изменены в СУБД. Сам факт изменения логина/пароля не изменит их в СУБД, а скорее приведет к невозможности последующего запуска программы.</p>
+            </div>
+            
+            <h4>Дополнительно</h4>
+            <p>"Поиск БД в локальной сети" осуществляет автоматический поиск ip-адреса сервера (компьютера с базой данных).</p>
+            
+            <h4>Информация о базе данных</h4>
+            <h4>Название</h4>
+            <p>Название базы данных, которое отображается в режиме "дом/офис" и на главной форме программы</p>
+            
+            <h4>ID базы данных</h4>
+            <p>Идентификатор базы данных, который используется при синхронизации</p>
+            
+            <h4>Перегенирировать ID</h4>
+            <p>Сброс идентификатора базы данных. Не рекомендуется выполнять без консультации службы поддержки.</p>
+            
+            <h4>Расположение данных</h4>
+            <h4>Путь к фото</h4>
+            <p>Путь к папке, в которой хранятся фотографии (изображения) товаров и групп товаров</p>
+            
+            <h4>Папка с программой</h4>
+            <p>Папка, в которой хранятся исполняющие файлы программы и подключаемые библиотеки</p>
+            
+            <h4>Папка с данными</h4>
+            <p>Папка, в которой хранятся настройки, база данных, фотографии товаров и другие данные, вносимые пользователями в программу.</p>
+            <p>Некоторые данные, например, шаблоны, БД и фото могут храниться в других папках, в зависимости от настроек.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Инструкция как найти папку с данными, если программа не запускается</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="backup-box">
+            <h3><i class="fa fa-shield"></i> Резервное копирование</h3>
+            <p>Описание настроек на вкладке "Резервное копирование" в разделе "База данных".</p>
+            
+            <img src="../../../images/articles/article60-img3.png" alt="Резервное копирование">
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Инструкция по настройке автоматического резервного копирования</a></li>
+                    <li><a href="#">Инструкция по ручному созданию резервной копии</a></li>
+                    <li><a href="#">Инструкция по восстановления из резервной копии</a></li>
+                </ul>
+            </div>
+            
+            <h4>Создавать резервные копии</h4>
+            <p>Если опция включена, то программа будет создавать резервные копии</p>
+            
+            <div class="important-box">
+                <h4><i class="fa fa-exclamation-circle"></i> Важно</h4>
+                <p>Настоятельно рекомендуем создавать резервные копии автоматически и настроить их выгрузку в "облако"</p>
+            </div>
+            
+            <h4>Путь</h4>
+            <p>Путь к папке, в которую будут сохраняться автоматически создаваемые резервные копии</p>
+            
+            <h4>Создавать копии</h4>
+            <p>Выбор условий, при которых будет происходить создание резервных копий</p>
+            
+            <div class="settings-list">
+                <h4>Доступные варианты:</h4>
+                <ul>
+                    <li><strong>При запуске программы</strong> - резервная копия будет автоматически создаваться в момент запуска программы</li>
+                    <li><strong>При завершении работы программы</strong> - резервная копия будет автоматически создаваться в момент завершения работы программы</li>
+                    <li><strong>По расписанию</strong> - возможность выбора вариантов автоматического создания резервных копий с определенной периодичностью</li>
+                </ul>
+            </div>
+            
+            <div class="settings-list">
+                <h4>Варианты расписания:</h4>
+                <ul>
+                    <li><strong>Не создавать доп. резервные копии</strong> - резервные копии по расписанию не будут создаваться</li>
+                    <li><strong>Каждый час</strong> - резервные копии будут создаваться автоматически 1 раз в час</li>
+                    <li><strong>Каждые 3 часа</strong> - резервные копии будут создаваться автоматически 1 раз в 3 часа</li>
+                    <li><strong>Каждые 6 часов</strong> - резервные копии будут создаваться автоматически 1 раз в 6 часов</li>
+                    <li><strong>Каждые 12 часов</strong> - резервные копии будут создаваться автоматически 1 раз в 12 часов</li>
+                </ul>
+            </div>
+            
+            <h4>Хранить ... дней</h4>
+            <p>Количество дней, которые будут храниться резервные копии.</p>
+            <p>При запуске программа проверяет папку с резервными копиями. Копии, старше указанной даты будут удалены.</p>
+            
+            <h4>Резервировать файл базы данных</h4>
+            <p>Если опция включена, то при создании резервной копии будет архивирована и база данных.</p>
+            <p>Отключать опцию рекомендуется только при работе нескольких компьютерах в локальной сети, чтобы каждый из них не пытался создавать резервную копию базы, увеличивая нагрузку на сеть.</p>
+            
+            <div class="warning-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+                <p>Не отключайте данную настройку, если не уверены, что понимаете ее предназначение</p>
+            </div>
+            
+            <h4>Действия</h4>
+            <h4>Создать резервную копию</h4>
+            <p>Ручное создание резервной копии.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Подробная инструкция</a></li>
+                </ul>
+            </div>
+            
+            <h4>Восстановить из резервной копии</h4>
+            <p>Восстановление данных из резервной копии.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Подробная инструкция</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="advanced-box">
+            <h3><i class="fa fa-cogs"></i> Дополнительно</h3>
+            <p>Описание настроек на вкладке "Дополнительно" в разделе "База данных"</p>
+            
+            <img src="../../../images/articles/article60-img4.png" alt="Дополнительные настройки">
+            
+            <h4>Сжатие базы данных</h4>
+            <h4>Сжать базу данных</h4>
+            <p>При нажатии происходит попытка уменьшить размер базы данных за счет создания и последующего восстановления данных из резервной копии.</p>
+            
+            <h4>Сжимать базу данных при запуске программы</h4>
+            <p>Если опция включена, то при запуске программы будет предпринята попытка сжатия базы данных.</p>
+            
+            <h4>Режим удаления</h4>
+            <div class="danger-box">
+                <h4><i class="fa fa-warning"></i> Опасно</h4>
+                <p>Если вы не знаете для чего необходимы эти настройки - не используйте их. Использование режима удаления необходимо для удаления информации из базы данных. Удаление в большинстве случаев происходит безвозвратно. Перед использованием этих настроек убедитесь, что у вас есть резервная копия!</p>
+            </div>
+            
+            <h4>Активировать режим удаления</h4>
+            <p>Опция позволяющая включить режим удаления</p>
+            
+            <h4>Частичное удаление данных</h4>
+            <p>Частичное удаление данных позволяет удалить часть информации из базы данных. Например, это может быть полезно для переноса информации на другое рабочее место.</p>
+            
+            <div class="settings-list">
+                <h4>На выбор доступно удаление следующих таблиц данных:</h4>
+                <ul>
+                    <li>Продажи</li>
+                    <li>Поступления</li>
+                    <li>Списания товаров</li>
+                    <li>Инвентаризации</li>
+                    <li>Заказы/резервы</li>
+                    <li>Перемещения между точками</li>
+                    <li>Перемещения между складами</li>
+                    <li>Производство</li>
+                    <li>Движение средств</li>
+                    <li>Обнулить остатки</li>
+                    <li>Категории товаров</li>
+                    <li>Товары</li>
+                    <li>Группы контактов</li>
+                    <li>Контакты</li>
+                </ul>
+            </div>
+            
+            <p>Выберите таблицы, в которых необходимо удалить данные, и нажмите кнопку "Удалить данные"</p>
+            <p>Программа запросит подтверждение на выполнение операции.</p>
+            
+            <img src="../../../images/articles/article60-img5.png" alt="Подтверждение удаления данных">
+            
+            <p>Нажмите "Да" для того, чтобы начать удаление выбранных данных.</p>
+            
+            <h4>Полное удаление данных</h4>
+            <div class="danger-box">
+                <h4><i class="fa fa-warning"></i> Опасно</h4>
+                <p>Использование этой опции удалит всю информацию: базу данных, шаблоны, настройки и другие данных, хранящиеся в папке с данными. Убедитесь, что никакие критически важные данные случайно не попали в папку с данными программы. Убедитесь, что у вас есть резервная копия на случай необходимости восстановить информацию</p>
+            </div>
+            
+            <p>Нажмите кнопку "Удалить все данные и настройки программы" для полной очистки данных программы. Будут удалены все файлы, хранящиеся в папке с данными, включая базу данных, настройки, шаблоны документов, изображения товаров и т.п.</p>
+            
+            <h4>Перенос данных из GBS.Market 5</h4>
+            <p>Раздел настроек, связанных с импортом данных из предыдущей версии программы.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Подробная инструкция по переносу данных из 5-й версии</a></li>
+                </ul>
+            </div>
+            
+            <h4>Перенести данные из GBS.Market 5</h4>
+            <p>Позволяет выполнить перенос данных из 5-й версии программы</p>
+            
+            <h4>Переносить фото товаров из 5 версии</h4>
+            <p>Если опция включена, то при переносе данных будут в т.ч. перенесены и фотографии товаров</p>
+            
+            <h4>Выполнить SQL-скрипт</h4>
+            <div class="danger-box">
+                <h4><i class="fa fa-warning"></i> Опасно</h4>
+                <p>Перед выполнением скриптов убедитесь, что у вас есть резервная копия данных</p>
+            </div>
+            
+            <p>Нажмите на кнопку "Выполнить SQL-скрипт", чтобы выполнить скрипт для внесения изменений в базу данных.</p>
+            <p>После нажатия кнопки откроется окно выбора файла скрипта, который будет запущен.</p>
+        </div>
+    </div>
+</body>
+</html>

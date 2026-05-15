@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты - Мастер отчетов GBS.Market</title>
+    <meta name="description" content="Описание раздела 'Отчеты - Мастер отчетов' и примеры отчетов, которые могут быть сформированы в данном разделе">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Отчеты - Мастер отчетов</h1>
+        <p>Описание раздела "Отчеты - Мастер отчетов" и примеры отчетов, которые могут быть сформированы в данном разделе</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Мастер отчетов
+    </div>
+    <div class="article-content">
+        <p>Мастер отчетов – это раздел программы, в котором можно построить различные отчеты в разрезе товаров, денежных средств, сотрудников и других объектов. Мастер отчетов доступен из меню главной формы: Отчеты – Мастер отчетов.</p>
+        
+        <img src="../../../images/articles/article38-img1.png" alt="Мастер отчетов">
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Доступ для просмотра сводного отчета регулируется правами доступа</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <h2>Внешний вид мастера отчетов</h2>
+        <p>Мастер отчетов состоит из двух страниц. Первая страница – это раздел выбора типа отчета. Она показана на скриншоте ниже. Для построения определенного отчета – выберите его и нажмите "Далее".</p>
+        
+        <img src="../../../images/articles/article38-img2.png" alt="Выбор типа отчета в мастере отчетов">
+        
+        <p>Вторая страница – это параметры отчета. Набор параметров может зависеть от типа формируемого отчета. Пример страницы параметров отчета показан ниже.</p>
+        
+        <img src="../../../images/articles/article38-img3.png" alt="Установка параметров отчета">
+        
+        <p>Вы можете выбрать период, за который будут анализироваться данные, категории товаров, склады, поставщиков и другие параметры, которые для каждого типа отчета могут отличаться.</p>
+
+        <h2>Шаблоны отчетов</h2>
+        <p>Все отчеты, доступные в мастере, формируются на базе шаблонов, аналогичных шаблонам документов. Их так же можно добавлять, удалять или изменять под собственные нужды.</p>
+        <p>Для некоторых типов отчетов доступно несколько вариантов шаблонов, позволяющих получить данные в разрезе различных параметров.</p>
+        <p>Например, для "Отчет по продажам" можно сформировать отчет на базе нескольких шаблонов.</p>
+        
+        <img src="../../../images/articles/article38-img4.png" alt="Выбор шаблона для отчета">
+        
+        <p>На скриншоте выше показан выбор шаблонов. Набор стандартных шаблонов зависит от типа отчета.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок: редактирование шаблонов документов</a></li>
+            </ul>
+        </div>
+
+        <h2>Доступные типы отчетов</h2>
+        <p>В мастере отчетов доступно несколько типов отчетов, которые позволяют получить определенную информацию из базы данных.</p>
+
+        <h3>Залежавшиеся товары</h3>
+        <p>Такой отчет позволяет получить список тех товаров, которые НЕ продавались за определенный период.</p>
+        <p>На скриншоте ниже показан отчет по категории "Батарейки" за последний год. В списке 4 позиции, которые в течение года НЕ продавались.</p>
+        
+        <img src="../../../images/articles/article38-img5.png" alt="Пример отчета 'Залежавшиеся товары'">
+
+        <h3>Отчет по продажам</h3>
+        <p>Отчет по продажам формирует данные на основании истории продаж. Для этого отчета доступно несколько стандартных шаблонов.</p>
+
+        <h4>Отчет "Продажи по дням недели"</h4>
+        <p>Этот шаблон группирует список продаж по дням недели. Таким образом можно определить, в какой из дней недели продажи более активные. Пример такого отчета на скриншоте ниже.</p>
+        
+        <img src="../../../images/articles/article38-img6.png" alt="Пример отчета 'Продажи по дням недели'">
+
+        <h4>Отчет "Продажи по дням"</h4>
+        <p>В этом шаблоне данные группируются по дням. Например, можно посмотреть, какой из дней был более прибыльным за последнюю неделю.</p>
+        
+        <img src="../../../images/articles/article38-img7.png" alt="Пример отчета 'Продажи по дням'">
+
+        <h4>Отчет "Продажи по категориям"</h4>
+        <p>Продажи по категориям позволяют увидеть выручку и прибыль, сгруппированные по категориям товаров.</p>
+        
+        <img src="../../../images/articles/article38-img8.png" alt="Пример отчета 'Продажи по категориям'">
+
+        <h4>Отчет "Продажи по месяцам"</h4>
+        <p>Продажи, сгруппированные по месяцам, позволяют проанализировать оборот и прибыль в разрезе месяцев. Построив отчет за последний год можно увидеть, какой из месяцев был самым прибыльным.</p>
+        
+        <img src="../../../images/articles/article38-img9.png" alt="Пример отчета 'Продажи по месяцам'">
+
+        <h4>Отчет "Продажи по сотрудникам"</h4>
+        <p>Данный шаблон позволяет сгруппировать продажи по сотрудникам. Таким образом можно выявить, кто из сотрудников приносит больше прибыли организации.</p>
+        
+        <img src="../../../images/articles/article38-img10.png" alt="Пример отчета 'Продажи по сотрудникам'">
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок: управление сотрудниками</a></li>
+            </ul>
+        </div>
+
+        <h4>Отчет "Продажи по товарам"</h4>
+        <p>Продажи по товарам отображают информацию в разрезе товаров. Т.е. можно увидеть данные о том, какие товары лучше (или хуже) продаются и приносят ли прибыль.</p>
+        
+        <img src="../../../images/articles/article38-img11.png" alt="Пример отчета 'Продажи по товарам'">
+
+        <h4>Отчет "Продажи по часам"</h4>
+        <p>Группированные по часам продажи позволяют определить, имеет ли смысл работать торговой точке в определенные часы.</p>
+        
+        <img src="../../../images/articles/article38-img12.png" alt="Пример отчета 'Продажи по часам'">
+
+        <h3>Товары, необходимые для дозаказа</h3>
+        <p>Такой отчет анализирует продажи за предыдущий период, текущие остатки и формирует данные, на основании которых можно сделать дозаказ товаров.</p>
+        
+        <img src="../../../images/articles/article38-img13.png" alt="Пример отчета 'Товары для дозаказа'">
+
+        <h3>История движения товаров</h3>
+        <p>История движения товаров отображает информацию о движении товарных остатков.</p>
+
+        <h4>Остаток товаров на определенную дату</h4>
+        <p>Этот шаблон отображает остатки на текущий момент, начало и конец выбранного периода.</p>
+        
+        <img src="../../../images/articles/article38-img14.png" alt="Пример отчета 'Остатки на период'">
+
+        <h4>Отчет о движении товарно-материальных ценностей (МХ-20)</h4>
+        <p>Данный шаблон построен на базе унифицированной формы МХ-20: отчет о движении товарно-материальных ценностей в местах хранения. В отчете отображается информация об остатке на начало периода, приход, расход и остаток на конец выбранного периода.</p>
+        
+        <img src="../../../images/articles/article38-img15.png" alt="Пример отчета 'Движение ТМЦ'">
+
+        <h3>Взаиморасчеты с поставщиком</h3>
+        <p>Данный тип отчетов позволяет получать информацию о взаиморасчетах с поставщиками.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Как добавить поставщика в программу</a></li>
+            </ul>
+        </div>
+
+        <h4>Акт сверки взаимных расчетов (краткий)</h4>
+        <p>Шаблон для построения отчета "Акт сверки" в кратком виде.</p>
+        
+        <img src="../../../images/articles/article38-img16.png" alt="Пример отчета 'Акт сверки взаимных расчетов' (краткий)">
+
+        <h4>Акт сверки взаимных расчетов (подробный)</h4>
+        <p>Подробный отчет по взаиморасчетам с поставщиком.</p>
+        
+        <img src="../../../images/articles/article38-img17.png" alt="Пример отчета 'Акт сверки' (подробный)">
+
+        <h4>Движение денежных средств</h4>
+        <p>Краткий отчет о движении денежных средств между организацией и поставщиком.</p>
+        
+        <img src="../../../images/articles/article38-img18.png" alt="Пример отчета 'Движение денежных средств'">
+
+        <h3>Движение денежных средств</h3>
+        <p>Отчет позволяет получить данные о движении денежных средств на счетах за выбранный период.</p>
+        
+        <img src="../../../images/articles/article38-img19.png" alt="Пример отчета 'Движение денежных средств на счетах'">
+
+        <h2>Сохранение результатов отчетов</h2>
+        <p>Сформированный отчет может быть распечатан или сохранен в удобном формате для использования в будущем. В предварительном просмотре результатов выберите необходимый пункт.</p>
+        
+        <img src="../../../images/articles/article38-img20.png" alt="Меню предварительного просмотра">
+    </div>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документы - Журнал поступлений GBS.Market</title>
+    <meta name="description" content="Описание внешнего вида и доступной функциональности в разделе Документы - Журнал поступлений">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Документы - Журнал поступлений</h1>
+        <p>Описание внешнего вида и доступной функциональности в разделе Документы - Журнал поступлений</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Журнал поступлений
+    </div>
+    <div class="article-content">
+        <p>Журнал поступлений содержит в себе перечень документов с типом "входящая накладная" и позволяет выполнять операции с такими документами:</p>
+        <ul>
+            <li>фильтрация</li>
+            <li>добавление</li>
+            <li>редактирование</li>
+            <li>удаление</li>
+            <li>печатать документов</li>
+            <li>и другие доступные операции.</li>
+        </ul>
+        
+        <p>Открыть форму можно из главной формы: Документы – Журнал поступлений</p>
+        
+        <img src="../../../images/articles/article45-img1.png" alt="Внешний вид журнала поступлений">
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Доступ к списку групп контактов, а так же отдельные действия с записями могут быть ограничены правами доступа.</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Видео-урок</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <h2>Меню формы</h2>
+        <p>Описание пунктов меню журнала поступлений</p>
+
+        <h3>Файл</h3>
+        <p><strong>Сохранить как…</strong> – позволяет сохранить список накладных в документ формата CSV\Excel</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Связанные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция по сохранению данных в Excel и CSV-файлы</a></li>
+            </ul>
+        </div>
+
+        <h2>Блок "Фильтр поиска"</h2>
+        <p>В блоке "Фильтр поиска" можно указать параметры для фильтрации накладных по одному или нескольким значениям:</p>
+        <ul>
+            <li>дата поступления</li>
+            <li>номер входящего документа</li>
+            <li>статус накладной</li>
+            <li>склад, на который поступили товары</li>
+            <li>поставщик</li>
+        </ul>
+        
+        <img src="../../../images/articles/article45-img2.png" alt="Внешний вид фильтра поиска">
+
+        <h3>Период</h3>
+        <p>Укажите конкретную дату или период, за который хотите отобразить накладные. В результате поиска будут отображены документы, входящие в указанный промежуток дат, включая указанные.</p>
+
+        <h3>Номер</h3>
+        <p>Введите номер документа, который необходимо найти. Поиск происходит по полному совпадению указанного номера.</p>
+        <p>Т.е. если указать номер 1367, то будет найден документ именно с таким номером. Документы с номера, содержащие это сочетание (13675, 41367) не будут отображены.</p>
+
+        <h3>Статус</h3>
+        <p>Для фильтрации доступны варианты:</p>
+        <ul>
+            <li><strong>Все статусы</strong> – накладные в любом из статусов</li>
+            <li><strong>Еще в пути</strong> – накладные, для которых остатки товаров еще не были изменены</li>
+            <li><strong>Принята</strong> – накладных, товары в которых уже зачислены на остаток</li>
+        </ul>
+        <p>Выберите один из статусов для отображения накладных.</p>
+
+        <h3>Склады</h3>
+        <p>Товары при приеме накладной поступают на конкретный склад. Для фильтрации доступен выбор складов – можно выбрать один или несколько складов сразу.</p>
+
+        <h3>Поставщики</h3>
+        <p>За накладной может быть закреплен поставщик. Доступна фильтрация по всем или по одному поставщику. Нажмите на кнопку, чтобы выбрать поставщика для просмотра накладных, поступивших от него.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Связанные материалы</h4>
+            <ul>
+                <li><a href="#">Как добавить поставщика в программу</a></li>
+            </ul>
+        </div>
+
+        <h2>Список накладных</h2>
+        <p>В списке отображаются те документы, которые соответствуют критериям фильтрации.</p>
+        
+        <img src="../../../images/articles/article45-img3.png" alt="Список накладных">
+
+        <p>В списке можно менять порядок отображаемых столбцов и включать\отключать их отображение.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Связанные материалы</h4>
+            <ul>
+                <li><a href="#">Как настроить отображение столбцов в таблице</a></li>
+            </ul>
+        </div>
+
+        <h3>Добавить</h3>
+        <p><strong>Кнопка "Добавить"</strong> Нажмите кнопку, чтобы создать новую накладную</p>
+        <p>При нажатии откроется карточка накладной для создания нового документа.</p>
+
+        <h3>Редактировать</h3>
+        <p><strong>Кнопка "Редактировать"</strong> Нажмите кнопку, чтобы изменить накладную</p>
+        <p>Выберите в списке документов ту накладную, которую необходимо изменить и нажмите кнопку "редактировать". Откроется карточка накладной на поступление.</p>
+
+        <h3>Печатать</h3>
+        <p><strong>Кнопка "Печатать"</strong> Нажмите кнопку, чтобы напечатать документ</p>
+        <p>Нажмите кнопку "печатать" – программа отобразит меню выбора документа для печати.</p>
+        
+        <ul>
+            <li><strong>Накладная</strong> – программа предложит выбрать шаблон для печати документа, например, ТОРГ-12 или обычную товарную накладную.</li>
+            <li><strong>Ценники</strong> – откроется окно с перечнем товаров из выбранного документа для печати ценников</li>
+            <li><strong>Этикетки</strong> – откроется список товаров для выбранного документа для печати этикеток</li>
+        </ul>
+        
+        <p>При печати ценников для каждого товара в списке количество будет установлено равным 1 шт. Т.е. для каждого наименования печатается 1 ценник.</p>
+        <p>При печати этикеток для каждого наименования будет установлено то кол-во, которое указано в накладной.</p>
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Полезно</h4>
+            <p>Для печати ценников и этикеток можно выбрать сразу несколько накладных и отправить на печать одним списком. Зажмите Ctrl при выборе накладных, чтобы выбрать несколько записей.</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-video-camera"></i> Полезное видео</h4>
+            <ul>
+                <li><a href="#">Видео-урок: редактирование шаблонов документов</a></li>
+            </ul>
+        </div>
+
+        <h3>Удалить</h3>
+        <p><strong>Кнопка "Удалить"</strong> Нажмите кнопку, чтобы удалить документ</p>
+        <p>Выберите в списке документов одну или несколько записей, чтобы удалить их.</p>
+
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Удаление накладных повлечет за собой изменение остатков товаров, входящих в них. Если товары, поступившие в рамках удаляемой накладной, были проданы, то их остатки могут уйти в минус. Важно понимать, что прибыль на товары, проданные из удаленной накладной, будет равна 100%, т.к. закупочная цена из удаленной накладной НЕ используется в расчетах.</p>
+            <p>Если удаляемая накладная находилась в статусе "Принята", то для всех товаров, которые поступали в рамках этой накладной, количество будет уменьшено на поступившее.</p>
+            <p>Если удаляемая накладная находилась в статусе "Еще в пути", то остатки не будут изменены.</p>
+        </div>
+
+        <h3>Еще</h3>
+        <p><strong>Кнопка "Еще"</strong> Нажмите кнопку, чтобы выбрать дополнительное действие для выбранного документа</p>
+        <p>При нажатии на кнопку будет отображено меню для выбора дополнительного действия с выбранным документом.</p>
+        
+        <ul>
+            <li><strong>Групповое редактирование</strong> – будет отображен список товаров, входящий в выбранные документы, для проведения группового редактирования</li>
+            <li><strong>Создание перемещения</strong> – будет отображена карточка перемещения товаров между торговыми точками с товарами, входящими в выбранную накладную</li>
+        </ul>
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Полезно</h4>
+            <p>Для группового редактирования можно выбрать сразу несколько накладных. Зажмите Ctrl, выбирая накладные, чтобы выделить несколько.</p>
+        </div>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Связанные материалы</h4>
+            <ul>
+                <li><a href="#">Как создать перемещение товаров в другую торговую точку</a></li>
+            </ul>
+        </div>
+
+        <h2>Блок итогов</h2>
+        <p>В блоке итогов отображается суммарная информация по документам, отображаемым в списке.</p>
+        
+        <ul>
+            <li><strong>Поступлений</strong> – количество накладных в списке</li>
+            <li><strong>Товаров</strong> – кол-во товаров, подступивших в отображаемых накладных</li>
+            <li><strong>На сумму</strong> – сумма по всем накладным в списке по закупочным ценам</li>
+            <li><strong>Оплачено</strong> – сумма оплаты поставщикам по документам в списке</li>
+            <li><strong>Задолженность</strong> – общая сумма задолженности перед поставщиками по накладным в списке</li>
+        </ul>
+    </div>
+</body>
+</html>

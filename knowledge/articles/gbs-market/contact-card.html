@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка контакта GBS.Market</title>
+    <meta name="description" content="Описание внешнего вида, доступных полей и информации в карточке контакта (покупателя, поставщика)">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #2d3436;
+        }
+        .formula-box strong {
+            color: #2d3436;
+            font-family: 'Courier New', monospace;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Карточка контакта</h1>
+        <p>Описание внешнего вида, доступных полей и информации в карточке контакта (покупателя, поставщика)</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Карточка контакта
+    </div>
+    <div class="article-content">
+        <p>В карточке контакта доступно редактирование информации о покупателе (контакте, контрагенте, поставщике) и просмотр истории покупок, суммы задолженности и накопленных баллов.</p>
+        
+        <p>В карточке можно указать такие данные, как:</p>
+        <ul>
+            <li>ФИО или название организации</li>
+            <li>ШК дисконтной карты</li>
+            <li>Адрес, телефон и email</li>
+            <li>Банковские реквизиты</li>
+            <li>Значения доп. полей</li>
+        </ul>
+        
+        <p>Карточка контакта доступна при создании и редактировании записи контакта:</p>
+        <ul>
+            <li>Создание контакта из главной формы</li>
+            <li>Создание и редактирование контакта из списка контактов</li>
+        </ul>
+        
+        <img src="../../../images/articles/article48-img1.png" alt="Внешний вид карточки контакта">
+        
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Доступ к карточке контакта, а так же отдельные действия с контактами могут быть ограничены правами доступа.</p>
+        </div>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <h2>Общая информация</h2>
+        
+        <img src="../../../images/articles/article48-img2.png" alt="Общая информация">
+        
+        <p>В блоке "общая информация" доступно редактирование базовых свойств контакта.</p>
+
+        <h3>ФИО</h3>
+        <p>Поле для ввода фамилии, имени и отчества контакта. Если контактом является организация – в это поле можно ввести название организации.</p>
+
+        <h3>Дисконтная карта</h3>
+        <p>Поле для ввода штрихкода дисконтной карты. Данный штрихкод используется для идентификации контакта как покупателя в момент продажи товаров.</p>
+        <p>Штрихкод дисконтной карты должен иметь префикс, установленный в настройках программы для дисконтных карт. Рекомендуется использовать формат штрихкода EAN-13.</p>
+        <p>При нажатии "Генерировать ШК" программа автоматически присвоит контакту штрихкод с префиксом из настроек.</p>
+        
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>В справочнике контактов не может быть два контакта с одинаковыми штрихкодами дисконтных карт. При попытке сохранить контакт и с дублирующимся ШК программа предупредит об этом.</p>
+        </div>
+
+        <h3>Группа</h3>
+        <p>Группа, к которой относится редактируемый или создаваемый контакт. Группа контактов определят общий набор свойств для входящих в нее контактов. Например, личная скидка, максимальная сумма долга и т.п.</p>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Описание карточки группы контактов</a></li>
+            </ul>
+        </div>
+
+        <h2>Основные</h2>
+        
+        <img src="../../../images/articles/article48-img3.png" alt="Основные поля">
+        
+        <p>На вкладке "основные" расположены поля с контактной информацией редактируемой карточки.</p>
+
+        <h3>Телефон</h3>
+        <p>Номер телефона контакта</p>
+
+        <h3>E-mail</h3>
+        <p>Адрес электронной почты контакта</p>
+
+        <h3>День рождения</h3>
+        <p>День рождения контакта. Может использоваться для предоставления скидки в день рождения.</p>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Настройка автоматической скидки в день рождения покупателя</a></li>
+                <li><a href="#">Видео-урок: все о скидках</a></li>
+            </ul>
+        </div>
+
+        <h3>Адрес</h3>
+        <p>Почтовый или юридический адрес контакта</p>
+
+        <h2>Финансы</h2>
+        
+        <img src="../../../images/articles/article48-img4.png" alt="Финансовая информация">
+        
+        <p>На этой вкладке отображается финансовая информация, связанная с редактируемым контактом.</p>
+
+        <h3>Покупок на сумму...</h3>
+        <p>Сумма стоимости всех товаров, купленных редактируемым контактом.</p>
+        <p>При клике на "Покупок на сумму" откроется журнал продаж, где продажи будут отфильтрованы для редактируемого контакта.</p>
+
+        <h3>Сумма долга...</h3>
+        <p>Сумма задолженности редактируемого контакта.</p>
+        <p>При клике на "Сумма долга" откроется журнал задолженностей, в котором записи будут отображены для данного контакта.</p>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок о продаже в долг (кредит)</a></li>
+            </ul>
+        </div>
+
+        <h3>Баллы...</h3>
+        <p>Сумма баллов, накопленных редактируемым контактом.</p>
+        <p>При нажатии на сумму баллов ее можно скорректировать вручную.</p>
+        
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Редактирование суммы накопленных баллов регулируется отдельным правом доступа.</p>
+        </div>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <h3>Финансы (для нескольких точек)</h3>
+        <p>При включенном обмене покупателями между торговыми точками вкладка "финансы" будет отображать дополнительную информацию.</p>
+        
+        <img src="../../../images/articles/article48-img5.png" alt="Финансы для нескольких точек">
+        
+        <p>Для каждого параметра сумма будет отображаться формулой:</p>
+        
+        <div class="formula-box">
+            <strong>123.00 (+456.00 = 579.00)</strong>
+        </div>
+        
+        <p>Где:</p>
+        <ul>
+            <li><strong>123.00</strong> – значение суммы для текущей точки</li>
+            <li><strong>456.00</strong> – суммарное значение из других торговых точек</li>
+            <li><strong>579.00</strong> – общая сумма (текущая точка + другие торговые точки)</li>
+        </ul>
+
+        <h2>Доп. информация</h2>
+        
+        <img src="../../../images/articles/article48-img6.png" alt="Дополнительная информация">
+        
+        <p>На вкладке "доп. информация" отображается описание (комментарий) и значение дополнительных полей.</p>
+
+        <h3>Описание</h3>
+        <p>В поле описание можно указать дополнительную информацию или комментарий о контакте</p>
+
+        <h3>Доп. свойства</h3>
+        <p>В таблице с дополнительными полями можно указать значения таких полей. Например, можно добавить поля "марка автомобиля", "гос. номер" при использовании программы в СТО.</p>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке дополнительных полей</a></li>
+            </ul>
+        </div>
+
+        <h2>Реквизиты</h2>
+        
+        <img src="../../../images/articles/article48-img7.png" alt="Реквизиты">
+        
+        <p>На вкладке "Реквизиты" можно указать ИНН, ОГРН, банковские и другие реквизиты контакта.</p>
+        <p>Например, в этом разделе можно указать ИНН контакта, который является сотрудником (продавцом), для передачи ИНН в чек онлайн-кассы.</p>
+
+        <h2>Сохранить</h2>
+        
+        <img src="../../../images/articles/article48-img8.png" alt="Кнопка 'Сохранить'">
+        
+        <p>Нажмите кнопку "Сохранить", чтобы сохранить все внесенные изменения в карточку контакта</p>
+
+        <h2>Отмена</h2>
+        
+        <img src="../../../images/articles/article48-img9.png" alt="Кнопка 'Отмена'">
+        
+        <p>Нажмите кнопку "Отменить", чтобы сбросить все изменения, которые были сделаны в карточке после ее открытия.</p>
+        <p>Программа запросит подтверждение на отмену, если какие-то свойства в карточке были изменены и не сохранены.</p>
+    </div>
+</body>
+</html>

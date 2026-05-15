@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка категории товаров GBS.Market</title>
+    <meta name="description" content="Описание карточки категории товаров и её настройки">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Карточка категории товаров</h1>
+        <p>Описание карточки категории товаров и её настройки</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Карточка категории товаров
+    </div>
+    <div class="article-content">
+        <p>Категория (группа) товаров предназначена для объединения товаров, имеющих одинаковые признаки, характеристики и логику продажи.</p>
+        <p>В меню главной формы нажмите Товары – Категории товаров, а затем создайте новую или выберите для редактирования, чтобы открыть карточку категории.</p>
+        
+        <img src="../../../images/articles/article41-img1.png" alt="Внешний вид карточки категории товаров">
+
+        <h2>Основные параметры</h2>
+        <img src="../../../images/articles/article41-img2.png" alt="Основные параметры категории">
+
+        <h3>Название</h3>
+        <p>В качестве названия категории можно ввести краткое описание группы товаров, например:</p>
+        <ul>
+            <li>Батарейки</li>
+            <li>Женские куртки</li>
+            <li>Молоко</li>
+        </ul>
+
+        <h3>Родительская категория</h3>
+        <p>С помощью указания родительской категории можно выстроить дерево категорий, например:</p>
+        <ul>
+            <li>Бытовая техника
+                <ul>
+                    <li>Телевизоры
+                        <ul>
+                            <li>Телевизоры 32 дюйма</li>
+                            <li>Телевизоры 40 дюймов</li>
+                        </ul>
+                    </li>
+                    <li>Мобильные устройства
+                        <ul>
+                            <li>Смартфоны</li>
+                            <li>Планшеты</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>Разделение товаров на подкатегории позволяет группировать схожие типы товаров в одной родительской категории, но при этом иметь возможность фильтрации по подкатегориям.</p>
+        <p>Нажмите на кнопку, чтобы выбрать родительскую категорию.</p>
+
+        <h3>Использовать данные родительской категории</h3>
+        <p>Опция позволяет использовать параметры родительской категории (если она указана) для текущей.</p>
+        <p>Т.е. если родительская категория имеет схожие свойства, то можно воспользоваться этой опцией, не прописывая их отдельно для подкатегории.</p>
+        <p>Будут использоваться свойства, которые указываются на вкладках "Свойства категории" и "Настройки ККМ".</p>
+
+        <h2>Свойства категории</h2>
+        <p>Вкладка с основными свойствами категории (группы) товаров.</p>
+        
+        <img src="../../../images/articles/article41-img3.png" alt="Внешний вид вкладки свойств">
+
+        <h3>Тип товаров</h3>
+        <p>Тип товаров определяет набор логики в поведении программы при выполнении действий с товарами из категории.</p>
+        <p>Доступны варианты:</p>
+        <ul>
+            <li><strong>Обычный товар</strong> – товары, которые не подходят под описание остальных типов. Обычно, это штучные товары.</li>
+            <li><strong>Весовой товар</strong> – при выполнении действий с такими товарами будет запрашиваться значение (кол-во) с весов, если они подключены к программе</li>
+            <li><strong>Услуги</strong> – для таких товаров будет доступно изменение цены в процессе продажи. Поступления для услуг недоступны.</li>
+            <li><strong>Подарочные сертификаты</strong> – позволяет создавать наборы подарочных сертификатов для их продажи и использования.</li>
+            <li><strong>Модификации товаров</strong> - дополнительные свойства, определяющие логику работы с товарами</li>
+        </ul>
+
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Обратите внимание, что изменение типа товара после того, как в категорию уже добавлены товары, в большинстве случаев недоступно. Например, нельзя изменить тип товара с "Обычный товар" на "Услуги", "Услуги" на "Подарочные сертификаты" и т.д.</p>
+        </div>
+
+        <h3>Налоговая ставка (НДС)</h3>
+        <p>Значение налоговой ставки (НДС) для товаров, которые входят в данную категорию.</p>
+        <p>Значение налоговой ставки передается в ККМ (онлайн-кассу) и в печатные документы (счета, накладные, ТОРГ-12 и т.п.)</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция по настройке значений НДС для кассового чека</a></li>
+            </ul>
+        </div>
+
+        <h3>Единицы измерения</h3>
+        <p>Единицы измерения могут быть переданы в печатаемые документы, например, счет, ТОРГ-12 и т.п.</p>
+        <p>Некоторые свойства единиц измерения могут передаваться в ККМ, например, тег 2108 для онлайн-касс.</p>
+        <p>Редактирование единиц измерения происходит в настройках программы.</p>
+
+        <h3>Знаков после запятой</h3>
+        <p>Данная опция позволяет ограничить количество дробных (после запятой) знаков при вводе количества товара. Например, используя эту опцию можно запретить ввод дробных значений для товаров, продаваемых поштучно.</p>
+        <p>Для работы ограничения необходимо, чтобы была включена опция Ограничивать количество знаков после запятой в Файл - Настройки - Действия с товаром.</p>
+        <p>Подробнее об ограничении ввода дробных значений описано в статье.</p>
+
+        <h3>При продаже товаров необходим ввод доп. информации</h3>
+        <p>Если данная опция включена, то при добавлении товаров из этой категории в чек, программа будет запрашивать ввод комментария.</p>
+        <p>Например, при продаже бытовой техники можно в комментарии для товара фиксировать серийный номер.</p>
+        <p>Для товаров, подлежащих маркировке, комментарий (код маркировки) запрашивается всегда.</p>
+        
+        <img src="../../../images/articles/article41-img4.png" alt="Запрос комментария к товару">
+
+        <h3>Запрашивать кол-во при добавлении товаров в документ</h3>
+        <p>Если данная опция включена, то при добавлении товаров из этой категории в документ, программа будет запрашивать ввод количества.</p>
+        <p>Например, если товары из такой категории всегда продаются в количестве, больше чем 1 шт, эта опция может ускорить процесс продажи.</p>
+        <p>Данная опция автоматически активируются для товаров с типом "весовой".</p>
+        
+        <img src="../../../images/articles/article41-img5.png" alt="Запрос количества товара при добавлении в чек">
+
+        <h3>Разрешить продажу по свободной цене</h3>
+        <p>Если данная опция включена, то при изменении количества в чеке для товаров данной категории будет доступно изменение и цены товара.</p>
+        <p>Для товаров типа "услуги" изменение цены всегда доступно.</p>
+        
+        <img src="../../../images/articles/article41-img6.png" alt="Ввод количества и цены">
+
+        <h3>Товары не подлежат продаже (составные части)</h3>
+        <p>Если данная опция включена, то товары из этой категории не будут доступны для продажи. Они не будут отображаться в окне поиска и на главной форме режима "Кафе".</p>
+        <p>Товары, входящие в категорию с включенной опцией, обычно используются в роли составных частей или ингредиентов в составных товарах (комплектах, рецептах производства).</p>
+
+        <h2>Настройки ККМ</h2>
+        <p>Свойства категории (группы) товаров, которые обычно передаются в фискальный регистратор (ККМ).</p>
+        
+        <img src="../../../images/articles/article41-img7.png" alt="Вкладка 'Настройки ККМ' в карточке категории">
+
+        <h3>Номер секции</h3>
+        <p>Номер секции (отдела), который передается в кассу.</p>
+
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+            <p>Данная настройка не имеет отношения к секциям (рабочим местам), которые создаются в базе данных.</p>
+        </div>
+
+        <h3>Система налогообложения</h3>
+        <p>СНО, которая подходит для товаров, входящих в данную категорию.</p>
+        <p>Если выбрать "не указано", будет использоваться СНО, указанная по умолчанию в настройках.</p>
+
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+            <p>В одном чеке могут быть товары только с одной СНО, т.к. в чеке система налогообложения указывается именно для чека, а не отдельного товара.</p>
+        </div>
+
+        <h3>Признак предмета расчета</h3>
+        <p>Значения тега "Признак предмета расчета" (1212) согласно формату фискальных документов по 54-ФЗ.</p>
+        <p>Опция актуальна только для онлайн-касс, используемых на территории России.</p>
+
+        <h3>Маркируемая продукция</h3>
+        <p>Тип маркируемой продукции для товаров, входящих в данную категорию.</p>
+        <p>Если товары в категории не подлежат маркировке, необходимо выбрать соответствующий вариант.</p>
+        <p>Доступны варианты (для России):</p>
+        <ul>
+            <li>Не подлежит маркировке</li>
+            <li>Лекарства</li>
+            <li>Табачные изделия</li>
+            <li>Обувь</li>
+            <li>Парфюм</li>
+            <li>Шины/покрышки</li>
+            <li>Легкая промышленность</li>
+            <li>и другие типы, поддерживаемые программой</li>
+        </ul>
+        <p>Для других стран могут использоваться локальные значения типов маркируемой продукции.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Актуальный перечень поддерживаемых типов маркированных товаров</a></li>
+            </ul>
+        </div>
+
+        <h2>Изображение</h2>
+        <p>Для категории (группы) товаров можно установить одно изображение. Изображение будет показано в меню в режиме "Кафе", если включена опция в настройках.</p>
+        
+        <img src="../../../images/articles/article41-img8.png" alt="Установка изображения для категории товаров">
+
+        <h3>Добавить</h3>
+        <p><strong>Кнопка "Добавить"</strong> Нажмите кнопку, чтобы добавить изображение</p>
+        <p>Нажмите на кнопку "Добавить", чтобы добавить новое изображение или заменить существующее. Так же при клике на поле с изображением можно добавить новое или заменить существующее.</p>
+        <p>Поддерживаются форматы bmp, jpeg, png.</p>
+
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>При добавлении изображения оно будет сжато и уменьшено до размера 1024 пикселей по большей стороне, если изначальный размер превышает данное значение. Исходный файл при этом не будет изменен.</p>
+        </div>
+
+        <h3>Удалить</h3>
+        <p><strong>Кнопка "Удалить"</strong> Нажмите на кнопку, чтобы удалить изображение</p>
+        <p>Чтобы удалить ранее установленное изображение для категории, нажмите на кнопку удалить.</p>
+
+        <h2>Завершение редактирования</h2>
+
+        <h3>Сохранить</h3>
+        <img src="../../../images/articles/article41-img9.png" alt="Кнопка 'Сохранить'">
+        <p>Нажмите кнопку "Сохранить", чтобы сохранить все внесенные изменения в карточку категории товаров.</p>
+
+        <h3>Отмена</h3>
+        <img src="../../../images/articles/article41-img10.png" alt="Кнопка 'Отмена'">
+        <p>Нажмите кнопку "Отменить", чтобы сбросить все изменения, которые были сделаны в карточке категории после её открытия.</p>
+        <p>Программа запросит подтверждение на отмену, если какие-то свойства в карточке были изменены и не сохранены.</p>
+
+        <h2>Вопросы и ответы</h2>
+
+        <h3>Как указать, что товар весовой?</h3>
+        <p>Для того, чтобы указать, что товар является весовым, необходимо создать категорию товаров, в карточке которой необходимо будет:</p>
+        <ul>
+            <li>в поле тип товаров указать "весовые товары"</li>
+            <li>в поле знаков после запятой указать, например, значение 3</li>
+        </ul>
+        <p>В момент продажи таких товаров:</p>
+        <ul>
+            <li>при добавлении товара в чек программа запросит ввод количества</li>
+            <li>если к программе подключены весы, значение кол-ва будет получено с весов</li>
+        </ul>
+    </div>
+</body>
+</html>

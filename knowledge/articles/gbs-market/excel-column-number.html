@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Определение номера столбца в Excel для ячейки GBS.Market</title>
+    <meta name="description" content="Инструкция по определению номера столбца в Excel для загрузки данных в GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .step-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .step-box h4 {
+            color: #667eea;
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .step-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .step-box li {
+            margin-bottom: 8px;
+            color: #495057;
+        }
+        .format-example {
+            background: #f1f2f6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+        .format-example h4 {
+            color: #2f3542;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .format-example ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .format-example li {
+            margin-bottom: 5px;
+            color: #57606f;
+        }
+        .code-example {
+            background: #2d3436;
+            color: #f5f6fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Определение номера столбца в Excel для ячейки</h1>
+        <p>Как определить номер столбца для ячейки в документе Excel</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Определение номера столбца в Excel
+    </div>
+    <div class="article-content">
+        <p>При загрузке данных в GBS.Market из Excel может потребоваться определение номера столбца в документе формата Excel для ячейки. Например, можно:</p>
+        <ul>
+            <li>загрузить товары из Excel</li>
+            <li>загрузить накладную из Excel</li>
+            <li>загрузить контакты (покупателей) из Excel</li>
+        </ul>
+
+        <h2>Определение номера столбца</h2>
+        <p>Чтобы определить номер столбца для ячейки, установите курсор в необходимом месте. В поле "адрес" будет отображен адрес выбранной ячейки. На скриншоте ниже номер столбца для выбранной ячейки – "B"</p>
+        <img src="../../../images/articles/article6-img1.png" alt="Определение номера столбца в Excel">
+
+        <p>Если включен стиль ссылок R1C1, то результат будет выглядеть иначе.</p>
+        <img src="../../../images/articles/article6-img2.png" alt="Стиль ссылок R1C1 в Excel">
+
+        <p>Здесь адрес ячейки "R33C2", что означает:</p>
+        <ul>
+            <li><strong>Строка:</strong> 33</li>
+            <li><strong>Столбец:</strong> 2 – это искомое значение.</li>
+        </ul>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Обратите внимание, что ячейка на скриншотах является объединенной из нескольких, но номер столбца ей присвоен равным значению номера столбца из крайней левой ячейки.</p>
+        </div>
+
+        <h2>Отображение номеров столбцов в GBS.Market</h2>
+        <p>При загрузке данных из Excel в GBS.Market можно ввести числовое значение номера столбца, но рядом будет отображено значение в буквенном формате.</p>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Важно</h4>
+            <p>В GBS.Market при загрузке данных из Excel необходимо указывать числовое значение номера столбца, поэтому рекомендуем использовать именно такой формат для удобства.</p>
+        </div>
+
+        <h2>Стиль ссылок в Excel</h2>
+        <p>Необходимо понимать, что нумерация столбцов в Excel бывает двух видов, а именно адрес ячейки (стиль ссылки) в Excel может быть:</p>
+
+        <div class="format-example">
+            <h4>Форматы адресации ячеек:</h4>
+            <ul>
+                <li><strong>F11</strong> – буквенно-числовой</li>
+                <li><strong>R19C30</strong> – числовой</li>
+            </ul>
+        </div>
+
+        <p>Первая запись значит, что ячейка находится в столбце F, строка 11</p>
+        <p>Вторая запись значит, что ячейка находится в столбце 30, строка 19. Где R – row (строка), C – column (столбец).</p>
+
+        <h3>Числовой формат</h3>
+        <p>На скриншоте ниже видим, что в заголовках столбца прописаны числа</p>
+        <img src="../../../images/articles/article6-img3.png" alt="Числовой формат номеров столбцов">
+        <p><em>Числовой формат номеров столбцов</em></p>
+
+        <h3>Буквенно-числовой формат</h3>
+        <p>На этом скриншоте показано, что заголовки столбцов содержат буквы латинского алфавита.</p>
+        <img src="../../../images/articles/article6-img4.png" alt="Буквенный формат номеров столбцов">
+        <p><em>Буквенный формат номеров столбцов</em></p>
+
+        <h2>Как изменить стиль ссылок в Excel</h2>
+        <p>На примере Excel 2022 (Microsoft Office 365) рассмотрим, как происходит изменение стиля ссылок в документе Excel.</p>
+
+        <div class="step-box">
+            <h4><i class="fa fa-list-ol"></i> Пошаговая инструкция:</h4>
+            <ol>
+                <li>Откройте документ, с которым будете работать</li>
+                <li>В меню нажмите "Файл"</li>
+                <li>Слева внизу перейдите в раздел "Параметры"</li>
+                <li>На вкладке "Формулы" измените стиль ссылок</li>
+                <li>Нажмите "Ок" для сохранения</li>
+            </ol>
+        </div>
+
+        <p>Откройте документ, с которым будете работать. Далее в меню нажмите "Файл".</p>
+        <img src="../../../images/articles/article6-img5.png" alt="Меню Файл в Excel">
+
+        <p>Слева внизу перейдите в раздел "Параметры"</p>
+        <img src="../../../images/articles/article6-img6.png" alt="Файл - Параметры в Microsoft Office Excel">
+        <p><em>Файл - Параметры в Microsoft Office Excel</em></p>
+
+        <p>На вкладке "Формулы" можно изменить стиль ссылок. Если включить опцию "Стиль ссылок R1C1", то столбцы в документе будут иметь числовой формат. Если опцию отключить, то столбцы в документе Excel будут в буквенном формате.</p>
+        <img src="../../../images/articles/article6-img7.png" alt="Опция 'Стиль ссылок R1C1'">
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Совет</h4>
+            <p>После внесения изменений нажмите "Ок", чтобы сохранить параметры. Изменения вступят в силу сразу после сохранения.</p>
+        </div>
+
+        <h2>Практические примеры</h2>
+        <p>Для лучшего понимания рассмотрим несколько примеров определения номеров столбцов:</p>
+
+        <div class="code-example">
+            <strong>Буквенный формат:</strong><br>
+            A = 1<br>
+            B = 2<br>
+            C = 3<br>
+            ...<br>
+            Z = 26<br>
+            AA = 27<br>
+            AB = 28
+        </div>
+
+        <div class="code-example">
+            <strong>Числовой формат (R1C1):</strong><br>
+            R1C1 = строка 1, столбец 1<br>
+            R5C3 = строка 5, столбец 3<br>
+            R10C15 = строка 10, столбец 15
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Полезная информация</h4>
+            <p>Для загрузки данных в GBS.Market рекомендуется использовать числовой формат (R1C1), так как программа требует именно числовые значения номеров столбцов.</p>
+        </div>
+    </div>
+</body>
+</html>

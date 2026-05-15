@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки программы: Кафе GBS.Market</title>
+    <meta name="description" content="Настройки программы, связанные с работой в режиме Кафе">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .main-settings-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .main-settings-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .main-settings-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .main-settings-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .main-settings-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .menu-settings-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .menu-settings-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .menu-settings-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .menu-settings-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .menu-settings-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .service-percentage-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .service-percentage-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .service-percentage-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .service-percentage-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .service-percentage-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .attention-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .attention-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .attention-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .attention-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .attention-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .example-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .example-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .options-list {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .options-list h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .options-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .options-list li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-list {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .settings-list h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .settings-list li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройки программы: Кафе</h1>
+        <p>Настройки программы, связанные с работой в режиме "Кафе"</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки программы: Кафе
+    </div>
+    <div class="article-content">
+        <p>Описание раздела настроек "Кафе". Открыть настройки можно из главного окна программы Файл – Настройки.</p>
+        
+        <p>Вкладка настроек доступна только при выборе режима "Кафе".</p>
+        
+        <img src="../../../images/articles/article64-img1.png" alt="Настройки кафе">
+
+        <div class="main-settings-box">
+            <h2><i class="fa fa-cogs"></i> Основное</h2>
+            
+            <h4>Кнопка печати в главной форме</h4>
+            <p>Если опция включена, то на главной форме режима "Кафе" будет отображаться кнопка печати предварительного чека.</p>
+            
+            <h4>Окно "Кафе" во весь экран</h4>
+            <p>Позволяет запускать главную форму режима "Кафе" развернутой на весь экран</p>
+            
+            <h4>Панель покупателя</h4>
+            <p>Если опция включена, то на главной форме режима "Кафе" будет отображаться панель покупателя (клиента), на которой можно выбрать покупателя и увидеть информацию о нем.</p>
+            
+            <h4>Включить "Столики и персоны"</h4>
+            <p>Если опция включена, то в режиме "Кафе" можно включить форму для ввода количества персон и номера столика.</p>
+            
+            <h4>Запрашивать причину при удалении товара</h4>
+            <p>Если опция включена, то в режиме "Кафе" будет происходить запрос причины при удалении позиции из чека.</p>
+            <p>Посмотреть историю удаления таких позиций можно в истории действий сотрудников.</p>
+            
+            <h4>Добавлять товар в заказ при совпадении ШК</h4>
+            <p>Если опция включена, то в режиме "Кафе" товар будет добавлять в чек, если его ШК совпал с запросов в поле поиска и товар с таким ШК один.</p>
+            <p>Если опция отключена, то при поиске по ШК будут отображаться результаты поиска.</p>
+            
+            <h4>Режим быстрого обслуживания (оплата сразу)</h4>
+            <p>Если опция включена, то при нажатии кнопки "Итог" на главной форме режима "Кафе" не будет происходить запрос сохранения заказа или его оплаты - будет сразу же предложена оплата, после которой заказ будет считаться закрытым.</p>
+            <p>Использование этой опции может быть полезно в случаях, когда в торговой точке (кафе) подразумевается, что клиенты (покупатели) производят расчет сразу. Так же опция может быть полезна для магазинов, где необходима работа с сенсорным экраном и режимом "Кафе", но без использования заказов.</p>
+        </div>
+
+        <div class="menu-settings-box">
+            <h2><i class="fa fa-list-alt"></i> Меню</h2>
+            
+            <h4>Показывать фото товаров в меню</h4>
+            <p>Если опция включена, то в режиме "Кафе" для товаров и категорий будут отображаться их фотографии/изображения</p>
+            
+            <h4>Показывать остаток в меню</h4>
+            <p>Если опция включена, то в режиме "Кафе" для товаров будет отображаться количество на остатке</p>
+            
+            <h4>Возвращаться в главное меню после выбора товара</h4>
+            <p>Если опция включена, то в режиме "Кафе" после выбора товара будет происходить возврат к корневому меню категорий</p>
+            
+            <h4>Размер карточки товара ... пикселей</h4>
+            <p>Определяет ширину карточки товара в меню режима "Кафе".</p>
+            <p>Допустимые значения от 100 до 200 пикселей.</p>
+            
+            <h4>Избранные товары</h4>
+            <p>Опция, определяющая, каким образом будут отображаться избранные (быстрые) товары на главной форме режима "Кафе".</p>
+            
+            <div class="options-list">
+                <h4>Доступны варианты:</h4>
+                <ul>
+                    <li><strong>Не отображать</strong> - избранные товары не будут отображаться</li>
+                    <li><strong>Показывать НАД категориями товаров</strong> - избранные товары будут отображаться в меню над списком категорий</li>
+                    <li><strong>Показывать ПОД категориями товаров</strong> - избранные товары будут отображаться меню под списком категорий</li>
+                </ul>
+            </div>
+            
+            <div class="materials-box">
+                <p><a href="#">Подробнее об управлении избранными товарами можно узнать в статье</a></p>
+            </div>
+        </div>
+
+        <div class="service-percentage-box">
+            <h2><i class="fa fa-percent"></i> Процент за обслуживание</h2>
+            <p>Опция позволяет автоматически рассчитывать процент за обслуживание и добавлять его в чек.</p>
+            
+            <h3>Настройка правил начисления процента за обслуживание</h3>
+            <p>В этом разделе можно создать правила для автоматического расчета процента за обслуживание.</p>
+            
+            <div class="attention-box">
+                <h4><i class="fa fa-exclamation-circle"></i> Внимание</h4>
+                <p>Настройка доступна при включенной опции "Процент за обслуживание".</p>
+            </div>
+            
+            <p>Откроется пустая форма "Правила начисления процента за обслуживание". В правой части формы есть три кнопки: "Добавить", "Редактировать" и "Удалить", с помощью которых можно управлять правилами.</p>
+            
+            <img src="../../../images/articles/article64-img2.png" alt="Правила начисления процента за обслуживание">
+            
+            <p>Для создания правила нажмите кнопку "Добавить". Откроется форма "Правило расчет процента за обслуживание", которая включает следующие поля:</p>
+            
+            <img src="../../../images/articles/article64-img3.png" alt="Правило расчет процента за обслуживание">
+            
+            <div class="settings-list">
+                <ul>
+                    <li><strong>Название правила</strong> - присвойте лаконичное и понятное название правила</li>
+                    <li><strong>Обслуживание(%)</strong> - задайте процент за обслуживание</li>
+                    <li><strong>Категории</strong> - выберите категории, в пределах которых будет действовать правило</li>
+                    <li><strong>Отключить правило</strong> - опция позволит отключить правило на необходимое время.</li>
+                </ul>
+            </div>
+            
+            <p>После сохранения опции, правило добавляется в список и начинает автоматически применяться при расчете итоговой суммы заказа.</p>
+            
+            <p>В нашем примере это - 10% от суммы заказа. Если в заказ добавить еще несколько позиций, то сумма процента за обслуживание также пересчитается автоматически, и будет всегда составлять 10% от суммы заказа, согласно заданному правилу.</p>
+            
+            <img src="../../../images/articles/article64-img4.png" alt="Пример расчета процента за обслуживание">
+            
+            <div class="important-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+                <p>Рекомендуется настроить правила так, чтобы каждая категория использовалась только в одном из них — это поможет избежать дублирования.</p>
+            </div>
+            
+            <h4>Рассчитывать сумму за обслуживание от полной суммы чека (без учёта скидок)</h4>
+            
+            <div class="attention-box">
+                <h4><i class="fa fa-exclamation-circle"></i> Внимание</h4>
+                <p>Опция доступна при включении "Процент за обслуживание".</p>
+            </div>
+            
+            <p>При расчёте стоимости обслуживания (например, сервиса или чаевых) сумма будет взята исходя из общей суммы заказа без учёта предоставленных скидок.</p>
+            
+            <div class="example-box">
+                <h4><i class="fa fa-lightbulb-o"></i> Пример</h4>
+                <p>Клиент заказал блюда на 1000 рублей и получил скидку 200 рублей. В этом случае сумма за обслуживание будет рассчитана исходя из полной суммы — 1000 рублей, а не с учётом установленной скидки.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

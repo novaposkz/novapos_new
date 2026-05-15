@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание перемещения в другую торговую точку GBS.Market</title>
+    <meta name="description" content="Инструкция по созданию и отправке перемещения товаров между торговыми точками в GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .faq-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .faq-section h3 {
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .faq-item h4 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .example-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .example-box p {
+            margin: 0;
+            color: #6c757d;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Создание перемещения в другую торговую точку</h1>
+        <p>Процесс отправки товаров через перемещение в другую торговую точку</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Перемещение между торговыми точками
+    </div>
+    <div class="article-content">
+        <p>Перемещение товаров в программе позволяет фиксировать движение товаров между торговыми точками. Для работы перемещения товаров необходимо выполнить ряд настроек:</p>
+        <ul>
+            <li>Установить "облако" на те компьютеры, между которыми будет происходить перемещение товаров.</li>
+            <li>Настроить выгрузку данных на каждом из этих компьютеров, указав одну и ту же папку в "облаке"</li>
+        </ul>
+
+        <h2>Подготовка списка товаров</h2>
+        <p>Для создания нового перемещения на главной форме программы нажмите Документы – Отправить на другую точку</p>
+        <img src="../../../images/articles/article19-img1.png" alt="Создание перемещения товаров">
+
+        <h2>Добавление товаров</h2>
+        <p>В появившемся окне нажмите ( + ) для добавления товаров в список.</p>
+        <img src="../../../images/articles/article19-img2.png" alt="Добавление товаров в перемещение">
+        <p>Выберите необходимый товар и добавьте его в список.</p>
+        <img src="../../../images/articles/article19-img3.png" alt="Выбор товара для перемещения">
+        <p>Добавьте все товары, которые необходимо переместить</p>
+        <img src="../../../images/articles/article19-img4.png" alt="Список товаров для перемещения">
+
+        <h2>Изменение количества</h2>
+        <p>При необходимости выберите товар в списке и нажмите кнопку редактирования количества или кликните дважды в строке с товаром. Вы можете выбрать несколько товаров для редактирования количества.</p>
+        <img src="../../../images/articles/article19-img5.png" alt="Изменение количества товара">
+
+        <h2>Удаление товара из списка</h2>
+        <p>Если необходимо удалить товар из списка, выберите один или несколько товаров и нажмите кнопку с изображением корзины. Подтвердите выполнение действия.</p>
+        <img src="../../../images/articles/article19-img6.png" alt="Удаление товара из списка">
+
+        <h2>Отправка</h2>
+        <p>Перед отправкой товаров проверьте список добавленных товаров и выберите точку – получатель. Нажмите "Сохранить" для отправки.</p>
+        <img src="../../../images/articles/article19-img7.png" alt="Отправка перемещения">
+        <p>Программа сообщит об успешной отправке накладной.</p>
+        <img src="../../../images/articles/article19-img8.png" alt="Подтверждение отправки">
+
+        <div class="faq-section">
+            <h3>Вопросы и ответы</h3>
+            
+            <div class="faq-item">
+                <h4>Как принять перемещение в точке получателе?</h4>
+                <p>В точке, в которую были отправлены товары, в меню на главной форме нажмите Документы - Новое поступление. Потом в карточке накладной нажмите "Добавить" и выберите "Из другой точки", а затем выберите накладную, которую хотите принять.</p>
+                <div class="materials-box">
+                    <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+                    <ul>
+                        <li><a href="#">Подробнее о процессе приема перемещения</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4>Как списываются товары при отправке на другую торговую точку?</h4>
+                <p>После сохранения документа для товаров, которые были отправлены в другую торговую точку, остатки будут уменьшены на отправленное количество независимо от того, была (или будет) ли принята накладная. Так же в случае, если накладная сначала будет принята в точке-получателе, а затем удалена - товары на точке-отправителе будут считаться списанными в том количестве, в котором были отправлены.</p>
+                
+                <div class="warning-box">
+                    <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+                    <p>Даже если в точке-получателе количество принимаемого товара в накладной будет изменено или какой-то товар будет удален из накладной - это никак не повлияет на изменение остатков в точке получателе!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4>Отправляются ли изменения, внесенные в карточку товара, в другую торговую точку при перемещении?</h4>
+                <p>Если товар отправляется впервые на точку-получатель, то его характеристики будут внесены в базу данных программы на точке-получателе.</p>
+                <p>При повторной отправке товаров изменения, внесенные в карточку товара на точке-отправителе, не будут передаваться на точку-получатель, т.к. сравнение товаров происходит по внутреннему идентификатору.</p>
+                
+                <div class="example-box">
+                    <h4><i class="fa fa-lightbulb-o"></i> Пример</h4>
+                    <p>Например, есть товар "Молоко 2,5%". Вы его отправили с торговой точки "Ладога" на точку "Онега". Приняв такой товар впервые на точке "Онега" он будет записан как "Молоко 2,5%".</p>
+                    <p>Затем вы переименовали товар на точке "Ладога", исправив на "Молоко 3,5%", а потом снова сделали отправление на точку "Онега". В этом случае в торговой точке "Онега" товар останется с прежним названием "Молоко 2,5%".</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

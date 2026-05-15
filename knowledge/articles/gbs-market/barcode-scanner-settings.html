@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки программы: Оборудование - Сканер штрихкодов GBS.Market</title>
+    <meta name="description" content="Описание раздела настроек сканера штрихкодов">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .danger-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.15);
+        }
+        .danger-box h4 {
+            color: #c0392b;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .danger-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .features-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .features-box li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .example-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box p {
+            margin: 0;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .scanner-section {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .scanner-section h3 {
+            color: #2e7d32;
+            margin: 0 0 15px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .scanner-section h4 {
+            color: #388e3c;
+            margin: 15px 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .scanner-section p {
+            margin: 0 0 12px 0;
+            color: #2e7d32;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .scanner-section ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+        }
+        .scanner-section li {
+            margin-bottom: 6px;
+            color: #2e7d32;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .connection-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .connection-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .connection-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .connection-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .connection-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .prefixes-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .prefixes-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .prefixes-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .prefixes-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .prefixes-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .marking-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .marking-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .marking-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .marking-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .marking-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .faq-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .faq-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .faq-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .faq-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .faq-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .options-list {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .options-list h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .options-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .options-list li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-list {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .settings-list h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .settings-list li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .code-format {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        .code-format h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .code-format p {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            color: #495057;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройки программы: Оборудование - Сканер штрихкодов</h1>
+        <p>Описание раздела настроек сканера штрихкодов</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки программы: Оборудование - Сканер штрихкодов
+    </div>
+    <div class="article-content">
+        <p>Описание раздела настроек "Оборудование – Сканер штрихкодов". Открыть настройки можно из главного окна программы Файл – Настройки.</p>
+        
+        <p>Перечень сканеров, которые можно использовать с программой.</p>
+        
+        <img src="../../../images/articles/article62-img1.png" alt="Настройки сканера штрихкодов">
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Доступность некоторых опций зависит от типа выбранного устройства и типа подключения.</p>
+        </div>
+
+        <div class="connection-box">
+            <h3><i class="fa fa-barcode"></i> Тип сканера</h3>
+            <p>Тип подключения сканера штрихкодов.</p>
+            
+            <div class="options-list">
+                <h4>Доступны варианты:</h4>
+                <ul>
+                    <li><strong>Нет</strong> – сканер не используется</li>
+                    <li><strong>Эмуляция клавиатуры</strong> – используется сканер, который работает через USB и эмулирует клавиатуру</li>
+                    <li><strong>COM/RS-232</strong> – сканер, работающий через COM-порт или его эмуляцию.</li>
+                </ul>
+            </div>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Перечень поддерживаемых типов сканеров штрихкодов</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="scanner-section">
+            <h3><i class="fa fa-cog"></i> Настройки подключения</h3>
+            <p>Данный раздел доступен только при выборе типа подключения COM/RS-232.</p>
+            
+            <h4>Настроить</h4>
+            <p>Раздел для настройки подключения к COM-порту, через который работает сканер.</p>
+            
+            <h4>Проверка связи</h4>
+            <p>Отображает окно, для проверки работы сканера</p>
+            
+            <h4>Эмулировать клавиатуру</h4>
+            <p>Если опция выключена, то сканирование штрихкода доступно только в заранее запрограммированные поля в программе. Например, это поле поиска на главной форме, поле "штрихкод" в карточке товара и некоторые другие.</p>
+            
+            <p>Если опция включена, то программа эмулирует нажатие клавиш клавиатуры, которые соответствуют символам, посылаемым сканером. В таком режиме сканирование штрихкодов будет происходить в любое поле, в которое установлен курсор.</p>
+        </div>
+
+        <div class="prefixes-box">
+            <h3><i class="fa fa-tags"></i> Префиксы штрихкодов</h3>
+            <p>Под префиксом штрихкода обычно подразумевается первые две цифры самого штрихкода. Префиксы необходимы для того, чтобы программа смогла идентифицировать к какому типу сущности относится такой штрихкод и выбирает соответсвующую логику.</p>
+            
+            <h4>Случайно генерируемые</h4>
+            <p>Префикс устанавливается для штрихкодов, которые генерируются программой. Например, штрихкод можно сгенерировать из карточки товара или при загрузке товаров из накладной Excel.</p>
+            
+            <h4>Весовые товары</h4>
+            <p>Префикс используется для весовых товаров, этикетки для которых печатаются на весах с печатью этикеток.</p>
+            
+            <p>Такие штрихкоды должны соответствовать стандарту EAN13 и иметь формат PPAAAAABBBBBC, где:</p>
+            
+            <div class="code-format">
+                <h4>Формат весового штрихкода EAN13:</h4>
+                <p>PPAAAAABBBBBC</p>
+                <p>PP – две цифры префикса</p>
+                <p>AAAAA – PLU-код товара</p>
+                <p>BBBBB – вес товара в граммах</p>
+                <p>C – контрольная сумма для EAN13</p>
+            </div>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Процесс продажи товаров с весовыми штрихкодами</a></li>
+                    <li><a href="#">Фасовка товаров и печать весовых штрихкодов</a></li>
+                </ul>
+            </div>
+            
+            <h4>Дисконтные карты</h4>
+            <p>Префикс для дисконтных карт и идентификации покупателей.</p>
+            <p>Используется при генерации штрихкода покупателя в карточке контакта.</p>
+            <p>При сканировании штрихкода с таким префиксом на главной форме в поле поиска программа начнет искать покупателя, а не товар.</p>
+            
+            <h4>Подарочные сертификаты</h4>
+            <p>Префикс для подарочных сертификатов. С этим префиксом генерируются штрихкоды подарочных сертификатов.</p>
+            <p>При сканировании штрихкода с таким префиксом на главной форме в поле поиска будет начат поиск подходящего подарочного сертификата, а не товара.</p>
+            
+            <h4>Карточки сотрудников</h4>
+            <p>Префикс для авторизации сотрудников по штрихкоду.</p>
+            <p>Устанавливается для штрихкодов при генерации в карточке сотрудника.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Видео-урок о добавлении сотрудников</a></li>
+                </ul>
+            </div>
+            
+            <h4>Разрешить штрихкоды, содержащие буквы</h4>
+            <p>Улучшает поиск по штрихкодам в случаях, когда они содержат буквы.</p>
+        </div>
+
+        <div class="marking-box">
+            <h3><i class="fa fa-qrcode"></i> Маркировка</h3>
+            
+            <h4>Клавиша ввода символа 'GS'</h4>
+            <p>Настройка клавиши, эмуляция нажатия которой происходит при распознавании управляющего символа в коде маркировки.</p>
+            
+            <h4>Проверить 2D сканер для маркировки</h4>
+            <p>Раздел для проверки двумерного сканера для корректного распознавания кодов маркировки товаров.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Процесс проверки сканера на готовность работы с маркировкой</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-box">
+            <h3><i class="fa fa-question-circle"></i> Вопросы и ответы</h3>
+            
+            <h4>Почему сканер продолжает работать, даже если указать "нет" для типа сканера?</h4>
+            <p>Стоит понимать, что независимо от того, какой тип сканера будет указан в настройках, сканеры, работающие в режиме эмуляции клавиатуры, продолжат работать в программе. Но рекомендуется указывать корректный тип подключения для корректной работы программы.</p>
+            
+            <p>Т.е. если даже указать тип сканера "нет", но подключить сканер, работающий в режиме "эмуляция клавиатуры", то он будет работать в программе, т.к. чисто технически для программы не отличим от клавиатуры.</p>
+        </div>
+    </div>
+</body>
+</html>

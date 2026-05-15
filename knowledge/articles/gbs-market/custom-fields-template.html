@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление значений дополнительных полей товаров в шаблоны документов GBS.Market</title>
+    <meta name="description" content="Инструкция по добавлению значений дополнительных полей товаров в шаблоны документов в программе GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .step-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .step-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .step-box ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .step-box li {
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            overflow-x: auto;
+        }
+        .code-block .comment {
+            color: #68d391;
+        }
+        .code-block .tag {
+            color: #f687b3;
+        }
+        .code-block .attribute {
+            color: #fbb6ce;
+        }
+        .code-block .value {
+            color: #90cdf4;
+        }
+        .uid-highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-family: monospace;
+            font-weight: bold;
+            color: #856404;
+        }
+        .template-code {
+            background: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .video-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .video-box h4 {
+            color: #1976d2;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .video-box a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .video-box a:hover {
+            text-decoration: underline;
+        }
+        .editor-recommendation {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .editor-recommendation h4 {
+            color: #0c5460;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .editor-recommendation p {
+            margin: 0;
+            color: #0c5460;
+        }
+        .backup-warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .backup-warning h4 {
+            color: #721c24;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .backup-warning p {
+            margin: 0;
+            color: #721c24;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Добавление значений дополнительных полей товаров в шаблоны документов</h1>
+        <p>В статье описан процесс добавления значений доп. полей товаров в шаблоны документов.</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Дополнительные поля в шаблонах
+    </div>
+    <div class="article-content">
+        <div class="backup-warning">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+            <p>Процедура редактирования шаблона технически сложная. Перед тем, как редактировать файл шаблона, сохраните его копию, чтобы иметь возможность восстановить его, в случае, если после редактирования шаблон окажется поврежден.</p>
+        </div>
+
+        <p>Рассмотрим процесс добавления на примере. Допустим, нам необходимо добавить доп. поле "Артикул" в шаблон ценника товаров.</p>
+
+        <h2>Создание дополнительного поля</h2>
+        <p>Настройка дополнительных полей для товаров выполняется в Файл – Настройки – Товары. Нажмите "Настройка доп. полей", чтобы перейти к списку доп. полей товаров.</p>
+
+        <img src="../../../images/articles/article27-img1.png" alt="Настройка дополнительных полей товаров">
+
+        <div class="video-box">
+            <h4><i class="fa fa-play-circle"></i> Полезное видео</h4>
+            <p><a href="#">Видео-урок о добавлении дополнительных полей для товаров</a></p>
+        </div>
+
+        <p>В открывшемся окне нажмите кнопку "Добавить", и в карточке доп. поля введите название. В нашем примере это "Артикул" с типом "Строка".</p>
+
+        <img src="../../../images/articles/article27-img2.png" alt="Создание дополнительного поля Артикул">
+
+        <p>Затем выделите значение в поле UID, нажмите правой кнопкой мыши и выберите "Копировать", чтобы скопировать значение UID доп. поля в буфер обмена.</p>
+
+        <img src="../../../images/articles/article27-img3.png" alt="Копирование UID дополнительного поля">
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Важно</h4>
+            <p>UID пригодится на следующем шаге. Если планируете что-то копировать в буфер – сохраните UID, например, в блокноте.</p>
+        </div>
+
+        <h2>Установка значения доп. поля в карточке товара</h2>
+        <p>Чтобы в последствии проверить, что шаблон работает корректно, необходимо в карточке нескольких товаров установить значение для созданного доп. поля.</p>
+
+        <p>Откройте Товары – Каталог товаров и для одного или нескольких товаров укажите значение поля "Артикул" на вкладке "Доп. информация".</p>
+
+        <img src="../../../images/articles/article27-img4.png" alt="Установка значения артикула в карточке товара">
+
+        <p>Нажмите "Сохранить", чтобы изменения сохранились в базу данных.</p>
+
+        <h2>Открытие файла шаблона</h2>
+        <p>Шаблон необходимо отредактировать в текстовом редакторе, например в программе "Блокнот".</p>
+
+        <div class="editor-recommendation">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Для целей редактирования шаблонов лучше подойдет Notepad++ или SublimeText</p>
+        </div>
+
+        <p>Перейдите в настройки программы Файл – Настройки – Внешний вид и нажмите "Папка с шаблонами".</p>
+
+        <img src="../../../images/articles/article27-img5.png" alt="Переход к папке с шаблонами">
+
+        <p>Папка с шаблонами должна выглядеть примерно так:</p>
+
+        <img src="../../../images/articles/article27-img6.png" alt="Внешний вид папки с шаблонами">
+
+        <p><em>Внешний вид папки с шаблонами</em></p>
+
+        <p>В нашем примере необходимо перейти в папку PriceTags, которая соответствует шаблонам ценников. Соответствие папок описано в статье.</p>
+
+        <p>Выберите файл в списке, например 40х60, нажмите правой кнопкой мыши, затем "Открыть с помощью".</p>
+
+        <img src="../../../images/articles/article27-img7.png" alt="Открытие файла шаблона">
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Если в системе установлены Notepad++ или SublimeText, то можно выбрать пункт "Edit with Notepad++" или "Open with SublimeText", чтобы сразу перейти к редактированию.</p>
+        </div>
+
+        <p>В списке программ найдите"Блокнот" (или Notepad) и нажмите "Ок"</p>
+
+        <img src="../../../images/articles/article27-img8.png" alt="Выбор программы для открытия файла">
+
+        <h2>Редактирование кода шаблона</h2>
+        <p>Например, мы открыли шаблон в программе SublimeText. Он будет выглядеть так:</p>
+
+        <img src="../../../images/articles/article27-img9.png" alt="Открытый шаблон в SublimeText">
+
+        <p>В шаблон необходимо добавить следующий код:</p>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Вставить код необходимо в блоке <code>&lt;BusinessObjectDataSource Name="goods"...</code> после блока <code>&lt;Column Name="Good" DataType="Gbs.Helpers.FR.BackEnd.Entities.Goods.Good, Market, Version=6.2.0.1407, Culture=neutral, PublicKeyToken=null"&gt;</code></p>
+        </div>
+
+        <div class="code-block">
+<span class="tag">&lt;Column</span> <span class="attribute">Name</span>=<span class="value">"BusinessObjectDataSource2"</span> <span class="attribute">Alias</span>=<span class="value">"Properties"</span> <span class="attribute">DataType</span>=<span class="value">"System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"</span> <span class="attribute">PropName</span>=<span class="value">"Properties"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;Column</span> <span class="attribute">Name</span>=<span class="value">"Key"</span> <span class="attribute">DataType</span>=<span class="value">"System.String"</span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;Column</span> <span class="attribute">Name</span>=<span class="value">"Value"</span> <span class="attribute">Enabled</span>=<span class="value">"false"</span> <span class="attribute">DataType</span>=<span class="value">"System.Object"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/Column&gt;</span>
+        </div>
+
+        <p>В результате файл должен выглядеть так:</p>
+
+        <img src="../../../images/articles/article27-img10.png" alt="Результат добавления кода в шаблон">
+
+        <p>После этого сохраните внесенные изменения.</p>
+
+        <h2>Изменение шаблона в редакторе</h2>
+        <p>Откройте Файл – Настройки – Внешний вид, выберите необходимый шаблон в списке и нажмите "Изменить".</p>
+
+        <img src="../../../images/articles/article27-img11.png" alt="Изменение шаблона в редакторе">
+
+        <div class="video-box">
+            <h4><i class="fa fa-play-circle"></i> Полезное видео</h4>
+            <p><a href="#">Видео-урок по редактированию шаблонов документов</a></p>
+        </div>
+
+        <p>Добавьте элемент "Текст" в документ.</p>
+
+        <img src="../../../images/articles/article27-img12.png" alt="Добавление элемента Текст в шаблон">
+
+        <p>Дважды кликните на добавленный элемент и вставьте в него текст:</p>
+
+        <div class="template-code">
+[[goods.Good.Properties]["<span class="uid-highlight">643f0bf0-bc07-43b1-a575-515146858bfc</span>"]]
+        </div>
+
+        <p>Где значение <span class="uid-highlight">643f0bf0-bc07-43b1-a575-515146858bfc</span> в кавычках – это UID доп. поля, которое мы создали ранее. Шаблон в итоге должен выглядеть так:</p>
+
+        <img src="../../../images/articles/article27-img13.png" alt="Финальный вид шаблона с дополнительным полем">
+
+        <p>Сохраните внесенные изменения.</p>
+
+        <h2>Печать ценников</h2>
+        <p>После внесенных изменений необходимо проверить, что все сделано верно.</p>
+
+        <p>Откройте Товары – Ценники. Выберите товар, для которого задано значение поля "Артикул", и добавьте его в список.</p>
+
+        <p>В списке видим, что для товара указан артикул.</p>
+
+        <img src="../../../images/articles/article27-img14.png" alt="Список товаров с артикулами">
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция как включить отображение столбцов в списках</a></li>
+            </ul>
+        </div>
+
+        <p>После добавления необходимых товаров нажмите "Печать" и выберите шаблон, в который были внесены правки.</p>
+
+        <img src="../../../images/articles/article27-img15.png" alt="Выбор шаблона для печати">
+
+        <p>Если все сделано корректно, то в ценнике вы увидите артикул, указанный в карточке товара.</p>
+
+        <div class="step-box">
+            <h4><i class="fa fa-list-ol"></i> Краткая инструкция</h4>
+            <ol>
+                <li>Создайте дополнительное поле в настройках товаров</li>
+                <li>Скопируйте UID поля в буфер обмена</li>
+                <li>Установите значения поля в карточках товаров</li>
+                <li>Откройте файл шаблона в текстовом редакторе</li>
+                <li>Добавьте код для доступа к свойствам товара</li>
+                <li>Сохраните изменения в файле шаблона</li>
+                <li>Откройте шаблон в редакторе шаблонов</li>
+                <li>Добавьте текстовый элемент с формулой</li>
+                <li>Вставьте UID поля в формулу</li>
+                <li>Сохраните и протестируйте шаблон</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Полезные советы</h4>
+            <ul>
+                <li>Всегда создавайте резервную копию шаблона перед редактированием</li>
+                <li>Используйте Notepad++ или SublimeText для удобного редактирования</li>
+                <li>Сохраняйте UID дополнительного поля в безопасном месте</li>
+                <li>Тестируйте шаблон на товарах с заполненными дополнительными полями</li>
+                <li>Проверяйте корректность отображения после каждого изменения</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Установка шаблонов документов GBS.Market</title>
+    <meta name="description" content="Инструкция по установке шаблонов документов (печатных форм) в программе GBS.Market с использованием FastReport.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .step-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .step-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .step-box ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .step-box li {
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .example-box {
+            background: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .example-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .example-box p {
+            margin: 0;
+            color: #6c757d;
+        }
+        .folder-structure {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .folder-structure h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .folder-structure ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .folder-structure li {
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .compatibility-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .compatibility-info h4 {
+            color: #856404;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .compatibility-info ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .compatibility-info li {
+            margin-bottom: 5px;
+            color: #856404;
+        }
+        .fastreport-info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .fastreport-info h4 {
+            color: #0c5460;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .fastreport-info p {
+            margin: 0;
+            color: #0c5460;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Установка шаблонов документов</h1>
+        <p>Процесс установки шаблона документов</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Установка шаблонов
+    </div>
+    <div class="article-content">
+        <p>GBS.Market позволяет устанавливать шаблоны (печатные формы) для документов.</p>
+
+        <div class="fastreport-info">
+            <h4><i class="fa fa-file-text-o"></i> Формат шаблонов</h4>
+            <p>Шаблоны документов – это файлы отчетов FastReport.</p>
+        </div>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+            <p>Попытка открыть файл шаблона двойным кликом, скорее всего, не приведет к какому-либо результату.</p>
+        </div>
+
+        <p>Для установки шаблона следуйте инструкции.</p>
+
+        <h2>Процесс установки шаблона</h2>
+        <p>Для установки шаблонов документов выполните следующие действия:</p>
+
+        <h3>Откройте настройки программы</h3>
+        <p>Откройте настройки GBS.Market: Файл-Настройки</p>
+
+        <img src="../../../images/articles/article26-img1.png" alt="Открытие настроек программы">
+
+        <h3>Откройте папку с шаблонами</h3>
+        <p>Перейдите на вкладку "Внешний вид" и нажмите "Папка с шаблонами"</p>
+
+        <img src="../../../images/articles/article26-img2.png" alt="Переход к папке с шаблонами">
+
+        <h3>Скопируйте файл шаблона</h3>
+        <p>Откроется окно проводника с папкой, в которой находятся шаблоны.</p>
+
+        <img src="../../../images/articles/article26-img3.png" alt="Папка с шаблонами в проводнике">
+
+        <p>Ознакомьтесь с перечнем папок ниже и откройте ту папку, которая соответствует устанавливаемому шаблону, и скопируйте файл шаблона в открытую папку.</p>
+
+        <div class="example-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Пример</h4>
+            <p>Например, для установки шаблонов ценника, необходимо скопировать файл в папку PriceTags</p>
+        </div>
+
+        <h3>Проверьте результат</h3>
+        <p>Попробуйте напечатать документ, для которого вы установили шаблон. Если все сделано корректно, то установленный шаблон появится в списке для выбора.</p>
+
+        <p>На скриншоте ниже видно, что был установлен 1 шаблон для печати ценников.</p>
+
+        <img src="../../../images/articles/article26-img4.png" alt="Результат установки шаблона ценника">
+
+        <h2>Папки шаблонов</h2>
+        <p>Соответствие папок типам документов описано в статье.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Соответствие папок типам документов</a></li>
+            </ul>
+        </div>
+
+        <h2>Примечания</h2>
+        
+        <div class="compatibility-info">
+            <h4><i class="fa fa-info-circle"></i> Совместимость шаблонов</h4>
+            <ul>
+                <li><strong>Шаблоны могут быть несовместимы между собой.</strong><br>
+                Например, шаблон входящей накладной не будет совместим с документами, печатаемые при продаже</li>
+                <li><strong>Некоторые шаблоны могут быть совместимы.</strong><br>
+                Например, шаблоны ценников и этикеток совместимы и взаимозаменяемы</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa fa-check-circle"></i> Количество шаблонов</h4>
+            <ul>
+                <li><strong>Может быть установлено неограниченное количество шаблонов</strong></li>
+                <li><strong>Для любого типа документов количество шаблонов не ограничено</strong></li>
+            </ul>
+        </div>
+
+        <div class="step-box">
+            <h4><i class="fa fa-list-ol"></i> Краткая инструкция</h4>
+            <ol>
+                <li>Откройте Файл → Настройки</li>
+                <li>Перейдите на вкладку "Внешний вид"</li>
+                <li>Нажмите "Папка с шаблонами"</li>
+                <li>Откройте нужную папку для типа документа</li>
+                <li>Скопируйте файл шаблона в папку</li>
+                <li>Проверьте результат при печати документа</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Полезные советы</h4>
+            <ul>
+                <li>Убедитесь, что файл шаблона имеет правильный формат FastReport</li>
+                <li>Проверьте совместимость шаблона с типом документа</li>
+                <li>Создайте резервную копию существующих шаблонов перед установкой новых</li>
+                <li>Тестируйте новые шаблоны на пробных документах</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

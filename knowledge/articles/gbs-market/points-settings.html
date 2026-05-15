@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки программы: Скидки/баллы - Баллы GBS.Market</title>
+    <meta name="description" content="Описание раздела настроек Скидки/баллы - Баллы">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .features-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .features-box li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .example-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box p {
+            margin: 0;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .points-section {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .points-section h3 {
+            color: #7b1fa2;
+            margin: 0 0 15px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .points-section h4 {
+            color: #8e24aa;
+            margin: 15px 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .points-section p {
+            margin: 0 0 12px 0;
+            color: #7b1fa2;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .points-section ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+        }
+        .points-section li {
+            margin-bottom: 6px;
+            color: #7b1fa2;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .payment-box {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-left: 4px solid #0288d1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(2, 136, 209, 0.15);
+        }
+        .payment-box h4 {
+            color: #01579b;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .payment-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .payment-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .payment-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройки программы: Скидки/баллы - Баллы</h1>
+        <p>Описание раздела настроек Скидки/баллы - Баллы</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки программы: Скидки/баллы - Баллы
+    </div>
+    <div class="article-content">
+        <p>GBS.Market позволяет настроить накопительную бонусную систему. Для различных категорий товаров могут быть настроены отдельные правила начисления бонусов.</p>
+        <p>В статье описан раздел "Баллы" в настройках программы. На главной форме нажмите Файл – Настройки, а затем перейдите на вкладку "Скидки/баллы", далее – "Баллы".</p>
+        
+        <img src="../../../images/articles/article55-img1.png" alt="Внешний вид вкладки настроек 'Баллы'">
+
+        <div class="points-section">
+            <h3>Накопительная система (баллы)</h3>
+            
+            <img src="../../../images/articles/article55-img2.png" alt="Накопительная система (баллы)">
+            
+            <p>Опция отвечает за работу системы бонусов.</p>
+            <p>Если она включена – доступны настройки бонусной системы. Покупатели смогут оплачивать покупки и накапливать баллы согласно установленным правилам.</p>
+            <p>Если опция отключена – накопление и использование бонусов недоступно.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Синхронизация покупателями между торговыми точками</a></li>
+                </ul>
+            </div>
+            
+            <div class="important-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+                <p>При отключении накопительной системы ранее накопленные бонусы не сгорят, но покупатели не смогут их использовать в данной торговой точке.</p>
+            </div>
+        </div>
+
+        <div class="points-section">
+            <h3>Начисление баллов</h3>
+            
+            <img src="../../../images/articles/article55-img3.png" alt="Начисление баллов">
+            
+            <h4>Правила начисления баллов</h4>
+            <p>Нажмите на кнопку, чтобы получить доступ к управлению правилами начисления бонусов.</p>
+            
+            <img src="../../../images/articles/article55-img4.png" alt="Правила начисления баллов">
+            
+            <h4>Не начислять баллы при оплате...</h4>
+            <p>Это опция регулирует начисление бонусов в зависимости от способа оплаты.</p>
+            <p>По умолчанию баллы начисляются независимо от способа. Вы можете выбрать способы, при оплате которыми бонусы не будут начисляться.</p>
+            <p>Например, отключим начисление баллов при оплате подарочным сертификатом и банковской картой.</p>
+            
+            <img src="../../../images/articles/article55-img5.png" alt="Не начислять баллы при оплате...">
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Видео-урок: настройка и использование способов оплаты</a></li>
+                    <li><a href="#">Прием оплаты картой через эквайринг-терминал</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="payment-box">
+            <h4><i class="fa fa-credit-card"></i> Продажи в долг</h4>
+            <p>Обратите внимание, что при включении ограничения по способам оплаты будут действовать дополнительные ограничения при оформлении продажи в долг.</p>
+            
+            <p><strong>Если ограничений по способам оплаты нет:</strong></p>
+            <ul>
+                <li>то при продаже в долг бонусы начисляются на товары, согласно правилам</li>
+            </ul>
+            
+            <p><strong>Если есть ограничение по одному или нескольким способам:</strong></p>
+            <ul>
+                <li>при продаже в долг полностью (без оплаты) бонусы НЕ будут начислены (даже после погашения задолженности)</li>
+                <li>при продаже в долг частично (частичная оплата) бонусы будут начислены пропорционально сумме оплаты, если по оплачиваемому способу нет ограничения</li>
+            </ul>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Видео-урок: оформление продажи в долг</a></li>
+                </ul>
+            </div>
+            
+            <div class="important-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+                <p>При погашении задолженности баллы не начисляются!</p>
+            </div>
+            
+            <div class="example-box">
+                <h4>Пример 1</h4>
+                <p>Есть правило, согласно которому на все товары начисляются бонусы в размере 5%. Ограничений по способам оплаты нет.</p>
+                <p>Покупатель приобретает товары на сумму 12500 в долг, не оплачивая ничего.</p>
+                <p>Бонусы будут начислены на всю сумму: 12500*5% = 625 бонусов.</p>
+            </div>
+            
+            <div class="example-box">
+                <h4>Пример 2</h4>
+                <p>Есть правило, согласно которому на все товары начисляются бонусы в размере 5%. Бонусы не начисляются при оплате картой.</p>
+                <p>Покупатель приобретает товары на сумму 12500 в долг, оплачивая 5000 наличными.</p>
+                <p>Бонусы будут начислены только на сумму оплаты, т.е. 5000*5% = 250 бонусов.</p>
+            </div>
+            
+            <div class="important-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+                <p>При последующем погашении задолженности бонусы НЕ будут доначислены, даже если оплата будет способом, по которому нет ограничения.</p>
+            </div>
+        </div>
+
+        <div class="payment-box">
+            <h4><i class="fa fa-money"></i> Смешанная оплата</h4>
+            <p>Если по продаже будет смешанная оплата, например:</p>
+            <ul>
+                <li>наличными (баллы начисляются)</li>
+                <li>картой (баллы не начисляются)</li>
+            </ul>
+            <p>то сумма начисленных бонусов будет пропорциональная сумме оплаты способами, на которых происходит начисление.</p>
+            
+            <div class="example-box">
+                <h4>Пример</h4>
+                <p>Есть правило бонусов, согласно которому на все категории товаров начисляется 5% бонусами. Бонусы не начисляются при оплате картой. А при оплате наличными - начисляются.</p>
+                <p>Покупатель приобретает товар за 12500 рублей и оплачивает 5000 наличными и 7500 картой. В этом случае баллы будут начислены только на сумму 5000, т.е. в размере 5000*5%= 250 бонусов.</p>
+            </div>
+        </div>
+
+        <div class="points-section">
+            <h4>При оплате баллами...</h4>
+            
+            <img src="../../../images/articles/article55-img6.png" alt="При оплате баллами...">
+            
+            <p>Опция регулирует логику начисления баллов в случае, если продажа оплачивается ранее накопленными бонусами.</p>
+            <p>Доступны варианты:</p>
+            <ul>
+                <li>Начислять баллы на всю покупку</li>
+                <li>Не начислять баллы на сумму, оплаченную баллами</li>
+                <li>Не начислять баллы на покупку</li>
+            </ul>
+            
+            <div class="example-box">
+                <h4>Пример</h4>
+                <p>Есть правило, согласно которому на все товары начисляется 5% бонусами. Баллы не начисляются на сумму, оплаченную баллами.</p>
+                <p>Покупатель приобретает товар за 12500 и использует 500 бонусов для оплаты. В таком случае бонусы будут начислены на сумму 12500-500 = 12000 в размере 12000*5% = 600 бонусов.</p>
+            </div>
+        </div>
+
+        <div class="points-section">
+            <h3>Использование баллов</h3>
+            
+            <img src="../../../images/articles/article55-img7.png" alt="Использование баллов">
+            
+            <h4>Разрешить оплату баллами не более ... % от чека</h4>
+            <p>Данная настройка подразумевает процент от суммы чека, который может быть оплачен баллами.</p>
+            <p>При значении 100% вся покупка может быть оплачена баллами, если у покупателя достаточно их на балансе.</p>
+            <p>При значении 50% бонусами может быть оплачена только половина стоимости покупки. Остальная часть должна быть оплачена любым из доступных способов (или в долг).</p>
+        </div>
+
+        <h2>Примечания</h2>
+        <p>Если действия настроек каким-то образом пересекается, то будут использоваться все установленные ограничения.</p>
+        
+        <div class="example-box">
+            <h4>Пример</h4>
+            <p>Есть правило, согласно которому начисляется 5% баллами только на категорию "телевизоры". Покупатель приобретает 2 товара:</p>
+            <ul>
+                <li>телевизор за 15000 рублей</li>
+                <li>микроволновую печь за 5000 рублей</li>
+            </ul>
+            <p>Если никаких ограничений нет, то покупателю баллы будут начислены только на 15000 рублей в размере 15000*5% = 750 бонусов.</p>
+            <p>Допустим, что при оплате картой бонусы не начисляются, а покупатель оплачивает картой сумму 3000, а остальное - наличными.</p>
+            <p>В этом случае баллы будут начислены в отношении (20 000 - 3 000) / 20 000, т.е. 0,85 от полной суммы возможных по покупке бонусов: 750*0,85 = 637,5 баллов.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автоматическое создание резервных копий GBS.Market</title>
+    <meta name="description" content="Инструкция по настройке автоматического резервного копирования данных в программе GBS.Market.">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .article-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.3rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #3b3b3b;
+        }
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #4a4a4a;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+        }
+        .step-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .step-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .step-box ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .step-box li {
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .backup-options {
+            background: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .backup-options h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .backup-options ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .backup-options li {
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .storage-recommendations {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .storage-recommendations h4 {
+            color: #0c5460;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .storage-recommendations ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .storage-recommendations li {
+            margin-bottom: 5px;
+            color: #0c5460;
+        }
+        .retention-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .retention-info h4 {
+            color: #856404;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .retention-info p {
+            margin: 0;
+            color: #856404;
+        }
+        .server-client-info {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .server-client-info h4 {
+            color: #721c24;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .server-client-info p {
+            margin: 0;
+            color: #721c24;
+        }
+        .backup-definition {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .backup-definition h4 {
+            color: #2d5a2d;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .backup-definition p {
+            margin: 0;
+            color: #2d5a2d;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Автоматическое создание резервных копий</h1>
+        <p>Настройка автоматического резервного копирования данных</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Автоматическое резервное копирование
+    </div>
+    <div class="article-content">
+        <div class="backup-definition">
+            <h4><i class="fa fa-database"></i> Что такое резервная копия</h4>
+            <p>Резервная копия (бэкап) это архив с данными, созданный для того, чтобы в случае возникновения нештатной ситуации (выход компьютера из строя, повреждение данных) можно было восстановить информацию.</p>
+        </div>
+
+        <p>Кассовая программа GBS.Market имеет встроенный механизм создания резервных копий. Для того чтобы настроить автоматическое создание резервных копий, необходимо выполнить действия, описанные ниже.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Создание резервной копии вручную</a></li>
+                <li><a href="#">Восстановление из резервной копии</a></li>
+            </ul>
+        </div>
+
+        <h2>Включение резервного копирования</h2>
+        <p>В меню главной формы нажмите Файл – Настройки, а перейдите на вкладку "База данных", затем "Резервное копирование".</p>
+
+        <img src="../../../images/articles/article28-img1.png" alt="Настройки резервного копирования">
+
+        <p>Чтобы резервные копии создавались, убедитесь, что опция "Создавать резервные копии" включена. Включите её, если она она неактивна.</p>
+
+        <h2>Папка для сохранения резервных копий</h2>
+        <p>Создайте папку, в которую вы хотите сохранять резервные копии.</p>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Никогда не сохраняйте резервные копии на том же жестком диске, на котором хранятся данные. Если жесткий диск выйдет из строя, то вы потеряете и данные и резервные копии. Необходимо настроить сохранение резервных копий на отдельный диск (сетевой, внешний, USB-носитель).</p>
+        </div>
+
+        <div class="storage-recommendations">
+            <h4><i class="fa fa-cloud"></i> Рекомендации по хранению</h4>
+            <ul>
+                <li><strong>Облачное хранилище</strong> - Яндекс.Диск, Google Drive, Dropbox</li>
+                <li><strong>Внешний жесткий диск</strong> - USB-накопитель или внешний HDD</li>
+                <li><strong>Сетевой диск</strong> - NAS или другой компьютер в сети</li>
+                <li><strong>Отдельный физический диск</strong> - второй жесткий диск в компьютере</li>
+            </ul>
+        </div>
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Совет</h4>
+            <p>Разумнее настроить сохранение резервных копий в облако, чтобы иметь возможность восстановить данные, даже если компьютер не подлежит восстановлению.</p>
+        </div>
+
+        <p>Предположим, что мы создали папку "Резервные копии" в облачном хранилище "Яндекс.Диск". Нажмите на кнопку выбора папки, чтобы указать к ней путь.</p>
+
+        <img src="../../../images/articles/article28-img2.png" alt="Выбор папки для резервных копий">
+
+        <h2>Периодичность создания резервных копий</h2>
+        <p>Вы можете выбрать, когда будут создавать резервные копии.</p>
+
+        <img src="../../../images/articles/article28-img3.png" alt="Настройка периодичности резервного копирования">
+
+        <div class="backup-options">
+            <h4><i class="fa fa-clock-o"></i> Варианты создания резервных копий</h4>
+            <ul>
+                <li><strong>При запуске программы</strong> – бэкап будет создан, когда программа запускается</li>
+                <li><strong>При завершении работы программы</strong> – резервная копия будет создаваться, когда программа закрывается</li>
+                <li><strong>По расписанию</strong> – выберите подходящую для вас периодичность создания резервных копий</li>
+            </ul>
+        </div>
+
+        <h2>Период хранения копий</h2>
+        <p>Чтобы не занимать место на жестком диске, программа будет удалять старые резервные копии. Срок хранений копий можно указать в настройках.</p>
+
+        <div class="retention-info">
+            <h4><i class="fa fa-calendar"></i> Срок хранения</h4>
+            <p>Допустимые значения: от 7 до 365 дней.</p>
+        </div>
+
+        <p>При необходимости вы можете скопировать файлы резервных копий на другой носитель или в другую папку, чтобы они не были удалены.</p>
+
+        <h2>Резервировать файл базы данных</h2>
+        <p>Данная опция отвечает за добавление базы данных программы в архив резервной копии.</p>
+
+        <div class="warning-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Не отключайте данную опцию, если не понимаете её назначение!</p>
+        </div>
+
+        <p>Данная опция должна быть включена для того, чтобы база данных добавлялась в резервную копию.</p>
+
+        <p>Но в ряде случае эту опцию имеет смысл отключить, например, при работе программы по схеме "сервер/клиент" на компьютерах-клиентах. Это позволяет снизить нагрузку на локальную сеть и ускорить запуск клиентов.</p>
+
+        <div class="server-client-info">
+            <h4><i class="fa fa-server"></i> Важно для схемы "сервер/клиент"</h4>
+            <p>При отключении опции в схеме "сервер/клиент" убедитесь, что хотя бы один из компьютеров создает бэкап базы данных!</p>
+        </div>
+
+        <h2>Восстановление из резервной копии</h2>
+        <p>Процесс восстановления данных из резервной копии описано в статье.</p>
+
+        <div class="materials-box">
+            <h4><i class="fa fa-book"></i> Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Восстановление из резервной копии</a></li>
+            </ul>
+        </div>
+
+        <div class="step-box">
+            <h4><i class="fa fa-list-ol"></i> Краткая инструкция по настройке</h4>
+            <ol>
+                <li>Откройте Файл → Настройки → База данных → Резервное копирование</li>
+                <li>Включите опцию "Создавать резервные копии"</li>
+                <li>Создайте папку для резервных копий (не на том же диске!)</li>
+                <li>Укажите путь к папке резервных копий</li>
+                <li>Выберите периодичность создания копий</li>
+                <li>Установите период хранения копий (7-365 дней)</li>
+                <li>Убедитесь, что опция "Резервировать файл базы данных" включена</li>
+                <li>Сохраните настройки</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Полезные советы</h4>
+            <ul>
+                <li>Используйте облачное хранилище для максимальной безопасности</li>
+                <li>Настройте автоматическое создание копий по расписанию</li>
+                <li>Регулярно проверяйте, что резервные копии создаются</li>
+                <li>Периодически тестируйте восстановление из резервных копий</li>
+                <li>Храните резервные копии в нескольких местах</li>
+                <li>Документируйте процедуры восстановления</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Дополнительная информация</h4>
+            <ul>
+                <li>Резервные копии создаются в формате ZIP-архива</li>
+                <li>Размер архива зависит от объема данных в базе</li>
+                <li>Процесс создания резервной копии может занять время</li>
+                <li>Во время создания резервной копии программа может работать медленнее</li>
+                <li>Рекомендуется создавать резервные копии в нерабочее время</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

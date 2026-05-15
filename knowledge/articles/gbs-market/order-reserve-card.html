@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка заказа/резерва GBS.Market</title>
+    <meta name="description" content="В кассовой программе GBS.Market доступна возможность по созданию заказов/резервов">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .receipt-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #2d3436;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Карточка заказа/резерва</h1>
+        <p>В кассовой программе GBS.Market доступна возможность по созданию заказов/резервов</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Карточка заказа/резерва
+    </div>
+    <div class="article-content">
+        <p>В кассовой программе GBS.Market доступна возможность по созданию заказов/резервов.</p>
+        
+        <p>Заказ/резерв можно использовать для таких целей:</p>
+        <ul>
+            <li>оформление заказа на товар, которого нет в наличии</li>
+            <li>резервирование какого-то товара за покупателем</li>
+            <li>фиксация предоплаты за товары или услуги</li>
+        </ul>
+        
+        <img src="../../../images/articles/article47-img1.png" alt="Карточка заказа/резерва">
+        
+        <p>На скриншоте выше показан внешний вид карточки заказа/резерва.</p>
+        <p>Открыть карточку заказа/резерва можно из меню главной формы: Документы - Новый заказ/резерв.</p>
+
+        <h2>Панель свойств</h2>
+        <p>В верхней части формы расположена панель свойств.</p>
+        
+        <img src="../../../images/articles/article47-img2.png" alt="Панель свойств">
+
+        <h3>Контакт</h3>
+        <p>Контакт - это клиент (покупатель), который оформляет заказ. Нажмите на Контакт, чтобы выбрать клиента через форму поиска контактов.</p>
+        <p>Указание контакт обязательно.</p>
+
+        <h3>Статус</h3>
+        <p>Свойство "Статус" может принимать одно из значений:</p>
+        <ul>
+            <li><strong>Открыт</strong> - заказ еще находится в работе. Такие заказы могут быть отредактированы</li>
+            <li><strong>Выполнен (закрыт)</strong> - заказ уже завершен. Закрытые заказы недоступны для редактирования</li>
+        </ul>
+        <p>При изменении статуса заказа с "Открыт" на "Выполнен" и последующем сохранении, его содержимое будет перемещено в чек (корзину) на главной форме для окончательного оформления взаиморасчетов с клиентом.</p>
+
+        <h3>Актуален до...</h3>
+        <p>Дата, до которой актуален заказ. Свойство носит только информационный характер. Заказы, которые вышли за рамки указанной даты, автоматически не изменяются.</p>
+
+        <h3>Зарезервировать товары</h3>
+        <p>Если опция включена, то при сохранении заказа/резерва для товаров, входящих в его состав, количество будет уменьшено на указанное в заказе. Например, может быть использовано, когда покупатель просит отложить какой-то товар и обещает вернуться на следующий день.</p>
+        <p>Если опция выключена, то остатки товаров, входящих в состав заказа/резерва, не будут изменяться при сохранении документа. Товары будут списаны в момент закрытия такого заказа. Например, может быть использовано для оформления заказа от покупателя на товары, которых нет в наличии.</p>
+
+        <h3>Сохранять цены на товары</h3>
+        <p>Если опция включена, то на товары, входящие в состав заказа/резерва, будут сохранены цены, актуальные на момент добавления таких товаров в документ. Например, это актуально в случаях, когда с покупателем согласована цена на товар и он уже внес полную предоплату.</p>
+        <p>Если опция выключена, то будет использоваться актуальная цена на товары. Например, это может быть полезно в случаях, когда клиент оформляет заказ товара, но конечная стоимость такого товара заведомо неизвестна.</p>
+
+        <h3>Комментарий</h3>
+        <p>Комментарий к документу. Например, адрес доставки или другая дополнительная информация.</p>
+
+        <h2>Список товаров</h2>
+        <p>На вкладке "Список товаров" отображаются товары, добавленные в заказ/резерв. Вы можете управлять товарами в списке:</p>
+        <ul>
+            <li>добавить товары</li>
+            <li>изменить количество товаров</li>
+            <li>устанавливать скидку на товар</li>
+            <li>удалять товары из списка</li>
+        </ul>
+        
+        <img src="../../../images/articles/article47-img3.png" alt="Список товаров">
+
+        <p>В списке отображается информация:</p>
+        <ul>
+            <li>штрихкод</li>
+            <li>категория товара</li>
+            <li>наименование товара</li>
+            <li>количество товара</li>
+            <li>цена</li>
+            <li>сумма</li>
+            <li>и т.д.</li>
+        </ul>
+
+        <h3>Кнопка "Добавить"</h3>
+        <p>Нажмите на кнопку "Добавить", чтобы добавить товар в список из окна поиска товаров. Если необходимо создать новый товары - это можно сделать в окне поиска товаров.</p>
+
+        <h3>Кнопка "Количество"</h3>
+        <p>Выберите один или несколько товаров и нажмите на кнопку "Количество", чтобы указать количество для них.</p>
+        
+        <img src="../../../images/articles/article47-img4.png" alt="Кнопка 'Количество'">
+
+        <h3>Кнопка "Скидка"</h3>
+        <p>Выберите один или несколько товаров в списке и нажмите на кнопку "Скидка", чтобы указать скидку на них.</p>
+        
+        <img src="../../../images/articles/article47-img5.png" alt="Кнопка 'Скидка'">
+
+        <h3>Кнопка "Удалить"</h3>
+        <p>Выберите один или несколько товаров и нажмите "Удалить", чтобы удалить эти товары из документа.</p>
+
+        <h3>Строка итогов</h3>
+        <p>В нижней части списка товаров отображается строка с итогами:</p>
+        <ul>
+            <li>количество наименований</li>
+            <li>общее количество товаров в документе</li>
+            <li>розничная сумма товаров</li>
+        </ul>
+
+        <h2>Список платежей</h2>
+        <p>Список платежей позволяет управлять платежами, сделанными клиентом (покупателем) по заказу/резерву:</p>
+        <ul>
+            <li>добавление платежей</li>
+            <li>удаление платежей</li>
+        </ul>
+        <p>Например, добавление платежа может быть полезно в случае оформления предоплаты за товар, которого нет в наличии.</p>
+        
+        <img src="../../../images/articles/article47-img6.png" alt="Список платежей">
+
+        <h3>Кнопка "Добавить"</h3>
+        <p>Нажмите на кнопку, чтобы добавить платеж (предоплату) в заказ/резерв. Если в программе настроены способы оплаты, то вы сможете указать, каким способом (например, картой или наличными) осуществляется платеж.</p>
+        
+        <img src="../../../images/articles/article47-img7.png" alt="Добавление платежа">
+
+        <h3>Кнопка "Удалить"</h3>
+        <p>Выберите один или несколько платежей и нажмите кнопку "Удалить", чтобы удалить эти платежи.</p>
+
+        <h3>Строка итогов</h3>
+        <p>В строке итогов под списком платежей отображается информация:</p>
+        <ul>
+            <li>количество платежей</li>
+            <li><strong>Оплачено</strong> - общая сумма платежей, внесенных по документу</li>
+            <li><strong>Задолженность</strong> - остаток суммы, которую необходимо оплатить для полного расчета по документу</li>
+        </ul>
+
+        <h2>Сохранение заказа/резерва</h2>
+        <p>В нижней части карточки заказа/резерва расположены кнопки "Сохранить" и "Отмена".</p>
+        <p>Если статус заказа изменен с "Открыт" на "Выполнен", то содержимое заказа будет перемещено в корзину для завершения взаиморасчетов.</p>
+
+        <h2>Вопросы и ответы</h2>
+
+        <h3>Можно ли в программе оформить предоплату за товары</h3>
+        <p>Да, в кассовой программе GBS.Market есть возможность оформления предоплаты (аванса). Например, это может быть полезно в случаях, когда покупатель хочет оформить заказ на товар, которого нет в наличии.</p>
+        
+        <p>Оформить предоплату на товары можно следующим образом:</p>
+        <ol>
+            <li>откройте карточку заказа/резерва</li>
+            <li>выберите клиента (покупателя), который вносит предоплату</li>
+            <li>на вкладке "список товаров" добавьте товары, за которые вносится предоплата</li>
+            <li>на вкладке "список платежей" добавьте платеж на сумму предоплаты</li>
+            <li>сохраните заказ/резерв</li>
+        </ol>
+
+        <h3>Будет ли напечатан чек на предоплату?</h3>
+        <p>В случае, если к программе подключена касса, программа распечатает чек согласно 54-ФЗ и ФФД 1.2 на предоплату (аванс). При этом в чеке не будет перечня товаров, а будет лишь указан номер заказа, т.к. на момент предоплаты список товаров может быть неполным.</p>
+
+        <div class="receipt-example">
+            <strong>Чек прихода</strong><br><br>
+            ИНН организации:                      7701237658<br>
+            ООО "Рога и Копыта", г. Сочи, переулок "Два Карл<br>
+            а"<br>
+            Заводской номер ККТ:            0149060506089651<br>
+            Email:                          odessa@Mother.ru<br>
+            Кассир:                            Павшуков Юрий<br>
+            ИНН кассира:                        000000000000<br>
+            Дата:                        17.12.2024 23:02:23<br>
+            ------------------------------------------------<br>
+            Место расчетов:           Подвал "Контрабандный"<br>
+            Эл.адрес отправителя:           odessa@Mother.ru<br>
+            ------------------------------------------------<br><br>
+            Внесение предоплаты по заказу №4:     1,0 X 1000<br><br>
+            Итого:                                  = 1000,0<br>
+            Без НДС                                        0<br>
+            Предмет расчета:                          ПЛАТЕЖ<br>
+            Cпособ расчета:                       ПРЕДОПЛАТА<br><br>
+            ------------------------------------------------<br>
+            ИТОГ:                                     1000,0<br>
+                              Наличными:          1000,0<br>
+            ------------------------------------------------<br><br>
+            Номер ФН:      0149060506089651<br>
+              Рег. #:      0000000003056478<br>
+                ФД #:                     3<br>
+               ФПД #:            1441022694
+        </div>
+
+        <p>Внешний вид чека по предоплате.</p>
+        <p>При закрытии такого заказа предоплата будет учтена в итоговом чеке.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки программы: Удаленный контроль GBS.Market</title>
+    <meta name="description" content="Описание раздела настроек 'Удаленный контроль'">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .features-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .features-box li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .example-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box p {
+            margin: 0;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .remote-section {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .remote-section h3 {
+            color: #2e7d32;
+            margin: 0 0 15px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .remote-section h4 {
+            color: #388e3c;
+            margin: 15px 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .remote-section p {
+            margin: 0 0 12px 0;
+            color: #2e7d32;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .remote-section ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+        }
+        .remote-section li {
+            margin-bottom: 6px;
+            color: #2e7d32;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .data-exchange-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+        }
+        .data-exchange-box h4 {
+            color: #1565c0;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .data-exchange-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .data-exchange-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .data-exchange-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .email-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+        }
+        .email-box h4 {
+            color: #e65100;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .email-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .email-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .email-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .telegram-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .telegram-box h4 {
+            color: #7b1fa2;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .telegram-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .telegram-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .telegram-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .web-office-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+        }
+        .web-office-box h4 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .web-office-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .web-office-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .web-office-box li {
+            margin-bottom: 6px;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tabs-list {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .tabs-list h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tabs-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .tabs-list li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройки программы: Удаленный контроль</h1>
+        <p>Описание раздела настроек "Удаленный контроль"</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки программы: Удаленный контроль
+    </div>
+    <div class="article-content">
+        <p>Описание раздела настроек "Удаленный контроль", где можно настроить параметры удаленного контроля и облачной синхронизации.</p>
+        
+        <p>Чтобы открыть эти настройки:</p>
+        <ul>
+            <li>в главной окне программы в меню нажмите Файл - Настройки</li>
+            <li>перейдите в раздел "Удаленный контроль"</li>
+        </ul>
+        
+        <img src="../../../images/articles/article59-img1.png" alt="Настройки программы: Удаленный контроль">
+
+        <div class="tabs-list">
+            <h4>В разделе настроек "Удаленный контроль" доступны вкладки:</h4>
+            <ul>
+                <li>Обмен данными</li>
+                <li>Отчеты на E-mail</li>
+                <li>Отчеты в Telegram</li>
+                <li>Веб-офис</li>
+            </ul>
+        </div>
+
+        <div class="data-exchange-box">
+            <h3><i class="fa fa-exchange"></i> Обмен данными</h3>
+            <p>Вкладка, содержащая настройки для управления параметрами облачной синхронизации</p>
+            
+            <img src="../../../images/articles/article59-img2.png" alt="Обмен данными">
+            
+            <h4>Папка обмена данными</h4>
+            <h4>Путь</h4>
+            <p>Путь к папке, которая используется для синхронизации, например, через облачное хранилище.</p>
+            
+            <p>В указанную папку выгружаются:</p>
+            <ul>
+                <li>Данные для режима "дом\офис"</li>
+                <li>Информация для перемещения товаров между торговыми точками</li>
+                <li>Файл обмена данными о покупателях</li>
+                <li>Обмен данными для каталога товаров</li>
+            </ul>
+            
+            <h4>Выгрузка базы данных</h4>
+            <h4>Выгружать базу данных</h4>
+            <p>Включение выгрузки данных в папку обмена данных.</p>
+            
+            <p>Необходимо для:</p>
+            <ul>
+                <li>Синхронизации с "дом\офис"</li>
+                <li>Перемещения товаров между торговыми точками</li>
+                <li>Обменом данными о покупателях между торговыми точками</li>
+                <li>Обмен данными для поиска товаров из других торговых точек</li>
+            </ul>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Описание режима "дом/офис"</a></li>
+                    <li><a href="#">Настройка выгрузки данных в "облако"</a></li>
+                </ul>
+            </div>
+            
+            <h4>Автоматически</h4>
+            <p>Если опция включена, то данные будут выгружаться автоматически при следующих событиях:</p>
+            <ul>
+                <li>Создание документа (продажа и поступление)</li>
+                <li>Создание снятия и внесения денежных средств</li>
+            </ul>
+            
+            <h4>По времени</h4>
+            <p>Выгрузка данных будет происходить в указанные периоды времени при условии, что программа в эти промежутки запущена. Добавьте периоды времени, когда должна происходить выгрузка данных.</p>
+            
+            <h4>Принимать изменения из "дом/офис"</h4>
+            <p>Если опция включена, то из режима "дом/офис" можно будет вносить изменения в базу данных данной торговой точки.</p>
+            
+            <div class="warning-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+                <p>Из режима "дом/офис" доступны для редактирования не все данные!</p>
+            </div>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Возможности и ограничения режима "Дом/офис"</a></li>
+                </ul>
+            </div>
+            
+            <h4>Не запрашивать авторизацию в "дом/офис"</h4>
+            <p>Если опция включена, то в режиме "дом/офис" не будет запрашиваться авторизация при открытии базы текущий торговой точки.</p>
+            <p>Если опция выключена, в режиме "дом/офис" при открытии базы текущей точки будет открываться окно входа в систему.</p>
+            
+            <h4>Сжимать данные перед отправкой</h4>
+            <p>Включение опции позволяет уменьшить объем данных, выгружаемых для синхронизации, но может увеличить нагрузку на устройство.</p>
+            
+            <h4>Выгрузить файл</h4>
+            <p>Нажмите кнопку "Выгрузить файл", чтобы инициировать выгрузку данных в "облако". Это может быть полезно при первичной настройке выгрузки, чтобы убедиться, что файл выгружается в правильную папку.</p>
+        </div>
+
+        <div class="email-box">
+            <h3><i class="fa fa-envelope"></i> Отчеты на E-mail</h3>
+            <p>Вкладка настроек, содержащая параметры отправки отчетов на электронную почту.</p>
+            
+            <img src="../../../images/articles/article59-img3.png" alt="Отчеты на E-mail">
+            
+            <h4>Отправлять отчеты на E-mail</h4>
+            <p>Включение отправки отчетов на электронную почту.</p>
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Подробная инструкция по настройке отправки отчетов</a></li>
+                </ul>
+            </div>
+            
+            <h4>Email</h4>
+            <p>Адреса ящиков электронной почты, на которые будут отправляться отчеты. Можно добавить один или несколько адресов.</p>
+            
+            <h4>Тестовое письмо</h4>
+            <p>Отправка тестового письма для проверки доставки. Нажмите на кнопку, чтобы отправить тестовое письмо на указанные адреса и проверить корректность доставки email.</p>
+            
+            <h4>По времени</h4>
+            <p>Если опция включена, то отчеты будут отправляться в указанные промежутки времени.</p>
+            
+            <div class="warning-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+                <p>В указанное время будут формироваться отчеты, их фактическая отправка может произойти позже. Программа должна быть запущена для отправки отчетов.</p>
+            </div>
+            
+            <h4>При продажах на сумму более...</h4>
+            <p>Сумма продажи, после сохранения которой будет отправлен отчет. Например, можно указать сумму 10 000, тогда при сохранении продажи, сумма которой превышает указанную сумму, будет отправлен отчет.</p>
+            
+            <h4>При выключении программы</h4>
+            <p>Если опция включена, то при завершение работы программы будет отправляться отчет</p>
+            
+            <h4>При снятии Z-отчета (закрытии смены)</h4>
+            <p>Включите опцию, чтобы отчеты на Email отправлялись, когда на подключенной кассе выполняется закрытие смены (снятие Z-отчета)</p>
+            
+            <div class="tip-box">
+                <h4><i class="fa fa-info-circle"></i> Обратите внимание!</h4>
+                <p>Опция не будет отображаться, если в программе не настроен фискальный регистратор\ККМ.</p>
+            </div>
+            
+            <h4>Очистить очередь отчетов на e-mail</h4>
+            <p>Может быть полезно, когда отправка отчетов была включена, но компьютер с программой долгое время не был подключен к интернету. Чтобы старые отчеты не отправлялись, можно очистить очередь.</p>
+            <p>Все отчеты, которые предназначены для отправки на email, будут удалены.</p>
+        </div>
+
+        <div class="telegram-box">
+            <h3><i class="fab fa-telegram"></i> Отчеты в Telegram</h3>
+            <p>Вкладка с параметрами отправки отчетов о работе торговой точки в Telegram</p>
+            
+            <img src="../../../images/articles/article59-img4.png" alt="Отчеты в Telegram">
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Подробнее о настройке отправки отчетов можно узнать в статье</a></li>
+                </ul>
+            </div>
+            
+            <h4>Подключение</h4>
+            <h4>Идентификатор пользователя (ChatID)</h4>
+            <p>Укажите ChatID, который получили от бота @GBSMarketInfo_bot</p>
+            <p>Можно указать только один ИД чата. При необходимости вы можете создать группу в Телеграм, в которой будут состоять несколько участников.</p>
+            
+            <h4>Тестовое сообщение</h4>
+            <p>Нажмите на кнопку, чтобы проверить доставку сообщений через Telegram</p>
+            
+            <h4>Отчеты о продажах</h4>
+            <h4>Отправлять отчеты в Telegram</h4>
+            <p>Включите опцию, чтобы активировать отправку отчетов о работе торговой точки через Telegram</p>
+            
+            <h4>По времени</h4>
+            <p>Укажите промежутки времени, когда должны отправлять отчеты. Учтите, что программа должна быть включена в моменты отправки отчета.</p>
+            
+            <h4>При продажах на сумму более ...</h4>
+            <p>Укажите сумму продажи, при превышении которой будет отправлен отчет</p>
+            
+            <h4>При выключении программы</h4>
+            <p>Включите опцию, чтобы получать отчеты в Telegram в момент, когда работа программы будет завершена.</p>
+            
+            <h4>При снятии Z-отчета (закрытии смены)</h4>
+            <p>Включите опцию, чтобы отчеты в Telegram отправлялись, когда на подключенной кассе выполняется закрытие смены (снятие Z-отчета)</p>
+            
+            <div class="tip-box">
+                <h4><i class="fa fa-info-circle"></i> Обратите внимание!</h4>
+                <p>Опция не будет отображаться, если в программе не настроен фискальный регистратор\ККМ.</p>
+            </div>
+            
+            <h4>Дополнительно</h4>
+            <h4>Отправлять резервные копии данных в чат</h4>
+            <p>Включите опцию, чтобы программа отправляла резервные копии в чат в Telegram. Это позволит при необходимости восстановить данные из резервной копии даже в случае, если устройство с программой выйдет из строя.</p>
+            <p>Сами резервные копии будут создаваться согласно настройкам, указанных в разделе База данных - Резервное копирование.</p>
+            
+            <h4>Напоминать об окончании лицензии</h4>
+            <p>Если опция включена, то программа при запуске будет проверять срок окончания лицензии и отправлять уведомление в чат, когда срок действия подходит к концу.</p>
+        </div>
+
+        <div class="web-office-box">
+            <h3><i class="fa fa-globe"></i> Веб-офис</h3>
+            <p>Вкладка с настройками, определяющими параметры обмена с сервисом "Веб-офис"</p>
+            
+            <img src="../../../images/articles/article59-img5.png" alt="Веб-офис">
+            
+            <div class="materials-box">
+                <h4>Полезные материалы</h4>
+                <ul>
+                    <li><a href="#">Подробнее о "Веб-офисе"</a></li>
+                    <li><a href="#">Настройки выгрузки данных в "Веб-офис"</a></li>
+                </ul>
+            </div>
+            
+            <h4>Параметры обмена</h4>
+            <h4>Токен</h4>
+            <p>Токен для авторизации в сервисе "Веб-офис". Получить токен можно из личного кабинета сервиса "Веб-офис".</p>
+            <p>Если токен не указан - обмен с сервисом не будет активирован.</p>
+            
+            <h4>Выгружать архив с данными</h4>
+            <h4>При запуске программы</h4>
+            <p>Включите опцию, чтобы программа выгружала данные в "Веб-офис" в момент запуска</p>
+            
+            <h4>При завершении работы программы</h4>
+            <p>Включите опцию, чтобы выгрузка данных в "Веб-офис" происходила при завершении работы программы</p>
+            
+            <h4>По расписанию</h4>
+            <p>Выберите вариант дополнительной выгрузки данных в "Веб-офис". Доступны варианты:</p>
+            <ul>
+                <li>Не выгружать доп. архивы с данными</li>
+                <li>Каждый час</li>
+                <li>Каждые 3 часа</li>
+                <li>Каждые 6 часов</li>
+                <li>Каждые 12 часов</li>
+            </ul>
+            
+            <h4>Выгрузить файл</h4>
+            <p>Нажмите на кнопку, чтобы выполнить выгрузку данных в "Веб-офис". Полезно для проверки работы выгрузки и корректности настроек.</p>
+        </div>
+    </div>
+</body>
+</html>
