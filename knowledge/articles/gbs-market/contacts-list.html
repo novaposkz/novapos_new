@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Список контактов GBS.Market</title>
+    <meta name="description" content="Описание раздела Контакты - Список контактов, в котором происходит управление поставщиками и покупателями">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Контакты - Список контактов</h1>
+        <p>Описание раздела Контакты - Список контактов, в котором происходит управление поставщиками и покупателями, внесенными в базу данных программы</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Контакты - Список контактов
+    </div>
+    <div class="article-content">
+        <p>Список контактов – это перечень (справочник) контрагентов организации: покупателей, поставщиков и других контактов. В списке контактов можно управлять контактами, фильтровать, просматривать, удалять, загружать (импортировать) из Excel, выгружать (экспортировать) в файл и печатать дисконтные карты.</p>
+        
+        <img src="../../../images/articles/article49-img1.png" alt="Внешний вид списка (справочника) контактов">
+        
+        <p>Открыть форму поиска можно, например, с главной формы, нажав в меню Контакты – Список контактов.</p>
+        
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Доступ к справочнику контактов, а так же отдельные действия с записями могут быть ограничены правами доступа.</p>
+        </div>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <h2>Меню формы</h2>
+        
+        <img src="../../../images/articles/article49-img2.png" alt="Меню формы 'Список контактов'">
+        
+        <p>Описание пунктов меню формы "Список контактов"</p>
+
+        <h3>Файл</h3>
+        <ul>
+            <li><strong>Загрузить из Excel</strong> – открывает форму для выбора документа Excel и установки параметров загрузки контактов из Excel</li>
+            <li><strong>Сохранить как…</strong> – позволяет сохранить содержимое справочника в Excel или CSV файл</li>
+            <li><strong>Печатать</strong> – позволяет распечатать содержимое справочника контактов, например, дисконтные карты для покупателей</li>
+        </ul>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция как сохранить данные в Excel или CSV</a></li>
+                <li><a href="#">Инструкция по загрузке контактов из Excel</a></li>
+            </ul>
+        </div>
+
+        <h2>Блок "поиск"</h2>
+        
+        <img src="../../../images/articles/article49-img3.png" alt="Блок поиска">
+
+        <h3>Поле "поиск"</h3>
+        <p>Поле "поиск" предназначено для ввода поискового запроса, по которому будут фильтроваться контакты в списке. Для поиска будут использоваться поля, указанные в фильтре поиска.</p>
+        <p>Например, можно найти контакт по ФИО. ИНН, адресу, телефону и другим полям, включая реквизиты и значения доп. полей.</p>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция по управлению отображением столбцов в списке</a></li>
+            </ul>
+        </div>
+
+        <h3>Фильтр поиска</h3>
+        
+        <img src="../../../images/articles/article49-img4.png" alt="Фильтр поиска">
+        
+        <p>Дополнительные фильтры для поиска контактов в справочнике.</p>
+
+        <h4>Группа</h4>
+        <p>Выберите группу, контакты которой хотите отобразить. Например, можно выбрать группу "Поставщики", чтобы увидеть всех поставщиков.</p>
+        <p>Установите значение "Все группы", чтобы показать контакты из всех групп.</p>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Описание карточки группы контактов</a></li>
+                <li><a href="#">Инструкция как добавить поставщиков в программу</a></li>
+            </ul>
+        </div>
+
+        <h4>Искать в...</h4>
+        <p>Раздел позволяет выбрать поля, по которым производится поиск по значению, введенному в поисковой строке.</p>
+        
+        <img src="../../../images/articles/article49-img5.png" alt="Поля поиска">
+        
+        <p>Например, можно выполнить поиск контрагентов по ИНН, покупателей по ФИО, поставщиков по КПП и т.д.</p>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке дополнительных полей</a></li>
+            </ul>
+        </div>
+
+        <h2>Список контактов</h2>
+        
+        <img src="../../../images/articles/article49-img6.png" alt="Список контактов">
+        
+        <p>В списке контактов отображаются записи, соответствующие критериям поиска. Если поисковый запрос не указан, то будут отображены все записи, имеющиеся в базе данных.</p>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция по управлению отображением столбцов в списке</a></li>
+            </ul>
+        </div>
+
+        <h3>Добавить</h3>
+        <p>Нажмите на кнопку "добавить", чтобы создать новый контакт. Будет открыта карточка контакта с возможностью указать информацию о добавляемом контакте.</p>
+
+        <h3>Редактировать</h3>
+        <p>Чтобы изменить контакт, выберите необходимый элемент в списке и нажмите кнопку "редактировать".</p>
+        <p>Откроется карточка контакта для редактирования.</p>
+
+        <h3>Удалить</h3>
+        <p>Выберите один или несколько контактов, чтобы удалить их из справочника. После удаления контакты больше не будут доступны для выполнения каких-либо операций.</p>
+        
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно!</h4>
+            <p>Удаление контактов из списка не приведет к их фактическому удалению из базы данных. Информация, в т.ч. история покупок, будет сохранена, но выполнение новых действий с такими контактами будет недоступно.</p>
+        </div>
+
+        <h2>Блок итогов</h2>
+        
+        <img src="../../../images/articles/article49-img7.png" alt="Блок итогов">
+        
+        <p>В блоке итогов отображается суммарная информация по отфильтрованным записям.</p>
+        
+        <ul>
+            <li><strong>Контактов</strong> – количество записей контактов в списке</li>
+            <li><strong>Сумма покупок</strong> – сумма покупок контактов из списка</li>
+            <li><strong>Сумма долга</strong> – сумма задолженности всех контактов</li>
+            <li><strong>Сумма баллов</strong> – сумма накопленных баллов всех контактов</li>
+        </ul>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок о продаже в долг (кредит)</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
