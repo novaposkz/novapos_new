@@ -2078,6 +2078,48 @@ nav.top-navbar .search-container {
     margin-top: 40px;
 }
 
+/* Оптимизация для средних экранов (например 1366x768) */
+@media (max-width: 1366px) {
+    .top-navbar {
+        padding: 15px 6%;
+        flex-wrap: wrap;
+        min-height: auto;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        height: 70px;
+    }
+
+    .social-icons {
+        order: 2;
+        width: auto;
+        justify-content: flex-end;
+        gap: 12px;
+        margin: 0;
+    }
+
+    .nav-menu {
+        order: 3;
+        flex: 1 1 100%;
+        justify-content: center;
+        gap: 18px;
+        margin: 10px 0 0;
+        flex-wrap: wrap;
+    }
+
+    .nav-item {
+        font-size: 24px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
 /* Медиа запрос для мобильных устройств */
 @media (max-width: 768px) {
     .top-navbar {
