@@ -172,21 +172,38 @@
         /* Knowledge Cards Grid */
         .knowledge-grid {
             display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 30px !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            grid-auto-rows: 1fr !important;
+            gap: 30px 30px !important;
+            row-gap: 30px !important;
+            column-gap: 30px !important;
             margin-top: 20px !important;
+            align-items: stretch !important;
+            min-width: 0 !important;
+        }
+        
+        @media (max-width: 1366px) and (min-width: 769px) {
+            .knowledge-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 30px 30px !important;
+                row-gap: 30px !important;
+                column-gap: 30px !important;
+            }
         }
         
         .knowledge-card {
             background: linear-gradient(to bottom, #a7a7a7, #fefefe) !important;
             border-radius: 35px !important;
-            padding: 10px !important;
+            padding: 10px 15px !important;
             text-align: left !important;
             position: relative !important;
             display: flex !important;
             flex-direction: column !important;
             transition: transform 0.3s ease, box-shadow 0.3s ease !important;
             cursor: pointer !important;
+            height: 100% !important;
+            min-width: 0 !important;
+            box-sizing: border-box !important;
         }
         
         .knowledge-card:hover {
@@ -274,6 +291,7 @@
             flex: 1 !important;
             display: flex !important;
             flex-direction: column !important;
+            justify-content: space-between !important;
         }
         
         /* Article Title */
