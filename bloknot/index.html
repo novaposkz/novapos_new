@@ -258,9 +258,187 @@
             background-color: #c8c8c8 !important;
         }
 
+        .bloknot-pricing-section {
+            background-color: #0f1c30 !important;
+            padding: 80px 10% 80px !important;
+            text-align: center !important;
+        }
+
+        .bloknot-pricing-section .section-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: clamp(32px, 5vw, 44px) !important;
+            color: #ffffff !important;
+            margin: 0 0 14px !important;
+            line-height: 1.05 !important;
+        }
+
+        .bloknot-pricing-section .section-subtitle {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 400 !important;
+            font-size: clamp(16px, 2vw, 18px) !important;
+            color: #ffffff !important;
+            margin: 0 auto 44px auto !important;
+            max-width: 680px !important;
+            line-height: 1.6 !important;
+        }
+
+        .bloknot-pricing-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 24px !important;
+            justify-items: center !important;
+            align-items: start !important;
+            margin: 0 auto !important;
+            max-width: 1240px !important;
+        }
+
+        .bloknot-plan-card {
+            background-color: #677791 !important;
+            border: 2px solid #4889b5 !important;
+            border-radius: 24px !important;
+            padding: 34px 26px !important;
+            box-sizing: border-box !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            min-height: 100% !important;
+        }
+
+        .bloknot-plan-card h3 {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: clamp(24px, 3vw, 28px) !important;
+            color: #ffffff !important;
+            margin: 0 0 10px !important;
+            line-height: 1.1 !important;
+        }
+
+        .bloknot-plan-card .plan-description {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 400 !important;
+            font-size: clamp(15px, 2vw, 16px) !important;
+            color: #ffffff !important;
+            margin: 0 0 24px !important;
+            line-height: 1.5 !important;
+        }
+
+        .bloknot-plan-price {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: clamp(32px, 5vw, 40px) !important;
+            color: #ffffff !important;
+            margin: 0 0 28px !important;
+            line-height: 1.05 !important;
+        }
+
+        .bloknot-plan-price span {
+            display: block !important;
+        }
+
+        .bloknot-plan-price--accent {
+            color: #40bfff !important;
+        }
+
+        .bloknot-plan-features {
+            list-style: none !important;
+            margin: 0 0 32px 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            text-align: left !important;
+            display: grid !important;
+            gap: 12px !important;
+        }
+
+        .bloknot-plan-features li {
+            position: relative !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 400 !important;
+            font-size: 15px !important;
+            color: #ffffff !important;
+            line-height: 1.55 !important;
+            padding-left: 28px !important;
+        }
+
+        .bloknot-plan-features li::before {
+            content: '\2713';
+            position: absolute !important;
+            left: 0 !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            color: #40bfff !important;
+            font-size: 14px !important;
+            line-height: 1 !important;
+        }
+
+        .bloknot-plan-btn {
+            display: inline-flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            background-color: #d9d9d9 !important;
+            color: #000000 !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: clamp(14px, 1.4vw, 16px) !important;
+            text-decoration: none !important;
+            padding: 14px 24px !important;
+            border-radius: 18px !important;
+            border: none !important;
+            cursor: pointer !important;
+            width: fit-content !important;
+            min-width: 220px !important;
+        }
+
+        .bloknot-plan-btn:hover {
+            background-color: #c8c8c8 !important;
+        }
+
         .rosta-offer-btn i {
             font-size: 1.25em !important;
             color: #333333 !important;
+        }
+
+        @media (max-width: 1024px) {
+            .bloknot-pricing-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .bloknot-pricing-section {
+                padding: 60px 6% 60px !important;
+            }
+
+            .bloknot-pricing-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .bloknot-plan-card {
+                padding: 28px 22px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bloknot-pricing-section {
+                padding: 48px 5% 48px !important;
+            }
+
+            .bloknot-plan-price {
+                font-size: clamp(28px, 8vw, 34px) !important;
+            }
+
+            .bloknot-plan-btn {
+                min-width: auto !important;
+                width: 100% !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .bloknot-plan-card {
+                padding: 24px 18px !important;
+            }
         }
 
         @media (max-width: 900px) {
@@ -565,6 +743,72 @@
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bloknot-pricing-section" aria-label="Тарифные планы">
+            <div class="bloknot-pricing-inner">
+                <h2 class="section-title">Тарифные планы</h2>
+                <p class="section-subtitle">Актуальная стоимость в тенге (за пользователя в месяц)</p>
+                <div class="bloknot-pricing-grid">
+                    <article class="bloknot-plan-card">
+                        <h3>Стартап</h3>
+                        <p class="plan-description">Для частных мастеров и<br>стартапов</p>
+                        <p class="bloknot-plan-price"><span>7 500 ₸ / мес</span></p>
+                        <ul class="bloknot-plan-features">
+                            <li>Неограничено сотрудников</li>
+                            <li>Календарь записей</li>
+                            <li>Клиентская база</li>
+                            <li>Онлайн запись</li>
+                            <li>Склад</li>
+                            <li>Финансы и зарплаты</li>
+                            <li>SMS напоминания</li>
+                            <li>Приложение для мастеров</li>
+                        </ul>
+                        <a class="bloknot-plan-btn" href="#">Попробовать сейчас</a>
+                    </article>
+                    <article class="bloknot-plan-card">
+                        <h3>Базовый</h3>
+                        <p class="plan-description">Идеально для развивающихся<br>бизнесов</p>
+                        <p class="bloknot-plan-price bloknot-plan-price--accent"><span>12 000 ₸ / мес</span></p>
+                        <ul class="bloknot-plan-features">
+                            <li>Неограничено сотрудников</li>
+                            <li>Календарь записей</li>
+                            <li>Клиентская база</li>
+                            <li>Онлайн запись</li>
+                            <li>Склад</li>
+                            <li>Финансы и зарплаты</li>
+                            <li>SMS напоминания</li>
+                            <li>Приложение для мастеров</li>
+                            <li>Приложение для владельцев</li>
+                            <li>SMS рассылки</li>
+                            <li>Альфа-имя</li>
+                        </ul>
+                        <a class="bloknot-plan-btn" href="#">Попробовать сейчас</a>
+                    </article>
+                    <article class="bloknot-plan-card">
+                        <h3>Профессиональный</h3>
+                        <p class="plan-description">Максимум инструментов для<br>продвинутых компаний</p>
+                        <p class="bloknot-plan-price"><span>20 000 ₸ / мес</span></p>
+                        <ul class="bloknot-plan-features">
+                            <li>Неограничено сотрудников</li>
+                            <li>Календарь записей</li>
+                            <li>Клиентская база</li>
+                            <li>Онлайн запись</li>
+                            <li>Склад</li>
+                            <li>Финансы и зарплаты</li>
+                            <li>SMS напоминания</li>
+                            <li>Приложение для мастеров</li>
+                            <li>Приложение для владельцев</li>
+                            <li>SMS рассылки</li>
+                            <li>Альфа-имя</li>
+                            <li>IP телефония</li>
+                            <li>Хранилище фото</li>
+                            <li>Мед.карта</li>
+                        </ul>
+                        <a class="bloknot-plan-btn" href="#">Попробовать сейчас</a>
+                    </article>
                 </div>
             </div>
         </section>
