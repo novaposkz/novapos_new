@@ -119,6 +119,14 @@
             font-size: 18px !important;
             pointer-events: none !important;
         }
+
+        .search-no-results {
+            color: white !important;
+            text-align: center !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 18px !important;
+            margin: 40px 0 !important;
+        }
         
         /* Knowledge Content Section */
         .knowledge-content-section {
@@ -562,7 +570,7 @@
             <div class="search-container">
                 <div class="search-box">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="text" />
+                    <input type="text" id="knowledgeSearch" placeholder="Поиск по заголовку и описанию..." autocomplete="off" />
                     <div class="program-filter-badge" id="programFilter">
                         <span>Все программы</span>
                         <i class="fas fa-chevron-down"></i>
@@ -610,12 +618,25 @@
                     // Here you can add filtering logic
                     console.log('Selected category:', selectedCategory);
                     
-                    // Placeholder for filtering knowledge content
-                    filterKnowledgeContent(selectedCategory);
+                    filterKnowledgeContent(selectedCategory, currentProgram, searchInput.value);
                 });
             });
+
+            const searchInput = document.getElementById('knowledgeSearch');
+            let currentProgram = 'all';
+
+            searchInput.addEventListener('input', function() {
+                const activeCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
+                filterKnowledgeContent(activeCategory, currentProgram, this.value);
+            });
             
-            function filterKnowledgeContent(category, program = 'all') {
+            function getCardSearchText(card) {
+                const title = card.querySelector('.video-title, .article-title');
+                const description = card.querySelector('.video-description, .article-description');
+                return ((title ? title.textContent : '') + ' ' + (description ? description.textContent : '')).toLowerCase();
+            }
+
+            function filterKnowledgeContent(category, program = 'all', searchQuery = '') {
                 // This function will filter the knowledge content based on category and program
                 const knowledgeContent = document.querySelector('.knowledge-content');
                 
@@ -2030,26 +2051,42 @@
                 tempDiv.innerHTML = knowledgeCards;
                 const allCards = Array.from(tempDiv.querySelectorAll('.knowledge-card'));
                 
-                // Filter cards based on category and program
+                const query = searchQuery.trim().toLowerCase();
+
+                function cardMatchesFilters(card) {
+                    if (program !== 'all' && card.getAttribute('data-program') !== program) {
+                        return false;
+                    }
+                    if (query && !getCardSearchText(card).includes(query)) {
+                        return false;
+                    }
+                    return true;
+                }
+
+                function renderCards(cards) {
+                    if (cards.length === 0) {
+                        return query
+                            ? '<p class="search-no-results">Ничего не найдено. Попробуйте изменить запрос.</p>'
+                            : '<p class="search-no-results">Материалы не найдены.</p>';
+                    }
+                    return '<div class="knowledge-grid">' + cards.map(card => card.outerHTML).join('') + '</div>';
+                }
+
                 let content = '';
                 
                 switch(category) {
                     case 'video':
-                        let videoCards = allCards.filter(card => card.getAttribute('data-category') === 'video');
-                        if (program !== 'all') {
-                            videoCards = videoCards.filter(card => card.getAttribute('data-program') === program);
-                        }
-                        content = '<div class="knowledge-grid">' + videoCards.map(card => card.outerHTML).join('') + '</div>';
+                        content = renderCards(allCards.filter(card =>
+                            card.getAttribute('data-category') === 'video' && cardMatchesFilters(card)
+                        ));
                         break;
                     case 'instructions':
-                        let instructionCards = allCards.filter(card => card.getAttribute('data-category') === 'instructions');
-                        if (program !== 'all') {
-                            instructionCards = instructionCards.filter(card => card.getAttribute('data-program') === program);
-                        }
-                        content = '<div class="knowledge-grid">' + instructionCards.map(card => card.outerHTML).join('') + '</div>';
+                        content = renderCards(allCards.filter(card =>
+                            card.getAttribute('data-category') === 'instructions' && cardMatchesFilters(card)
+                        ));
                         break;
                     default:
-                        content = '<p style="color: white; text-align: center;">Выберите категорию</p>';
+                        content = '<p class="search-no-results">Выберите категорию</p>';
                 }
                 
                 knowledgeContent.innerHTML = content;
@@ -2059,7 +2096,6 @@
             const programFilter = document.getElementById('programFilter');
             const programDropdown = document.getElementById('programDropdown');
             const programOptions = document.querySelectorAll('.program-option');
-            let currentProgram = 'all';
             
             programFilter.addEventListener('click', function() {
                 programDropdown.classList.toggle('show');
@@ -2089,7 +2125,7 @@
                     
                     // Re-filter content with new program filter
                     const activeCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
-                    filterKnowledgeContent(activeCategory, currentProgram);
+                    filterKnowledgeContent(activeCategory, currentProgram, searchInput.value);
                 });
             });
             
