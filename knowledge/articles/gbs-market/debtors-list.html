@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Должники GBS.Market</title>
+    <meta name="description" content="Описание раздела Контакты - Должники">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .features-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .features-box li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .cache-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .cache-info h4 {
+            color: #856404;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .cache-info p {
+            margin: 0;
+            color: #856404;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Контакты - Должники</h1>
+        <p>Описание раздела Контакты - Должники</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Контакты - Должники
+    </div>
+    <div class="article-content">
+        <p>Должники – это раздел в котором выведены все продажи, оформленные в долг. В разделе "Должники" отображается:</p>
+        
+        <div class="features-box">
+            <ul>
+                <li>дата продажи</li>
+                <li>контакт, на которого оформлена задолженность</li>
+                <li>общая сумма покупки</li>
+                <li>выплаченная часть и оставшаяся задолженность</li>
+            </ul>
+        </div>
+        
+        <p>Также есть возможность выгрузить (экспортировать) список в файл, отфильтровать по определенным критериям, открыть карточку продажи, оформленной в долг и внести средства за определенную продажу.</p>
+        
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Для увеличения быстродействия используется кэширование результатов.</p>
+        </div>
+        
+        <div class="important-box">
+            <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+            <p>Понимать, что изменения, внесенных с других рабочих мест, могут отображаться с задержкой.</p>
+        </div>
+        
+        <div class="cache-info">
+            <h4>Обновление кэша</h4>
+            <p>Для ручного обновления кэша нажмите "Обновить данные"</p>
+            <p>Автоматически кэш задолженностей обновляется каждые 20 минут и после факта продажи в долг (на том же ПК, где происходит просмотр)</p>
+        </div>
+        
+        <div class="materials-box">
+            <h4>Полезное видео</h4>
+            <ul>
+                <li><a href="#">Видео-урок о продаже в долг</a></li>
+            </ul>
+        </div>
+        
+        <img src="../../../images/articles/article52-img1.png" alt="Окно 'Должники'">
+        
+        <p>Открыть список должников можно, например, с главной формы, нажав в меню Контакты – Должники.</p>
+        
+        <div class="info-box">
+            <h4><i class="fa fa-info-circle"></i> Информация</h4>
+            <p>Доступ к списку должников, а так же отдельные действия с записями могут быть ограничены правами доступа.</p>
+        </div>
+        
+        <div class="materials-box">
+            <h4>Полезные материалы</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке прав доступа</a></li>
+            </ul>
+        </div>
+
+        <h2>Меню формы</h2>
+        <p>Описание пунктов меню формы "Должники"</p>
+        
+        <img src="../../../images/articles/article52-img2.png" alt="Меню формы 'Должники'">
+
+        <h3>Файл</h3>
+        <ul>
+            <li><strong>Сохранить как</strong> – позволяет сохранить содержимое списка задолженностей в Excel или CSV файл</li>
+        </ul>
+        
+        <div class="materials-box">
+            <h4>Подробная статья</h4>
+            <ul>
+                <li><a href="#">Инструкция как сохранить данные в Excel или CSV</a></li>
+            </ul>
+        </div>
+
+        <h2>Блок "Фильтр"</h2>
+        
+        <img src="../../../images/articles/article52-img3.png" alt="Блок 'Фильтр'">
+        
+        <p>В блоке "Фильтр" можно выбрать параметры для поиска и фильтрации задолженностей по доступны критериям.</p>
+
+        <h3>Поле "Период"</h3>
+        
+        <img src="../../../images/articles/article52-img4.png" alt="Поле 'Период'">
+        
+        <p>Поле "Период" предназначено для указания конкретной даты или промежутка, за который будет фильтроваться список долгов. Под датой понимается дата документа продажи.</p>
+
+        <h3>Поле "Контакт"</h3>
+        
+        <img src="../../../images/articles/article52-img5.png" alt="Поле 'Контакт'">
+        
+        <p>Поле "Контакт" предназначено для поиска продаж, оформленных в долг, для одного конкретного контакта (покупателя)</p>
+
+        <h2>Список задолженностей</h2>
+        
+        <img src="../../../images/articles/article52-img6.png" alt="Список задолженностей">
+        
+        <p>В списке долгов отображаются продажи, оформленные в долг с указанием основной информации по этой продаже. Отображаются только те задолженности, которые не погашены. Продажи, по которым расчет завершен в данном списке не отображаются.</p>
+        <p>У одного контакта может быть несколько задолженностей – каждая из них будет отображена отдельной записью.</p>
+        <p>Если критерии фильтра не выставлены, то будут отображаться все продажи в долг начиная с 01 января 2018 года.</p>
+        
+        <div class="materials-box">
+            <h4>Связанные материалы</h4>
+            <ul>
+                <li><a href="#">Инструкция по управлению отображением столбцов в списке</a></li>
+            </ul>
+        </div>
+
+        <h3>Информация</h3>
+        <p>Выберите одну запись в списке задолженностей и нажмите кнопку "Информация", чтобы открыть карточку продажи, в которой будет отображена информация о перечне приобретенных товарах и внесенных платежах.</p>
+
+        <h3>Внесение платежа</h3>
+        
+        <div class="tip-box">
+            <h4><i class="fa fa-lightbulb-o"></i> Полезно</h4>
+            <p>Чтобы закрыть несколько задолженностей сразу - выберите их, выделив мышью, или зажмите на клавиатуре Ctrl и поочередно выделяйте те записи, по которым необходимо внести задолженность.</p>
+            <p>Можно выбрать все задолженности в списке, нажав Ctrl+A и погасить одним платежом.</p>
+        </div>
+        
+        <p>Выберите одну или несколько записей и нажмите кнопку "Внесение платежа". Откроется окно для ввода суммы и выбора способа оплаты.</p>
+        
+        <div class="materials-box">
+            <h4>Полезное видео</h4>
+            <ul>
+                <li><a href="#">Видео-урок по настройке способов оплаты</a></li>
+            </ul>
+        </div>
+
+        <h2>Блок итогов</h2>
+        <p>В блоке итогов отображается суммарная информация по отфильтрованным записям</p>
+        
+        <ul>
+            <li><strong>Записей</strong> – количество задолженностей в списке</li>
+            <li><strong>Сумма долга</strong> – Общая сумма задолженностей</li>
+            <li><strong>Обновить данные</strong> – обновление данных о задолженностях из базы данных</li>
+        </ul>
+    </div>
+</body>
+</html>
