@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки программы: Действия с товаром GBS.Market</title>
+    <meta name="description" content="Раздел настроек программы, в котором можно сконфигурировать логику работы для действий с товарами">
+    <link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../../../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-header p {
+            color: #636e72;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0 auto;
+            font-size: 0.95rem;
+            color: #888;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #5a6fd8;
+        }
+        .article-content {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin: 30px auto 40px auto;
+            max-width: 800px;
+        }
+        .article-content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content h4 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        .article-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .article-content strong {
+            color: #2d3436;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-left: 4px solid #ff4757;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+        }
+        .warning-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .warning-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 4px solid #00b894;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+        }
+        .info-box h4 {
+            color: #00b894;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .info-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-left: 4px solid #fdcb6e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.15);
+        }
+        .tip-box h4 {
+            color: #e17055;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border-left: 4px solid #e84393;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.15);
+        }
+        .important-box h4 {
+            color: #d63031;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .important-box p {
+            margin: 0;
+            color: #2d3436;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+        .materials-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .materials-box li {
+            margin-bottom: 5px;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .materials-box a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        .section-highlight {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(116, 185, 255, 0.3);
+        }
+        .section-highlight h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .section-highlight p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .features-box h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .features-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .features-box li {
+            margin-bottom: 5px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .example-box h4 {
+            color: #0066cc;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .example-box p {
+            margin: 0;
+            color: #2d5986;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-section {
+            background: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .settings-section h3 {
+            color: #495057;
+            margin: 0 0 15px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-section h4 {
+            color: #6c757d;
+            margin: 15px 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-section p {
+            margin: 0 0 12px 0;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        .settings-section ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+        }
+        .settings-section li {
+            margin-bottom: 6px;
+            color: #495057;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .article-content {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 600px) {
+            .article-header, .article-content, .breadcrumb {
+                max-width: 98vw;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-header">
+        <h1>Настройки программы: Действия с товаром</h1>
+        <p>Раздел настроек программы, в котором можно сконфигурировать логику работы для действий с товарами</p>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки программы: Действия с товаром
+    </div>
+    <div class="article-content">
+        <p>Описание раздела настроек "Действия с товаром". Открыть настройки можно из главного окна программы Файл – Настройки.</p>
+        
+        <img src="../../../images/articles/article53-img1.png" alt="Настройки программы: Действия с товаром">
+
+        <div class="settings-section">
+            <h3>Продажи</h3>
+            
+            <h4>Запретить продажу товара ниже себестоимости (закупки)</h4>
+            <p>Данная опция позволяет ограничить продажу товаров по цене ниже, чем их закупочная цена. В момент оформления продажи программа будет проверять итоговую стоимость товара (с учетом скидки) и сравнивать с последней закупочной ценой.</p>
+            <p>Если розничная цена (с учетом скидки) будет ниже, чем закупочная цена товаров, то программа запретит завершить такую продажу.</p>
+            
+            <h4>Для весовых товаров вводить кол-во в граммах</h4>
+            <p>При включении данной опции программа позволит вводить кол-во для весовых товаров в значение 1/1000. Т.е. ввод значение количества 125 будет преобразовано в 0,125 в чеке. Данная опция работает только для товаров, в карточке категории которых указан тип Весовые товары.</p>
+            <p>Это может быть полезно в случаях, когда весы не подключены напрямую к программе.</p>
+            
+            <h4>Добавлять товары в чек (корзину) по доп. штрихкодам</h4>
+            <p>При включении данной опции программа в момент продажи будет искать товары по значению дополнительных штрихкодов, указанных в карточке товаров, и добавлять их в чек (корзину).</p>
+            
+            <h4>Запрашивать комментарий к продаже</h4>
+            <p>Если данная опция включена, то при сохранении продажи программа будет запрашивать дополнительный комментарий, который можно будет увидеть в карточке продажи.</p>
+            
+            <h4>Ограничивать количество знаков после запятой</h4>
+            <p>Если опция включена, то при добавлении товаров в чек программа будет проверять значение опции Знаков после запятой в карточке категории, к которой принадлежит товар.</p>
+            <p>Например, если вы включите опцию Ограничивать количество знаков после запятой, а в карточке категории для опции Знаков после запятой укажите значение 0, то в момент продажи не сможете ввести дробные значения.</p>
+            
+            <h4>Округлять чек до...</h4>
+            <p>Данная опция позволяет округлять итоговую сумму чека до числа, кратного указанному коэффициенту. Округление на чек происходит в меньшую сторону (в пользу покупателя) установкой скидки на чек.</p>
+            
+            <div class="materials-box">
+                <h4>Подробная статья</h4>
+                <ul>
+                    <li><a href="#">Подробное описание логики работы данной опции доступно в статье</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h3>Возвраты</h3>
+            
+            <h4>Разрешить возврат без указания причины</h4>
+            <p>При включении данной опции программа позволит производить возврат товаров от покупателя без указания причины.</p>
+            <p>Если опция выключена – программа запросит причину возврата.</p>
+            
+            <h4>При возврате уменьшать кол-во в журнале продаж</h4>
+            <p>Опция отвечает за отображения количества проданного товара в журнале продаж:</p>
+            <ul>
+                <li>Если опция включена, то в журнале продаж кол-во товаров будет уменьшено на то, которое было возвращено. Например, если продано 3 ед. товара, а одну вернули, то при включенной опции в журнале продаж будет указано 2 ед. товара.</li>
+                <li>Если опция выключена, то кол-во будет показано без учета возвратов.</li>
+            </ul>
+            <p>Так же эта опция влияет на отображение расчет выручки и прибыли в журнале продаж:</p>
+            <ul>
+                <li>если опция включена, то выручка и прибыль в журнале продаж будут уменьшены на розничную и закупочную цену возвращенного товара</li>
+                <li>если опция выключена, то выручка и прибыль будут рассчитаны так, будто возврата не было</li>
+            </ul>
+            
+            <div class="important-box">
+                <h4><i class="fa fa-exclamation-triangle"></i> Важно</h4>
+                <p>Расчет выручки и прибыли в сводном отчете не зависит от состояния этой опции.</p>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h3>Поступление</h3>
+            
+            <h4>4 знака после запятой для закупочных цен</h4>
+            <p>По умолчанию для ввода закупочных цен в карточке накладной доступен ввод 2 знаков после запятой. В ряде случаев может возникнуть необходимость увеличения точности, например, когда поставщик продает товары не по 1 штуке, а сразу упаковкой. Тогда закупочная цена единицы товара может иметь дробное значение с более чем 2 знаками после запятой.</p>
+            
+            <div class="example-box">
+                <h4>Пример</h4>
+                <p>цена упаковки с товарами: 127.00 рублей<br>
+                кол-во товаров в упаковке: 16 шт<br>
+                закупочная цена 1 единицы: 7.9375 рублей</p>
+                <p>В этом примере будет полезно включить указанную опцию, чтобы избежать расхождения по итоговой сумме накладной.</p>
+            </div>
+            
+            <h4>Предлагать предыдущую розничную цену</h4>
+            <p>Если опция включена, то при добавлении товара в документ накладной на поступление товару будет присвоена розничная цена, указанная при предыдущем поступлении.</p>
+            <p>Если опция выключена, цена будет равна нулю.</p>
+            <p>Если используется автоматическое ценообразование, то розничная цена будет установлена согласно правилам ценообразования.</p>
+            
+            <h4>Предлагать предыдущую закупочную цену</h4>
+            <p>Если опция включена, то при добавлении товара в накладную на поступление программа будет устанавливать закупочную цену равной той, которая была указана при предыдущем поступлении этого товара.</p>
+            <p>Если опция отключена, значение закупочной цены будет установлена равным нулю.</p>
+            
+            <h4>При сохранении накладной...</h4>
+            <p>Выберите один из вариант управления переоценкой товаров в момент сохранения карточки накладной.</p>
+            <p>Под переоценкой подразумевается установка розничной цены товара равной розничной цене, указанной в накладной для всех остатков такого товара. Переоценка происходит только при первом сохранении накладной. Если происходит редактирование документа, то переоценка товаров не будет происходить. Если накладная сохраняется со статусом Еще в пути, то переоценка не будет происходить.</p>
+            <p>В любом случае те остатки товаров, которые поступили именно в рамках этого документа, будут переоценены.</p>
+            
+            <ul>
+                <li><strong>Не переоценивать товары</strong> - Если выбран этот пункт, то цены на остатки товаров, которые уже были в наличии на момент поступления, не будут изменены.</li>
+                <li><strong>Переоценивать имеющиеся остатки товаров по ценам из накладной</strong> - Для остатков товаров, которые есть в сохраняемой накладной, будут установлена розничная цена, равная указанной в документе накладной</li>
+                <li><strong>Запрашивать для каждой накладной</strong> - При сохранении накладной программа будет запрашивать - производить переоценку товаров, которые поступили в рамках документа, или нет.</li>
+            </ul>
+            
+            <h4>При сохранении накладной...</h4>
+            <p>Выберите один из вариантов для восстановления удаленных товаров в момент сохранения карточки накладной.</p>
+            <p>Восстановление товаров происходит при сохранении уже существующей накладной. Например, если вы удалили какой-то товар, а потом внесли изменения в накладной, в которой этот товар был, то восстановление таких товаров будет происходить согласно этой опции.</p>
+            <p>Под восстановлением товара понимается снятие отметки "удален" - он снова появится в каталоге и будет доступен для выполнения различных действий (продажа, поступление и т.п.)</p>
+            
+            <ul>
+                <li><strong>Восстанавливать все удаленные товары</strong> - При сохранении накладной все товары, которые были ранее удалены и есть в сохраняемом документе, будут восстановлены.</li>
+                <li><strong>Восстанавливать только ненулевые удаленные товары</strong> - При сохранении накладной будут восстановлены только те товары, у которых есть ненулевые остатки</li>
+                <li><strong>Не восстанавливать удаленные товары</strong> - При сохранении накладной никакие удаленные товары не будут восстановлены</li>
+            </ul>
+        </div>
+
+        <div class="settings-section">
+            <h3>Производство</h3>
+            
+            <h4>Предлагать предыдущую розничную цену</h4>
+            <p>Если опция включена, то при добавлении товаров с типом "Рецепт производства" в документ "Производство" программа будет предлагать предыдущую розничную цену для товара. При необходимости вы сможете изменить цену вручную.</p>
+        </div>
+
+        <div class="settings-section">
+            <h3>Действия в минус</h3>
+            
+            <h4>Разрешить продажу отсутствующих товаров</h4>
+            <p>Если необходимо разрешить продажу "в минус", т.е. продавать товары, независимо от их количества в каталоге, включите эту опцию.</p>
+            <p>Если нужно ограничить продажу товаров "в минус", выключите опцию. При выключенной опции программа в момент продажи будет проверять количество товара на остатке и не позволит завершить продажу, если продаваемое количество превышает фактический остаток товаров.</p>
+            
+            <h4>Показывать в результатах поиска товары, остатки которых 0 или меньше</h4>
+            <p>Если опция включена, то при продаже и списании товарах будут отображаться те товары, остатки которых 0 или меньше.</p>
+            <p>Включение или выключение опции не влияет на возможность продажи в минус!</p>
+            
+            <h4>Для товаров, с которыми выполняется действие "в минус" считать прибыль по последней закупочной цене</h4>
+            <p>Если опция включена, то списание товаров будет происходить из остатка, который был создан при последнем поступлении, даже если остаток равен нулю или отрицателен.</p>
+            <p>Таким образом, продажи в минус будут посчитаны по последней закупочной цене.</p>
+            <p>Если опция отключена, то закупочная цена при действиях "в минус" будет считаться нулевой.</p>
+        </div>
+
+        <div class="settings-section">
+            <h3>Поиск товаров</h3>
+            
+            <h4>Очищать строку поиска после добавления товара, когда включена опция "не закрывать окно после добавления"</h4>
+            <p>Если опция включена, то в форме поиска товаров будет очищаться поле поиска, когда включена опция "не закрывать окно после добавления".</p>
+            <p>Это, например, может быть удобно при быстром сканировании штрихкодов без необходимости ручной очистки поля поиска.</p>
+        </div>
+
+        <div class="settings-section">
+            <h3>Инвентаризация</h3>
+            
+            <h4>Сохранять закупочную цену для излишков количества</h4>
+            <p>При завершении инвентаризации, в которой есть товары с излишком (т.е. когда количество по факту больше, чем количество по базе), программа создает новый остаток, количество которого равно излишку.</p>
+            <ul>
+                <li>Если опция выключена, то закупочная цена для такого остатка будет равна нулю.</li>
+                <li>Если опция включена, то для излишков будет установлена последняя закупочная цена такого товара.</li>
+            </ul>
+            <p>Использование этой опции может быть полезно для более точного расчета прибыли торговой точки и частой пересортицы.</p>
+        </div>
+
+        <div class="settings-section">
+            <h3>Заказы/резервы</h3>
+            
+            <h4>Объединять позиции при добавлении в документ</h4>
+            <p>Если опция включена, то при добавлении товаров в документ типа "Заказ/резерв" одинаковые товары будут объединяться, а их количество суммироваться.</p>
+            
+            <div class="example-box">
+                <h4>Пример</h4>
+                <p>Например, если в документе есть позиция "Кабель телевизионный" в количестве 10, и в заказ добавляется позиция "Кабель телевизионный" в количестве 5, то в документе эти позиции будут объединены в одну: "Кабель телевизионный" в количестве 15.</p>
+                <p>Если опция выключена, то объединения позиций происходить не будет - каждый добавленный товар будет отображаться отдельной строкой. При необходимости можно изменить количество уже существующей записи.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
