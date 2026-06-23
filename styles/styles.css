@@ -1391,6 +1391,9 @@ nav.top-navbar .search-container {
     transition: all 0.3s ease;
     gap: 8px;
     aspect-ratio: 8/5;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
 }
 
 .contact-block:hover {
@@ -1407,7 +1410,7 @@ nav.top-navbar .search-container {
 }
 
 .contact-link {
-    color: white;
+    color: inherit;
     text-decoration: none;
     font-family: 'DejaVu Sans', sans-serif;
     font-size: 16px;
