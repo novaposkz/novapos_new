@@ -948,8 +948,10 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             font-size: clamp(14px, 1.6vw, 18px);
+            border: none;
             border-radius: 20px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
         }
 
         .about-location-city--primary {
@@ -965,6 +967,105 @@
         .about-location-city:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-location-city.is-disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .about-location-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        .about-location-modal.is-open {
+            display: flex;
+        }
+
+        .about-location-modal__card {
+            width: min(460px, 100%);
+            border-radius: 24px;
+            padding: 28px;
+            background: #ffffff;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            color: #111111;
+        }
+
+        .about-location-modal__title {
+            margin: 0 0 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: 800;
+            color: #1f2f86;
+        }
+
+        .about-location-modal__text {
+            margin: 0 0 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #4a4a4a;
+        }
+
+        .about-location-modal__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .about-location-modal__btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 999px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .about-location-modal__btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .about-location-modal__btn--yandex {
+            background: linear-gradient(135deg, #ffdf00, #ffc300);
+            color: #111111;
+        }
+
+        .about-location-modal__btn--dgis {
+            background: linear-gradient(135deg, #1f5cff, #3a8dff);
+            color: #ffffff;
+        }
+
+        .about-location-modal__btn.is-disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            pointer-events: none;
+            box-shadow: none;
+        }
+
+        .about-location-modal__close {
+            margin-top: 20px;
+            border: none;
+            background: transparent;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #1f2f86;
+            cursor: pointer;
         }
 
         .about-location-image {
@@ -1245,14 +1346,14 @@
                         гарантируя быструю доставку и поддержку на местах.
                     </p>
                     <div class="about-location-cities">
-                        <span class="about-location-city about-location-city--primary">Уральск</span>
-                        <span class="about-location-city about-location-city--secondary">Астана</span>
-                        <span class="about-location-city about-location-city--secondary">Алматы</span>
-                        <span class="about-location-city about-location-city--secondary">Актобе</span>
-                        <span class="about-location-city about-location-city--secondary">Кызылорда</span>
-                        <span class="about-location-city about-location-city--secondary">Атырау</span>
-                        <span class="about-location-city about-location-city--secondary">Семей</span>
-                        <span class="about-location-city about-location-city--secondary">Актау</span>
+                        <button type="button" class="about-location-city about-location-city--primary" data-city="Уральск" data-yandex="https://yandex.ru/maps/org/novapos/103846002612?si=3nrtx4e4wa4ztv5zm6abbx5hw4" data-dgis="https://2gis.kz/uralsk/firm/70000001060424620">Уральск</button>
+                        <button type="button" class="about-location-city about-location-city--secondary" data-city="Астана" data-yandex="https://yandex.ru/maps/org/novapos_kz/202174497847?si=3nrtx4e4wa4ztv5zm6abbx5hw4" data-dgis="">Астана</button>
+                        <button type="button" class="about-location-city about-location-city--secondary" data-city="Алматы" data-yandex="https://yandex.ru/maps/org/novapos_kz/35151762529?si=3nrtx4e4wa4ztv5zm6abbx5hw4" data-dgis="https://2gis.kz/almaty/geo/70000001091490195">Алматы</button>
+                        <button type="button" class="about-location-city about-location-city--secondary" data-city="Актобе" data-yandex="" data-dgis="https://2gis.kz/aktobe/geo/70000001089702058">Актобе</button>
+                        <button type="button" class="about-location-city about-location-city--secondary" data-city="Кызылорда" data-yandex="https://yandex.ru/maps/org/novapos_kz/21676299456?si=3nrtx4e4wa4ztv5zm6abbx5hw4" data-dgis="https://2gis.kz/kyzylorda/geo/70000001099956886">Кызылорда</button>
+                        <button type="button" class="about-location-city about-location-city--secondary" data-city="Атырау" data-yandex="https://yandex.ru/maps/org/novapos_kz/236678014555?si=3nrtx4e4wa4ztv5zm6abbx5hw4" data-dgis="https://2gis.kz/atyrau/geo/70000001093314746">Атырау</button>
+                        <button type="button" class="about-location-city about-location-city--secondary" data-city="Семей" data-yandex="https://yandex.ru/maps/org/novapos_kz/178589531660?si=3nrtx4e4wa4ztv5zm6abbx5hw4" data-dgis="https://2gis.kz/semey/geo/70000001098841682">Семей</button>
+                        <button type="button" class="about-location-city about-location-city--secondary" data-city="Актау" data-yandex="https://yandex.ru/maps/org/novapos_kz/245320061823?si=3nrtx4e4wa4ztv5zm6abbx5hw4" data-dgis="https://2gis.kz/aktau/geo/70000001100387275">Актау</button>
                     </div>
                 </div>
                 <div class="about-location-image-wrapper">
@@ -1263,7 +1364,72 @@
     </main>
 
     <div id="footer"></div>
+
+    <div class="about-location-modal" id="about-location-modal" aria-hidden="true">
+        <div class="about-location-modal__card" role="dialog" aria-modal="true" aria-labelledby="about-location-modal-title">
+            <h3 class="about-location-modal__title" id="about-location-modal-title">Выберите карту</h3>
+            <p class="about-location-modal__text">Откройте адрес в Яндекс Картах или 2GIS.</p>
+            <div class="about-location-modal__actions">
+                <a class="about-location-modal__btn about-location-modal__btn--yandex" id="about-location-modal-yandex" href="#" target="_blank" rel="noopener noreferrer">Яндекс Карты</a>
+                <a class="about-location-modal__btn about-location-modal__btn--dgis" id="about-location-modal-dgis" href="#" target="_blank" rel="noopener noreferrer">2GIS</a>
+            </div>
+            <button type="button" class="about-location-modal__close" data-close-location-modal>Закрыть</button>
+        </div>
+    </div>
+
     <script src="../scripts/navbar-loader.js"></script>
     <script src="../scripts/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('about-location-modal');
+            const modalTitle = document.getElementById('about-location-modal-title');
+            const yandexBtn = document.getElementById('about-location-modal-yandex');
+            const dgisBtn = document.getElementById('about-location-modal-dgis');
+            const closeBtn = document.querySelector('[data-close-location-modal]');
+            const cityButtons = document.querySelectorAll('.about-location-city[data-city]');
+
+            function closeModal() {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            function openModal(cityButton) {
+                modalTitle.textContent = cityButton.dataset.city ? `Маршрут для ${cityButton.dataset.city}` : 'Выберите карту';
+                const yandexUrl = cityButton.dataset.yandex || '';
+                const dgisUrl = cityButton.dataset.dgis || '';
+
+                yandexBtn.href = yandexUrl || '#';
+                dgisBtn.href = dgisUrl || '#';
+                yandexBtn.classList.toggle('is-disabled', !yandexUrl);
+                dgisBtn.classList.toggle('is-disabled', !dgisUrl);
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+            }
+
+            cityButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    openModal(button);
+                });
+            });
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeModal);
+            }
+
+            if (modal) {
+                modal.addEventListener('click', function (event) {
+                    if (event.target === modal) {
+                        closeModal();
+                    }
+                });
+            }
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
