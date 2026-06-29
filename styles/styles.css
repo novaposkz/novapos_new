@@ -1932,13 +1932,23 @@ nav.top-navbar .search-container {
 }
 
 .promotion-block {
+    display: block;
+    width: calc(100% - 40px);
     background-color: #3690ff;
     border: 1px solid white;
     border-radius: 20px;
     margin: 15px 20px 0 20px;
     padding: 15px;
     box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.promotion-block .promotion-title,
+.promotion-block .promotion-subtitle {
+    text-decoration: none;
 }
 
 .promotion-block:hover {
