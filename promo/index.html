@@ -3,61 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Актуальные акции и специальные предложения NovaPos.kz для вашего бизнеса.">
     <title>Акции NovaPos.kz</title>
+    <link rel="icon" href="../images/favicon.png">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', Arial, sans-serif;
             background: #f7f9fc;
             color: #1f2937;
         }
-        .promo-page {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-        .promo-card {
-            max-width: 640px;
-            width: 100%;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            padding: 40px;
+
+        .promo-hero-section {
+            padding: 30px 20px clamp(140px, 16vw, 200px);
             text-align: center;
+            background: linear-gradient(to right,  #b31919, #d12424);
+            min-height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .promo-card h1 {
-            margin: 0 0 12px;
-            font-size: 32px;
-        }
-        .promo-card p {
+
+        .promo-hero-title {
+            font-weight: 900;
+            font-size: clamp(48px, 8vw, 96px);
             margin: 0 0 24px;
-            font-size: 18px;
+            line-height: 1.1;
+            color: #ffffff;
+        }
+
+        .promo-hero-title span {
+            display: block;
+            background: linear-gradient(to right, #5871f1, #7ecfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .promo-hero-subtitle {
+            font-weight: 400;
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: #ffffff;
+            margin: 0;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+
+        .promo-content {
+            padding: 60px 20px 80px;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .promo-card {
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            border: 1px solid #e5e7eb;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .promo-card-image {
+            width: 100%;
+            aspect-ratio: 21 / 9;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            background: #f3f4f6;
+        }
+
+        .promo-card-content {
+            padding: 20px 20px 24px;
+        }
+
+        .promo-card-title {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #111827;
+            line-height: 1.3;
+        }
+
+        .promo-card-description {
+            margin: 0;
             line-height: 1.6;
             color: #4b5563;
+            font-size: 15px;
         }
-        .promo-link {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #1d4ed8;
-            color: white;
-            text-decoration: none;
-            border-radius: 999px;
-            font-weight: 600;
+
+        .top-navbar {
+            background: linear-gradient(to right, #b31919, #d12424) !important;
         }
-        .promo-link:hover {
-            background: #1e40af;
+
+        @media (max-width: 1024px) {
+            .promo-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .promo-hero-section {
+                padding: 20px 18px clamp(140px, 16vw, 200px);
+            }
+
+            .promo-card-image {
+                aspect-ratio: 21 / 9;
+            }
         }
     </style>
 </head>
 <body>
-    <main class="promo-page">
-        <section class="promo-card">
-            <h1>Акции NovaPos.kz</h1>
-            <p>Следите за актуальными предложениями для вашего бизнеса и выгодными условиями по внедрению и обслуживанию.</p>
-            <a href="../index.html" class="promo-link">Вернуться на главную</a>
-        </section>
+    <div id="top-navbar"></div>
+
+    <section class="promo-hero-section">
+        <h1 class="promo-hero-title">Акции <span>NovaPos.kz</span></h1>
+        <p class="promo-hero-subtitle">Следите за актуальными предложениями для вашего бизнеса и выгодными условиями по внедрению, обслуживанию и развитию торговли.</p>
+    </section>
+
+    <main class="promo-content">
+        <div class="promo-grid">
+            <a href="start.html" class="promo-card">
+                <img src="../images/promos/start.png" alt="Старт с NovaBusiness" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Старт с NovaBusiness</h3>
+                    <p class="promo-card-description">Начните работу с NovaBusiness на выгодных условиях и получите удобный старт для бизнеса.</p>
+                </div>
+            </a>
+            <a href="first-purchase.html" class="promo-card">
+                <img src="../images/promos/first-purchase.png" alt="Приветственный бонус за первую покупку" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Приветственный бонус за первую покупку</h3>
+                    <p class="promo-card-description">Получите специальное предложение при первой покупке на сайте NovaPos.kz.</p>
+                </div>
+            </a>
+            <a href="5cashback.html" class="promo-card">
+                <img src="../images/promos/5cashback.png" alt="5% при покупке" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">5% при покупке</h3>
+                    <p class="promo-card-description">Скидка или бонус при покупке выбранного решения для вашего бизнеса.</p>
+                </div>
+            </a>
+            <a href="trade-in.html" class="promo-card">
+                <img src="../images/promos/trade-in.png" alt="Trade-in" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Trade-in</h3>
+                    <p class="promo-card-description">Обменяйте старое оборудование на новое и сэкономьте на обновлении техники.</p>
+                </div>
+            </a>
+            <a href="trade-in-monoblock.html" class="promo-card">
+                <img src="../images/promos/tadein-monoblock.png" alt="Trade-in на моноблок" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Trade-in на моноблок</h3>
+                    <p class="promo-card-description">Успейте обновить рабочую станцию и получить выгодные условия по обмену.</p>
+                </div>
+            </a>
+            <a href="business-family.html" class="promo-card">
+                <img src="../images/promos/business-family.png" alt="Бизнес семья" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Бизнес семья</h3>
+                    <p class="promo-card-description">Специальные условия для семейного бизнеса и совместных покупок.</p>
+                </div>
+            </a>
+            <a href="migration.html" class="promo-card">
+                <img src="../images/promos/migration.jpg" alt="Выгодная миграция" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Выгодная миграция</h3>
+                    <p class="promo-card-description">Переход на новое решение с минимальными затратами и максимальной выгодой.</p>
+                </div>
+            </a>
+            <a href="low-price.html" class="promo-card">
+                <img src="../images/promos/low-price.png" alt="Гарантия низкой цены" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Гарантия низкой цены</h3>
+                    <p class="promo-card-description">Мы поможем подобрать решение по лучшей цене без потери качества.</p>
+                </div>
+            </a>
+            <a href="review-bonus.html" class="promo-card">
+                <img src="../images/promos/review-bonus.png" alt="Дарим бонусы за отзыв" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Дарим бонусы за отзыв</h3>
+                    <p class="promo-card-description">Оставьте отзыв и получите дополнительный бонус к покупке.</p>
+                </div>
+            </a>
+            <a href="configurator.html" class="promo-card">
+                <img src="../images/promos/configurator.png" alt="Конфигуратор" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Конфигуратор</h3>
+                    <p class="promo-card-description">Соберите оптимальную конфигурацию техники под ваши задачи.</p>
+                </div>
+            </a>
+            <a href="ssd.html" class="promo-card">
+                <img src="../images/promos/ssd.jpg" alt="Купите SSD и обновите ПК" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Купите SSD и обновите ПК</h3>
+                    <p class="promo-card-description">Быстрое обновление компьютера за счёт SSD и выгодной цены.</p>
+                </div>
+            </a>
+            <a href="monoblock-prize.html" class="promo-card">
+                <img src="../images/promos/monoblock-prize.jpg" alt="Подарки к моноблокам" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Подарки к моноблокам</h3>
+                    <p class="promo-card-description">Получите полезные бонусы при покупке моноблока в рамках акции.</p>
+                </div>
+            </a>
+            <a href="gift-card.html" class="promo-card">
+                <img src="../images/promos/gift-card.png" alt="Подарочная карта" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Подарочная карта</h3>
+                    <p class="promo-card-description">Подарите приятный бонус своим клиентам или партнёрам.</p>
+                </div>
+            </a>
+            <a href="bring-client.html" class="promo-card">
+                <img src="../images/promos/bring-client.png" alt="Приведите клиента и вернем 5% от чека" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Приведите клиента и вернем 5% от чека</h3>
+                    <p class="promo-card-description">Рекомендуйте нас клиентам и получайте бонус за каждую рекомендацию.</p>
+                </div>
+            </a>
+            <a href="summer.html" class="promo-card">
+                <img src="../images/promos/summer.png" alt="Сезонные акции" class="promo-card-image">
+                <div class="promo-card-content">
+                    <h3 class="promo-card-title">Сезонные акции</h3>
+                    <p class="promo-card-description">Актуальные летние и сезонные предложения для вашего бизнеса.</p>
+                </div>
+            </a>
+        </div>
     </main>
+
+    <div id="footer"></div>
+
+    <script src="../scripts/navbar-loader.js"></script>
+    <script src="../scripts/scripts.js"></script>
 </body>
 </html>
