@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Trade-in на моноблок от NovaPos: обменяйте старое устройство на дополнительную скидку при покупке нового моноблока.">
+	<title>Trade-in на моноблок | Акции NovaPos.kz</title>
+	<link rel="icon" href="../images/favicon.png">
+	<link rel="stylesheet" href="../styles/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+		:root {
+			--promo-blue: #0a2e7a;
+			--promo-blue-soft: #1f56d8;
+			--promo-sky: #c7e1ff;
+			--promo-ink: #172033;
+			--promo-muted: #5b6475;
+			--promo-surface: #ffffff;
+			--promo-line: rgba(10, 46, 122, 0.12);
+			--promo-shadow: 0 20px 50px rgba(14, 33, 79, 0.12);
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			font-family: 'Montserrat', Arial, sans-serif;
+			color: var(--promo-ink);
+			background:
+				radial-gradient(circle at top left, rgba(66, 153, 225, 0.18), transparent 28%),
+				linear-gradient(180deg, #eef5ff 0%, #f8fbff 34%, #ffffff 100%);
+		}
+
+		.top-navbar {
+			background: linear-gradient(to right, #0A2E7A, #0c3996) !important;
+		}
+
+		.promo-page {
+			max-width: 1240px;
+			margin: 0 auto;
+			padding: 36px 20px 88px;
+		}
+
+		.promo-breadcrumbs {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			align-items: center;
+			margin-bottom: 24px;
+			color: var(--promo-muted);
+			font-size: 14px;
+		}
+
+		.promo-breadcrumbs a {
+			color: var(--promo-blue);
+			text-decoration: none;
+		}
+
+		.promo-breadcrumbs span:last-child {
+			color: var(--promo-ink);
+			font-weight: 600;
+		}
+
+		.promo-hero {
+			position: relative;
+			overflow: hidden;
+			display: grid;
+			grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+			gap: 28px;
+			align-items: center;
+			padding: 38px;
+			border-radius: 32px;
+			background: linear-gradient(135deg, #ffffff 0%, #edf5ff 100%);
+			border: 1px solid var(--promo-line);
+			box-shadow: var(--promo-shadow);
+		}
+
+		.promo-hero::after {
+			content: "";
+			position: absolute;
+			inset: auto -120px -120px auto;
+			width: 280px;
+			height: 280px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(31, 86, 216, 0.16), rgba(31, 86, 216, 0));
+			pointer-events: none;
+		}
+
+		.promo-label {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 10px 16px;
+			border-radius: 999px;
+			background: rgba(10, 46, 122, 0.08);
+			color: var(--promo-blue);
+			font-size: 13px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+		}
+
+		.promo-title {
+			margin: 18px 0 16px;
+			font-size: clamp(34px, 5.2vw, 58px);
+			line-height: 1.02;
+			font-weight: 800;
+		}
+
+		.promo-subtitle {
+			margin: 0;
+			max-width: 620px;
+			color: var(--promo-muted);
+			font-size: 18px;
+			line-height: 1.7;
+		}
+
+		.promo-highlight {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 16px;
+			margin-top: 28px;
+		}
+
+		.promo-highlight-card {
+			padding: 18px 20px;
+			border-radius: 20px;
+			background: rgba(255, 255, 255, 0.78);
+			border: 1px solid rgba(10, 46, 122, 0.09);
+		}
+
+		.promo-highlight-card strong {
+			display: block;
+			margin-bottom: 6px;
+			font-size: 17px;
+		}
+
+		.promo-highlight-card span {
+			color: var(--promo-muted);
+			font-size: 14px;
+			line-height: 1.6;
+		}
+
+		.promo-visual {
+			position: relative;
+			z-index: 1;
+		}
+
+		.promo-visual-shell {
+			padding: 18px;
+			border-radius: 28px;
+			background: linear-gradient(160deg, rgba(13, 48, 124, 0.12), rgba(107, 191, 255, 0.1));
+			border: 1px solid rgba(10, 46, 122, 0.1);
+		}
+
+		.promo-visual img {
+			width: 100%;
+			display: block;
+			border-radius: 20px;
+			box-shadow: 0 24px 40px rgba(13, 39, 92, 0.16);
+		}
+
+		.promo-body {
+			display: grid;
+			grid-template-columns: minmax(0, 1.3fr) minmax(290px, 0.7fr);
+			gap: 28px;
+			margin-top: 28px;
+		}
+
+		.promo-card {
+			background: var(--promo-surface);
+			border-radius: 28px;
+			padding: 34px;
+			border: 1px solid var(--promo-line);
+			box-shadow: var(--promo-shadow);
+		}
+
+		.promo-card h2,
+		.promo-card h3 {
+			margin-top: 0;
+			color: var(--promo-ink);
+		}
+
+		.promo-card h2 {
+			margin-bottom: 18px;
+			font-size: 30px;
+		}
+
+		.promo-card h3 {
+			margin-bottom: 14px;
+			font-size: 22px;
+		}
+
+		.promo-card p {
+			margin: 0 0 18px;
+			font-size: 17px;
+			line-height: 1.75;
+			color: var(--promo-muted);
+		}
+
+		.promo-mechanics-list,
+		.promo-conditions-list {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.promo-mechanics-list li,
+		.promo-conditions-list li {
+			position: relative;
+			margin-bottom: 16px;
+			padding-left: 54px;
+			color: var(--promo-ink);
+			line-height: 1.7;
+			font-size: 17px;
+		}
+
+		.promo-mechanics-list li::before,
+		.promo-conditions-list li::before {
+			position: absolute;
+			left: 0;
+			top: 2px;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 700;
+			color: var(--promo-blue);
+			background: rgba(10, 46, 122, 0.08);
+		}
+
+		.promo-mechanics-list li::before {
+			content: "-";
+			font-size: 24px;
+		}
+
+		.promo-conditions-list {
+			counter-reset: promo-step;
+		}
+
+		.promo-conditions-list li::before {
+			counter-increment: promo-step;
+			content: counter(promo-step);
+			font-size: 16px;
+		}
+
+		.promo-attention {
+			margin-top: 24px;
+			padding: 20px 22px;
+			border-radius: 22px;
+			background: linear-gradient(135deg, #0a2e7a, #1443a6);
+			color: #ffffff;
+		}
+
+		.promo-attention strong {
+			display: block;
+			margin-bottom: 8px;
+			font-size: 18px;
+		}
+
+		.promo-attention p {
+			margin: 0;
+			color: rgba(255, 255, 255, 0.92);
+		}
+
+		.promo-summary {
+			display: grid;
+			gap: 18px;
+		}
+
+		.promo-summary-item {
+			padding: 22px;
+			border-radius: 24px;
+			background: linear-gradient(180deg, #f8fbff 0%, #edf4ff 100%);
+			border: 1px solid rgba(10, 46, 122, 0.1);
+		}
+
+		.promo-summary-item strong {
+			display: block;
+			margin-bottom: 8px;
+			color: var(--promo-blue);
+			font-size: 15px;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+		}
+
+		.promo-summary-item p {
+			margin: 0;
+			color: var(--promo-ink);
+			font-size: 17px;
+			line-height: 1.65;
+		}
+
+		.promo-note {
+			padding: 24px;
+			border-radius: 24px;
+			background: #fffdf5;
+			border: 1px solid rgba(195, 151, 0, 0.18);
+		}
+
+		.promo-note strong {
+			color: #8a6300;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.promo-note p {
+			margin: 0;
+			color: #5e4d12;
+		}
+
+		@media (max-width: 980px) {
+			.promo-hero,
+			.promo-body {
+				grid-template-columns: 1fr;
+			}
+
+			.promo-visual {
+				order: -1;
+			}
+		}
+
+		@media (max-width: 720px) {
+			.promo-page {
+				padding: 24px 16px 72px;
+			}
+
+			.promo-hero,
+			.promo-card {
+				padding: 24px;
+				border-radius: 24px;
+			}
+
+			.promo-highlight {
+				grid-template-columns: 1fr;
+			}
+
+			.promo-title {
+				font-size: 34px;
+			}
+
+			.promo-card h2 {
+				font-size: 26px;
+			}
+
+			.promo-card p,
+			.promo-mechanics-list li,
+			.promo-conditions-list li,
+			.promo-summary-item p {
+				font-size: 16px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="top-navbar"></div>
+
+	<main class="promo-page">
+		<nav class="promo-breadcrumbs" aria-label="Навигация по странице акции">
+			<a href="../index.html">Главная</a>
+			<span>/</span>
+			<a href="index.html">Акции</a>
+			<span>/</span>
+			<span>Trade-in на моноблок</span>
+		</nav>
+
+		<section class="promo-hero">
+			<div class="promo-copy">
+				<div class="promo-label">Спецпредложение NovaPos</div>
+				<h1 class="promo-title">Trade-in на моноблок</h1>
+				<p class="promo-subtitle">Обновите рабочее место выгодно: обменяйте один или два старых моноблока на дополнительную скидку при покупке нового оборудования.</p>
+
+				<div class="promo-highlight">
+					<div class="promo-highlight-card">
+						<strong>До двух устройств</strong>
+						<span>В зачёт можно сдать от одного до двух старых моноблоков.</span>
+					</div>
+					<div class="promo-highlight-card">
+						<strong>Скидка по оценке</strong>
+						<span>Финальный размер скидки зависит от состояния вашего устройства.</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="promo-visual">
+				<div class="promo-visual-shell">
+					<img src="../images/promos/tadein-monoblock.png" alt="Trade-in на моноблок от NovaPos">
+				</div>
+			</div>
+		</section>
+
+		<section class="promo-body">
+			<article class="promo-card">
+				<h2>Механика акции</h2>
+				<p><strong>Trade-In от NovaPos меняет всё!</strong> Твой новый моноблок по отличной цене с программой Trade-in и повышенными скидками.</p>
+
+				<ul class="promo-mechanics-list">
+					<li>Обменяй от одного до двух своих моноблоков на скидку на новые моноблоки.</li>
+				</ul>
+
+				<p>Размер скидки зависит от состояния твоего старого устройства.</p>
+
+				<h3>Краткие условия услуги</h3>
+				<ol class="promo-conditions-list">
+					<li>Принеси своё старое устройство в любой офис NovaPos.</li>
+					<li>Выбери новый моноблок, участвующий в акции.</li>
+					<li>Пройди оценку стоимости своего устройства и получи дополнительную скидку на покупку нового моноблока по программе Trade-In.</li>
+				</ol>
+
+				<div class="promo-attention">
+					<strong>Внимание</strong>
+					<p>Старый моноблок должен быть в рабочем состоянии.</p>
+				</div>
+			</article>
+
+			<aside class="promo-summary">
+				<div class="promo-card promo-summary-item">
+					<strong>Что получаете</strong>
+					<p>Понятную механику обмена, дополнительную выгоду и возможность обновить технику без лишних затрат.</p>
+				</div>
+
+				<div class="promo-card promo-summary-item">
+					<strong>Куда обратиться</strong>
+					<p>В любой офис NovaPos, чтобы показать старое устройство и подобрать новый моноблок.</p>
+				</div>
+
+				<div class="promo-note">
+					<strong>Важно перед визитом</strong>
+					<p>Подготовьте устройство к проверке: оно должно включаться и находиться в рабочем состоянии.</p>
+				</div>
+			</aside>
+		</section>
+	</main>
+
+	<div id="footer"></div>
+
+	<script src="../scripts/navbar-loader.js"></script>
+	<script src="../scripts/scripts.js"></script>
+</body>
+</html>
