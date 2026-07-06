@@ -258,9 +258,37 @@
             background-color: #c8c8c8 !important;
         }
 
+        .rosta-offer-btn + .rosta-offer-btn {
+            margin-top: 12px !important;
+        }
+
+        .rosta-register-btn {
+            background-color: #014fd8 !important;
+            color: #ffffff !important;
+        }
+
+        .rosta-register-btn:hover {
+            background-color: #0141b3 !important;
+        }
+
         .rosta-offer-btn i {
             font-size: 1.25em !important;
             color: #333333 !important;
+        }
+
+        .rosta-register-btn i {
+            font-size: 1.25em !important;
+            color: #ffffff !important;
+        }
+
+        .rosta-btn-group {
+            display: inline-flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+        }
+
+        .rosta-btn-group .rosta-offer-btn {
+            width: 100% !important;
         }
 
         @media (max-width: 900px) {
@@ -503,10 +531,16 @@
                         <span class="rosta-pricing-label">абонентская плата</span>
                         <p class="rosta-pricing-price">15&nbsp;000&nbsp;₸ <span class="rosta-pricing-period">/ мес</span></p>
                     </div> -->
-                    <a class="rosta-offer-btn" href="#">
-                        <i class="fas fa-file-alt" aria-hidden="true"></i>
-                        Публичная оферта
-                    </a>
+                    <div class="rosta-btn-group">
+                        <a class="rosta-offer-btn" href="#">
+                            <i class="fas fa-file-alt" aria-hidden="true"></i>
+                            Публичная оферта
+                        </a>
+                        <a class="rosta-offer-btn rosta-register-btn" href="https://www.moysklad.kz/register/?p=2024-3951" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-user-plus" aria-hidden="true"></i>
+                            Регистрация
+                        </a>
+                    </div>
                 </div>
                 <div class="rosta-overview-col rosta-overview-col--right">
                     <div class="rosta-right-stack">
