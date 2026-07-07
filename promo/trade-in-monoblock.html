@@ -326,7 +326,19 @@
 			}
 		}
 
-		@media (max-width: 720px) {
+		@media (max-width: 768px) {
+			.mobile-contacts-grid {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+
+			.mobile-contacts-grid .contact-block {
+				width: 100%;
+				min-height: 80px;
+				padding: 20px 10px;
+				gap: 10px;
+				aspect-ratio: auto;
+			}
+
 			.promo-page {
 				padding: 24px 16px 72px;
 			}
