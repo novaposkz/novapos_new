@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Импорт и экспорт справочников</title>
+	<meta name="description" content="Как импортировать и экспортировать дополнительные справочники в МоемСкладе полностью и частями.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Импорт и экспорт справочников</h1>
+		<p>Как импортировать и экспортировать дополнительные справочники полностью и частями.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Импорт и экспорт справочников
+	</div>
+	<div class="article-content">
+		<p>В МоемСкладе можно импортировать и экспортировать дополнительные справочники полностью и частями.</p>
+
+		<h2>Импортировать справочник</h2>
+		<ol>
+			<li>Нажмите на имя пользователя в правом верхнем углу МоегоСклада и в выпадающем списке выберите Настройки.</li>
+			<li>В открывшемся окне в колонке слева нажмите на название справочника, который хотите импортировать.</li>
+			<li>Нажмите на кнопку Импорт в верхней части новой страницы.</li>
+		</ol>
+		<img src="../../../images/articles/article6-img1.gif" alt="Запуск импорта справочника">
+
+		<ol start="4">
+			<li>В открывшемся окне нажмите кнопку Загрузить или перетащите файл в поле загрузки — оно отмечено пунктирной линией. Допустимые форматы — .xls, .xlsx, .csv. Отобразится структура файла.</li>
+		</ol>
+
+		<p>Чтобы посмотреть образец справочника, нажмите Пример Excel-файла сразу под заголовком окна.</p>
+
+		<ol start="5">
+			<li>Укажите настройки колонок в зависимости от содержания. Для этого нажмите на стрелку рядом с заголовком колонки и выберите нужный пункт из выпадающего списка. Если колонка не нужна, выберите Не загружать.</li>
+		</ol>
+		<img src="../../../images/articles/article6-img2.gif" alt="Настройка колонок при импорте справочника">
+
+		<ol start="6">
+			<li>Чтобы импортировать файл, нажмите на кнопку Импорт в левом верхнем углу страницы. Процесс может занять несколько минут — дождитесь завершения или закройте окно.</li>
+			<li>Как только импорт завершится, в том же окне в строке Информация о задаче появится статус Задача завершена. Если закрыли окно, посмотреть статус задачи можно в разделе Меню пользователя → Настройки → Импорт.</li>
+			<li>Если дождались завершения, нажмите Посмотреть результаты. Откроется окно с подробной информацией о задаче и ее статусом. Если закрыли окно, шаги будут такими же, но сначала зайдите в раздел Меню пользователя → Настройки → Импорт.</li>
+		</ol>
+		<img src="../../../images/articles/article6-img3.gif" alt="Результаты импорта справочника">
+
+		<h2>Экспортировать справочник</h2>
+		<ol>
+			<li>Нажмите на имя пользователя в правом верхнем углу МоегоСклада и в выпадающем списке выберите Настройки.</li>
+			<li>В открывшемся окне в колонке слева нажмите на название нужного справочника.</li>
+			<li>Загрузится окно справочника — нажмите кнопку Экспорт в его верхней части.</li>
+		</ol>
+		<img src="../../../images/articles/article6-img4.gif" alt="Запуск экспорта справочника">
+
+		<ol start="4">
+			<li>Начнется экспорт файла. Статус задачи отобразится вверху страницы. В поле статуса нажмите на Посмотреть результаты.</li>
+			<li>Чтобы экспортировать файл, в появившемся окне в разделе Статус нажмите ссылку на файл выгрузки.</li>
+		</ol>
+		<img src="../../../images/articles/article6-img5.gif" alt="Результаты экспорта справочника">
+	</div>
+</body>
+</html>
