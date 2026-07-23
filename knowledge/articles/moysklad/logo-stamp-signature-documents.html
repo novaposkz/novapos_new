@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Логотип, печать и подпись в документах</title>
+	<meta name="description" content="Как добавить логотип, печать и подпись в печатные формы документов в МоемСкладе.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		.formula-line {
+			display: block;
+			font-family: Consolas, "Courier New", monospace;
+			background: #f7f9fc;
+			border: 1px solid #e6ebf2;
+			border-radius: 8px;
+			padding: 10px 12px;
+			margin-bottom: 16px;
+			word-break: break-all;
+		}
+		.formula-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-bottom: 16px;
+			font-size: 0.95rem;
+		}
+		.formula-table th,
+		.formula-table td {
+			border: 1px solid #e1e5eb;
+			padding: 10px;
+			vertical-align: top;
+		}
+		.formula-table th {
+			background: #f7f9fc;
+			font-weight: 600;
+			text-align: left;
+		}
+		.formula-table code {
+			font-family: Consolas, "Courier New", monospace;
+			font-size: 0.88rem;
+			word-break: break-all;
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+			.formula-table {
+				font-size: 0.88rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Логотип, печать и подпись в документах</h1>
+		<p>Добавление печати, подписей и логотипа в печатные формы документов.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Логотип, печать и подпись в документах
+	</div>
+	<div class="article-content">
+		<p>В МоемСкладе вы можете напечатать Счет покупателя сразу с печатью и подписью. Откройте нужный счет в разделе Продажи → Счета покупателям и нажмите вверху Печать → Счет покупателю с печатью и подписью.</p>
+		<img src="../../../images/articles/article7-img1.webp" alt="Счет покупателю с печатью и подписью">
+
+		<p>Предварительно необходимо:</p>
+		<ol>
+			<li>Перейти в Меню пользователя → Настройки → Юр. лица.</li>
+			<li>Открыть карточку юр. лица.</li>
+			<li>Прикрепить изображения в формате PNG или JPG.</li>
+		</ol>
+		<img src="../../../images/articles/article7-img2.webp" alt="Карточка юрлица с загрузкой печати и подписи">
+
+		<p>Важно придерживаться определенного размера изображений.</p>
+		<p>Для печати рекомендуемый размер ~175 × 145 пикселей, для подписи ~120 × 60 пикселей. Фон рекомендуется прозрачный.</p>
+		<p>Изображение печати и подписи должно быть обрезано как можно ближе к краю. Оно должно выглядеть примерно так:</p>
+		<img src="../../../images/articles/article7-img3.webp" alt="Пример корректного изображения печати и подписи">
+
+		<p>Помимо печати и подписи в карточку юр. лица можно добавить фирменный логотип. Рекомендуемая ширина логотипа не более 675 пикселей.</p>
+		<p>Чтобы загруженный логотип печатался в счете покупателя, нужно использовать дополнительный шаблон.</p>
+		<p>Также этот логотип можно добавить в любой ваш уже рабочий шаблон счета. Для этого в шаблоне в свободную строчку необходимо добавить формулу:</p>
+		<span class="formula-line">${formatter.image(formatter.loadAgent(o.sourceAgentRequisite.agent.id).logo, true)}</span>
+		<p>Также доступен вариант добавления логотипа в шаблон непосредственно через вставку картинки базовыми методами в программе Excel.</p>
+		<img src="../../../images/articles/article7-img4.webp" alt="Добавление логотипа в шаблон документа">
+
+		<p>Логотип, печать и подпись могут выводиться и в других печатных формах документов: в бланке заказа, накладной, в договоре и акте-сверки.</p>
+		<p>Можно использовать один из готовых вариантов шаблонов по ссылке в своем разделе.</p>
+		<p>Или добавить в ваш существующий рабочий шаблон приведенные ниже формулы:</p>
+
+		<table class="formula-table">
+			<thead>
+				<tr>
+					<th>Элемент</th>
+					<th>Для шаблонов счета покупателя и отгрузки</th>
+					<th>Для шаблонов заказа покупателя и приемки</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Печать</td>
+					<td><code>${formatter.image(formatter.loadAgent(o.sourceAgentRequisite.agent.id).stamp, true, false)}</code></td>
+					<td><code>${formatter.image(formatter.loadAgent(o.targetAgentRequisite.agent.id).stamp, true, false)}</code></td>
+				</tr>
+				<tr>
+					<td>Подпись руководителя</td>
+					<td><code>${formatter.image(formatter.loadAgent(o.sourceAgentRequisite.agent.id).directorSign, true, false)}</code></td>
+					<td><code>${formatter.image(formatter.loadAgent(o.targetAgentRequisite.agent.id).directorSign, true, false)}</code></td>
+				</tr>
+				<tr>
+					<td>Подпись бухгалтера</td>
+					<td><code>${formatter.image(formatter.loadAgent(o.sourceAgentRequisite.agent.id).chiefAccountantSign, true, false)}</code></td>
+					<td><code>${formatter.image(formatter.loadAgent(o.targetAgentRequisite.agent.id).chiefAccountantSign, true, false)}</code></td>
+				</tr>
+				<tr>
+					<td>Логотип</td>
+					<td><code>${formatter.image(formatter.loadAgent(o.sourceAgentRequisite.agent.id).logo, true)}</code></td>
+					<td><code>${formatter.image(formatter.loadAgent(o.targetAgentRequisite.agent.id).logo, true)}</code></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>За помощью в редактировании шаблона вы можете обратиться в службу поддержки. Если не получается подобрать рекомендуемый размер изображений, то приложите их в хорошем качестве к запросу в службу поддержки.</p>
+	</div>
+</body>
+</html>
