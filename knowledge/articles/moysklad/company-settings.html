@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Настройки компании</title>
+	<meta name="description" content="Общие настройки сервиса в МоемСкладе: нумерация, лимиты, отгрузка, партии и дополнительные поля.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Настройки компании</h1>
+		<p>Общие параметры работы сервиса: нумерация, отгрузка, лимиты и учет товаров.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Настройки компании
+	</div>
+	<div class="article-content">
+		<p>Чтобы задать общие настройки сервиса:</p>
+
+		<ol>
+			<li>Перейдите в раздел Меню пользователя → Настройки → Настройки компании.</li>
+			<li>Выберите необходимые настройки:</li>
+		</ol>
+
+		<ul>
+			<li>Правила нумерации документов — нумерацию можно вести по порядку начиная с начала года или за всю историю.</li>
+			<li>Обратный адрес в письмах — адрес, который автоматически подставляется в письма клиентам при ответе на сообщения, отправленные через сервис. Это может быть адрес сотрудника, который отправил письмо, или общий адрес компании.</li>
+			<li>Лимиты на отправку сообщений:
+				Для всего аккаунта — не более 200 сообщений за час и 100 сообщений за 5 минут.
+				Для пользователя — не более 50 сообщений за 5 минут и 100 сообщений за час.
+				На Бесплатном и Пробном тарифах — не более 5 писем в час для всего аккаунта.</li>
+			<li>Запретить отгрузку товаров, которых нет на складе — если настройка выбрана, при отсутствии товара в остатках его нельзя продать.</li>
+			<li>Запретить отгрузку зарезервированных товаров — если настройка выбрана, зарезервированный товар нельзя отгрузить по другому Заказу. Настройка доступна, если выбрано Запретить отгрузку товаров, которых нет на складе.</li>
+			<li>Запретить отгрузку отсутствующих серийных номеров — если настройка выбрана, нельзя отгрузить товар с серийным номером, которого нет на складе. Подробнее см. Запрет отгрузки отсутствующих серийных номеров.</li>
+			<li>Автоматически устанавливать минимальную цену — если настройка выбрана, при сохранении документов продажи с ценами меньше минимальных (указаны в карточках товаров) они автоматически увеличиваются до минимальных.</li>
+			<li>Перемещать удаленные документы на 7 дней в корзину — если настройка выбрана, удаленные документы будут на 7 дней помещаться в корзину и только потом окончательно стираться.</li>
+			<li>Использовать партии товаров — если настройка выбрана, доступен учет по партиям и срокам годности для конкретных товаров или групп товаров. Это позволяет отгружать товар определенной партии, продавать товар с более ранним сроком годности в первую очередь и списывать просроченный товар.</li>
+			<li>Включить отображение дополнительных полей товаров и услуг в позициях документов — если настройка выбрана, в Заказе покупателя (новый дизайн) отображаются дополнительные поля для позиций товаров и услуг. Информация из дополнительных полей доступна независимо от настроек доступа пользователя к этим товарам и услугам.</li>
+		</ul>
+
+		<img src="../../../images/articles/article8-img1.webp" alt="Настройки компании в МоемСкладе">
+
+		<ol start="3">
+			<li>Нажмите на кнопку Сохранить.</li>
+		</ol>
+	</div>
+</body>
+</html>
