@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Создание и редактирование склада</title>
+	<meta name="description" content="Как создать, настроить и редактировать склад в МоемСкладе, включая зоны и ячейки хранения.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Создание и редактирование склада</h1>
+		<p>Как настроить склады, зоны и ячейки хранения для раздельного учета остатков.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Создание и редактирование склада
+	</div>
+	<div class="article-content">
+		<p>Склады помогают вести учет остатков товаров. Склад может быть отдельным или включать несколько других складов. Тогда основной склад — родительский, а склады в его составе — дочерние. Учет по каждому складу ведется раздельно.</p>
+
+		<h2>Создание склада</h2>
+		<p>Максимальное количество складов в одном аккаунте — 2000. Если лимит достигнут, создать новый склад не получится.</p>
+		<p>Можно создать один или несколько складов. Чтобы создать склад:</p>
+		<ol>
+			<li>Перейдите в раздел Склад → Склады.</li>
+		</ol>
+		<img src="../../../images/articles/article11-img1.webp" alt="Раздел Склад и список складов">
+
+		<ol start="2">
+			<li>Нажмите на кнопку +Склад — откроется карточка склада.</li>
+			<li>Заполните поле Наименование склада. При необходимости укажите дополнительно Адрес, Комментарий к адресу, Комментарий, Код, Внешний код.</li>
+		</ol>
+		<img src="../../../images/articles/article11-img2.webp" alt="Карточка нового склада">
+
+		<ol start="4">
+			<li>Чтобы сделать склад дочерним, в поле Группа выберите родительский склад, к которому он будет относиться.</li>
+			<li>Чтобы разделить склад на зоны хранения, нажмите +Зона и введите ее название. Зону хранения можно переименовать и удалить. Для склада можно создать не более 10 зон.</li>
+		</ol>
+		<img src="../../../images/articles/article11-img3.webp" alt="Добавление зон хранения на складе">
+
+		<ol start="6">
+			<li>Чтобы добавить ячейки для адресного хранения, нажмите +Ячейка, введите ее название и выберите зону хранения в выпадающем меню.</li>
+		</ol>
+		<img src="../../../images/articles/article11-img4.webp" alt="Добавление ячеек адресного хранения">
+
+		<ol start="7">
+			<li>Если на складе организовано адресное хранение, по умолчанию инвентаризация проводится по ячейкам. Чтобы проводить инвентаризацию по складу, снимите флажок Проводить инвентаризацию по ячейкам.</li>
+			<li>Нажмите на кнопку Сохранить вверху.</li>
+		</ol>
+		<img src="../../../images/articles/article11-img5.webp" alt="Сохранение настроек склада">
+
+		<h2>Редактирование склада</h2>
+		<ol>
+			<li>Выберите нужный склад из списка и нажмите на карандаш слева от названия.</li>
+		</ol>
+		<img src="../../../images/articles/article11-img6.webp" alt="Редактирование склада из списка">
+
+		<ol start="2">
+			<li>В открывшемся окне внесите нужные изменения.</li>
+			<li>Нажмите на кнопку Сохранить вверху.</li>
+		</ol>
+		<p>Если склад не используется, его можно перевести в архив. Информация по нему будет скрыта, но останется в системе. Данные всегда можно достать из архива и продолжить работу.</p>
+	</div>
+</body>
+</html>
