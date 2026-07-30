@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Статусы</title>
+	<meta name="description" content="Создание, настройка и использование статусов документов и контрагентов в МоемСкладе.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Статусы</h1>
+		<p>Настройка жизненного цикла документов и контрагентов для контроля и автоматизации процессов.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Статусы
+	</div>
+	<div class="article-content">
+		<p>Статусы помогают отслеживать жизненный цикл документа, приоритизировать документы по тематике или значимости, упрощают поиск и совместную работу, помогают настроить бизнес-процессы в компании.</p>
+		<p>Так, например, Заказы покупателей можно отслеживать с помощью статусов: Новый, Подтвержден, Собран, Отгружен, Доставлен, Возврат, Отменен.</p>
+		<p>Для документов всех типов и контрагентов можно задать любое количество статусов.</p>
+
+		<h2>Создание и настройка статусов</h2>
+		<p>Чтобы добавить или настроить статус:</p>
+		<ol>
+			<li>Перейдите в список документов, статусы которых хотите изменить. Например, Продажи → Заказы покупателей.</li>
+		</ol>
+		<img src="../../../images/articles/article12-img1.webp" alt="Список заказов покупателей">
+
+		<ol start="2">
+			<li>Нажмите на кнопку Статус вверху и выберите в выпадающем списке пункт Настроить. Откроется Окно настройки статусов.</li>
+		</ol>
+		<img src="../../../images/articles/article12-img2.webp" alt="Окно настройки статусов">
+
+		<ol start="3">
+			<li>Отредактируйте статусы по своему усмотрению:</li>
+		</ol>
+		<ul>
+			<li>Чтобы создать статус, нажмите на кнопку +Статус. Введите наименование статуса и выберите его цвет.</li>
+			<li>Чтобы изменить порядок статусов, используйте стрелки слева от наименований. При изменении порядка статусов меняются данные в отчете Воронка продаж.</li>
+			<li>Чтобы удалить статус, нажмите крестик.</li>
+			<li>Чтобы изменить тип и цвет статуса, нажмите на характеристику, которую хотите изменить, и в выпадающем списке выберите новую.</li>
+		</ul>
+
+		<p>Существует три типа статусов:</p>
+		<ul>
+			<li>Обычный — статус, через который проходит документ или контрагент при обработке. Может быть один или несколько статусов такого типа. Если нет ни одного такого статуса, отчет Воронка продаж не будет построен.</li>
+			<li>Финальный положительный — статус, который получает документ или контрагент, если сделка завершилась успешно. Может быть только один статус такого типа. Если нет ни одного такого статуса, отчет Воронка продаж не будет построен.</li>
+			<li>Финальный отрицательный — статус, который получает документ или контрагент, если сделка не завершилась успешно. Может быть один или несколько статусов такого типа. Если нет ни одного такого статуса, отчет Воронка продаж не будет построен.</li>
+		</ul>
+
+		<ol start="4">
+			<li>Нажмите на кнопку Сохранить вверху.</li>
+		</ol>
+		<img src="../../../images/articles/article12-img3.webp" alt="Сохранение настроенных статусов">
+
+		<h2>Присвоение статуса документу</h2>
+		<p>Когда статусы настроены, можно выставить текущий статус каждого документа или контрагента. Например, чтобы присвоить статус заказу, перейдите в раздел Продажи → Заказы покупателей, отметьте необходимые документы флажками и выберите нужный статус.</p>
+		<img src="../../../images/articles/article12-img4.webp" alt="Присвоение статуса документам">
+
+		<p>Используйте статусы в фильтрах, чтобы отслеживать документы и совершать операции над документами с определенным статусом.</p>
+		<img src="../../../images/articles/article12-img5.webp" alt="Фильтрация документов по статусу">
+	</div>
+</body>
+</html>
