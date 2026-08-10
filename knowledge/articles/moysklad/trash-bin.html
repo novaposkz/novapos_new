@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Корзина</title>
+	<meta name="description" content="Как включить корзину, восстанавливать удаленные документы и управлять доступом к корзине в МоемСкладе.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Корзина</h1>
+		<p>Просмотр, восстановление и управление удаленными документами в МоемСкладе.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Корзина
+	</div>
+	<div class="article-content">
+		<p>В Корзине (Показатели → Корзина) можно просматривать удаленные документы и при необходимости восстанавливать их. Корзину лучше держать включенной, чтобы защитить важные документы от случайного удаления.</p>
+
+		<h2>Включение корзины</h2>
+		<ol>
+			<li>Пройдите в раздел Меню пользователя → Настройки → Настройки компании.</li>
+			<li>Поставьте флажок рядом с пунктом Перемещать удаленные документы на 7 дней в корзину.</li>
+			<li>Нажмите на кнопку Сохранить.</li>
+		</ol>
+		<img src="../../../images/articles/article18-img1.webp" alt="Включение корзины в настройках компании">
+
+		<h2>Восстановление документов</h2>
+		<ol>
+			<li>Пройдите в раздел Показатели → Корзина.</li>
+			<li>Отметьте флажками документы, которые требуется восстановить.</li>
+			<li>Нажмите кнопку Изменить и выберите пункт Восстановить в выпадающем списке.</li>
+		</ol>
+		<img src="../../../images/articles/article18-img2.webp" alt="Восстановление документов из корзины">
+
+		<p>Также можно открыть документ из Корзины и нажать на кнопку Восстановить в карточке самого документа. Отредактировать документ, хранящийся в корзине, нельзя.</p>
+		<img src="../../../images/articles/article18-img3.webp" alt="Восстановление документа из карточки">
+
+		<p>Документы хранятся в корзине 7 дней. По истечении этого срока они автоматически удаляются. По желанию можно удалить все документы вручную по кнопке Очистить корзину.</p>
+
+		<h2>Управление доступом</h2>
+		<p>На тарифах с управлением правами доступ настраивается индивидуально для каждого сотрудника: вы сами решаете, кто сможет просматривать удаленные документы, восстанавливать их или очищать корзину.</p>
+		<img src="../../../images/articles/article18-img4.webp" alt="Настройка прав доступа к корзине">
+	</div>
+</body>
+</html>
