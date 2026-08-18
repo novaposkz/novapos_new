@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Таблицы</title>
+	<meta name="description" content="Работа с таблицами в МоемСкладе: старая и новая версии, фильтры, сортировка и настройки колонок.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		.video-container {
+			margin: 20px 0;
+		}
+		.video-container iframe {
+			width: 100%;
+			max-width: 100%;
+			aspect-ratio: 16 / 9;
+			border: none;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Таблицы</h1>
+		<p>Как работать с таблицами в старой и новой версии интерфейса МоегоСклада.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Таблицы
+	</div>
+	<div class="article-content">
+		<p>Работать с таблицами в МоемСкладе можно в двух версиях — новой и старой. При переходе на новую версию становятся доступны дополнительные возможности. Порядок работы с документами и данными остается прежним. Старая версия остается доступной еще некоторое время, но позже будет отключена.</p>
+
+		<h2>Старая версия таблиц</h2>
+		<div class="video-container">
+			<iframe src="https://www.youtube.com/embed/E3KgBWt2Wsk" title="Старая версия таблиц" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		</div>
+
+		<p>В старой, привычной версии в таблицах можно настраивать колонки: менять количество строк и их ширину, менять и упорядочивать значения в списке. Рассмотрим работу с таблицами в старом дизайне на примере раздела Отгрузки.</p>
+
+		<h3>Настройка отображения колонок</h3>
+		<p>Чтобы работать только с нужными колонками, нажмите на маленькую шестеренку в правом верхнем углу таблицы. Загрузится список. Выберите колонки и уберите те, которые не потребуются. Внизу списка уточните количество строк — 25, 50 или 100.</p>
+		<img src="../../../images/articles/article24-img1.gif" alt="Настройка отображения колонок в старой версии таблиц">
+
+		<p>Чтобы изменить ширину колонок, наведите стрелку мышки на серую границу между названиями колонок. Появится разделитель, которым можно передвигать вправо и влево.</p>
+		<img src="../../../images/articles/article24-img2.gif" alt="Изменение ширины колонок в старой версии таблиц">
+
+		<h3>Сортировка значений по возрастанию и убыванию</h3>
+		<p>Чтобы упорядочить значения в колонках по возрастанию или убыванию, нажмите на поле с названием колонки. Над названием будут два маленьких треугольника-стрелки. Если их нет, значения в колонке отсортировать нельзя.</p>
+		<img src="../../../images/articles/article24-img1.gif" alt="Сортировка значений в колонках таблицы">
+
+		<h2>Новая версия таблиц</h2>
+		<p>В новой версии таблиц помимо настроек колонок появляются возможности: фильтровать данные, выбирать строки и действия с ними, а также настраивать размер строк.</p>
+
+		<h3>Фильтр</h3>
+		<p>Данные в таблицах теперь можно фильтровать не только с помощью кнопки Фильтр, но и в заголовке колонки. Для этого необходимо выбрать в заголовке условия или значения — например, заполненные или незаполненные. В таблице отображается информация о примененных фильтрах:</p>
+		<ul>
+			<li>над списком показывается количество активных фильтров;</li>
+			<li>в заголовках колонок отображаются значки фильтра;</li>
+			<li>сохраненные фильтры теперь отображаются в области таблицы, возможности по работе с ними не изменились.</li>
+		</ul>
+		<img src="../../../images/articles/article24-img4.webp" alt="Фильтрация данных в новой версии таблиц">
+
+		<h3>Строки</h3>
+		<p>После выбора отображается количество выбранных элементов. Становятся доступны действия над строками.</p>
+
+		<p>Панель действий над строками теперь расположена внутри области таблицы, а не рядом с заголовком. Набор действий и их работа не изменились.</p>
+		<img src="../../../images/articles/article24-img5.webp" alt="Панель действий над выбранными строками в таблице">
+
+		<p>Для выполнения действий над одной строкой теперь можно воспользоваться контекстным меню.</p>
+		<img src="../../../images/articles/article24-img6.webp" alt="Контекстное меню действий над строкой таблицы">
+
+		<p>В таблице можно настроить размер строки:</p>
+		<ul>
+			<li>Комфортно — увеличенные отступы и комфортный размер текста;</li>
+			<li>Компактно — больше строк на экране.</li>
+		</ul>
+		<p>Переключение доступно в настройках таблицы. Там, как и раньше, можно указать, какие колонки показывать в таблице.</p>
+		<img src="../../../images/articles/article24-img7.webp" alt="Настройка размера строк и колонок в новой версии таблиц">
+	</div>
+</body>
+</html>
