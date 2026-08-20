@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Файлы</title>
+	<meta name="description" content="Загрузка, хранение и управление файлами в МоемСкладе.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		.article-note {
+			background: #fff8e6;
+			border: 1px solid #f1d596;
+			border-radius: 10px;
+			padding: 14px 16px;
+			margin-top: 18px;
+		}
+		.article-note p {
+			margin: 0;
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Файлы</h1>
+		<p>Загрузка, прикрепление и хранение файлов в МоемСкладе.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Файлы
+	</div>
+	<div class="article-content">
+		<p>Вы можете загружать в систему файлы: например, изображения товаров, сканы документов, шаблоны этикеток и ценников. Максимальный размер файла — 20 МБ.</p>
+
+		<p>Файлы можно прикреплять к документам, контрагентам, товарам, карточкам контента. Чтобы прикрепить файл к документу, в документе перейдите во вкладку Файлы и нажмите на кнопку +Файл.</p>
+		<img src="../../../images/articles/article26-img1.webp" alt="Добавление файла во вкладке Файлы документа">
+
+		<p>Список всех файлов, добавленных за все время, представлен в разделе Показатели → Файлы. Там удобно просматривать файлы, а также удалять их.</p>
+
+		<p>Объем хранилища файлов ограничен — изменить его можно в настройках подписки.</p>
+
+		<p>Файлы, которые размещаются в хранилище:</p>
+		<ul>
+			<li>изображения товаров — добавляются в карточке товара, карточке контента;</li>
+			<li>файлы, привязанные к документам;</li>
+			<li>шаблоны печатных форм.</li>
+		</ul>
+
+		<div class="article-note">
+			<p><strong>Важно:</strong> в реестре указан размер каждого файла. При этом место, занятое в хранилище, может отличаться от суммы размеров всех файлов. Разница возникает, поскольку одно изображение может быть добавлено в несколько карточек контента.</p>
+		</div>
+	</div>
+</body>
+</html>
