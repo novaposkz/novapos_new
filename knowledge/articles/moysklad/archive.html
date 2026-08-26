@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Архив</title>
+	<meta name="description" content="Перенос элементов в архив, отображение архивных данных и извлечение из архива в МоемСкладе.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Архив</h1>
+		<p>Как переносить элементы в архив и возвращать их обратно в работу.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Архив
+	</div>
+	<div class="article-content">
+		<p>Неактуальные товары и контрагентов, с которыми вы больше не работаете, можно переносить в архив. Информация по ним будет скрыта, но при этом останется в системе. Также можно убрать в архив услуги, партии, сотрудников, юрлица, склады, проекты и договоры.</p>
+
+		<p>Перенесенные в архив элементы не отображаются в справочниках, их нельзя добавлять в документы, контрагентам из архива нельзя выставить счет, но при этом существующие документы не пропадают. При необходимости элемент всегда можно достать из архива и продолжить с ним работать. Можно переносить в архив сразу группу элементов с помощью массового редактирования и импорта.</p>
+
+		<p>Архивирование удобно использовать, когда справочники растут в объемах и неактуальная информация мешает работе.</p>
+
+		<p>Юрлица, убранные в архив, не учитываются в ограничениях тарифа.</p>
+
+		<h2>Перенос элементов в архив</h2>
+		<p>Рассмотрим перенос элементов в архив на примере товаров.</p>
+
+		<h3>Перенос элементов в архив из справочника</h3>
+		<ol>
+			<li>Перейдите в раздел Товары → Товары и услуги.</li>
+			<li>Отметьте флажками элементы, которые вы хотите убрать в архив.</li>
+			<li>Нажмите вверху на кнопку Изменить и выберите Поместить в архив в выпадающем списке.</li>
+		</ol>
+		<img src="../../../images/articles/article30-img1.webp" alt="Перенос элементов в архив из справочника">
+
+		<h3>Перенос элементов в архив из карточки</h3>
+		<ol>
+			<li>Перейдите в раздел Товары → Товары и услуги.</li>
+			<li>Нажмите на товар, который вы хотите убрать в архив.</li>
+			<li>Нажмите вверху на кнопку Поместить в архив.</li>
+		</ol>
+		<img src="../../../images/articles/article30-img2.webp" alt="Перенос элемента в архив из карточки">
+
+		<p>Также можно поместить в архив модификацию — нужно открыть ее карточку и нажать вверху на кнопку Поместить в архив.</p>
+
+		<p>Перенесенные в архив товары недоступны для закупки и продажи, не отображаются в складских остатках, а в документах помечаются серым и буквой А.</p>
+
+		<h2>Отображение архивных элементов</h2>
+		<p>Если вы не можете найти элемент в справочнике, проверьте, не был ли он убран в архив. Чтобы найти его, нужно отобразить архивные элементы в списке. Рассмотрим на примере товаров.</p>
+
+		<ol>
+			<li>Перейдите в раздел Товары → Товары и услуги.</li>
+			<li>Нажмите вверху на Фильтр и выберите в меню Показывать пункт Только архивные либо Все.</li>
+			<li>Нажмите на кнопку Найти.</li>
+		</ol>
+
+		<p>Архивные элементы помечаются буквой А и серым цветом.</p>
+		<img src="../../../images/articles/article30-img3.webp" alt="Отображение архивных элементов в списке">
+
+		<h2>Извлечение элементов из архива</h2>
+		<p>Рассмотрим извлечение элементов из архива на примере товаров.</p>
+
+		<h3>Извлечение архивных элементов из справочника</h3>
+		<ol>
+			<li>Проверьте, отображаются ли архивные элементы в справочнике.</li>
+			<li>Отметьте флажками элементы, которые вы хотите извлечь из архива.</li>
+			<li>Нажмите вверху на кнопку Изменить и выберите Извлечь из архива.</li>
+		</ol>
+		<img src="../../../images/articles/article30-img4.webp" alt="Извлечение архивных элементов из справочника">
+
+		<h3>Извлечение архивных элементов из карточки</h3>
+		<ol>
+			<li>Перейдите в раздел Товары → Товары и услуги.</li>
+			<li>Нажмите на товар, который вы хотите извлечь из архива.</li>
+			<li>Нажмите вверху на кнопку Извлечь из архива.</li>
+		</ol>
+		<img src="../../../images/articles/article30-img5.webp" alt="Извлечение элемента из архива из карточки">
+
+		<p>Также можно извлечь из архива модификацию — нужно открыть ее карточку и нажать вверху на кнопку Извлечь из архива.</p>
+	</div>
+</body>
+</html>
