@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Вебхуки</title>
+	<meta name="description" content="Как работают вебхуки в МоемСкладе и какие подстановки можно использовать в сценариях.">
+	<link href="../../../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../../styles/design-system.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="../../../images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+	<style>
+		.article-header {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 30px;
+			text-align: center;
+		}
+		.article-header h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+		}
+		.article-header p {
+			color: #666;
+			margin-bottom: 0;
+		}
+		.breadcrumb {
+			max-width: 800px;
+			margin: 30px auto 0 auto;
+			font-size: 0.95rem;
+			color: #888;
+		}
+		.breadcrumb a {
+			color: #667eea;
+			text-decoration: none;
+		}
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+		.article-content {
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+			padding: 30px;
+			margin: 30px auto 40px auto;
+			max-width: 800px;
+		}
+		.article-content img {
+			display: block;
+			max-width: 100%;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		}
+		.article-content h2 {
+			font-size: 1.3rem;
+			margin-top: 32px;
+			margin-bottom: 12px;
+			color: #3b3b3b;
+		}
+		.article-content h3 {
+			font-size: 1.1rem;
+			margin-top: 24px;
+			margin-bottom: 8px;
+			color: #4a4a4a;
+		}
+		.article-content p {
+			margin-bottom: 16px;
+		}
+		.article-content ul, .article-content ol {
+			margin-bottom: 16px;
+			padding-left: 22px;
+		}
+		.article-content code {
+			background: #f5f5f5;
+			border-radius: 6px;
+			padding: 2px 6px;
+			word-break: break-word;
+		}
+		@media (max-width: 900px) {
+			.article-content {
+				padding: 15px;
+			}
+		}
+		@media (max-width: 600px) {
+			.article-header, .article-content, .breadcrumb {
+				max-width: 98vw;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="article-header">
+		<h1>Вебхуки</h1>
+		<p>Отправка уведомлений во внешние системы через вебхуки и сценарии.</p>
+	</div>
+	<div class="breadcrumb">
+		<a href="../../../index.html">Главная</a> &gt; <a href="../../index.html">База знаний</a> &gt; Вебхуки
+	</div>
+	<div class="article-content">
+		<p>Вебхук — уведомление, которое отправляется во внешнюю систему: CRM, интернет-магазин, колл-центр. Выглядит вебхук как ссылка: <code>http://mysite.ru/webhook?id={id}&amp;type={type}</code>. Когда внешняя система получает вебхук, она может на него как-то среагировать.</p>
+
+		<p>Например, из МоегоСклада во внешнюю CRM можно отправлять вебхуки с идентификатором и типом документа: <code>http://mysite.ru/webhook?id={id}&amp;type={type}</code>.</p>
+
+		<p>Когда в документе в МоемСкладе что-то изменится, CRM получит уведомление типа: <code>http://mysite.ru/webhook?id=1111-22dddw-2w3ed-222e30&amp;type=CustomerOrder</code>. Это буквально значит: Заказ покупателя с уникальным идентификатором <code>1111-22dddw-2w3ed-222e30</code> был изменен.</p>
+
+		<p>Далее можно создать скрипт, который будет запрашивать в МоемСкладе, что именно произошло с заказом, какой номер у заказа, какая сумма, а потом — отправлять покупателю СМС с текстом: Заказ покупателя 5643 от 10.02.2021 на сумму 5000 ₽ передан в службу доставки. Вебхук в этой цепочке служит стартовым механизмом оповещения. Все остальные шаги нужно программировать дополнительно.</p>
+
+		<h2>Вебхуки в Сценариях</h2>
+		<p>Отправка вебхуков используется как действие в Сценариях.</p>
+		<img src="../../../images/articles/article32-img1.webp" alt="Настройка отправки вебхука в сценарии">
+
+		<p>Адрес для отправки вебхука можно узнать в службе поддержки внешней системы. Например: <code>http://mysite.ru/webhook</code></p>
+
+		<p>К этому адресу добавляются подстановки: <code>http://mysite.ru/webhook?id={id}&amp;type={type}</code></p>
+
+		<p>Внешняя система в случае срабатывания сценария получает уведомление типа: <code>http://mysite.ru/webhook?id=1111-22dddw-2w3ed-222e30&amp;type=CustomerOrder</code></p>
+
+		<p>Возможные подстановки для вебхуков: <code>{id}</code> — идентификатор, <code>{type}</code> — тип документа.</p>
+
+		<p>Возможные значения для <code>{type}</code>:</p>
+		<ul>
+			<li><code>CustomerOrder</code> (Заказ покупателя);</li>
+			<li><code>InvoiceOut</code> (Счет покупателю);</li>
+			<li><code>InvoiceIn</code> (Счет поставщика);</li>
+			<li><code>PurchaseOrder</code> (Заказ поставщику);</li>
+			<li><code>Demand</code> (Отгрузка);</li>
+			<li><code>Supply</code> (Приемка);</li>
+			<li><code>ProductionTask</code> (Производственное задание);</li>
+			<li><code>PaymentIn</code> (Входящий платеж);</li>
+			<li><code>PaymentOut</code> (Исходящий платеж);</li>
+			<li><code>CashIn</code> (Проходный ордер);</li>
+			<li><code>CashOut</code> (Расходный ордер);</li>
+			<li><code>SalesReturn</code> (Возврат покупателя);</li>
+			<li><code>Move</code> (Перемещение);</li>
+			<li><code>PurchaseReturn</code> (Возврат поставщику);</li>
+			<li><code>Company</code> (Контрагент).</li>
+		</ul>
+	</div>
+</body>
+</html>
